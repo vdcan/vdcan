@@ -134,46 +134,24 @@ Alternatively, we can navigate programmatically using the Router service:
             <button class="btn btn-info" ng-click="pop()">Show a Toaster</button>
 
         </div>*@ 
-    <div ng-controller="MainCtrl">
-
-        <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-        <input type="text" ng-model="row.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-        <input type="text" ng-model="row.action_data" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-        <input type="text" ng-model="row.ip" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change='ipchanged()' value="">
-        <input type="text" ng-model="row.menu_code" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-        @*<input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-            <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-            <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-            <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-            <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+  
 
 
-
-            field: 'action', displayName: 'action', width: 80, align: 'center' },
-            { field: 'action_data', displayName: 'action_data', width: "*", align: 'center' },
-            { field: 'add_by', displayName: 'add_by', width:  80, align: 'center' },
-            { field: 'add_on', displayName: 'add_on', width: 180, align: 'center' },
-            { field: 'app_code', displayName: 'app_code', width: 80, align: 'center' },
-            { field: 'id', displayName: 'id', width: 80, align: 'center' },
-            { field: 'ip', displayName: 'ip', width: 280, align: 'center' },
-            { field: 'menu_code', displayName: 'menu_code', width: 180, align: 'center' }*@
-
-        <input type="button" ng-click="toDetails(22)" value="toResult">
-        <input type="button" ng-click="update()" value="update">
-        <input type="button" ng-click="insert()" value="insert">
-        <input type="button" ng-click="delete()" value="delete">
-        <div class="tmpHide"> hello{{row.id}}</div>
-    </div>
-
-    @* <br />
-
-               <br />
-
-               <br />
-               <div ng-click="toDetails(11)"> event </div>
-            <a ui-sref="about_aj({id:235})"> <span>about aj</span> </a>
-        <a href="javascript:goProducts()">goProducts</a>*@
     <div class="wrapper-md" ng-controller="MyLogCtrl">
+        <div  >
+
+            <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+            <input type="text" ng-model="row.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+            <input type="text" ng-model="row.action_data" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+            <input type="text" ng-model="row.ip" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change='ipchanged()' value="">
+            <input type="text" ng-model="row.menu_code" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+
+            <input type="button" ng-click="toDetails(22)" value="toResult">
+            <input type="button" ng-click="update()" value="update">
+            <input type="button" ng-click="insert()" value="insert">
+            <input type="button" ng-click="delete()" value="delete">
+            <div  > hello{{row.id}}</div>
+        </div>
         <div class="panel panel-default">
             <div class="panel-heading">
                 uiGrid

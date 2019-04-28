@@ -6,54 +6,58 @@ km.init = function () {
 
 
 //for other controllers to listen the selected row changed. 
-app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
-    var id = $stateParams.id;
-    var number = $stateParams.number;
-    console.log(id);
-    console.log(number);
-    id++;
-    //console.log($scope);
-    $scope.toDetails = function (product_id) {
-        //   console.log(product_id);
-        $state.go('app.about_aj', { id: id, number: 2 })
-    };
-    $scope.row = {};// = {id:43124};
-    //$scope.row_original = {};// = {id:43124};
-    $rootScope.$on("MyLogSelectedRowChanged", function (event, row, ids, paginationOptions) {
-        $scope.row = Object.assign({}, row);
-        $(".tmpHide").removeClass("tmpHide");
-    });
-    $scope.insert = function () {
-        $rootScope.$broadcast("MyLogInsert", $scope.row);
-    };
-    $scope.delete = function (id) {
-        $rootScope.$broadcast("MyLogDelete", $scope.row.id, $scope.row.id);
-    };
-    $scope.update = function () {
-        $rootScope.$broadcast("MyLogUpdate", $scope.row);
-    };
-    //$scope.$watch("row.ip", function (newValue, oldValue) {
-    //    console.log("$watch:"+newValue); 
+//app.controller('MainCtrl', ['$scope', '$state', '$stateParams', '$rootScope', 'ControllerChecker',
+    //function ($scope, $state, $stateParams, $rootScope, ControllerChecker) {
+
+    //    console.log(ControllerChecker.exists('MyLogCtrl'));
+
+    //var id = $stateParams.id;
+    //var number = $stateParams.number;
+    //console.log(id);
+    //console.log(number);
+    //id++;
+    ////console.log($scope);
+    //$scope.toDetails = function (product_id) {
+    //    //   console.log(product_id);
+    //    $state.go('app.about_aj', { id: id, number: 2 })
+    //};
+    //$scope.row = {};// = {id:43124};
+    ////$scope.row_original = {};// = {id:43124};
+    //$rootScope.$on("MyLogSelectedRowChanged", function (event, row, ids, paginationOptions) {
+    //    $scope.row = Object.assign({}, row);
+    //    $(".tmpHide").removeClass("tmpHide");
     //});
+    //$scope.insert = function () {
+    //    $rootScope.$broadcast("MyLogInsert", $scope.row);
+    //};
+    //$scope.delete = function (id) {
+    //    $rootScope.$broadcast("MyLogDelete", $scope.row.id, $scope.row.id);
+    //};
+    //$scope.update = function () {
+    //    $rootScope.$broadcast("MyLogUpdate", $scope.row);
+    //};
+    ////$scope.$watch("row.ip", function (newValue, oldValue) {
+    ////    console.log("$watch:"+newValue); 
+    ////});
 
-    $scope.ipchanged = function () {
-        console.log("ipchanged:" + $scope.row.ip);
-    }
+    //$scope.ipchanged = function () {
+    //    console.log("ipchanged:" + $scope.row.ip);
+    //}
 
-});
+//}
+//]);
  
 
 
 
 app.controller('MyLogCtrl', [
-    '$scope', '$rootScope', '$http', '$modal', '$controller', function ($scope, $rootScope, $http, $modal, $controller) {
-
+    '$scope', '$rootScope', '$http', '$modal', 'ControllerChecker', function ($scope, $rootScope, $http, $modal, ControllerChecker) {
+     
       //  console.log($controller.exists('TestController') ? 'Exists' : 'Does not exist');
       //  console.log($controller);
 
-
         $scope.SelectedRow = {};//for getting row detail
-        $scope.CurrentRow = {};// for updating inserting
+        $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
 
@@ -68,13 +72,13 @@ app.controller('MyLogCtrl', [
         });
 
         $scope.insert = function () {
-            insertData($scope.CurrentRow);
+            insertData($scope.row);
         };
         $scope.delete = function () {
-            deleteIt($scope.SelectedRow.id, $scope.SelectedRow.ip);
+            deleteIt($scope.row.id, $scope.row.ip);
         };
         $scope.update = function () {
-            updateData($scope.CurrentRow);
+            updateData($scope.row);
         };
 
         showResult = function (result, title) {
@@ -208,8 +212,10 @@ app.controller('MyLogCtrl', [
                 gridApi.selection.on.rowSelectionChanged($scope, function (row) {
                     // var msg = 'row selected ' + row.;
                     $scope.SelectedRow = row;
-                    $scope.CurrentRow = Object.assign({}, row);
+                    $scope.row = Object.assign({}, row.entity);
                     $scope.selectedRowIndex = $scope.gridOptions.data.indexOf(row.entity);
+
+                    console.log($scope.row);
                     $scope.sync();
                 });
                 gridApi.selection.on.rowSelectionChangedBatch($scope, function (rows) {

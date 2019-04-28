@@ -102,6 +102,28 @@ var ModalInstanceCtrl = function ($scope, $modalInstance) {
         $modalInstance.dismiss('cancel');
     };
 };
+app.service('ControllerChecker', ['$controller', function ($controller) {
+    return {
+        exists: function (controllerName) {
+                console.log($controller);
+            if (typeof window[controllerName] == 'function') {
+
+                console.log("t1");
+                return true;
+            }
+            try {
+                $controller(controllerName);
+
+                console.log("t2");
+                return true;
+            } catch (error) {
+                console.log(error);
+                return !(error instanceof TypeError);
+            }
+        }
+    };
+}]);
+
 
 //app.config(['$provide', function ($provide) {
 //    $provide.delegate('$controller', ['$delegate', function ($delegate) {
