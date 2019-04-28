@@ -11,6 +11,7 @@
  
  //当前页面对象
 var vd = {};
+
 vd.model = null; 
 vd.init = function () {
     

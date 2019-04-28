@@ -50,6 +50,8 @@ app.controller('MyLogCtrl', [
 
       //  console.log($controller.exists('TestController') ? 'Exists' : 'Does not exist');
       //  console.log($controller);
+
+
         $scope.SelectedRow = {};//for getting row detail
         $scope.CurrentRow = {};// for updating inserting
         $scope.ids = "";//for deleting
