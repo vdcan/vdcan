@@ -1,0 +1,130 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//       时间： 2018-01-10
+//       作者： 蔡捷   
+//			 				部门管理,树状结构. 
+//       文件： admin_department.cshtml 页面文件
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "部门管理";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <style type="text/css">
+        #toolbar1, #toolbar2 {
+            border-bottom: none;
+        }
+
+        .table_content {
+            width: 100%;
+            background: #fff;
+            border: none;
+        }
+
+            .table_content td {
+                border-bottom: 1px solid #ccc;
+            }
+
+                .table_content td.td_title {
+                    width: 90px;
+                    text-align: center;
+                    font-size: 12px;
+                    font-weight: bold;
+                    background: #fafafa;
+                    border-right: 1px solid #ccc;
+                }
+
+        .textbox, .textbox-text {
+            border: none;
+            border-radius: 0px;
+            box-shadow: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .textbox-fucused {
+            box-shadow: none;
+        }
+    </style>
+}
+
+@section scripts{
+    <script src="~/Areas/sys/ViewJS/admin_department.js?v=@ViewBag.ts"></script>
+    @*<script type="text/javascript">
+        var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        km.model = JSON.parse(model_string);
+        km.pageSize = @ViewBag.Settings["gridrows"];
+    </script>*@
+}
+
+<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
+    <div id="north_panel" data-options="region:'north',border:false">
+        <div id="km_toolbar" class="km_toolbar"> </div>
+        <div id="km_toolbar_2" class="km_toolbar" style="display:none">
+            <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")" onclick="km.toolbar.do_undo();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+            <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")" onclick="km.toolbar.do_save();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+        </div>
+    </div>
+    <div id="main-panel_a" data-options="region: 'west',border:true" style='width: 50%;'>
+
+
+        <ul id="xx_Department"></ul>
+
+    </div>
+    <div id="main-panel_b" data-options="region: 'center',border:true" style='width: 50%;'>
+
+
+        <form id="xx_Department_content" class="form_content" method="post">
+            <table class="table_content" cellpadding="3" cellspacing="0" border="0">
+                <input id='TPL_id' name='id' type='hidden' value='0' />
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "department id")</td> <td>  <input id='TPL_parent_id' data-options="" name='parent_id' type='text' class='easyui-textbox' style='width:100px' /></td></tr>
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "department name")</td> <td>  <input id='TPL_department_name' data-options="" name='department_name' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "short name")</td> <td>  <input id='TPL_short_name' data-options="" name='short_name' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "company code")1</td> <td>  <input id='TPL_company_code' data-options="" name='company_code' type='text' class='easyui-textbox' style='width:100px' /></td></tr>
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "sort")</td> <td>  <input id='TPL_sort' data-options="" name='sort' type='text' class='easyui-textbox' style='width:100px' /></td></tr>
+                <tr>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "enabled") </td>
+                    <td>
+                        <select id='TPL_enabled' name='enabled' class="easyui-combobox" data-options="editable:false,hasDownArrow:false,panelHeight:90" style="width:100px;">
+                            <option value='1'>@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "yes")</option>
+                            <option value='0'>@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "no")</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "comments")</td> <td>  <input id='TPL_remark' data-options="" name='remark' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "phone")</td> <td>  <input id='TPL_phone' data-options="" name='phone' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "email")</td> <td>  <input id='TPL_email' data-options="" name='email' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "address")</td> <td>  <input id='TPL_address' data-options="" name='address' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "fax")</td> <td>  <input id='TPL_fax' data-options="" name='fax' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                @*<tr><td   class="td_title" >@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add_by")</td> <td>  <input   id='TPL_add_by' data-options=""  name='add_by' type='text' class='easyui-textbox'  style='width:100px'  /></td></tr>*@
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add_on")</td> <td>  <input id='TPL_add_on' data-options="" name='add_on' type='text' class='easyui-textbox' style='width:160px' /></td></tr>
+            </table>
+        </form>
+
+    </div>
+</div>
+<div style='display:none'>
+    <script>
+        //$(function () {
+        //    $('#TPL_enabled').combobox('textbox').bind('focus', function () {
+        //        // $('#TPL_enabled').combobox('showPanel');
+        //        console.log("ok");
+        //    });
+        //  //  $('#search_state-comb').combobox().next('span').find('input').focus()
+        //});
+
+    </script>
+</div>

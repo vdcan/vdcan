@@ -1,0 +1,114 @@
+﻿@{
+    //------------------------------------------------------------------------------
+    //       时间： 2018-04-21
+    //       作者： fdsaf
+    //			 				用于维护多语种
+    //       文件： language.cshtml 页面文件
+    //------------------------------------------------------------------------------
+
+    ViewBag.Title = "语言管理";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <style type="text/css">
+    </style>
+}
+
+@section scripts{
+    <script src="~/Areas/sys/ViewJS/language.js?v=@ViewBag.ts"></script>
+    <script type="text/javascript">
+        //    var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        //    km.model = JSON.parse(model_string);
+        //   km.pageSize = @ViewBag.Settings["gridrows"];
+    </script>
+}
+
+<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
+    <div id="north_panel" data-options="region:'north',border:false" style="background-color: #f3f3f3; display:none;">
+        <div class="km_toolbar">
+            <div id="km_toolbar" style="float:left;"></div><div id="km_toolbar2" style="float:left;"></div>
+        </div>
+        <div id="km_toolbar_2" class="km_toolbar" style="display:none">
+            <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")" onclick="km.toolbar.do_undo();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+            <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")" onclick="km.toolbar.do_save();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+        </div>
+    </div>
+
+
+    <div id="user_tabs" class="easyui-tabs" data-options="fit:true,border:false">
+
+        <div title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "page")" data-options="iconCls:'icon-standard-user'" id="tab_a1">
+
+            <div id="main-panel_a2" class="easyui-layout" data-options="region: 'center',border:false" style='width: 100%; height: 100%;'>
+
+                <div id="main-panel_a" data-options="region: 'west',border:true" style='width: 50%;'>
+
+                    <table id="menu"></table>
+
+                </div>
+                <div id="main-panel_b" class="easyui-layout" data-options="region: 'center',border:true" style='width: 50%;'>
+
+                    <table id="dictionary" style="height: 600px" class="easyui-layout" data-options="region: 'center',border:true"></table>
+
+                    <div id="tbdictionary" style="height:auto; display:none;">
+                        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append_dictionary()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add")</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit_dictionary()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "delete")</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept_dictionary()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject_dictionary()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "public")" data-options="iconCls:'icon-standard-user'" id="tab_a2">
+
+            <table id="dictionary_g"></table>
+
+            <div id="tbdictionary_g" style="height:auto">
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append_dictionary_g()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add")</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit_dictionary_g()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "delete")</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept_dictionary_g()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject_dictionary_g()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+                <a href="javascript:void(0)" style="display:none;" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges_dictionary_g()">GetChanges</a>
+            </div>
+
+        </div>
+
+
+        <div title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "homelogin")" data-options="iconCls:'icon-standard-user'" id="tab_a3">
+
+            <table id="dictionary_home"></table>
+
+            <div id="tbdictionary_home" style="height:auto">
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append_dictionary_home()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add")</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit_dictionary_home()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "delete")</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept_dictionary_home()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject_dictionary_home()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+            </div>
+
+        </div>
+
+
+        <div title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "system")" data-options="iconCls:'icon-standard-user'" id="tab_a4">
+
+            <table id="dictionary_system"></table>
+
+            <div id="tbdictionary_system" style="height:auto">
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append_dictionary_system()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add")</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit_dictionary_system()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "delete")</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept_dictionary_system()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject_dictionary_system()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div style='display:none'>
+
+</div>

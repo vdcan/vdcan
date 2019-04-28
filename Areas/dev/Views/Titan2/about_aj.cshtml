@@ -1,0 +1,201 @@
+﻿
+@{
+    //------------------------------------------------------------------------------
+    //        Date  2018-05-27
+    //        Author  蔡捷
+    //			 				About page
+    //        File  about.cshtml  Page file
+    //------------------------------------------------------------------------------
+
+    ViewBag.Title = "About";
+    Layout = null;
+}
+
+@using System.Data;
+@section head{
+
+}
+<style>
+
+
+    . /*layout-mock *:not(.ui-splitbar) {
+        background: #eee no-repeat center;
+    }
+
+
+    .layout-mock .center-back {
+        background-image: url("http://placehold.it/400x300/eee/666&text=CENTER");
+    }
+
+    .layout-mock .north-back {
+        background-image: url("http://placehold.it/400x300/eee/666&text=NORTH");
+    }
+
+    .layout-mock .south-back {
+        background-image: url("http://placehold.it/400x300/eee/666&text=SOUTH");
+    }
+
+    .layout-mock .east-back {
+        background-image: url("http://placehold.it/400x300/eee/666&text=EAST");
+    }
+
+    .layout-mock .west-back {
+        background-image: url("http://placehold.it/400x300/eee/666&text=WEST");
+    }*/
+    sidebar {
+        float: left;
+    }
+    .tmpHide{
+        display:none;
+    }
+</style>
+
+<script src="/Javascripts/vendor/layout/ui-layout.js"></script>
+<link href="/Javascripts/vendor/layout/ui-layout.css" rel="stylesheet" />
+<script>
+</script>
+
+@Request.Params["id"]
+<script type="text/javascript">
+     var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+       km.model = JSON.parse(model_string);
+</script>
+
+
+
+@*<a [routerLink]="['product-list']" [queryParams]="{ page: 99 }">Go to Page 99</a>
+
+Alternatively, we can navigate programmatically using the Router service:
+
+  goToPage(pageNum) {
+    this.router.navigate(['/product-list'], { queryParams: { page: pageNum } });
+  }*@
+
+
+<body>
+
+
+    @*<div class="wrapper-md" ng-controller="ToasterDemoCtrl">
+            <!-- toaster directive -->
+            <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+            <!-- / toaster directive -->
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" placeholder="Enter a title..." ng-model="toaster.title">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea class="form-control" placeholder="Enter a message" rows="5" ng-model="toaster.text"></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label>Toast Type</label>
+                    <div class="radio">
+                        <label class="i-checks">
+                            <input type="radio" name="toasts" ng-model="toaster.type" value="success">
+                            <i></i>
+                            Success
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label class="i-checks">
+                            <input type="radio" name="toasts" ng-model="toaster.type" value="info">
+                            <i></i>
+                            Info
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label class="i-checks">
+                            <input type="radio" name="toasts" ng-model="toaster.type" value="wait">
+                            <i></i>
+                            Wait
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label class="i-checks">
+                            <input type="radio" name="toasts" ng-model="toaster.type" value="warning">
+                            <i></i>
+                            Warning
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label class="i-checks">
+                            <input type="radio" name="toasts" ng-model="toaster.type" value="error">
+                            <i></i>
+                            Error
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-info" ng-click="pop()">Show a Toaster</button>
+
+        </div>*@ 
+    <div ng-controller="MainCtrl">
+
+        <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+        <input type="text" ng-model="row.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+        <input type="text" ng-model="row.action_data" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+        <input type="text" ng-model="row.ip" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change='ipchanged()' value="">
+        <input type="text" ng-model="row.menu_code" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+        @*<input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+            <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+            <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+            <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+            <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+
+
+
+            field: 'action', displayName: 'action', width: 80, align: 'center' },
+            { field: 'action_data', displayName: 'action_data', width: "*", align: 'center' },
+            { field: 'add_by', displayName: 'add_by', width:  80, align: 'center' },
+            { field: 'add_on', displayName: 'add_on', width: 180, align: 'center' },
+            { field: 'app_code', displayName: 'app_code', width: 80, align: 'center' },
+            { field: 'id', displayName: 'id', width: 80, align: 'center' },
+            { field: 'ip', displayName: 'ip', width: 280, align: 'center' },
+            { field: 'menu_code', displayName: 'menu_code', width: 180, align: 'center' }*@
+
+        <input type="button" ng-click="toDetails(22)" value="toResult">
+        <input type="button" ng-click="update()" value="update">
+        <input type="button" ng-click="insert()" value="insert">
+        <input type="button" ng-click="delete()" value="delete">
+        <div class="tmpHide"> hello{{row.id}}</div>
+    </div>
+
+    @* <br />
+
+               <br />
+
+               <br />
+               <div ng-click="toDetails(11)"> event </div>
+            <a ui-sref="about_aj({id:235})"> <span>about aj</span> </a>
+        <a href="javascript:goProducts()">goProducts</a>*@
+    <div class="wrapper-md" ng-controller="MyLogCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                uiGrid
+            </div>
+            <div class="table-responsive">
+                <div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div style="display:none;">
+
+        @*<div class="product-options">
+                <a id="myWish" href="javascript:;" class="btn btn-mini">Add to Wishlist </a>
+                <a href="" class="btn btn-mini"> Purchase </a>
+            </div>
+            <div class="alert alert-success" id="success-alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                <strong>Success! </strong>
+                Product have added to your wishlist.
+            </div>*@
+
+
+    </div>
+</body>

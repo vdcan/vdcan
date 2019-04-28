@@ -1,0 +1,245 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//       时间： 2018-03-17
+//       作者： fdsaf   
+//			 				复杂查询 
+//       文件： search_popup.cshtml 页面文件
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "复杂查询";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+  <style type="text/css">
+       
+    </style>
+}
+
+@section scripts{
+    <script src="~/Areas/dev/ViewJS/search_popup.js?v=@ViewBag.ts"></script>
+    <script type="text/javascript">
+    //    var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+    //    km.model = JSON.parse(model_string); 
+     //   km.pageSize = @ViewBag.Settings["gridrows"];
+    </script>
+}
+
+<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
+    <div id="north_panel" data-options="region:'north',border:false" style="background-color: #f3f3f3;">
+            <div class="km_toolbar">
+            <div id="km_toolbar" style="float:left;"></div><div id="km_toolbar2" style="float:left;"></div>
+        </div>
+           <div id="km_toolbar_2" class="km_toolbar" style="display:none">
+            <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title="取消" onclick="km.toolbar.do_undo();">取消</a>
+            <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title="保存" onclick="km.toolbar.do_save();">保存</a>
+        </div>
+    </div>
+    <div id="main-panel_a" data-options="region: 'west',border:true" style='width: 100%;'> 
+    	
+<table id="test_user"></table> 
+    	
+    </div> 
+</div>
+<div style='display:none'>
+
+
+
+
+  <div id="test_user_dialog"  >
+        <div  data-options="region: 'west',border:false" >
+       
+      
+ 
+
+   <form id="test_user_content" class="form_content" method="post">
+            <table class="table_content"  cellpadding="3" cellspacing="0" border="0">
+                                     <input  id='TPL_id' name='id'  type='hidden' value='0'  />
+                         
+                            <tr><td   class="td_title" >email</td> <td>  <input   id='TPL_email' data-options=""  name='email' type='text' class='_easyui-textbox'  style='width:500px'  /></td></tr>
+                             
+                            <tr><td   class="td_title" >姓名</td> <td>  <input   id='TPL_name' data-options=""  name='name' type='text' class='_easyui-textbox'  style='width:150px'  /></td></tr>
+                             
+                            <tr><td   class="td_title" >部门编号</td> <td>  <input   id='TPL_department_id' data-options=""  name='department_id' type='text' class='_easyui-textbox'  style='width:100px'  /></td></tr>
+                                        </table>
+        </form> 
+        
+         
+        
+        
+        
+         <div id="main-panel_search_test_user2" title=" " data-options="region: 'center',border:true">
+            <div style="width:100%; border-bottom:solid 1px #a0a0a0">多条件查询:</div> 
+            <table class="table_content" cellpadding="3" cellspacing="0" border="0">
+                <tr>
+                    <td class="td_title">是否同时</td>
+
+                    <td class="td_title">列名</td> 
+                    <td class="td_title">
+                        比较
+                    </td>
+
+                    <td class="td_title">
+                        值
+                    </td>
+                    <td class="td_title"></td>
+                </tr>
+
+                <tr>
+                    <td class="td_title">
+                        <input id='TPL_orand' data-options=" valueField: 'id', textField: 'text', editable: true, hasDownArrow: true, panelHeight: 200,
+				            data: gOrAndData" name='orand' type='text' class='_easyui-combobox' style='width:100px' />
+                    </td>
+                    <td class="td_title">
+                        <input id='TPL_column_name' data-options=" valueField: 'id', textField: 'text', editable: true, hasDownArrow: true, panelHeight: 150,
+				            data: gColumnData,onSelect: function (data) {ColChanged(data);}, required: true" name='column_name' type='text' class='_easyui-combobox' style='width:150px' />
+                    </td>
+                    <td class="td_title">
+                        <input id='TPL_compare' data-options=" valueField: 'id', textField: 'text', editable: true, hasDownArrow: true, panelHeight: 200,
+				            data: gData1, required: true" name='compare' type='text' class='_easyui-combobox' style='width:60px' />
+                    </td>
+
+                    <td class="td_title" style="width: 210px;">
+                        <div id="td_value" style="display:none;">
+                            <input id='TPL_value_int' name='value' type='text' class='_easyui-numberbox value' data-options="required: true,hidden:'true'" style='width:200px; display:none;' />
+                            <input id='TPL_value_date' name='value' type='text' class='_easyui-datebox value' data-options="required: true,hidden:'true'" style='width: 200px; display: none;' />
+                            <input id='TPL_value_varchar' name='value' type='text' class='_easyui-textbox value' data-options="required: true,hidden:'true'" style='width: 200px; display: none;' />
+
+                        </div>
+                       </td>
+                    <td class="td_title">
+                        <a href="javascript:void(0)" id="my_add_search_test_user" class="_easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="add_test_user_search2()">增加</a>
+
+                    </td>
+                </tr>
+
+
+
+            </table>
+        </div>
+        <div id="main-panel_search_test_user" title=" " data-options="region: 'south',border:false">
+            <table id="test_user_search"></table>
+
+        </div>
+         
+        <script>
+            var gCol=undefined;
+            function ColChanged(data){
+                gCol = data;
+                $("#td_value" ).show();
+                $(".value" ).next().hide();
+                $("#TPL_value_"+data.type ).next().show(); 
+                if(data.type =="varchar"){
+
+                    var options = $('#TPL_compare').combobox('options');					
+                    options.data = gData2;                 
+                    $('#TPL_compare').combobox(options);
+                }else{
+                    var options = $('#TPL_compare').combobox('options');					
+                    options.data = gData1;                 
+                    $('#TPL_compare').combobox(options);
+
+                }
+            }
+
+           
+
+
+            var gData1 = [
+                                                          { 'id': 'gt', 'text': '>' },
+                                                         { 'id': 'lt', 'text': '<' },
+                                                         { 'id': '=', 'text': '=' },
+            ];
+
+            var gData2 = [
+
+                                                         { 'id': 'like', 'text': '包含' },
+                                                         { 'id': 'not like', 'text': '不包含' },
+                                                         { 'id': '=', 'text': '完全包含' }
+            ];
+
+            var gOrAndData = [
+                                                         { 'id': 'or', 'text': '或者' },
+                                                         { 'id': 'and', 'text': '并且' }
+            ];
+
+
+          
+var gColumnData	=[
+{ 'id': 'id'  , 'text': ''   , 'type': 'int'   }
+ , { 'id': 'add_on'  , 'text': '创建日期'   , 'type': 'date'   }
+ , { 'id': 'add_by'  , 'text': '创建人'   , 'type': 'int'   }
+ , { 'id': 'user_name'  , 'text': '用户名'   , 'type': 'nvarchar'   }
+ , { 'id': 'password'  , 'text': '口令'   , 'type': 'nvarchar'   }
+		];
+            var gSearData={rows:[], total:0};
+            
+            function add_test_user_search2( ){
+            
+              add_test_user_search(true);
+            }
+
+            function add_test_user_search(flag){
+
+               
+                    if(gSearData.rows.length>=gMaxWhere){
+                    if(flag == true)
+                        layer.msg('最多只能设置'+gMaxWhere+'个查询条件！'); return;
+                    }
+                if(gCol == undefined){
+                    if(flag == true)
+                    layer.msg('请填查询条件！'); return;
+                    return;
+                }
+                var orand= $("#TPL_orand").combobox("getValue");
+                var column_name= $("#TPL_column_name").combobox("getValue");
+                var compare= $("#TPL_compare").combobox("getValue");
+                var value= $("#TPL_value_"+gCol.type).textbox("getValue")
+
+
+                if(compare ==""|| value ==""){
+                    if(flag == true)
+                    layer.msg('请填查询条件！'); return;
+                    return;
+                }
+                var d ={orand: orand,
+                    column_name: column_name, 
+                    compare: compare, 
+                    value: value}
+                gSearData.rows.push(d);
+                gSearData.total =  gSearData.rows.length;
+                 
+                Reload();
+                 $("#TPL_orand").combobox("setValue","");
+                 $("#TPL_column_name").combobox("setValue","");
+                 $("#TPL_compare").combobox("setValue","");
+                $("#TPL_value_int").numberbox("reset")
+                 $("#TPL_value_date" ).datebox("setValue","")
+                 $("#TPL_value_varchar" ).textbox("setValue","")
+                $("#TPL_value_decimal").numberbox("reset")
+               // console.log(d);
+            }
+            function Reload(){
+                var options = $('#test_user_search').datagrid('options');					
+                options.data = gSearData;                 
+                $('#test_user_search').datagrid(options);
+            }
+
+            var gMaxWhere =5;
+            
+            function removeit_test_user_search(index){ 
+                com.message('c', ' <b style="color:red">确定要删除查询条件吗？ </b>', function (b) {
+                    if (b) {
+                        $('#test_user_search')
+                       .datagrid('deleteRow', index); 
+                    }
+                }); 
+            } 
+        </script>
+    </div>
+ 
+     
+    </div>   
+	
+</div>

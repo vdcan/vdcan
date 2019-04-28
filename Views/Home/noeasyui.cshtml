@@ -1,0 +1,54 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//       时间： 2018-01-12
+//       作者： 蔡捷2   
+//			 				无easyui 
+//       文件： noeasyui.cshtml 页面文件
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "无easyui";
+    Layout = "~/Views/Shared/_Layout_noui.cshtml";
+}
+
+@using System.Data;
+@section head{
+  <style type="text/css">
+      
+        body {
+            text-align: center;
+        }
+    </style>
+    
+    <link href="/content/css/b.css" rel="stylesheet">
+}
+
+@section scripts{
+    <script src="~/Areas//ViewJS/noeasyui.js?v=@ViewBag.ts"></script>
+     <script type="text/javascript">
+        var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        gmodel = JSON.parse(model_string);  
+    </script>
+}
+ 
+    	
+ 
+ 
+    <script src="~/Scripts/01core/common.js?v=33"></script>
+     
+    <script src="/scripts/jquery.twbsPagination.js" type="text/javascript"></script>
+       
+<div class="container"> 
+<div id="contexttest_user2">
+</div>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination" id="paginationtest_user2"></ul>
+    </nav>
+</div>
+  
+        
+    	 
+<div style='display:none'>
+	
+</div>

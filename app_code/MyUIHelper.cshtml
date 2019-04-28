@@ -1,0 +1,66 @@
+﻿@helper ShowUnit(int count)
+{
+    if (count == 0)
+    {
+        @:免费
+        }
+    else
+    {
+        @count
+    }
+}
+
+@functions {
+    public static IHtmlString Check(int count)
+    {
+        string result = "";
+        if (count == 0)
+        {
+            result = "fsdfsdfsdfd";
+        }
+        else
+        {
+            result = count.ToString();
+        }
+        return new HtmlString(result);
+    }
+}
+//自定义函数@functions
+@functions{
+    public static IHtmlString Get(System.Data.DataTable dt , string name)
+    {
+
+     //   = ViewData["dictionary"];
+        string result = name;
+
+        foreach (System.Data.DataRow r in dt.Rows)
+        {
+            if (r["name"].ToString() == name)
+            {
+                result = r["text"].ToString();
+                break;
+            }
+               
+        }
+       
+        return new HtmlString(result);
+    }
+}
+
+@functions{
+    public static IHtmlString GetJson(System.Data.DataTable dt )
+    {
+
+        //   = ViewData["dictionary"];
+        string result = "";
+        if (dt!= null)
+
+        foreach (System.Data.DataRow r in dt.Rows)
+        {
+            result = result + "\"" + r["name"].ToString() + "\":\"" + r["text"].ToString() + "\","; 
+
+        }
+
+        return new HtmlString(result);
+    }
+}

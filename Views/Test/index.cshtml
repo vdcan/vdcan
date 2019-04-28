@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="easyui-panel">
+    fdsa
+    f
+    sa
+    fd
+    f
+    dsafa
+    s
+</div>
+<div class="easyui-pagination" id="pp" data-options="total:114"></div>
+<script>
+
+    $(function () {
+        $('#pp').pagination({
+            onSelectPage: function (pageNumber, pageSize) {
+                // $(this).pagination('loading');
+                alert('pageNumber:' + pageNumber + ',pageSize:' + pageSize);
+                // $(this).pagination('loaded');
+            }
+        });
+
+    });
+
+</script>
+
+邮箱验证：<input type="text" validtype="email" required="true" missingmessage="不能为空" invalidmessage="邮箱格式不正确" /><br />
+网址验证：<input type="text" validtype="url" invalidmessage="url格式不正确[http://www.example.com]" /><br />
+长度验证：<input type="text" validtype="length[8,20]" invalidmessage="有效长度8-20" /><br />
+1 汉字验证：<input type="text" validtype="CHS" /><br />
+2 手机验证：<input type="text" validtype="mobile" /><br />
+3 phone验证：<input type="text" validtype="phone" /><br />
+4 ip验证：<input type="text" validtype="ip" /><br />
+5 name验证：<input type="text" validtype="name" /><br />
+6 username验证：<input type="text" validtype="username" /><br />
+7 date验证：<input type="text" validtype="date" /><br />
+8 english验证：<input type="text" validtype="english" /><br />
+9 邮编验证：<input type="text" validtype="zipcode" /><br />
+10 身份证验证：<input type="text" validtype="idcard" /><br />
+11 minLength验证：<input type="text" validtype="minLength[3]" /><br />
+12 intOrFloat验证：<input type="text" validtype="intOrFloat" /><br />
+13 qq验证：<input type="text" validtype="qq" /><br />
+14 integer验证：<input type="text" validtype="integer" /><br />
+15 年龄验证：<input type="text" validtype="age" /><br />
+16 unmormal验证：<input type="text" validtype="unnormal" /><br />
+17 传真验证：<input type="text" validtype="faxno" /><br />
+
+19 数字验证：<input type="text" validtype="number" /><br />
+20 车牌验证：<input type="text" validtype="carNo" /><br />
+
+21账号验证：<input type="text" validtype="account[8,20]" /><br />
+
+远程验证：<input type="text" validtype="remote['checkname.aspx','name']" invalidmessage="用户名已存在" />
+
+

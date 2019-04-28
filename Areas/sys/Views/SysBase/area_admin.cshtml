@@ -1,0 +1,85 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//       时间： 2018-03-22
+//       作者： fdsaf   
+//			 				区域维护用于维护区域, 控制器 
+//       文件： area_admin.cshtml 页面文件
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "区域维护";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <style type="text/css">
+
+    </style>
+}
+
+@section scripts{
+    <script src="~/Areas/sys/ViewJS/area_admin.js?v=@ViewBag.ts"></script>
+    <script type="text/javascript">
+    //    var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+    //    km.model = JSON.parse(model_string);
+     //   km.pageSize = @ViewBag.Settings["gridrows"];
+    </script>
+}
+
+<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
+    <div id="north_panel" data-options="region:'north',border:false" style="background-color: #f3f3f3;">
+        <div class="km_toolbar">
+            <div id="km_toolbar" style="float:left;"></div><div id="km_toolbar2" style="float:left;"></div>
+        </div>
+        <div id="km_toolbar_2" class="km_toolbar" style="display:none">
+            <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")" onclick="km.toolbar.do_undo();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+            <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")" onclick="km.toolbar.do_save();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+        </div>
+    </div>
+    <div id="main-panel_a" data-options="region: 'west',border:true" style='width: 50%;'>
+
+        <table id="area"></table>
+
+    </div>
+    <div id="main-panel_b" data-options="region: 'center',border:true" style='width: 50%;'>
+
+        <div id="user_tabs" class="easyui-tabs" data-options="fit:true,border:false">
+
+
+            <div title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "area info")" data-options="iconCls:'icon-standard-user'" id="tab_b1">
+
+
+
+
+                <form id="area_content" class="form_content" method="post">
+                    <table class="table_content" cellpadding="3" cellspacing="0" border="0">
+                        <input id='TPL_id' name='id' type='hidden' value='0' />
+
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "area name")</td> <td>  <input id='TPL_area_name' data-options="" name='area_name' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+                    </table>
+                </form>
+
+
+
+            </div>
+
+
+            <div title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "controller")" data-options="iconCls:'icon-standard-user'" id="tab_b2">
+
+                <table id="controller"></table>
+
+                <div id="tbcontroller" style="height:auto">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append_controller()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add")</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit_controller()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "delete")</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept_controller()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject_controller()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+                    <a href="javascript:void(0)" style="display:none;" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges_controller()">GetChanges</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div style='display:none'>
+
+</div>

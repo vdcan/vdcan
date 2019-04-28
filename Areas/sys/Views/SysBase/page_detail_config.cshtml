@@ -1,0 +1,114 @@
+﻿
+@{
+//------------------------------------------------------------------------------ 
+//       时间 2017-08-04
+//       作者 蔡捷     
+//			  
+//       文件 xx_page_detail_config.cshtml 页面文件 
+//------------------------------------------------------------------------------
+    ViewBag.Title = "页面详细配置";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+    <style></style>
+}
+
+@section scripts{
+    <script src="~/Areas/sys/ViewJS/page_detail_config.js?v=@ViewBag.ts"></script>
+    <script type="text/javascript">
+        @*var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        km.model = JSON.parse(model_string);
+        km.pageSize = @ViewBag.Settings["gridrows"];*@
+        
+        var  gvalidation=  @Html.Raw(ViewData["validation"]);
+
+    </script>
+}
+
+<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
+    <div id="north_panel" data-options="region:'north',border:false">
+        <div id="km_toolbar" class="km_toolbar">
+
+        </div>
+    </div>
+    <div id="main-panel" data-options="region: 'center',border:false">
+        <table id="xx_page_detail_configgrid">
+        
+        </table>
+    </div>
+    	@*<div id="tbxx_page_detail_config" style="height:auto">
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append_xx_page_detail_config()">Append</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit_xx_page_detail_config()">Remove</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept_xx_page_detail_config()">Accept</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject_xx_page_detail_config()">Reject</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges_xx_page_detail_config()">GetChanges</a>
+	</div>*@
+	
+</div>
+
+
+<div id="valid_dialog" class="easyui-dialog" title="校验" style="width:800px;height:300px;   "
+     data-options="iconCls:'icon-save',resizable:true,modal:true,closed:true,onOpen:function(){
+     //LoadData()
+     },
+						buttons:[{
+				text:'选择',
+				handler:function(){ Selectalid();}
+			},{
+				text:'关闭',
+				handler:function(){ $('#valid_dialog').dialog('close');}
+			}]">
+
+    <table style="width:100%; padding:20px;">
+
+        <tr style="width:100%;">
+            <td><input type="checkbox" name='cbValid' mvalidtype="CHS" />汉字验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="mobile" />手机验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="phone" />phone验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="ip" />ip验证</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name='cbValid' mvalidtype="name" />name验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="username" />username验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="date" />date验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="english" />english验证</td>
+        </tr>
+        <tr>
+
+            <td><input type="checkbox" name='cbValid' mvalidtype="zipcode" />邮编验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="idcard" />身份证验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="minlength[3]" />minlength验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="intOrFloat" />intOrFloat验证</td>
+        </tr>
+        <tr>
+
+            <td><input type="checkbox" name='cbValid' mvalidtype="qq" />qq验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="integer" />integer验证></td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="age" />年龄验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="unnormal" />unmormal验证</td>
+        </tr>
+        <tr>
+
+            <td><input type="checkbox" name='cbValid' mvalidtype="faxno" />传真验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="number" />数字验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="carNo" />车牌验证</td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="account[8,20]" />账号验证</td>
+        </tr>
+        <tr>
+
+            <td><input type="checkbox" name='cbValid' mvalidtype="email" /> 邮箱验证 </td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="url" /> 网址验证 </td>
+            <td><input type="checkbox" name='cbValid' mvalidtype="length[8,20]" />  长度验证</td>
+            <td>  </td>
+        </tr>
+        <tr>
+
+            <td><input type="checkbox" name='cbRequired' mvalidtype="required:true" /> 必填 </td>
+            <td>  </td>
+            <td>  </td>
+            <td>   </td>
+        </tr>
+    </table>
+
+</div>

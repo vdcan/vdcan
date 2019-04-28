@@ -1,0 +1,75 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//       时间： 2018-02-06
+//       作者： 蔡捷2   
+//			 				用于测试模板 
+//       文件： user_test_edit.cshtml 页面文件
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "测试";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+  <style type="text/css">
+       
+    </style>
+}
+
+@section scripts{
+    <script src="~/Areas/dev/ViewJS/user_test_edit.js?v=@ViewBag.ts"></script>
+     
+}
+
+<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
+    <div id="north_panel" data-options="region:'north',border:false">
+        <div id="km_toolbar" class="km_toolbar"> </div>
+           <div id="km_toolbar_2" class="km_toolbar" style="display:none">
+            <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title="取消" onclick="km.toolbar.do_undo();">取消</a>
+            <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title="保存" onclick="km.toolbar.do_save();">保存</a>
+        </div>
+    </div>
+    <div id="main-panel_a" data-options="region: 'west',border:true" style='width: 50%;'> 
+    	
+<table id="department_edit"></table> 
+    	
+    </div>
+    <div id="main-panel_b" data-options="region: 'center',border:true"  style='width: 50%;'> 
+    	
+ 
+ 
+
+   <form id="department_edit_content" class="form_content" method="post">
+            <table class="table_content"  cellpadding="3" cellspacing="0" border="0">
+                                     <input  id='TPL_id' name='id'  type='hidden' value='0'  />
+                         
+                            <tr><td   class="td_title" >创建日期</td> <td>  <input   id='TPL_add_on' data-options=""  name='add_on' type='text' class='easyui-textbox'  style='width:230px'  /></td></tr>
+                             
+                            <tr><td   class="td_title" >创建人</td> <td>  <input   id='TPL_add_by' data-options=""  name='add_by' type='text' class='easyui-textbox'  style='width:100px'  /></td></tr>
+                             <tr><td class="td_title" >部门名称 </td> <td>                                 <input id='TPL_department_name' name='department_name' class="easyui-combobox"  url2='list_d'    data-options="required:true,valueField:'id',textField:'text',editable:false,hasDownArrow:false,panelHeight:90"></td></tr>
+                                 
+                            <tr><td  class="td_title"  >描述</td> <td>  <input  style='width:300px;height:200px;'  data-options="required:true,multiline:true"  id='TPL_description' name='description' type='text' class='easyui-textbox'     /></td></tr>
+                             
+                              <tr><td class="td_title" >角色 </td> <td>                                   
+                                    <input  id='TPL_roles0' name='roles' type='checkbox'    value='0'  />测试
+                                      
+                                    <input  id='TPL_roles1' name='roles' type='checkbox'    value='1'  />生产
+                                      
+                                    <input  id='TPL_roles2' name='roles' type='checkbox'    value='2'  />维护
+                                                                    </td></tr>
+                                 
+                               <tr><td class="td_title" >类型 </td> <td>                                   
+                                    <input  id='TPL_type0' name='type' type='radio' checked   value='1'  />私人
+                                      
+                                    <input  id='TPL_type1' name='type' type='radio'    value='0'  />公家
+                                                                    </td></tr>
+                                            </table>
+        </form> 
+        
+         
+    </div>
+</div>
+<div style='display:none'>
+	
+</div>

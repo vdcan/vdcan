@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "~/Views/Home/_main_layout.cshtml";
+}
+@section head{
+    <style>
+        .main_div {
+            font-size: 15px;
+        }
+
+            .main_div li {
+                text-decoration: none;
+                margin-left: 20px;
+            }
+
+        .half_l {
+            width: 50%;
+            float: left;
+            padding-right: 20px;
+        }
+    </style>
+
+}
+
+@section scripts{
+
+}
+
+<section id="team" class="page-section">
+    <div class="container main_div">
+        <div class=" ">
+
+            <h3> JSSQL Framework</h3>
+            <p><span style="font-weight: 400;">This framework is based on MVC, it inherits the Advantages of MVC:</span> </p>
+            <ul>
+                <li><span style="font-weight: 400;">Faster development process</span></li>
+                <li><span style="font-weight: 400;">Ability to provide multiple views</span></li>
+                <li><span style="font-weight: 400;">Support for asynchronous technique</span></li>
+                <li><span style="font-weight: 400;">Modification does not affect the entire model</span></li>
+                <li><span style="font-weight: 400;">MVC model returns the data without formatting</span></li>
+            </ul>
+            <p><span style="font-weight: 400;">Through the code generator which comes with this framework, it fixed some disadvantages of MVC:</span></p>
+            <ul>
+                <li><span style="font-weight: 400;">&nbsp;MVC has an increased complexity of code. This is fixed by the code generator.</span></li>
+                <li><span style="font-weight: 400;">&nbsp;MVC has an inefficiency of data access in view, will be corrected by sending and receiving data through a stored procedure.</span></li>
+                <li><span style="font-weight: 400;">&nbsp;Knowledge on multiple technologies is required in order to operate MVC, solved by a transparent middle layer, the user will only need to know JS and sql.</span></li>
+                <li><span style="font-weight: 400;">&nbsp;Developer must have knowledge of client side code and html code, a lesser extent of knowledge is required for the code generator.</span></li>
+            </ul>
+            <h3>
+                <p><span style="font-weight: 400;">Background</span></p>
+            </h3>
+
+            <p><span style="font-weight: 400;">When I started to use MVC framework I found that it was too complex. The MVC framework which I was using has 5 files for each page: page.js, page.html, entity.cs, controller.cs, service.cs.</span></p>
+            <ul>
+                <li><span style="font-weight: 400;">page.html: forms the layout.</span></li>
+                <li><span style="font-weight: 400;">page.js: shows the page elements(datagrid, button, input&hellip;) through JQuery and EasyUI.</span></li>
+                <li><span style="font-weight: 400;">entity.cs: maps table columns.</span></li>
+                <li><span style="font-weight: 400;">service.cs: does the data jobs(insert, delete, update, select);</span></li>
+                <li><span style="font-weight: 400;">controller.cs: &nbsp;transfers data between js and service.</span></li>
+            </ul>
+            <p><span style="font-weight: 400;">When you add one page, you need add the 5 files. Every time, when the page table changed, the whole 5 files need be changed too.</span></p>
+            <p><span style="font-weight: 400;">After I used it, I found the entity, service, and controller can be combined together to one controller. This controller doesn&rsquo;t belong any page, so one controller can face muti-pages.</span></p>
+            <p><span style="font-weight: 400;">The controller will only transfer the page request to the stored procedure and will return the results back to the page. The stored procedure does the all data jobs(insert, delete, update, select).</span></p>
+            <p><span style="font-weight: 400;">The page and stored procedure&rsquo;s relation will also be saved in an action table.</span></p>
+        </div>
+
+ 
+    </div>
+
+
+    <!--/.container-->
+</section>
+

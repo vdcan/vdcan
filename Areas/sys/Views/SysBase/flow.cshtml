@@ -1,0 +1,136 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//       时间： 2018-03-18
+//       作者： fdsaf   
+//			 				流程控制 
+//       文件： flow.cshtml 页面文件
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "流程控制";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+  <style type="text/css">
+       
+    </style>
+}
+
+@section scripts{
+    <script src="~/Areas/sys/ViewJS/flow.js?v=@ViewBag.ts"></script>
+    <script type="text/javascript">
+    //    var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+    //    km.model = JSON.parse(model_string); 
+     //   km.pageSize = @ViewBag.Settings["gridrows"];
+    </script>
+}
+
+<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
+    <div id="north_panel" data-options="region:'north',border:false" style="background-color: #f3f3f3;">
+           <div class="km_toolbar">
+            <div id="km_toolbar" style="float:left;"></div><div id="km_toolbar2" style="float:left;"></div>
+        </div>
+           <div id="km_toolbar_2" class="km_toolbar" style="display:none">
+               <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")" onclick="km.toolbar.do_undo();"> @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel") </a>
+               <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")" onclick=" km.toolbar.do_save();"> @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+        </div>
+    </div>
+    <div id="main-panel_a" data-options="region: 'west',border:true" style='width: 30%;'> 
+    	
+<table id="flow"></table> 
+    	
+    </div>
+    <div id="main-panel_b" data-options="region: 'center',border:true"  style='width: 70%;'> 
+    	            
+        <div id="user_tabs" class="easyui-tabs" data-options="fit:true,border:false">
+                           
+                              
+   
+            <div title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "detail")"  data-options=" iconcls:'icon-standard-user'" id="tab_b2">
+
+
+
+
+                <form id="flow_content" class="form_content" method="post">
+                    <table class="table_content" cellpadding="3" cellspacing="0" border="0">
+                        <input id='TPL_id' name='id' type='hidden' value='0' />
+
+                        <tr><td class="td_title">  @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add_on")</td> <td>  <input id='TPL_add_on' data-options="" name='add_on' type='text' class='easyui-textbox' style='width:230px' /></td></tr>
+
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add_by")</td> <td>  <input id='TPL_add_by' data-options="" name='add_by' type='text' class='easyui-textbox' style='width:100px' /></td></tr>
+
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "flow_name")</td> <td>  <input id='TPL_flow_name' data-options="" name='flow_name' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "flow_description")</td> <td>  <input id='TPL_flow_description' data-options="" name='flow_description' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "table_name")</td> <td>  <input id='TPL_table_name' data-options="" name='table_name' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "column_name")</td> <td>  <input id='TPL_column_name' data-options="" name='column_name' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "id_column_name")</td> <td>  <input id='TPL_id_column_name' data-options="" name='id_column_name' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "deadline_column_name")</td> <td>  <input id='TPL_deadline_column_name' data-options="" name='deadline_column_name' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "flow_type")</td> <td>  <input id='TPL_flow_type' data-options="" name='flow_type' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "page_id")</td> <td>  <input id='TPL_page_id' data-options="" name='page_id' type='text' class='easyui-textbox' style='width:100px' /></td></tr>
+
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "test_deadline")</td> <td>  <input id='TPL_test_deadline' data-options="" name='test_deadline' type='text' class='easyui-textbox' style='width:230px' /></td></tr>
+
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "test_status")</td> <td>  <input id='TPL_test_status' data-options="" name='test_status' type='text' class='easyui-textbox' style='width:200px' /></td></tr>
+                    </table>
+                </form>
+
+
+
+
+            </div>
+
+
+            <div title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "condition")" data-options="iconCls:'icon-standard-user'" id="tab_b1">
+
+                <table id="flow_lines"></table>
+
+                <div id="tbflow_lines" style="height:auto">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append_flow_lines()"> @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add") </a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit_flow_lines()">  @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "delete")  </a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept_flow_lines()"> @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")  </a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject_flow_lines()">  @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")  </a>
+                </div>
+
+            </div>        
+   
+            <div title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "node")" data-options="iconCls:'icon-standard-user'" id="tab_b3">
+
+                <table id="flow_nodes"></table>
+
+                <div id="tbflow_nodes" style="height:auto">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append_flow_nodes()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add") </a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit_flow_nodes()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "delete")</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept_flow_nodes()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject_flow_nodes()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+                </div>
+
+            </div>
+                              
+   
+            <div title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "status")" data-options="iconCls:'icon-standard-user'" id="tab_b4">
+
+                <table id="flow_status"></table>
+
+                <div id="tbflow_status" style="height:auto">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append_flow_status()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add") </a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit_flow_status()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "delete")</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept_flow_status()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject_flow_status()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+                </div>
+
+            </div>
+                              
+            </div>
+                   </div>
+</div>
+<div style='display:none'>
+	
+</div>

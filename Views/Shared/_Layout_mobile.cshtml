@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+    ViewBag.EasyuiVersion = JTS.Utils.CookiesUtil.GetCookies("EasyuiVersion");
+    ViewBag.EasyuiTheme = JTS.Utils.CookiesUtil.GetCookies("EasyuiTheme");
+}
+<!DOCTYPE html>
+<html class="pixel-ratio-1">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SUI Mobile Demo</title>
+    <meta name="description" content="MSUI: Build mobile apps with simple HTML, CSS, and JS components.">
+    <meta name="author" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Google Web Fonts --> 
+    <link rel="stylesheet" href="/Scripts/03jeasyui/icons/icon-all.css">
+    <link rel="stylesheet" href="/mobile/sm.css">
+    <link rel="stylesheet" href="/mobile/sm-extend.css"> 
+    <link rel="stylesheet" href="/mobile/demos.css">
+
+    <link rel="apple-touch-icon-precomposed" href="/assets/img/apple-touch-icon-114x114.png">
+    <script src="/mobile/hm.js"></script>
+    <script src="/mobile/zepto.js"></script>
+    <script src="/mobile/config.js"></script> 
+    <script src="~/Scripts/jquery.min.js"></script>
+
+    <script src="/Scripts/03jeasyui/jquery-easyui-1.4.4/jquery.easyui.min.js"></script>
+    <script src="/mobile/jquery.validate.min.js"></script>
+
+
+    <script src="~/Scripts/jquery.tmpl.js"></script>
+    <script src="~/Scripts/jquery.tmplPlus.js"></script> 
+    <script src="/Scripts/01core/common.js?v="></script>
+    <script src="/Scripts/myutility.js"></script>
+
+    @RenderSection("head", required: false) 
+</head>
+<body class="">
+
+
+    @RenderBody() 
+
+    <script src="/mobile/sm.js"></script>
+    <script src="/mobile/sm-extend.js"></script>
+    <script src="/mobile/sm-city-picker.js"></script> 
+    <div class="popup-overlay"></div>   
+     @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        vd.model = JSON.parse(model_string);
+        
+    </script>
+
+</body>
+</html>

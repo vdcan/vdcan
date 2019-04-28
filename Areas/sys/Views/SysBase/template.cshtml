@@ -1,0 +1,160 @@
+﻿@{
+    //------------------------------------------------------------------------------
+    //       时间： 2017-08-04
+    //       作者： 蔡捷
+    //
+    //       文件： xx_template.cshtml 页面文件
+    //------------------------------------------------------------------------------
+    ViewBag.Title = "模板";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <style type="text/css">
+        #toolbar1, #toolbar2 {
+            border-bottom: none;
+        }
+
+        .table_content {
+            width: 100%;
+            background: #fff;
+            border: none;
+        }
+
+            .table_content td {
+                border-bottom: 1px solid #ccc;
+            }
+
+                .table_content td.td_title {
+                    width: 90px;
+                    text-align: center;
+                    font-size: 12px;
+                    font-weight: bold;
+                    background: #fafafa;
+                    border-right: 1px solid #ccc;
+                }
+
+        .textbox, .textbox-text {
+            border: none;
+            border-radius: 0px;
+            box-shadow: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .textbox-fucused {
+            box-shadow: none;
+        }
+    </style>
+}
+
+@section scripts{
+
+
+    <link rel="stylesheet" href="~/Scripts/kindeditor-4.1.10/themes/default/default.css" />
+    <script src="~/Scripts/kindeditor-4.1.10/kindeditor.js?fda"></script>
+    <script src="~/Scripts/kindeditor-4.1.10/kindeditor-all-min.js?fda"></script>
+    <script src="~/Scripts/kindeditor-4.1.10/kindeditor-all.js?fda"></script>
+    <script charset="utf-8" src="~/Scripts/kindeditor-4.1.10/kindeditor-min.js?fda"></script>
+    <script charset="utf-8" src="~/Scripts/kindeditor-4.1.10/lang/zh_CN.js?fda"></script>
+
+    <script src="~/Areas/Sys/ViewJS/template.js?v=@ViewBag.ts"></script>
+    <script type="text/javascript">
+        @*var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        km.model = JSON.parse(model_string);
+
+        km.pageSize = @ViewBag.Settings["gridrows"];*@
+        var editor;
+    </script>
+}
+
+<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
+    <div id="north_panel" data-options="region:'north',border:false">
+        <div id="km_toolbar" class="km_toolbar">
+
+        </div>
+
+        <div id="km_toolbar_2" class="km_toolbar" style="display:none">
+            <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")" onclick="km.toolbar.do_undo();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+            <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")" onclick="km.toolbar.do_save();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+        </div>
+
+    </div>
+    <div id="west_panel" data-options="region: 'west',title:'',border:true,split:true" style="width: 50%;border-bottom: none; border-left: none;  ">
+
+        <table id="xx_templategrid"></table>
+    </div>
+
+    <div id="main_panel" data-options="region: 'center',title:'',border:true" style="padding: 0px; border-bottom: none; ">
+
+        <div id="user_tabs" class="easyui-tabs" data-options="fit:true,border:false ">
+            <div id="north_panel" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "detail info")" data-options="region:'center',border:false">
+
+                <form id="xx_template_content" class="form_content" method="post">
+                    <table class="table_content" cellpadding="3" cellspacing="0" border="0">
+                        <input id='TPL_id' name='id' type='hidden' value='0' />
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "template name")</td> <td>  <input id='TPL_template_name' data-options="" name='template_name' type='text' class='easyui-textbox' style='width:250px' /></td></tr>
+                        <tr>
+                            <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "description")</td>
+                            <td id="tdText">
+
+                                <textarea rows="3" style="width:100%;  " class="v_content" id="TPL_description" name="description"></textarea>
+                                @*<input style='width:300px;height:100px;' data-options="multiline:true" id='TPL_description' name='description' type='text' class='easyui-textbox' /></td></tr>*@
+                        <tr style="display:none;">
+                            <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "File")</td>
+                            <td>
+                                <input style='width:300px;' data-options="multiline:false" id='TPL_files' name='files' type='text' class='easyui-textbox' />
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="td_title">html</td>
+                            <td>
+                                <input style='width:300px;height:200px;' data-options="multiline:true" id='TPL_html' name='html' type='text' class='easyui-textbox' />
+
+
+
+                            </td>
+                        </tr>    @*   <tr><td colspan='2'> <input  id='TPL_areas' name='areas' type='checkbox'   style='width:500px'  /> @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "area")</td></tr>
+                        *@
+                        <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "area")</td> <td>  <input style='width:300px;' data-options="multiline:false" id='TPL_areas' name='areas' type='text' class='easyui-textbox' /></td></tr>
+                        <tr>
+                            <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "language") </td>
+                            <td>
+                                <select id='TPL_language' name='language' class="easyui-combobox" url2='list_language' data-options="valueField:'id',textField:'text',editable:false,hasDownArrow:false,panelHeight:90" style="width:150px;">
+                                    <option value='0'>@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "yes")</option>
+                                    <option value='1'>@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "no")</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "framework") </td>
+                            <td>
+                                <select id='TPL_js_framwork' name='js_framwork' class="easyui-combobox" url2='list_js_framwork' data-options="valueField:'id',textField:'text',editable:false,hasDownArrow:false,panelHeight:90" style="width:150px;">
+                                    <option value='0'>@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "yes")</option>
+                                    <option value='1'>@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "no")</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+
+
+            @*<div id="main-panel" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "File")" data-options="region: 'center',border:false">
+                    <table id="xx_module_filesgrid"></table>
+                </div>*@
+            @*<div id="main-panel" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "module")" data-options="region: 'center',border:false">
+                    <table id="xx_module_grid"></table>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+
+<div id="tbxx_module_files" style="height:auto">
+    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append_xx_module_files()">Append</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit_xx_module_files()">Remove</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept_xx_module_files()">Accept</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject_xx_module_files()">Reject</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges_xx_module_files()">GetChanges</a>
+</div>

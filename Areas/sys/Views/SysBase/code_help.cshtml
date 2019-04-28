@@ -1,0 +1,227 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//       时间： 2018-03-22
+//       作者： fdsaf   
+//			 				技术文档 
+//       文件： code_help.cshtml 页面文件
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "技术文档";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <style type="text/css">
+        h1 {
+            font-size: 32px;
+            font-weight: normal;
+            font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
+
+            h1.smaller {
+                font-size: 31px;
+            }
+
+            h1.bigger {
+                font-size: 33px;
+            }
+
+            h1.block {
+                margin-bottom: 16px;
+            }
+
+        h2 {
+            font-size: 26px;
+            font-weight: normal;
+            font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
+
+            h2.smaller {
+                font-size: 25px;
+            }
+
+            h2.bigger {
+                font-size: 27px;
+            }
+
+            h2.block {
+                margin-bottom: 16px;
+            }
+
+        h3 {
+            font-size: 22px;
+            font-weight: normal;
+            font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
+
+            h3.smaller {
+                font-size: 21px;
+            }
+
+            h3.bigger {
+                font-size: 23px;
+            }
+
+            h3.block {
+                margin-bottom: 16px;
+            }
+
+        h4 {
+            font-size: 18px;
+            font-weight: normal;
+            font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
+
+            h4.smaller {
+                font-size: 17px;
+            }
+
+            h4.bigger {
+                font-size: 19px;
+            }
+
+            h4.block {
+                margin-bottom: 16px;
+            }
+
+        h5 {
+            font-size: 15px;
+            font-weight: normal;
+            font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
+
+            h5.smaller {
+                font-size: 14px;
+            }
+
+            h5.bigger {
+                font-size: 16px;
+            }
+
+            h5.block {
+                margin-bottom: 16px;
+            }
+
+        h6 {
+            font-size: 13px;
+            font-weight: normal;
+            font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
+
+            h6.smaller {
+                font-size: 12px;
+            }
+
+            h6.bigger {
+                font-size: 14px;
+            }
+
+            h6.block {
+                margin-bottom: 16px;
+            }
+    </style>
+}
+
+@section scripts{
+    <script src="~/Areas/sys/ViewJS/code_help.js?v=@ViewBag.ts"></script>
+    <script type="text/javascript">
+    //    var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+    //    km.model = JSON.parse(model_string);
+     //   km.pageSize = @ViewBag.Settings["gridrows"];
+    </script>
+}
+
+<script src="~/Scripts/jquery.tmpl.js"></script>
+<script src="~/Scripts/jquery.tmplPlus.js"></script>
+<div class="easyui-layout" data-options="fit:true" style=" overflow:scroll;">
+    <div id="north_panel" data-options="region:'north',border:false" style="background-color: #f3f3f3; display:none;">
+        <div class="km_toolbar">
+            <div id="km_toolbar" style="float:left;"></div><div id="km_toolbar2" style="float:left;"></div>
+        </div>
+        <div id="km_toolbar_2" class="km_toolbar" style="display:none">
+            <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")" onclick="km.toolbar.do_undo();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+            <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")" onclick="km.toolbar.do_save();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+        </div>
+    </div>
+    <div id="main-panel_a" data-options="region: 'west',border:true" style='width: 100%;'>
+
+        <div id="main_div">
+
+        </div>
+
+        <script id="movieTemplate" type="text/x-jquery-tmpl">
+            <div title="${menu_name}" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
+
+
+            </div>
+
+        </script>
+
+        <script id="templage_detail" type="text/x-jquery-tmpl">
+
+            {{each Table}}
+            <h3>{{= $value.menu_name}}</h3>
+            {{/each}}
+            <h4>@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "matched template")</h4>
+            <table>
+                {{each Table1}}
+
+                <tr>
+                    <td>{{= $value.class_name}}</td>
+                    <td>{{= $value.name_text}}</td>
+                </tr>
+                {{/each}}
+            </table>
+
+            <h4>@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "matched action")</h4>
+            <table class="table_content" cellpadding="3" cellspacing="0" border="0">
+                <tr>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "id") </td>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "menu code") </td>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "action name") </td>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "action")URL </td>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "button name") </td>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "stored procedure name") </td>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "type") </td>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "comments") </td>
+                    <td class="td_title">auth_flag </td>
+                    <td class="td_title">sql </td>
+                    <td class="td_title">sql_type </td>
+                    <td class="td_title">conn_str </td>
+                </tr>
+                {{each Table2}}
+                <tr>
+                    <td>{{= $value.id}} </td>
+                    <td>{{= $value.menu_code}} </td>
+                    <td>{{= $value.action_url_name}} </td>
+                    <td>{{= $value.action_url}} </td>
+                    <td>{{= $value.button_name}} </td>
+                    <td>{{= $value.procedure_name}} </td>
+                    <td>{{= $value.action_type}} </td>
+                    <td>{{= $value.comments}} </td>
+                    <td>{{= $value.auth_flag}} </td>
+                    <td>{{= $value.sql}} </td>
+                    <td>{{= $value.sql_type}} </td>
+                    <td>{{= $value.conn_str}} </td>
+                </tr>
+                {{/each}}
+            </table>
+        </script>
+
+        @*<script type="text/javascript">
+                var movies = [
+                { Name: "The Red Violin", ReleaseYear: "1998", strurl: "2015" },
+                { Name: "Eyes Wide Shut", ReleaseYear: "1999", strurl: "2016" },
+                { Name: "The Inheritance", ReleaseYear: "1976", strurl: "2017" }
+                ];
+                $("#movieTemplate").tmpl(movies)
+                .appendTo("#main_div");
+
+            </script>*@
+
+
+    </div>
+</div>
+<div style='display:none'>
+
+</div>

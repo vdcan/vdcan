@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT"> 
+
+    <script src="/Scripts/03jeasyui/jquery-easyui-1.4.4/jquery.min.js"></script>
+    <script src="/Scripts/01core/common.js?v="></script>
+    <script src="/Scripts/myutility.js"></script> 
+    @RenderSection("head", required: false) 
+</head>
+<body><style> 
+</style>
+
+    @RenderBody()    
+    @RenderSection("scripts", required: false)
+ 
+ 
+</body>
+</html>

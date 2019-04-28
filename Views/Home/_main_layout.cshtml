@@ -1,0 +1,100 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "$$menu")</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/home.css" rel="stylesheet" />
+    <script src="/Scripts/03jeasyui/jquery-easyui-1.4.4/jquery.min.js"></script>
+    <script src="~/Scripts/01core/common_@Html.Raw(@ViewData["language"])_.js?v="></script>
+    <script src="/Scripts/myutility.js"></script>
+    <script src="/Scripts/03jeasyui/jquery-easyui-1.4.4/jquery.easyui.min.js"></script>
+    <script src="/Scripts/03jeasyui/jquery-easyui-1.4.4/locale/easyui-lang-@Html.Raw(@ViewData["language"])_.js"></script>
+    <script src="/Scripts/03jeasyui/jeasyui_extend/jeasyui.extend.js?v="></script>
+    <script src="~/Scripts/02jquery/jqext.yxz.js"></script> 
+    @RenderSection("head", required: false)
+</head>
+<body style="height: 100vh; ">
+    <style>
+        .language {
+            float: right;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 60;
+        }
+    </style>
+    <header class="header">
+        <div class="container"><div class="language">
+    <select id='TPL_language' name='language' onchange="changeLanguage()" style="width:150px;"></select>
+</div>
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+
+                    <a href="/home" class="navbar-brand scroll-top logo"><b>VD</b>Can</a>
+                </div>
+                <!--/.navbar-header-->
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav" id="mainNav">
+                        @{System.Data.DataTable dt = (System.Data.DataTable)ViewData["menu"];
+                        if (dt != null)
+                        {
+
+                            foreach (System.Data.DataRow dr in dt.Rows)
+                            {
+                                string mc = dr[1].ToString();
+                                if (mc == ViewData["mc"].ToString())
+                                {
+
+
+                        <li class="active"><a href="@dr["url"]?mc=@mc" class="scroll-link">@dr["menu_name"]</a></li>
+                                }
+                                else
+                                {
+
+                        <li><a href="@dr["url"]?mc=@mc" class="scroll-link">@dr["menu_name"]</a></li>
+                                }
+                            }
+
+                        }
+                        }
+
+
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <!--/.navbar-->
+        </div>
+        <!--/.container-->
+    </header>
+    <div style="padding: 5px; height: 100vh; ">
+        @RenderBody()
+    </div>
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        var gLanguageList = @Html.Raw(ViewData["language_list"]);
+        var gDictionary = {
+            @MyUIHelper.GetJson((System.Data.DataTable)ViewData["dictionary"])
+        };
+    </script>
+    <script src="~/Scripts/mycookie.js?v=s"></script>
+    <section class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="pull-left copyRights">Copyright &copy; @DateTime.Now.Year .VDCan.com All rights reserved.</div>
+                </div>
+            </div>  <!-- / .row -->
+        </div>
+    </section>
+</body>
+</html>

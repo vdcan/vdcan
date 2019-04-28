@@ -1,0 +1,75 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//        Date  2018-05-27
+//        Author  蔡捷   
+//			 				About page 
+//        File  about.cshtml  Page file 
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "About";
+    Layout = "~/Views/Home/_main_layout.cshtml";
+}
+
+@using System.Data;
+@section head{
+  <style type="text/css"> 
+    </style>
+     
+}
+
+@section scripts{
+    <script src="~/Areas/ViewJS/about.js?v=@ViewBag.ts"></script>
+     <script type="text/javascript">
+       
+      var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        km.model = JSON.parse(model_string);
+    </script>
+}
+ 
+ 
+<div class="container" style="padding-top: 100px;">
+    	
+
+    <div class="container main_div" id="abountDiv">
+
+
+
+
+    </div><!--/.container-->
+ 
+<script src="~/Scripts/jquery.tmpl.js"></script>
+<script src="~/Scripts/jquery.tmplPlus.js"></script> 
+
+<script id="template_context" type="text/x-jquery-tmpl">
+	<table class="table_content"  cellpadding="3" cellspacing="0" border="0">
+             <tr>
+             <td class="td_title" >启用标记 </td>  
+     					<td class="td_title" >创建人 </td>  
+     					<td class="td_title" >创建日期 </td>  
+     					<td class="td_title" >内容 </td>  
+     					<td class="td_title" >编号 </td>  
+     					<td class="td_title" >标题 </td>  
+     					<td class="td_title" >类型 </td>  
+     					            </tr>
+		{{each Table}}
+				<tr> 
+             <td   >{{= $value.active_flag}} </td>  
+     					<td   >{{= $value.add_by}} </td>  
+     					<td   >{{= $value.add_on}} </td>  
+     					<td   >{{= $value.context}} </td>  
+     					<td   >{{= $value.id}} </td>  
+     					<td   >{{= $value.title}} </td>  
+     					<td   >{{= $value.type}} </td>  
+     								</tr>
+		{{/each}} 
+	</table>
+</script>
+            
+ <div id='detail_div_context'></div>
+
+    	 
+<div style='display:none'>
+	
+</div>
+</div>

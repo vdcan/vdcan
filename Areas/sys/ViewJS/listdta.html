@@ -1,0 +1,17 @@
+<script id="tmpl1" type="text/x-jquery-tmpl">
+    var jsonStr ={ {{tmpl($data) '#tmpl2'}}</span> }
+    <br />
+    com.ajax({
+    <br />
+    type: 'POST', url: km.model.urls["${action_url_name}"], data: jsonStr, success: function (result) {
+    <br />
+
+    }
+    <br />
+    });
+    <br />
+</script>
+<script id="tmpl2" type="type/x-jquery-tmpl">
+    {{each data}}${$value.name}:'' , {{/each}}
+    <br />
+</script>

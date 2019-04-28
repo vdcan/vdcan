@@ -1,0 +1,39 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//        Date  2018-05-28
+//        Author  蔡捷   
+//			 				Portal 
+//        File  Portal.cshtml  Page file 
+    //------------------------------------------------------------------------------
+
+    ViewBag.Title = "Portal";
+    Layout = "~/Views/Shared/_layout_noui.cshtml";
+}
+
+@using System.Data;
+@section head{
+  <style type="text/css"> 
+    </style>
+     
+}
+
+@section scripts{
+    <script src="~/Areas/ViewJS/Portal.js?v=@ViewBag.ts"></script>
+     <script type="text/javascript">
+       
+      var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        km.model = JSON.parse(model_string);
+    </script>
+}
+ 
+ 
+<div class="container" >
+
+
+    <div id='abountDiv'></div>
+
+<div style='display:none'>
+	
+</div>
+</div>

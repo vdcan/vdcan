@@ -1,0 +1,105 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//       时间： 2018-03-19
+//       作者： fdsaf   
+//			 				用于模板测试 
+//       文件： user_test.cshtml 页面文件 
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "模板测试";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+ <style type="text/css">
+      
+    </style>
+}
+
+@section scripts{
+    <script src="~/Areas/dev/ViewJS/user_test.js?v=@ViewBag.ts"></script>
+    <script type="text/javascript">
+    //    var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+    //    km.model = JSON.parse(model_string); 
+     //   km.pageSize = @ViewBag.Settings["gridrows"];
+    </script>
+}
+
+<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
+    <div id="north_panel" data-options="region:'north',border:false">
+        <div class="km_toolbar">
+            <div id="km_toolbar" style="float:left;"></div><div id="km_toolbar2" style="float:left;"></div>
+        </div>
+           <div id="km_toolbar_2" class="km_toolbar" style="display:none">
+            <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title="取消" onclick="km.toolbar.do_undo();">取消</a>
+            <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title="保存" onclick="km.toolbar.do_save();">保存</a>
+        </div>
+        
+    </div>
+    
+    <div id="main-panel_ab" data-options="region: 'west',border:true"  style='width: 50%;'> 
+    <div id="main-panel_a" data-options="region: 'north',border:true"  style='height: 50%;width:100%'> 
+    	
+<table id="myuser"></table> 
+    </div>
+    
+    
+    
+    <div id="main-panel_b"   style="border-top: solid 1px #c5c5c5;" > 
+    	    </div>
+    </div>
+    
+    
+    
+    <div id="main-panel_c" data-options="region: 'center',border:false" style='width: 50%;'> 
+    	 
+<table id="department"></table> 
+	
+	<div id="tbdepartment" style="height:auto">
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append_department()">增加</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit_department()">删除</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept_department()">保存</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject_department()">取消</a>
+		<a href="javascript:void(0)" style="display:none;" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges_department()">GetChanges</a>
+	</div>
+    	
+    </div>
+    
+</div>
+
+<div style='display:none'>
+
+
+ 
+<div id="myuser_dialog">
+
+ 
+ 
+
+   <form id="myuser_content" class="form_content" method="post">
+            <table class="table_content"  cellpadding="3" cellspacing="0" border="0">
+                                     <input  id='TPL_id' name='id'  type='hidden' value='0'  />
+                         
+                            <tr><td   class="td_title" >创建日期</td> <td>  <input   id='TPL_add_on' data-options=""  name='add_on' type='text' class='_easyui-textbox'  style='width:230px'  /></td></tr>
+                             
+                            <tr><td   class="td_title" >创建人</td> <td>  <input   id='TPL_add_by' data-options=""  name='add_by' type='text' class='_easyui-textbox'  style='width:100px'  /></td></tr>
+                             
+                            <tr><td   class="td_title" >用户名</td> <td>  <input   id='TPL_user_name' data-options=""  name='user_name' type='text' class='_easyui-textbox'  style='width:500px'  /></td></tr>
+                             
+                            <tr><td   class="td_title" >姓名</td> <td>  <input   id='TPL_name' data-options=""  name='name' type='text' class='_easyui-textbox'  style='width:150px'  /></td></tr>
+                             
+                            <tr><td   class="td_title" >部门编号</td> <td>  <input   id='TPL_department_id' data-options=""  name='department_id' type='text' class='_easyui-textbox'  style='width:100px'  /></td></tr>
+                             
+                            <tr><td   class="td_title" >口令</td> <td>  <input   id='TPL_password' data-options=""  name='password' type='text' class='_easyui-textbox'  style='width:500px'  /></td></tr>
+                             
+                            <tr><td   class="td_title" >email</td> <td>  <input   id='TPL_email' data-options=""  name='email' type='text' class='_easyui-textbox'  style='width:500px'  /></td></tr>
+                                        </table>
+        </form> 
+        
+         
+        
+    </div> 
+        
+
+</div>

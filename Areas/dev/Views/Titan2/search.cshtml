@@ -1,0 +1,82 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//       时间： 2018-03-17
+//       作者： fdsaf   
+//			 				s 
+//       文件： search.cshtml 页面文件
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+  <style type="text/css">
+      .selected {
+          border: solid 1px #ff0000;
+      }
+    </style>
+}
+
+@section scripts{
+    <script src="~/Areas/dev/ViewJS/search.js?v=@ViewBag.ts"></script>
+    <script type="text/javascript">
+    //    var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+    //    km.model = JSON.parse(model_string); 
+     //   km.pageSize = @ViewBag.Settings["gridrows"];
+    </script>
+}
+
+<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
+    <div id="north_panel" data-options="region:'north',border:false" style="background-color: #f3f3f3;">
+            <div class="km_toolbar">
+            <div id="km_toolbar" style="float:left;"></div><div id="km_toolbar2" style="float:left;"></div>
+        </div>
+           <div id="km_toolbar_2" class="km_toolbar" style="display:none">
+            <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title="取消" onclick="km.toolbar.do_undo();">取消</a>
+            <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title="保存" onclick="km.toolbar.do_save();">保存</a>
+        </div>
+    </div>
+    <div id="main-panel_a" data-options="region: 'west',border:true" style='width: 100%;'> 
+    	
+<table id="test_user"></table> 
+    	
+    </div> 
+</div>
+<div style='display:none'>
+
+
+
+
+    <link rel="stylesheet" href="~/Scripts/kindeditor-4.1.10/themes/default/default.css" />
+    @*<script src="~/Scripts/kindeditor-4.1.10/kindeditor.js?fda"></script>
+    <script src="~/Scripts/kindeditor-4.1.10/kindeditor-all-min.js?fda"></script>
+    <script src="~/Scripts/kindeditor-4.1.10/kindeditor-all.js?fda"></script>*@
+    <script charset="utf-8" src="~/Scripts/kindeditor-4.1.10/kindeditor-min.js?fda"></script>
+    <script charset="utf-8" src="~/Scripts/kindeditor-4.1.10/lang/zh_CN.js?fda"></script>
+
+    <div style="float:left;" id="addition_bar_test_user"> 
+        
+   <form id="test_user_s" class="form_content" method="post"  style="float:left;"  >
+         <div style="float:left;"> <span class="td_title" style="float:left;" >用户名<span>  <input   id='S_user_name' data-options=""  name='user_name' type='text' class='easyui-textbox'  style='width:200px; float:left;'  /> </div><div style="float:left;"> <span class="td_title" style="float:left;" >email<span>  <input   id='S_email' data-options=""  name='email' type='text' class='easyui-textbox'  style='width:200px; float:left;'  /> </div><div style="float:left;"> <span class="td_title" style="float:left;" >姓名<span>  <input   id='S_name' data-options=""  name='name' type='text' class='easyui-textbox'  style='width:200px; float:left;'  /> </div>        </form>
+        <a id="toolbar_search_s" href="javascript:void(0)" class="easyui-linkbutton" style=' float:left;' data-options="plain:true,iconCls:'icon-standard-zoom' " title="简单查询" onclick="km.toolbar.do_search();">简单查询</a>
+    </div>
+    <div id="dlg" class="easyui-dialog" title="Basic Dialog" data-options="iconCls:'icon-save',
+         title: '属性',
+         width: 800,
+         height: 400,
+         top: 40,
+         left: 900,
+         closed: true,
+         cache: false,
+         modal: false" style="width: 800px; height: 400px; padding: 10px">
+
+        <textarea rows="3" style="width:100%; height:340px " class="v_content" id="TPL_description" name="description"></textarea>
+    </div>
+	
+</div>
+
+<div id="mydiv1" style="position:absolute;display:none;border:1px solid silver;background:silver;">
+    提示1效果
+</div> 

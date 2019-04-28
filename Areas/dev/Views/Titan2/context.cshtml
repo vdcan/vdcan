@@ -1,0 +1,108 @@
+﻿@{
+    //------------------------------------------------------------------------------
+    //        Date  2018-05-19
+    //        Author  蔡捷
+    //			 				文本内容维护
+    //        File  context.cshtml  Page file
+    //------------------------------------------------------------------------------
+
+    ViewBag.Title = "文本内容维护";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <style type="text/css">
+    </style>
+}
+
+@section scripts{
+
+    <link rel="stylesheet" href="~/Scripts/kindeditor-4.1.10/themes/default/default.css" />
+    @*<script src="~/Scripts/kindeditor-4.1.10/kindeditor.js?fda"></script>
+        <script src="~/Scripts/kindeditor-4.1.10/kindeditor-all-min.js?fda"></script>
+        <script src="~/Scripts/kindeditor-4.1.10/kindeditor-all.js?fda"></script>*@
+    <script charset="utf-8" src="~/Scripts/kindeditor-4.1.10/kindeditor-min.js?fda"></script>
+    <script charset="utf-8" src="~/Scripts/kindeditor-4.1.10/lang/zh_CN.js?fda"></script>
+
+    <script src="~/Areas/dev/ViewJS/context.js?v=@ViewBag.ts"></script>
+    <script type="text/javascript">
+        //    var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        //    km.model = JSON.parse(model_string);
+        //   km.pageSize = @ViewBag.Settings["gridrows"];
+        var gMenuCodeAlias = '@ViewData["MenuCodeAlias"]'
+    </script>
+}
+
+<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
+    <div id="north_panel" data-options="region:'north',border:false" style="background-color: #f3f3f3;">
+        <div class="km_toolbar">
+            <div id="km_toolbar" style="float:left;"></div><div id="km_toolbar2" style="float:left;"></div>
+        </div>
+        <div id="km_toolbar_2" class="km_toolbar" style="display:none">
+            <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title=" cancel " onclick="km.toolbar.do_undo();"> cancel </a>
+            <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title=" save " onclick="km.toolbar.do_save();"> save </a>
+        </div>
+    </div>
+    <div id="main-panel_a" data-options="region: 'west',border:true" style='width: 50%;'>
+
+        <table id="context"></table>
+
+
+    </div>
+    <div id="main-panel_b" data-options="region: 'center',border:true" style='width: 50%;'>
+
+
+
+
+        <form id="context_content" class="form_content" method="post">
+            <input id='TPL_id' name='id' type='hidden' value='0' />
+            <table class="table_content" cellpadding="3" cellspacing="0" border="0">
+
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add_by")</td> <td>  <input id='TPL_add_by' data-options="" name='add_by' type='text' class='easyui-textbox' style='width:100px' /></td></tr>
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add_on")</td> <td>  <input id='TPL_add_on' data-options="" name='add_on' type='text' class='easyui-textbox' style='width:230px' /></td></tr>
+
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "title")</td> <td>  <input id='TPL_title' data-options="" name='title' type='text' class='easyui-textbox' style='width:500px' /></td></tr>
+                <tr>
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "type")</td> <td>  <input id='TPL_category' d url2="category_list" data-options="valueField:'text',textField:'text',editable:true,hasDownArrow:true,panelHeight:290, " name='category' type='text' class='easyui-combobox' style='width:500px' /></td></tr>
+                <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "context")</td>
+                <td id="tdText">
+
+                    @*<input id='TPL_context' data-options="" name='context' type='text' class='easyui-textbox' style='width:-10px' />*@
+
+
+                    <textarea rows="3" style="width:100%; height: 200px; " class="v_content" id="TPL_context" name="context"></textarea>
+
+
+                </td>
+                </tr>
+
+                <tr>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "active") </td>
+                    <td>
+                        <input id='TPL_active_flag0' name='active_flag' type='checkbox' value='1' />@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "yes")
+
+                        <input id='TPL_active_flag1' name='active_flag' type='checkbox' value='0' />@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "no")
+                    </td>
+                </tr>
+                <tr style="display:none;">
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "type") </td>
+                    <td>
+                        <select id='TPL_type' name='type' class="easyui-combobox" data-options="editable:false,hasDownArrow:false,panelHeight:90" style="width:100px;">
+                            <option value='1'>FAQ</option>
+                            <option value='2'>@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "framework")</option>
+                            <option value='3'>@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "code generator")</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+
+
+
+    </div>
+</div>
+<div style='display:none'>
+
+</div>

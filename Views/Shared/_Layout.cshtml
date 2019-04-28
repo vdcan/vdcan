@@ -1,0 +1,114 @@
+﻿@{
+    Layout = null;
+    ViewBag.EasyuiVersion = JTS.Utils.CookiesUtil.GetCookies("EasyuiVersion");
+    ViewBag.EasyuiTheme = JTS.Utils.CookiesUtil.GetCookies("EasyuiTheme");
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <!--加载共通CSS-->
+    <link href="/Content/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/css/btns/cssbtn.css" rel="stylesheet" />
+    <!--加载easyui CSS-->
+    @*<link href="/Scripts/03jeasyui/jquery-easyui-1.4.4/themes/default/easyui.css" rel="stylesheet" />
+    <link href="/Scripts/03jeasyui/jquery-easyui-1.4.4/themes/icon.css" rel="stylesheet" />*@
+    @*<link href="/Content/themes/default/style.css" rel="stylesheet" />*@
+
+    <link href="/content/themes/insdep/easyui.css" rel="stylesheet" type="text/css">
+    <link href="/content/themes/insdep/easyui_animation.css" rel="stylesheet" type="text/css">
+    <link href="/content/themes/insdep/easyui_plus.css" rel="stylesheet" type="text/css">
+    <link href="/content/themes/insdep/insdep_theme_default.css" rel="stylesheet" type="text/css">
+    <link href="/content/themes/insdep/icon.css" rel="stylesheet" type="text/css">
+    <!--加载easyui扩展图标库CSS-->
+    <link href="/Scripts/03jeasyui/icons/icon-all.css" rel="stylesheet" />
+
+    <link href="/Scripts/02jquery/ztree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link href="/Scripts/02jquery/jnotify/jquery.jnotify.css" rel="stylesheet" />
+    <link href="/Scripts/02jquery/showloading/showLoading.css" rel="stylesheet" type="text/css" />
+    <!--加载easyui脚本库-->
+    <script src="/Scripts/03jeasyui/jquery-easyui-1.4.4/jquery.min.js"></script>
+    <script src="/Scripts/03jeasyui/jquery-easyui-1.4.4/jquery.easyui.min.js"></script>
+    @*<script src="/Scripts/03jeasyui/jquery-easyui-1.4.4/locale/easyui-lang-zh_CN.js"></script>*@
+    <script src="/Scripts/03jeasyui/jquery-easyui-1.4.4/locale/easyui-lang-@Html.Raw(@ViewData["language"])_.js"></script>
+    <script src="/Scripts/03jeasyui/jeasyui_extend/jeasyui.@Html.Raw(@ViewData["language"])_extend.js?v="></script>
+    <script src="/Scripts/03jeasyui/jeasyui_extend/jeasyui.tabs.extend.js?v="></script>
+    <!--加载公共脚本库-->
+    <script src="/Scripts/01core/BaiduTemplate.js"></script>
+    <script src="/Scripts/01core/utils.js"></script>
+    <script src="/Scripts/01core/json2.min.js"></script>
+    @*<script src="/Scripts/02jquery/jquery.cookie.js"></script>*@
+    <script src="/Scripts/02jquery/jqext.yxz.js"></script>
+    <script src="/Scripts/02jquery/jqext.util.js"></script>
+    <script src="/Scripts/02jquery/layer/layer.js"></script>
+    <script src="/Scripts/02jquery/jnotify/jquery.jnotify.js"></script>
+    <script src="/Scripts/02jquery/showloading/jquery.showLoading.min.js"></script>
+    <script src="/Scripts/02jquery/ztree/js/jquery.ztree.all-3.5.min.js"></script>
+    <script src="~/Scripts/01core/common_@Html.Raw(@ViewData["language"])_.js?v="></script>
+    <script src="/Scripts/myutility.js"></script>
+    <script src="~/Scripts/01core/utils.js"></script>
+
+    @*<script src="/Scripts/jquery.radio.js"></script>
+    <script src="/Scripts/jquery.checkbox.js"></script>*@
+<link href="/Content/css/plugin_extend.css" rel="stylesheet" />
+    @RenderSection("head", required: false)
+</head>
+<body><style>
+
+    .table_content {
+        width: 100%;
+        background: #fff;
+        border: none;
+    }
+
+        .table_content td {
+            border-bottom: 1px solid #ccc;
+            padding: 5px;
+        }
+
+            .table_content td.td_title {
+                width: 90px;
+                text-align: center;
+                font-size: 12px;
+                font-weight: bold;
+                background: #fafafa;
+                border-right: 1px solid #ccc;
+            }
+
+    .textbox, .textbox-text {
+        border: none;
+        border-radius: 0px;
+        box-shadow: none;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .textbox-fucused {
+        box-shadow: none;
+    }
+
+</style>
+
+    @RenderBody()    
+
+    @RenderSection("scripts", required: false)
+ 
+
+    <script type="text/javascript">
+        var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        km.model = JSON.parse(model_string);
+        km.pageSize = 30;
+
+
+        var gDictionary = {
+            @MyUIHelper.GetJson((System.Data.DataTable)ViewData["dictionary"])
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+﻿@{
+    //------------------------------------------------------------------------------
+    //       时间： 2017-03-27 14:26:40
+    //       作者： 蔡捷
+    //
+    //       文件： Base_Action.cshtml 页面文件
+    //------------------------------------------------------------------------------
+    ViewBag.Title = "动作表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <style type="text/css">
+        #toolbar1, #toolbar2 {
+            border-bottom: none;
+        }
+
+        .table_content {
+            width: 100%;
+            background: #fff;
+            border: none;
+        }
+
+            .table_content td {
+                border-bottom: 1px solid #ccc;
+            }
+
+                .table_content td.td_title {
+                    width: 90px;
+                    text-align: center;
+                    font-size: 12px;
+                    font-weight: bold;
+                    background: #fafafa;
+                    border-right: 1px solid #ccc;
+                }
+
+        .textbox, .textbox-text {
+            border: none;
+            border-radius: 0px;
+            box-shadow: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .textbox-fucused {
+            box-shadow: none;
+        }
+    </style>
+}
+
+@section scripts{
+    @**@
+    <script src="~/Scripts/jquery.tmpl.min.js"></script>
+    <script src="~/Scripts/jquery.tmplPlus.min.js"></script>
+    <script src="~/Areas/sys/ViewJS/action.js?v=@ViewBag.ts"></script>
+    <script type="text/javascript">
+        @*var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        km.model = JSON.parse(model_string);
+
+        km.pageSize = 30;// @ViewBag.Settings["gridrows"];*@
+    </script>
+}
+@ViewData["vdtest"]
+<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
+    <div id="north_panel" data-options="region:'north',border:false">
+        <div id="km_toolbar" class="km_toolbar">
+
+        </div>
+
+        <div id="km_toolbar_2" class="km_toolbar" style="display:none">
+            <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")" onclick="km.toolbar.do_undo();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+            <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")" onclick="km.toolbar.do_save();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+        </div>
+
+    </div>
+
+
+    <div id="west_panel" data-options="region: 'west',title:'',border:true,split:true" style="width: 30%;border-bottom: none; border-left: none;  ">
+
+        <table id="Base_Menugrid"></table>
+    </div>
+
+    <div id="west_panel" data-options="region: 'center',title:'',border:true,split:true" style="width: 40%;border-bottom: none; border-left: none;  ">
+        <table id="Base_Actiongrid"></table>
+    </div>
+
+    <div id="main_panel" data-options="region: 'east',title:'',border:true" style="padding: 0px; border-bottom: none; width: 30%; ">
+        <form id="Base_Action_content" class="form_content" method="post">
+            <table class="table_content" cellpadding="3" cellspacing="0" border="0">
+                <input id='TPL_id' name='id' type='hidden' value='0' />
+                <tr><td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "menu id")</td> <td>  <input id='TPL_menu_code' data-options="" name='menu_code' type='text' class='easyui-textbox' style='width:250px' /></td></tr>
+                <tr>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "action name") </td>
+                    <td>
+                        <select id='TPL_action_url_name' name='action_url_name' class="easyui-combobox" data-options="editable:true,hasDownArrow:true,panelHeight:90" style="width:250px;">
+                            <option value='delete'>delete</option>
+                            <option value='add'>add</option>
+                            <option value='edit'>edit</option>
+                            <option value='pagelist'>pagelist</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "button name") </td>
+                    <td>
+                        <select id='TPL_button_name' name='button_name' class="easyui-combobox" url2='list_button' data-options="valueField:'id',textField:'text',editable:true,hasDownArrow:true,panelHeight:90" style="width:250px;"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "stored procedure name") </td>
+                    <td>
+                        <input id='TPL_procedure_name' name='procedure_name' class="easyui-combobox" url2="actionddl"
+                               data-options="valueField:'name',textField:'name',editable:true,hasDownArrow:true,panelHeight:190" style="width:250px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "action function") </td>
+                    <td>
+                        <select id='TPL_action_type' name='action_type' class="easyui-combobox" url2='list_action_type' data-options="valueField:'id',textField:'text',editable:true,hasDownArrow:true,panelHeight:90" style="width:250px;">
+                            @*<option value='pager'>Pager</option>
+                                <option value='runProc'>RunProc</option>
+                                <option value='ListDT'>ListDT</option>
+                                <option value='ListDS'>ListDS</option>
+
+                                <option value='pagerA'>Pager@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "anonymous")</option>
+                                <option value='runProcA'>RunPro@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "anonymous")c</option>
+                                <option value='ListDTA'>ListDT@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "anonymous")</option>
+                                <option value='ListDSA'>ListDS@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "anonymous")</option>
+
+                                <option value='ListDTVD'>ListDTVD</option>
+                                <option value='ListDSVD'>ListDSVD</option>*@
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "comments") </td>
+                    <td>
+                        <input style='width:300px;height:50px;' data-options="multiline:true" id='TPL_comments' name='comments' type='text' class='easyui-textbox' />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "need authorize") </td>
+                    <td>
+                        <select id='TPL_auth_flag' name='auth_flag' class="easyui-combobox" data-options="editable:false,hasDownArrow:true,panelHeight:90" style="width:250px;">
+                            <option value='1'>@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "need")</option>
+                            <option value='0'>@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "no need")</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "type")</td>
+                    <td>
+                        <select id='TPL_sql_type' name='sql_type' class="easyui-combobox" data-options="editable:true,hasDownArrow:true,panelHeight:90" style="width:250px;">
+                            <option value='sql'>sql</option>
+                            <option value='proc'>Procedure</option>
+                            <option value='procsql'>Procedure/sql</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "code_help") </td>
+                    <td>
+                        <div id="template">
+
+                        </div>
+                        <div id="code_div" style="height: 200px; width: 300px;"></div>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="td_title">SQL </td>
+                    <td>
+                        <input style='width:300px;height:50px;' data-options="multiline:true" id='TPL_sql' name='sql' type='text' class='easyui-textbox' />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_title">ConnStr </td>
+                    <td>
+
+                        <select id='TPL_conn_str' name='conn_str' class="easyui-combobox" data-options="editable:false,hasDownArrow:true,panelHeight:90" style="width:250px;">
+                            <option value='app'>app</option>
+                            <option value='sys'>sys</option>
+                        </select>
+
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,655 @@
+﻿@{
+    //------------------------------------------------------------------------------
+    //       时间： 2017-08-04
+    //       作者： 蔡捷
+    //
+    //       文件： xx_page.cshtml 页面文件
+    //------------------------------------------------------------------------------
+    ViewBag.Title = "页面";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <style type="text/css">
+        #toolbar1, #toolbar2 {
+            border-bottom: none;
+        }
+
+        .table_content {
+            width: 100%;
+            background: #fff;
+            border: none;
+        }
+
+            .table_content td {
+                border-bottom: 1px solid #ccc;
+            }
+
+                .table_content td.td_title {
+                    width: 90px;
+                    text-align: center;
+                    font-size: 12px;
+                    font-weight: bold;
+                    background: #fafafa;
+                    border-right: 1px solid #ccc;
+                }
+
+        .textbox, .textbox-text {
+            border: none;
+            border-radius: 0px;
+            box-shadow: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .textbox-fucused {
+            box-shadow: none;
+        }
+
+        .sub_page {
+            float: left;
+            padding: 5px;
+            clear: left;
+        }
+
+        .sub_page_title {
+            float: left;
+            width: 200px;
+            overflow: hidden;
+        }
+    </style>
+}
+
+@section scripts{
+
+    <script src="~/Scripts/03jeasyui/jeasyui_extend/datagrid-detailview.js"></script>
+    <script src="~/Areas/sys/ViewJS/page.js?v=@ViewBag.ts"></script>
+    <script type="text/javascript">
+        var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        km.model = JSON.parse(model_string);
+        var table_list = {"rows":@Html.Raw(ViewData["table_list"])};
+        var module_list = {"rows":@Html.Raw(ViewData["module_list"])};
+
+        km.pageSize =30;// @*@ViewBag.Settings["gridrows"];*@
+        var token = '@Html.Raw(ViewBag.token2)';
+        var menucode ='@ViewBag.Source'
+        var menucode_config ='@Html.Raw(ViewBag.Config)'
+        function formatItem(row){
+            var s = '<span style="font-weight:bold">' + row.text + '</span><br/>' +
+                    '<span style="color:#888">' + row.desc + '</span>';
+            return s;
+        }
+        var gcontroller =@Html.Raw(ViewData["controller"]);
+        var garea =@Html.Raw(ViewData["area"]);
+        var gController2=[];
+        function SetControllerList(){
+            var area_id = $("#TPL_controller_area").combobox("getValue")
+            console.log(area_id);
+            for(var i =0;i <garea.length;i++ ){
+                if(garea[i].text ==area_id)
+                    area_id = garea[i].id;
+            }
+            gController2=[];
+            for(var i =0;i <gcontroller.length;i++ ){
+                if(gcontroller[i].area_id ==area_id)
+                    gController2.push(gcontroller[i]);
+            }
+            $("#TPL_controller").combobox("loadData", gController2);   ;
+
+           // alert();
+        }
+    </script>
+}
+
+<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
+    <div id="north_panel" data-options="region:'north',border:false">
+        <div id="km_toolbar" class="km_toolbar">
+
+        </div>
+
+        <div id="km_toolbar_2" class="km_toolbar" style="display:none">
+            <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")" onclick="km.toolbar.do_undo();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+            <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")" onclick="km.toolbar.do_save();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+        </div>
+
+    </div>
+    <div id="west_panel" data-options="region: 'west',title:'',border:true,split:true" style="width: 30%;border-bottom: none; border-left: none;  ">
+
+        <table id="xx_pagegrid"></table>
+    </div>
+
+    <div id="main_panel" data-options="region: 'center',title:'',border:true" style="padding: 0px; border-bottom: none; ">
+        <div id="user_tabs" class="easyui-tabs" data-options="fit:true,border:false ">
+            <div id="north_panel" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "detail info")" data-options="region:'center',border:false">
+
+                <form id="xx_page_content" class="form_content" method="post">
+                    <table class="table_content" cellpadding="3" cellspacing="0" border="0">
+                        <input id='TPL_id' name='id' type='hidden' value='0' />
+                        <tr>
+                            <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "template id")</td>
+                            <td>
+                                <input id='TPL_template_id' url2='template_list' name='template_id' type='text' class='easyui-combobox' data-options="required:true,valueField:'id',textField:'text',editable:false,hasDownArrow:false,panelHeight:200,formatter: formatItem" style="width: 300px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "menu text")</td>
+                            <td>
+                                <input id='TPL_page_name' data-options="required:true" name='page_name' type='text' class='easyui-textbox' style='width:250px' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "menu text")</td>
+                            <td>
+                                <input id='TPL_page_name_text' data-options="required:true" name='page_name_text' type='text' class='easyui-textbox' style='width:250px' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "description")</td>
+                            <td>
+                                <input style='width:300px;height:200px;' data-options="multiline:true" id='TPL_description' name='description' type='text' class='easyui-textbox' />
+                            </td>
+                        </tr>
+                        @{
+                            if (ViewData["MenuCodeAlias"]== "" )
+                            {  
+                                
+                                 <tr>
+                            <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "parent menu") </td>
+                            <td>
+                                @*<input id='TPL_parent_menu_code' data-options="required:true" name='parent_menu_code' type='text' class='easyui-textbox' style='width:100px' />*@
+
+                                <input id="TPL_parent_menu_code" name="parent_menu_code" class="easyui-combotree" data-options="required:true,editable:false,hasDownArrow:false,value:''" style="width: 250px" />
+
+                            </td>
+                        </tr>
+                            
+                             <tr>
+                            <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "controller area")</td>
+                            <td>
+                                @*<input id='TPL_controller_area' data-options="required:true" name='controller_area' type='text' class='easyui-textbox' style='width:100px' />*@
+                                <input id="TPL_controller_area" name="controller_area" class="easyui-combobox" data-options="required:true,valueField:'text',textField:'text',editable:false,hasDownArrow:false,data:garea,onChange: function (n,o) {
+SetControllerList();
+                                       }" style="width: 250px" />
+                            </td>
+                        </tr>
+ 
+
+                        <tr>
+                            <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "controller")</td>
+                            <td>
+                                @*<input id='TPL_controller' data-options="required:true" name='controller' type='text' class='easyui-textbox' style='width:100px' />*@
+                                <input id="TPL_controller" name="controller" class="easyui-combobox" data-options="required:true,valueField:'text',textField:'text',editable:false,hasDownArrow:false,data:gController2" style="width: 250px" />
+                            </td>
+                        </tr>
+
+                            }
+                            else
+                            {
+                                    <tr style="display:none;">
+                            <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "parent menu")</td>
+                            <td>
+                                @*<input id='TPL_parent_menu_code' data-options="required:true" name='parent_menu_code' type='text' class='easyui-textbox' style='width:100px' />*@
+
+                                <input id="TPL_parent_menu_code" name="parent_menu_code" class="easyui-combotree" data-options="editable:false,hasDownArrow:false,value:''" style="width: 250px" />
+
+                            </td>
+                        </tr>
+                            
+                            
+                             <tr>
+                            <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "controller")</td>
+                            <td>
+                                @*<input id='TPL_controller_area' data-options="required:true" name='controller_area' type='text' class='easyui-textbox' style='width:100px' />*@
+                                <input id="TPL_controller_area" name="controller_area" class="easyui-combobox" data-options="required:true,valueField:'text',textField:'text',editable:false,hasDownArrow:false,data:garea,onChange: function (n,o) {
+SetControllerList();
+                                       }" style="width: 250px" />
+                            </td>
+                        </tr>
+
+
+    <tr style="display:none;">
+        <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "controller")</td>
+        <td>
+            @*<input id='TPL_controller' data-options="required:true" name='controller' type='text' class='easyui-textbox' style='width:100px' />*@
+            <input id="TPL_controller" name="controller" class="easyui-combobox" data-options="valueField:'text',textField:'text',editable:false,hasDownArrow:false,data:gController2" style="width: 250px" />
+        </td>
+    </tr>
+                            }
+}
+
+                     
+
+
+                       
+
+
+                    </table>
+                </form>
+
+
+            </div>
+
+
+
+            <div id="main-panel" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "module")" data-options="region: 'center',border:false">
+                <table id="xx_page_detailgrid"></table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="tbxx_page_detail" style="height:auto">
+    <a href="javascript:void(0)" id="my_edit" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="edit_xx_page_detailgrid()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "edit")</a>
+    <a href="javascript:void(0)" id="my_cancel" class="easyui-linkbutton" style="display:none" data-options="iconCls:'icon-undo',plain:true" onclick="reject_xx_page_detail()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")</a>
+
+
+    <a href="javascript:void(0)" id="my_add" style="display:none" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append_xx_page_detail()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "add")</a>
+    <a href="javascript:void(0)" id="my_remove" style="display:none" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit_xx_page_detail()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "delete")</a>
+    <a href="javascript:void(0)" id="my_save" style="display:none" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept_xx_page_detail()">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+   
+
+</div>
+
+
+
+
+<div id="tmp">
+</div>
+
+
+<div id="sub_page_dialog">
+    <div data-options="region: 'west',border:false">
+        <form id="page_info_content" class="form_content" method="post">
+            <input id='TPL_pid' name='id' type='hidden' value='0' />
+            <input id='TPL_pdid' name='pdid' type='hidden' value='0' />
+            <input id='TPL_parent_id' name='parent_id' type='hidden' value='0' />
+
+            <table class="table_content" cellspacing="0" border="0">
+                <tr>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "subpage name")</td>
+                    <td class="td_title">
+                        <input id='TPL_page_name' name='page_name' type='text' class='_easyui-textbox value' data-options="required: true,hidden:'true'" style='width:150px; display:none;' />
+
+                    </td>
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "subpage text")</td>
+                    <td class="td_title">
+                        <input id='TPL_page_name_text' name='page_name_text' type='text' class='_easyui-textbox value' data-options="required: true,hidden:'true'" style='width:150px; display:none;' />
+
+                    </td>
+
+                    <td class="td_title">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "table_name")</td>
+                    <td class="td_title">
+                        <input id='TPL_table_name' data-options=" valueField: 'text', textField: 'text', editable: true, hasDownArrow: true, panelHeight: 250,
+				            data: gtables,onSelect: function (data) {seleted_table(data) }, required: true" name='table_name' type='text' class='_easyui-combobox' style='width:200px' />
+
+                    </td>
+
+                    <td class="td_title">
+                        @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "template name")
+                    </td>
+                    <td class="td_title">
+                        <input id='TPL_module_id' data-options=" valueField: 'id', textField: 'text', editable: true, hasDownArrow: true, panelHeight: 250,
+				            data: gmodules, required: true" name='module_id' type='text' class='_easyui-combobox' style='width:250px' />
+
+
+                    </td>
+                    <td class="td_title">
+
+                        <a id="toolbar_save" href="javascript:void(0)" class="_easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")" onclick="save_sub_page();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "save")</a>
+                    </td>
+                </tr>
+
+
+            </table>
+        </form>
+        <div id="main-panel_search_xx_page_detail_config" title=" " data-options="region: 'south',border:false">
+            <div id="tipDiv" style="display:none"> &nbsp; </div>
+            <table id="xx_page_detail_configgrid"></table>
+        </div>
+
+        <script>
+            var gHTMLtype = [{ id: 'textbox', text: 'textbox' }, { id: 'textarea', text: 'textarea' }, { id: 'combobox', text: 'combobox' }, { id: 'datebox', text: 'datebox' }, { id: 'checkbox', text: 'checkbox' }, { id: 'radio', text: 'radio' }];
+
+            var galias_columns = [];
+            var gparent_id =0;
+            var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+            model = JSON.parse(model_string);
+            var gtables =  @Html.Raw(ViewData["table_list"]);
+            var gmodules  =  @Html.Raw(ViewData["module_list"]);
+
+            var  gvalidation=  @Html.Raw(ViewData["validation"]);
+
+            function seleted_table(d){
+                console.log("select");
+            }
+            function  save_sub_page(){
+                //update_sub
+
+                // gw.find("#TPL_pid").val( 34);
+                var j =  gw.find("#page_info_content").serializeJson();
+
+                j._t= com.settings.timestamp()  ;
+                if(gparent_id >0)
+                    j.parent_id = gparent_id;
+                console.log(j);
+                //xx_page_detail_configgrid.LoadData();
+                //return;
+                com.ajax({
+                    url: model.urls["update_sub"], data: j, success: function (result) {
+                        console.log(result);
+                        if(result.length >0){
+                            gw.find("#TPL_pid").val( result[0].pid);
+                            gw.find("#TPL_pdid").val( result[0].pdid);
+                            xx_page_detail_configgrid.LoadData();
+                        }
+                    }
+                });
+
+                //options.url = km.model.urls["update_sub"];
+                //$('#test_user').datagrid(options);
+
+
+            }
+
+            var gw={};
+            function g_page_detail_id(){
+                return gw.find("#TPL_pdid").val(  );
+            }
+            //  pager
+            function LoadPageData(parent_id, id){
+
+                gparent_id = parent_id;
+
+                if(parent_id <0){
+                    $("#page_info_content").hide();
+                }else{
+
+                    $("#page_info_content").show();
+                }
+                if(id>0)
+                {
+
+                    var j ={_t: com.settings.timestamp(),
+                        pid:id,
+                        parent_id:  parent_id
+                    }
+                    com.ajax({
+                        url: model.urls["page_data"], data: j, success: function (result) {
+                            result[0].page_name = result[0].class_name;
+                            gw.find('#page_info_content').form('load',result[0]);
+                            xx_page_detail_configgrid.LoadData();
+                        }
+                    });
+
+                }
+
+            }
+            xx_page_detail_configgrid = {
+                jq: null,
+                LoadData: function ( ) {
+                    var options =gw.find("#xx_page_detail_configgrid").datagrid('options')
+                    options.queryParams={_t: com.settings.timestamp(),
+                        page_detail_id:g_page_detail_id(),};
+                    options.url = model.urls["pagelist_popup"];
+                    gw.find("#xx_page_detail_configgrid").datagrid(options);
+
+                },
+                init: function (win) {
+
+                    gw = win;
+                    // console.log(parent_id);
+                    this.jq = gw.find("#xx_page_detail_configgrid").datagrid({
+                        fit: false, border: false, singleSelect: true, rownumbers: true, remotesort: true, cache: false, method: 'get', idField: 'id',
+                        height: 440,
+
+                        toolbar:"#tipDiv",
+
+                        //   queryParams: { _t: com.settings.timestamp(), keyword: "", page_detail_id: gID },
+                        //url: km.model.urls["pagelist"],
+                        pagination: true, pageList: [5, 10, 15, 20, 30, 50, 100], pageSize: 20, onClickRow: onClickRow_xx_page_detail_config, fitColumns: true,
+                        //toolbar: '#tbxx_page_detail_config',
+                        columns: [[{ field: 'column_name', title: '@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "column name")', width: 250, align: 'left', sortable: true },
+
+                      { field: 'col_alias', title: '@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "alias name")', width: 280, align: 'left', sortable: true, editor: { type: 'textbox', options: {} } },
+                                          //   { field: 'id', title: '@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "id")', width: 80, align: 'center', sortable: true },
+                                      { field: 'column_caption', title: '@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "title")', width: 280, align: 'left', sortable: true, editor: { type: 'textbox', options: {} } },
+
+                                      //{ field: 'column_description', title: '@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "description")', width: 280, align: 'left', sortable: true, editor: { type: 'textbox', options: {} } },
+
+
+                                             //   { field: 'id', title: '@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "id")', width: 80, align: 'center', sortable: true },
+
+
+                                      //    { field: 'page_detail_id', title: '@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "detail")', width: 50, align: 'center', sortable: true, editor: { type: 'textbox', options: {} } },
+            {
+                field: 'is_show', title: '<input    type="checkbox"/>s', width: 60, align: 'center', sortable: false, formatter: function (value, row, index) {
+                    var str = '';
+                    if (value == 1)
+                        str = '<input disable=true checked type="checkbox"/>'
+                    else
+                        str = '<input  disable=true type="checkbox"/>';
+                    return str;
+                }, editor: { type: 'checkbox', options: { on: '1', off: '0' } }
+            }, {
+                field: 'is_insert', title: '<input    type="checkbox"/>i', width: 60, align: 'center', sortable: false, formatter: function (value, row, index) {
+                    var str = '';
+                    if (value == 1)
+                        str = '<input disable=true checked type="checkbox"/>'
+                    else
+                        str = '<input  disable=true type="checkbox"/>';
+                    return str;
+                }, editor: { type: 'checkbox', options: { on: '1', off: '0' } }
+            },
+                                        {
+                                            field: 'is_update', title: '<input  onclick="ClickMe(1,this )"  type="checkbox"/>u', width: 60, align: 'center', sortable: false, formatter: function (value, row, index) {
+                                                var str = '';
+                                                if (value == 1)
+                                                    str = '<input name="cu" disable=true checked type="checkbox"/>'
+                                                else
+                                                    str = '<input  name="cu" disable=true type="checkbox"/>';
+                                                return str;
+                                            }, editor: { type: 'checkbox', options: { on: '1', off: '0' } }
+                                        },
+
+                                        {
+                                            field: 'is_where', title: '<input    type="checkbox"/>w', width: 60, align: 'center', sortable: false, formatter: function (value, row, index) {
+                                                var str = '';
+                                                if (value == 1)
+                                                    str = '<input disable=true checked type="checkbox"/>'
+                                                else
+                                                    str = '<input  disable=true type="checkbox"/>';
+                                                return str;
+                                            }, editor: { type: 'checkbox', options: { on: '1', off: '0' } }
+                                        },
+
+
+
+
+                                      { field: 'data', title: '@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "specifiction")', width: 180, align: 'left', sortable: true, editor: { type: 'textbox', options: {} } },
+
+
+                                      { field: 'valid', title: '@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "validation")', width: 280, align: 'left', sortable: true,
+                                          editor: {
+                                              type: 'combobox',
+                                              options: {
+                                                  valueField: 'id', textField: 'text', editable: true, hasDownArrow: true, panelHeight: 200, multiple: true,
+                                                  data: gvalidation
+                                              }
+
+
+                                          }
+                                      },
+
+
+
+                                          { field: 'column_length', title: '@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "length")', width: 50, align: 'center', sortable: true, editor: { type: 'textbox', options: {} } },
+
+
+                                            {
+                                                field: 'html_type', title: 'html @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "type")', width: 120, align: 'center', sortable: true, formatter: function (value, row) {
+                                                    return value;
+                                                },
+                                                editor: {
+                                                    type: 'combobox',
+                                                    options: {
+                                                        valueField: 'id', textField: 'text', editable: false, hasDownArrow: false, panelHeight: 90, data: gHTMLtype
+                                                    }
+                                                }
+                                            },
+
+
+                                          { field: 'static_value', title: '@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "static data")', width: 250, align: 'center', sortable: true, editor: { type: 'textbox', options: {} } },
+
+
+
+
+
+                        ]],
+                        onLoadSuccess: function (data) {
+                            var tmp =','+ data.footer[0].files_text+',';
+
+                            if (tmp.indexOf("]") > 0)
+                                galias_columns = tmp.split(']')[1].split(',');
+
+                            tmp = tmp.replaceAll("]", ',]')
+                            if (tmp.indexOf(",s,") < 0)
+                                gw.find('#xx_page_detail_configgrid').datagrid('hideColumn', 'is_show');
+                            else
+                                gw.find('#xx_page_detail_configgrid').datagrid('showColumn', 'is_show');
+
+
+                            if (tmp.indexOf(",u,") < 0)
+                                gw.find('#xx_page_detail_configgrid').datagrid('hideColumn', 'is_update');
+                            else
+                                gw.find('#xx_page_detail_configgrid').datagrid('showColumn', 'is_update');
+
+
+                            if (tmp.indexOf(",i,") < 0)
+                                gw.find('#xx_page_detail_configgrid').datagrid('hideColumn', 'is_insert');
+                            else
+                                gw.find('#xx_page_detail_configgrid').datagrid('showColumn', 'is_insert');
+
+                            if (tmp.indexOf(",w,") < 0)
+                                gw.find('#xx_page_detail_configgrid').datagrid('hideColumn', 'is_where');
+                            else
+                                gw.find('#xx_page_detail_configgrid').datagrid('showColumn', 'is_where');
+
+                            var tmpstr ="";
+
+                            tmpstr = galias_columns.join();
+                            $("#tipDiv").html("");
+                            if(tmpstr!=","){
+                                $("#tipDiv").html("@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "need alias") "+tmpstr);
+                            }
+
+                        }
+                    });//end grid init
+                },
+                reload: function (queryParams) {
+
+                },
+                getSelectedRow: function () { return this.jq.datagrid('getSelected'); }
+            };
+            var lastIndex = 0;
+            var editIndexxx_page_detail_config = undefined;
+            function endEditing() {
+                if (editIndexxx_page_detail_config == undefined) { return true }
+                if ( gw.find('#xx_page_detail_configgrid').datagrid('validateRow', editIndexxx_page_detail_config)) {
+
+                    gw.find('#xx_page_detail_configgrid').datagrid('endEdit', editIndexxx_page_detail_config);
+
+
+                    editIndexxx_page_detail_config = undefined;
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            function onClickRow_xx_page_detail_config(index) {
+                lastIndex = index;
+                if (editIndexxx_page_detail_config != index) {
+                    if (endEditing()) {
+                        gw.find('#xx_page_detail_configgrid').datagrid('selectRow', index)
+                                .datagrid('beginEdit', index);
+                        editIndexxx_page_detail_config = index;
+                    } else {
+                        gw.find('#xx_page_detail_configgrid').datagrid('selectRow', editIndexxx_page_detail_config);
+                    }
+                }
+            }
+            function append_xx_page_detail_config() {
+                if (endEditing()) {
+                    gw.find('#xx_page_detail_configgrid').datagrid('appendRow', { status: 'P' });
+                    editIndexxx_page_detail_config = $('#xx_page_detail_configgrid').datagrid('getRows').length - 1;
+                    gw.find('#xx_page_detail_configgrid').datagrid('selectRow', editIndexxx_page_detail_config)
+                            .datagrid('beginEdit', editIndexxx_page_detail_config);
+                }
+            }
+          
+            function accept_xx_page_detail_config() {
+                if (endEditing()) {
+
+
+
+
+
+                    var alldata = gw.find("#xx_page_detail_configgrid").datagrid('getData');
+                    var alias = ","
+                    console.log(alldata);
+                    for (var i = 0; i < alldata.rows.length; i++) {
+                        if (alias.indexOf("," + alldata.rows[i].col_alias + ",") >= 0) {
+                            com.message('s', ' @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "alias")' + alldata.rows[i].col_alias + '@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "repeated")');
+                            return false;
+                        }
+                        if(alldata.rows[i].is_show==1)
+                            alias =alias+ alldata.rows[i].col_alias + ",";
+                    }
+                    console.log(galias_columns);
+                    for (var i = 0; i < galias_columns.length; i++) {
+                        if (galias_columns[i]!="")
+                            if (alias.indexOf("," + galias_columns[i] + ",") < 0) {
+                                com.message('s', "@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "alias") " + galias_columns[i]+" @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "undefined")");
+                                return false;
+                            }
+                    }
+
+                    if (gw.find("#xx_page_detail_configgrid").datagrid('getChanges').length) {
+                       
+                        var updated = gw.find("#xx_page_detail_configgrid").datagrid('getChanges', "updated");
+
+                        if (updated.length == 0)
+                            return;
+
+                        //  alert(updated.length);
+
+                        console.log(updated);
+                        for (var i = 0; i < updated.length; i++) {
+
+
+                            var jsonStr = JSON.stringify(updated[i]);
+
+                            com.ajax({
+                                type: 'POST', url:  model.urls["edit_popup"], data: jsonStr, success: function (result) {
+                                    //     AfterEdit(result);
+                                    if (result.s) {
+                                        com.message('s', result.message);
+                                    }
+                                    //  km.xx_page_detail_configgrid.reload();
+                                }
+                            });
+                        }
+
+                        return true;
+
+                    }
+
+                    gw.find('#xx_page_detail_configgrid').datagrid('acceptChanges');
+                }
+                return true;
+            }
+            
+        </script>
+    </div>
+
+
+</div>

@@ -1,0 +1,210 @@
+﻿@{
+    //------------------------------------------------------------------------------
+    //       时间： 2018-04-12
+    //       作者： fdsaf
+    //			 				手机1
+    //       文件： m_test1.cshtml 页面文件
+    //------------------------------------------------------------------------------
+
+    ViewBag.Title = "手机1";
+    Layout = "~/Views/Shared/_Layout_mobile.cshtml";
+}
+@section head{
+    <style type="text/css">
+    </style>
+}
+
+@section scripts{
+    <script src="~/Areas/dev/ViewJS/m_test1.js?v=@ViewBag.ts"></script>
+
+
+
+}
+
+<script>
+
+    function goBack() {
+        // history.back();
+        window.history.go(-1);
+    }
+    /*  function pp() {
+         $$.popup('.popup-about');
+      } */
+
+    //$(document).on('open', '.panel-right_my_user', function () {
+    //    console.log('Services Popup is opening')
+    //});
+
+
+</script>
+
+<div class="page-group">
+    <div id="page-ISB" class="page">
+        <header class="bar bar-nav">
+            <a class="button button-link button-nav pull-left back" href="javascript:goBack()">
+                <span class="icon icon-left"></span>
+                返回
+            </a>  <h1 class="title">手机1</h1>
+
+            <a class="button button-link button-nav pull-right  ">
+                <span class="icon icon-menu"></span>
+                刷新
+            </a>
+
+        </header>
+        <!-- 添加 class infinite-scroll 和 data-distance  向下无限滚动可不加ISB类，这里加上是为了和下面的向上无限滚动区分-->
+
+
+
+
+
+        <div class="list-block">
+
+            <script id="template_my_user" type="text/x-jquery-tmpl">
+                {{each(i,t) Table}}
+                <li>
+                    <a class="item-link item-content  open-panel" onclick="Open({{= i }})">
+                        <div class="item-inner">
+                            <div class="item-title">{{= t.text}}</div>
+                        </div>
+                    </a>
+                </li>
+                {{/each}}
+            </script>
+
+            <div class="content infinite-scroll" id="ISB_my_user" data-distance="100">
+                <div class="list-block">
+                    <ul id="LC_my_user"></ul>
+                </div>
+                <!-- 加载提示符 -->
+                <div id="ISP_my_user">
+                    <div class="preloader"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="panel-overlay"></div>
+
+
+
+
+    <div class="panel panel-right panel-right_my_user panel-cover" style="width: 90%">
+        <div class="content-block" style="">
+
+
+
+            <form id="my_user_content">
+                <div class="list-block">
+                    <ul>
+
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">创建人 </div>
+                                    <div class="item-input">
+
+
+                                        <input id='TPL_add_by' data-options="" name='add_by' type='text' class='_easyui-textbox' />
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">创建日期 </div>
+                                    <div class="item-input">
+
+
+                                        <input id='TPL_add_on' data-options="" name='add_on' type='text' class='_easyui-textbox' />
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">部门编号 </div>
+                                    <div class="item-input">
+
+
+                                        <input id='TPL_department_id' data-options="" name='department_id' type='text' class='_easyui-textbox' />
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">email </div>
+                                    <div class="item-input">
+
+
+                                        <input id='TPL_email' data-options="" name='email' type='text' class='_easyui-textbox' />
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <input id='TPL_id' name='id' type='hidden' value='0' />
+
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">姓名 </div>
+                                    <div class="item-input">
+
+
+                                        <input id='TPL_name' data-options="" name='name' type='text' class='_easyui-textbox' />
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">口令 </div>
+                                    <div class="item-input">
+
+
+                                        <input id='TPL_password' data-options="" name='password' type='text' class='_easyui-textbox' />
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">用户名 </div>
+                                    <div class="item-input">
+
+
+                                        <input id='TPL_user_name' data-options="" name='user_name' type='text' class='_easyui-textbox' />
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+            </form>
+            <div class="content-block">
+                <div class="row">
+                    <div class="col-50"><a href="#" class="button button-big button-fill button-danger">取消</a></div>
+                    <div class="col-50"><a href="#" class="button button-big button-fill button-success">提交</a></div>
+                </div>
+            </div>
+        </div>
+        <p><a href="#" class="close-panel">关闭</a></p>
+    </div>
+
+</div>
