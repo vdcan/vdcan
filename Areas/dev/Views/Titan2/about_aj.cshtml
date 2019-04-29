@@ -134,24 +134,31 @@ Alternatively, we can navigate programmatically using the Router service:
             <button class="btn btn-info" ng-click="pop()">Show a Toaster</button>
 
         </div>*@ 
-  
+    <div ng-controller="MainCtrl2"> 
 
+        <input type="button" ng-click="test()" value="test">
+    </div>
 
+    @* <br />
+
+               <br />
+
+               <br />
+               <div ng-click="toDetails(11)"> event </div>
+            <a ui-sref="about_aj({id:235})"> <span>about aj</span> </a>
+        <a href="javascript:goProducts()">goProducts</a>*@
     <div class="wrapper-md" ng-controller="MyLogCtrl">
-        <div  >
+        <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+        <input type="text" ng-model="row.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+        <input type="text" ng-model="row.action_data" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+        <input type="text" ng-model="row.ip" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change='ipchanged()' value="">
+        <input type="text" ng-model="row.menu_code" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
 
-            <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-            <input type="text" ng-model="row.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-            <input type="text" ng-model="row.action_data" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-            <input type="text" ng-model="row.ip" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change='ipchanged()' value="">
-            <input type="text" ng-model="row.menu_code" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-
-            <input type="button" ng-click="toDetails(22)" value="toResult">
-            <input type="button" ng-click="update()" value="update">
-            <input type="button" ng-click="insert()" value="insert">
-            <input type="button" ng-click="delete()" value="delete">
-            <div  > hello{{row.id}}</div>
-        </div>
+        <input type="button" ng-click="toDetails(22)" value="toResult">
+        <input type="button" ng-click="update()" value="update">
+        <input type="button" ng-click="insert()" value="insert">
+        <input type="button" ng-click="delete()" value="delete">
+        <div class="tmpHide"> hello{{row.id}}</div>
         <div class="panel panel-default">
             <div class="panel-heading">
                 uiGrid

@@ -3,63 +3,26 @@ km.model = null;
 km.init = function () { 
 }
 
+var counter = 0;
+app.controller('MainCtrl2', [
+    '$scope', '$rootScope', '$http', '$modal', function ($scope, $rootScope, $http, $modal) { 
+$rootScope.$broadcast("destory"); 
+        $scope.test = function () {
+            console.log(angular.isDefined('MyLogCtrl243214'));
+        $rootScope.$broadcast("test"); 
 
+    }; 
 
-//for other controllers to listen the selected row changed. 
-//app.controller('MainCtrl', ['$scope', '$state', '$stateParams', '$rootScope', 'ControllerChecker',
-    //function ($scope, $state, $stateParams, $rootScope, ControllerChecker) {
-
-    //    console.log(ControllerChecker.exists('MyLogCtrl'));
-
-    //var id = $stateParams.id;
-    //var number = $stateParams.number;
-    //console.log(id);
-    //console.log(number);
-    //id++;
-    ////console.log($scope);
-    //$scope.toDetails = function (product_id) {
-    //    //   console.log(product_id);
-    //    $state.go('app.about_aj', { id: id, number: 2 })
-    //};
-    //$scope.row = {};// = {id:43124};
-    ////$scope.row_original = {};// = {id:43124};
-    //$rootScope.$on("MyLogSelectedRowChanged", function (event, row, ids, paginationOptions) {
-    //    $scope.row = Object.assign({}, row);
-    //    $(".tmpHide").removeClass("tmpHide");
-    //});
-    //$scope.insert = function () {
-    //    $rootScope.$broadcast("MyLogInsert", $scope.row);
-    //};
-    //$scope.delete = function (id) {
-    //    $rootScope.$broadcast("MyLogDelete", $scope.row.id, $scope.row.id);
-    //};
-    //$scope.update = function () {
-    //    $rootScope.$broadcast("MyLogUpdate", $scope.row);
-    //};
-    ////$scope.$watch("row.ip", function (newValue, oldValue) {
-    ////    console.log("$watch:"+newValue); 
-    ////});
-
-    //$scope.ipchanged = function () {
-    //    console.log("ipchanged:" + $scope.row.ip);
-    //}
-
-//}
-//]);
+    }]);
  
 
-
-
 app.controller('MyLogCtrl', [
-    '$scope', '$rootScope', '$http', '$modal', 'ControllerChecker', function ($scope, $rootScope, $http, $modal, ControllerChecker) {
-     
-      //  console.log($controller.exists('TestController') ? 'Exists' : 'Does not exist');
-      //  console.log($controller);
-
+    '$scope', '$rootScope', '$http', '$modal', function ($scope, $rootScope, $http, $modal) {
         $scope.SelectedRow = {};//for getting row detail
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
+        var destory = false;
 
         $rootScope.$on("MyLogUpdate", function (event, row) {
             updateData(row)
@@ -67,15 +30,25 @@ app.controller('MyLogCtrl', [
         $rootScope.$on("MyLogInsert", function (event, row) {
             insertData(row);
         });
+        $rootScope.$on("destory", function (event, row) {
+            destory = true;
+        });
         $rootScope.$on("MyLogDelete", function (event, id, text) {
             deleteIt(id, text)
+        });
+        $rootScope.$on("test", function (event, id, text) {
+            if (!destory) {
+            console.log("test" + counter);
+            counter++;
+
+            }
         });
 
         $scope.insert = function () {
             insertData($scope.row);
         };
         $scope.delete = function () {
-            deleteIt($scope.row.id, $scope.row.ip);
+            deleteIt($scope.row.id, $scope.row.id);
         };
         $scope.update = function () {
             updateData($scope.row);
@@ -100,6 +73,8 @@ app.controller('MyLogCtrl', [
             });
         }
         afterInsert = function (row) {
+
+            $scope.gridOptions.totalItems = $scope.gridOptions.totalItems + 1;
             $scope.gridOptions.data.unshift(row);
             $scope.gridOptions.data.splice($scope.gridOptions.data.length - 1, 1);
             $scope.gridApi.grid.modifyRows($scope.gridOptions.data);
@@ -138,7 +113,13 @@ app.controller('MyLogCtrl', [
             });
         }
         afterDelete = function (row) {
-            $scope.gridOptions.data.push(row);
+            //console.log($scope.gridOptions.totalItems);
+            //console.log((paginationOptions.pageNumber - 1) * paginationOptions.pageSize + $scope.selectedRowIndex+1)
+            if ($scope.gridOptions.totalItems > (paginationOptions.pageNumber ) * paginationOptions.pageSize  ) {
+                $scope.gridOptions.data.push(row);
+
+            }
+            $scope.gridOptions.totalItems = $scope.gridOptions.totalItems - 1;
             $scope.gridOptions.data.splice($scope.selectedRowIndex, 1);
             $scope.gridApi.grid.modifyRows($scope.gridOptions.data);
             $scope.gridApi.selection.selectRow($scope.gridOptions.data[0]);
@@ -167,7 +148,7 @@ app.controller('MyLogCtrl', [
             $scope.gridApi.core.refresh();
         }
         $scope.sync = function () {
-            $rootScope.$broadcast("MyLogSelectedRowChanged", $scope.SelectedRow.entity, $scope.ids, paginationOptions);
+            $rootScope.$broadcast("MyLogSelectedRowChanged");
         };
         var paginationOptions = {
             pageNumber: 1,
@@ -185,12 +166,12 @@ app.controller('MyLogCtrl', [
             enableRowHeaderSelection: false,
             columnDefs:
                 [
+                    { field: 'id', displayName: 'id', width: 80, align: 'center' },
                     { field: 'action', displayName: 'action', width: 80, align: 'center' },
-                    { field: 'add_by', displayName: 'add_by', width: 80, align: 'center' },
                     { field: 'action_data', displayName: 'action_data', width: "*", align: 'center' },
+                    { field: 'add_by', displayName: 'add_by', width: 80, align: 'center' },
                     { field: 'add_on', displayName: 'add_on', width: 80, align: 'center' },
                     { field: 'app_code', displayName: 'app_code', width: 80, align: 'center' },
-                    { field: 'id', displayName: 'id', width: 80, align: 'center' },
                     { field: 'ip', displayName: 'ip', width: 80, align: 'center' },
                     { field: 'menu_code', displayName: 'menu_code', width: 80, align: 'center' },
                 ],
@@ -200,7 +181,9 @@ app.controller('MyLogCtrl', [
                     if (sortColumns.length == 0) {
                         paginationOptions.sort = "";
                     } else {
-                        paginationOptions.sort = sortColumns[0].sort.direction;
+                        paginationOptions.order = sortColumns[0].sort.direction;
+                        paginationOptions.sort = sortColumns[0].field;
+                        console.log(sortColumns);
                     }
                     getPage();
                 });
@@ -214,9 +197,11 @@ app.controller('MyLogCtrl', [
                     $scope.SelectedRow = row;
                     $scope.row = Object.assign({}, row.entity);
                     $scope.selectedRowIndex = $scope.gridOptions.data.indexOf(row.entity);
-
-                    console.log($scope.row);
                     $scope.sync();
+
+
+
+
                 });
                 gridApi.selection.on.rowSelectionChangedBatch($scope, function (rows) {
                     // var msg = 'rows changed ' + rows.length;
@@ -254,7 +239,9 @@ app.controller('MyLogCtrl', [
 
         getPage();
     }
-]);
+]);  
+ 
+
 
 
 
