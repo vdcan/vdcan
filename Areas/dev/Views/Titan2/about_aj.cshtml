@@ -159,6 +159,17 @@ Alternatively, we can navigate programmatically using the Router service:
         <input type="button" ng-click="insert()" value="insert">
         <input type="button" ng-click="delete()" value="delete">
         <div class="tmpHide"> hello{{row.id}}</div>
+
+        @*<div id="grid1" ui-grid="gridOptions" class="myGrid"></div>
+        <div style="width:700px">
+            <uib-alert ng-repeat="alert in alerts"
+                       type="{{alert.type}}"
+                       dismiss-on-timeout="5000"
+                       close="alerts.splice($index, 1);">
+                {{alert.msg}}
+            </uib-alert>
+        </div>*@
+
         <div class="panel panel-default">
             <div class="panel-heading">
                 uiGrid
