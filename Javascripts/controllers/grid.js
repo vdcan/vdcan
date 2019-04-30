@@ -23,9 +23,7 @@ app.controller('MyLogCtrl', [
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
-
-
-
+        var editType = "";
 
         $scope.$on('$destroy', function () {
             console.log('Child1 is no longer necessary');
@@ -38,10 +36,21 @@ app.controller('MyLogCtrl', [
 
 
         $scope.InsertRow = function () {
+
+            editType = "i";
+            var row = copyEmptyObject($scope.row);
+            row.editrow = true;
+            $scope.gridOptions.data.unshift(row);
+            $scope.gridApi.grid.modifyRows($scope.gridOptions.data);
+             $scope.gridApi.selection.selectRow($scope.gridOptions.data[0]);
+            $scope.gridApi.core.refresh();
+            GetIDS();
             console.log("InsertRow");
         }
-        $scope.editRow = function (row) { 
+        $scope.editRow = function (row) {
+            editType = "u";
             var index = $scope.gridOptions.data.indexOf(row);
+            $scope.row = Object.assign({}, row); 
             //Use that to set the editrow attrbute value for seleted rows
             $scope.gridOptions.data[index].editrow = !$scope.gridOptions.data[index].editrow; 
         };
@@ -49,17 +58,29 @@ app.controller('MyLogCtrl', [
         $scope.saveRow = function (row) { 
             var index = $scope.gridOptions.data.indexOf(row);
             //Use that to set the editrow attrbute value for seleted rows
-            $scope.gridOptions.data[index].editrow = !$scope.gridOptions.data[index].editrow;
-        //    console.log(row);
-            updateData(row);
+            $scope.gridOptions.data[index].editrow = !$scope.gridOptions.data[index].editrow; 
+            if (editType == "u")
+                updateData(row);
+            if (editType == "i"){
+                insertData(row);
+            }
         };
         //Method to cancel the edit mode in UIGrid
         $scope.cancelEdit = function (row) {
             //Get the index of selected row from row object
-            var index = $scope.gridOptions.data.indexOf(row);
+            var index = $scope.gridOptions.data.indexOf(row);  
+            if (editType == "i") {
+                $scope.gridOptions.data.splice(0, 1);
+            }
+            if (editType == "u") {
+              //  $scope.gridOptions.data.splice(0, 1);
+                var keys = Object.keys($scope.row);
+                keys.forEach(function (k) {
+                    $scope.gridOptions.data[index][k] =   $scope.row[k];
+                }); 
             //Use that to set the editrow attrbute value to false
-            $scope.gridOptions.data[index].editrow = false;
-            //Display Successfull message after save 
+                $scope.gridOptions.data[index].editrow = false; 
+            } 
 
             $rootScope.$broadcast("SysToaster", 'info', "", "Row editing cancelled");
         };
@@ -107,11 +128,15 @@ app.controller('MyLogCtrl', [
         }
         afterInsert = function (row) {
 
+            if (editType == "i") {
+                $scope.gridOptions.data.splice(0, 1);
+            }
+
             if ($scope.gridOptions.totalItems >= (paginationOptions.pageNumber) * paginationOptions.pageSize) {
                 $scope.gridOptions.data.splice($scope.gridOptions.data.length - 1, 1);
 
             }
-
+            editType = "";
             $scope.gridOptions.data.unshift(row);
             $scope.gridApi.grid.modifyRows($scope.gridOptions.data);
             $scope.gridApi.selection.selectRow($scope.gridOptions.data[0]);
@@ -178,6 +203,7 @@ app.controller('MyLogCtrl', [
             });
         }
         afterUpdate = function () {
+            editType = "";
             console.log($scope.SelectedRow);
             $scope.gridApi.core.refresh();
         }
@@ -310,7 +336,16 @@ app.controller('MyLogCtrl', [
     }
 ]);
 
-
+function copyEmptyObject(source, isArray) {
+    var o = Array.isArray(source) ? [] : {};
+    for (var key in source) {
+        if (source.hasOwnProperty(key)) {
+            var t = typeof source[key];
+            o[key] = t == 'object' ? skeleton(source[key]) : { string: '', number: 0, boolean: false }[t];
+        }
+    }
+    return o;
+}
 /*
 //var app = angular.module('app', ['ui.grid', 'ui.bootstrap']);
 
