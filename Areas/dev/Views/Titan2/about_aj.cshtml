@@ -45,8 +45,9 @@
     sidebar {
         float: left;
     }
-    .tmpHide{
-        display:none;
+
+    .tmpHide {
+        display: none;
     }
 </style>
 
@@ -65,11 +66,11 @@
 
 @*<a [routerLink]="['product-list']" [queryParams]="{ page: 99 }">Go to Page 99</a>
 
-Alternatively, we can navigate programmatically using the Router service:
+    Alternatively, we can navigate programmatically using the Router service:
 
-  goToPage(pageNum) {
-    this.router.navigate(['/product-list'], { queryParams: { page: pageNum } });
-  }*@
+      goToPage(pageNum) {
+        this.router.navigate(['/product-list'], { queryParams: { page: pageNum } });
+      }*@
 
 
 <body>
@@ -133,8 +134,8 @@ Alternatively, we can navigate programmatically using the Router service:
 
             <button class="btn btn-info" ng-click="pop()">Show a Toaster</button>
 
-        </div>*@ 
-    <div ng-controller="MainCtrl2"> 
+        </div>*@
+    <div ng-controller="MainCtrl2">
 
         <input type="button" ng-click="test()" value="test">
     </div>
@@ -161,20 +162,23 @@ Alternatively, we can navigate programmatically using the Router service:
         <div class="tmpHide"> hello{{row.id}}</div>
 
         @*<div id="grid1" ui-grid="gridOptions" class="myGrid"></div>
-        <div style="width:700px">
-            <uib-alert ng-repeat="alert in alerts"
-                       type="{{alert.type}}"
-                       dismiss-on-timeout="5000"
-                       close="alerts.splice($index, 1);">
-                {{alert.msg}}
-            </uib-alert>
-        </div>*@
+            <div style="width:700px">
+                <uib-alert ng-repeat="alert in alerts"
+                           type="{{alert.type}}"
+                           dismiss-on-timeout="5000"
+                           close="alerts.splice($index, 1);">
+                    {{alert.msg}}
+                </uib-alert>
+            </div>*@
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                uiGrid
+                uiGrid <div style="float:right;">
+    <button  class="btn primary" ng-click="InsertRow()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+                 
+</div> 
             </div>
-            <div class="table-responsive">
+            <div class="table-responsive"  >
                 <div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
             </div>
         </div>
