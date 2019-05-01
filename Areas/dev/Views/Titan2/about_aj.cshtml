@@ -252,10 +252,19 @@
         </span>*@
 
         <div class="panel panel-default">
+            @*
+        <div ng-controller="ModalCtrl">
+            <button class="btn btn-info" ng-click="open()" style="margin: 15px;">Open Modal</button>
 
+            <h2 style="color: red;">{{result}}</h2>
+        </div>
+            *@
             <div ng-controller="MainCtrl2 as cc">
+                <button class="btn btn-info" ng-click="open('lg')" style="margin: 15px;">Open Modal</button>
+
+                <h2 style="color: red;">{{result}}</h2>
                 <input type="text" ng-model="pc.myrow.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-                
+
             </div>
 
             <div class="panel-heading">
