@@ -1,0 +1,29 @@
+[5/1/2019 12:11:09 PM]tmpMenuCode index_lan@en
+[5/1/2019 12:11:19 PM]baseindex 6Obb
+[5/1/2019 12:11:19 PM]tmpMenuCode about_aj
+[5/1/2019 12:11:19 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=pKSPw9Y_Xldamw5HLXkNhUMMXLh6uf3vp1LYqsiy630=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/1/2019 12:11:19 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=pKSPw9Y_Xldamw5HLXkNhTnObiZfe6NGMwyhtJiS8ns=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/1/2019 12:11:19 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=pKSPw9Y_Xldamw5HLXkNhfu3Spuqg4N4MIGi-NBDKoE=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/1/2019 12:11:19 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=pKSPw9Y_Xldamw5HLXkNhSSuzPMN-fIYTeurWCF_2sE=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/1/2019 12:11:19 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=pKSPw9Y_Xldamw5HLXkNhTfXS9AqP3cQhb4kScwOj8A=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/1/2019 12:11:19 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=pKSPw9Y_Xldamw5HLXkNhWrCZLHUqm4Poi7Md11b4FE=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/1/2019 12:11:19 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=pKSPw9Y_XlddA_aRP21Hb-wiEUKxhOHblHRlnDebdkM=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/1/2019 12:11:19 PM]about_aj
+[5/1/2019 12:11:22 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/1/2019 12:11:34 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/1/2019 12:11:35 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/1/2019 12:11:36 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/1/2019 12:11:37 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/1/2019 12:11:39 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/1/2019 12:11:40 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/1/2019 12:14:03 PM]baseindex 6Obb
+[5/1/2019 12:14:03 PM]tmpMenuCode about_aj
+[5/1/2019 12:14:03 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=pKSPw9Y_Xlcra6OeZfzgM7L7NShbrerZtgpuwfEWXfc=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/1/2019 12:14:03 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=pKSPw9Y_Xlf7LqOwiydTFPDBm6W-9FPi7IE-mnlGJD4=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/1/2019 12:14:03 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=pKSPw9Y_Xlf7LqOwiydTFKv0Ir21hE56fd4vSKXeIfE=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/1/2019 12:14:03 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=pKSPw9Y_Xlf7LqOwiydTFCluIdHvioMYM3fDfnDrdtA=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/1/2019 12:14:03 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=pKSPw9Y_XlceYLbWHxIFcNss3hJCp5ng4nFtS_hrtoQ=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/1/2019 12:14:03 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=pKSPw9Y_XlceYLbWHxIFcKH3LV7zZ33CrCgL93k5IfY=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/1/2019 12:14:03 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=pKSPw9Y_XlceYLbWHxIFcKqXvnW2PEuIreH5V6EMSsQ=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/1/2019 12:14:04 PM]about_aj
+[5/1/2019 12:14:08 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]

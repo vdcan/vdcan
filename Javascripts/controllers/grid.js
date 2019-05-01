@@ -17,81 +17,82 @@ app.controller('MainCtrl2', [
 
 
 
-app.controller('MyLogCtrl', [
+
+//------------------------------------------------------------------------------ 
+//        Date  2019-04-30
+//        Author  ²Ì½Ý   
+//			   
+//------------------------------------------------------------------------------  
+app.controller('MyLog2Ctrl', [
     '$scope', '$rootScope', '$http', '$modal', function ($scope, $rootScope, $http, $modal) {
         $scope.SelectedRow = {};//for getting row detail
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
         var editType = "";
-
-        $scope.$on('$destroy', function () {
+        /*$scope.$on('$destroy', function () {
             console.log('Child1 is no longer necessary');
         })
 
         $scope.$on('test', function () {
 
             console.log('test' + counter); counter++;
-        })
-
-
+        })*/
         $scope.InsertRow = function () {
 
             editType = "i";
             var row = copyEmptyObject($scope.row);
             row.editrow = true;
-            $scope.gridOptions.data.unshift(row);
-            $scope.gridApi.grid.modifyRows($scope.gridOptions.data);
-             $scope.gridApi.selection.selectRow($scope.gridOptions.data[0]);
+            $scope.MyLog2gridOptions.data.unshift(row);
+            $scope.gridApi.grid.modifyRows($scope.MyLog2gridOptions.data);
+            $scope.gridApi.selection.selectRow($scope.MyLog2gridOptions.data[0]);
             $scope.gridApi.core.refresh();
             GetIDS();
-            console.log("InsertRow");
         }
         $scope.editRow = function (row) {
             editType = "u";
-            var index = $scope.gridOptions.data.indexOf(row);
-            $scope.row = Object.assign({}, row); 
+            var index = $scope.MyLog2gridOptions.data.indexOf(row);
+            $scope.row = Object.assign({}, row);
             //Use that to set the editrow attrbute value for seleted rows
-            $scope.gridOptions.data[index].editrow = !$scope.gridOptions.data[index].editrow; 
+            $scope.MyLog2gridOptions.data[index].editrow = !$scope.MyLog2gridOptions.data[index].editrow;
         };
-
-        $scope.saveRow = function (row) { 
-            var index = $scope.gridOptions.data.indexOf(row);
+        $scope.saveRow = function (row) {
+            var index = $scope.MyLog2gridOptions.data.indexOf(row);
             //Use that to set the editrow attrbute value for seleted rows
-            $scope.gridOptions.data[index].editrow = !$scope.gridOptions.data[index].editrow; 
+            $scope.MyLog2gridOptions.data[index].editrow = !$scope.MyLog2gridOptions.data[index].editrow;
             if (editType == "u")
                 updateData(row);
-            if (editType == "i"){
+            if (editType == "i") {
                 insertData(row);
             }
         };
         //Method to cancel the edit mode in UIGrid
         $scope.cancelEdit = function (row) {
             //Get the index of selected row from row object
-            var index = $scope.gridOptions.data.indexOf(row);  
+            var index = $scope.MyLog2gridOptions.data.indexOf(row);
             if (editType == "i") {
-                $scope.gridOptions.data.splice(0, 1);
+                $scope.MyLog2gridOptions.data.splice(0, 1);
             }
             if (editType == "u") {
-              //  $scope.gridOptions.data.splice(0, 1);
+                //  $scope.MyLog2gridOptions.data.splice(0, 1);
                 var keys = Object.keys($scope.row);
                 keys.forEach(function (k) {
-                    $scope.gridOptions.data[index][k] =   $scope.row[k];
-                }); 
-            //Use that to set the editrow attrbute value to false
-                $scope.gridOptions.data[index].editrow = false; 
-            } 
+                    $scope.MyLog2gridOptions.data[index][k] = $scope.row[k];
+                });
+                //Use that to set the editrow attrbute value to false
+                $scope.MyLog2gridOptions.data[index].editrow = false;
+            }
 
             $rootScope.$broadcast("SysToaster", 'info', "", "Row editing cancelled");
         };
-         
-        $scope.$on("MyLogUpdate", function (event, row) {
+
+        $scope.$on("MyLog2Update", function (event, row) {
             updateData(row)
         });
-        $scope.$on("MyLogInsert", function (event, row) {
+        $scope.$on("MyLog2Insert", function (event, row) {
             insertData(row);
         });
-        $scope.$on("MyLogDelete", function (event, id, text) {
+        $scope.$on("MyLog2Delete", function (event, id, text) {
             deleteIt(id, text)
         });
 
@@ -104,7 +105,6 @@ app.controller('MyLogCtrl', [
         $scope.update = function () {
             updateData($scope.row);
         };
-
         showResult = function (result, title) {
             if (result.s) {
                 $rootScope.$broadcast("SysToaster", 'success', title, result.message);
@@ -124,22 +124,19 @@ app.controller('MyLogCtrl', [
             });
         }
         afterInsert = function (row) {
-
             if (editType == "i") {
-                $scope.gridOptions.data.splice(0, 1);
+                $scope.MyLog2gridOptions.data.splice(0, 1);
             }
-
-            if ($scope.gridOptions.totalItems >= (paginationOptions.pageNumber) * paginationOptions.pageSize) {
-                $scope.gridOptions.data.splice($scope.gridOptions.data.length - 1, 1);
-
+            if ($scope.MyLog2gridOptions.totalItems >= (paginationOptions.pageNumber) * paginationOptions.pageSize) {
+                $scope.MyLog2gridOptions.data.splice($scope.MyLog2gridOptions.data.length - 1, 1);
             }
             editType = "";
-            $scope.gridOptions.data.unshift(row);
-            $scope.gridApi.grid.modifyRows($scope.gridOptions.data);
-            $scope.gridApi.selection.selectRow($scope.gridOptions.data[0]);
+            $scope.MyLog2gridOptions.data.unshift(row);
+            $scope.gridApi.grid.modifyRows($scope.MyLog2gridOptions.data);
+            $scope.gridApi.selection.selectRow($scope.MyLog2gridOptions.data[0]);
             $scope.gridApi.core.refresh();
             GetIDS();
-            $scope.gridOptions.totalItems = $scope.gridOptions.totalItems + 1;
+            $scope.MyLog2gridOptions.totalItems = $scope.MyLog2gridOptions.totalItems + 1;
         }
         deleteIt = function (id, text) {
             var message = "Are you sure to delete";
@@ -159,7 +156,6 @@ app.controller('MyLogCtrl', [
         }
         deleteData = function (id) {
             var parms = { id: id, ids: $scope.ids, sort: paginationOptions.sort, order: paginationOptions.order }
-            console.log(parms);
             com.ajax({
                 type: 'POST', url: km.model.urls["MyLog_delete"], data: parms, success: function (result) {
                     if (result.s) {
@@ -171,14 +167,13 @@ app.controller('MyLogCtrl', [
             });
         }
         afterDelete = function (row) {
-            if ($scope.gridOptions.totalItems > (paginationOptions.pageNumber) * paginationOptions.pageSize) {
-                $scope.gridOptions.data.push(row);
+            if ($scope.MyLog2gridOptions.totalItems > (paginationOptions.pageNumber) * paginationOptions.pageSize) {
+                $scope.MyLog2gridOptions.data.push(row);
             }
-
-            $scope.gridOptions.totalItems = $scope.gridOptions.totalItems - 1;
-            $scope.gridOptions.data.splice($scope.selectedRowIndex, 1);
-            $scope.gridApi.grid.modifyRows($scope.gridOptions.data);
-            $scope.gridApi.selection.selectRow($scope.gridOptions.data[0]);
+            $scope.MyLog2gridOptions.totalItems = $scope.MyLog2gridOptions.totalItems - 1;
+            $scope.MyLog2gridOptions.data.splice($scope.selectedRowIndex, 1);
+            $scope.gridApi.grid.modifyRows($scope.MyLog2gridOptions.data);
+            $scope.gridApi.selection.selectRow($scope.MyLog2gridOptions.data[0]);
             $scope.gridApi.core.refresh();
             GetIDS();
         }
@@ -201,11 +196,10 @@ app.controller('MyLogCtrl', [
         }
         afterUpdate = function () {
             editType = "";
-            console.log($scope.SelectedRow);
             $scope.gridApi.core.refresh();
         }
         $scope.sync = function () {
-            $rootScope.$broadcast("MyLogSelectedRowChanged");
+            $rootScope.$broadcast("MyLog2SelectedRowChanged");
         };
         var paginationOptions = {
             pageNumber: 1,
@@ -213,56 +207,59 @@ app.controller('MyLogCtrl', [
             order: "desc",
             sort: "id",
         };
-        $scope.gridOptions = {
+        $scope.MyLog2gridOptions = {
             paginationPageSizes: [10, 15, 25, 50, 75],
             paginationPageSize: paginationOptions.pageSize,
             enableRowSelection: true,
             useExternalPagination: true,
             useExternalSorting: true,
             multiSelect: false,
-            enableRowHeaderSelection: false,
-            columnDefs:
-                [
-                    {
-                        name: 'action',   field: 'action', displayName: 'action', width: 80, align: 'center',
-                        cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}1</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/>2</div>'
-                    },
-                    {
-                        name: 'action_data', field: 'action_data', displayName: 'action_data', width: "*", align: 'center',
-                        cellTemplate: '<div  class="ui-grid-cell-contents"   ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/>2</div>'
-                    },
-                    {
-                        name: 'add_by',   field: 'add_by', displayName: 'add_by', width: 80, align: 'center',
-                        cellTemplate: '<div   class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/>2</div>'
-                    },
-                    {
-                        name: 'add_on', field: 'add_on', displayName: 'add_on', width: 80, align: 'center',
-                        cellTemplate: '<div  class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/>2</div>'
-                    },
-                    {
-                        name: 'app_code', field: 'app_code', displayName: 'app_code', width: 80, align: 'center',
-                        cellTemplate: '<div  class="ui-grid-cell-contents"   ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/>2</div>'
-                    },
-                    { field: 'id', displayName: 'id', width: 80, align: 'center' },
-                    {
-                        name: 'ip', field: 'ip', displayName: 'ip', width: 80, align: 'center',
-                        cellTemplate: '<div  class="ui-grid-cell-contents"   ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/>2</div>'
-                    },
-                    {
-                        name: 'menu_code', field: 'menu_code', displayName: 'menu_code', width: 80, align: 'center',
-                        cellTemplate: '<div  class="ui-grid-cell-contents"   ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/>2</div>'
-                    },
-                    ,
-                    {
-                        name: 'Actions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
-                        cellTemplate: '<div><button ng-show="!row.entity.editrow" class="btn primary" ng-click="grid.appScope.editRow(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
-                            '<button ng-show="!row.entity.editrow" class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
-                            '<button ng-show="row.entity.editrow" class="btn primary" ng-click="grid.appScope.saveRow(row.entity)"><i class="fa fa-floppy-o"></i></button>' +//Save Button
-                            '<button ng-show="row.entity.editrow" class="btn primary" ng-click="grid.appScope.cancelEdit(row.entity)"><i class="fa fa-times"></i></button>' + //Cancel Button
-                            '</div>', width: 80
-                    }
+            enableRowHeaderSelection: false, 
+                columnDefs:
+            [
+                {
+                    field: 'action', displayName: 'action', width: 80, align: 'center',
+                    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/></div>'
+                },
+                {
+                    field: 'action_data', displayName: 'action_data', width: "*", align: 'center',
+                    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/></div>'
+                },
+                {
+                    field: 'add_by', displayName: 'add_by', width: 80, align: 'center',
+                    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/></div>'
+                },
+                {
+                    field: 'add_on', displayName: 'add_on', width: 80, align: 'center',
+                    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/></div>'
+                },
+                {
+                    field: 'app_code', displayName: 'app_code', width: 80, align: 'center',
+                    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/></div>'
+                },
+                {
+                    field: 'id', displayName: 'id', width: 80, align: 'center',
+                    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/></div>'
+                },
+                {
+                    field: 'ip', displayName: 'ip', width: 80, align: 'center',
+                    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/></div>'
+                },
+                {
+                    field: 'menu_code', displayName: 'menu_code', width: 80, align: 'center',
+                    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/></div>'
+                },
+ {
+                    name: 'Actions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
+                    cellTemplate: '<div><button ng-show="!row.entity.editrow" class="btn primary" ng-click="grid.appScope.editRow(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
+                        '<button ng-show="!row.entity.editrow" class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
+                        '<button ng-show="row.entity.editrow" class="btn primary" ng-click="grid.appScope.saveRow(row.entity)"><i class="fa fa-floppy-o"></i></button>' +//Save Button
+                        '<button ng-show="row.entity.editrow" class="btn primary" ng-click="grid.appScope.cancelEdit(row.entity)"><i class="fa fa-times"></i></button>' + //Cancel Button
+                        '</div>', width: 80
+                }
 
-                ],
+            ],
+
             onRegisterApi: function (gridApi) {
                 $scope.gridApi = gridApi;
                 $scope.gridApi.core.on.sortChanged($scope, function (grid, sortColumns) {
@@ -283,40 +280,31 @@ app.controller('MyLogCtrl', [
                     // var msg = 'row selected ' + row.;
                     $scope.SelectedRow = row;
                     $scope.row = Object.assign({}, row.entity);
-                   // console.log($scope.row);
-                    //$scope.row.entity.forEach(function (d) {
-                    //    d.editrow = false;
-                    //});
-                    $scope.selectedRowIndex = $scope.gridOptions.data.indexOf(row.entity);
+                    $scope.selectedRowIndex = $scope.MyLog2gridOptions.data.indexOf(row.entity);
                     $scope.sync();
                 });
                 gridApi.selection.on.rowSelectionChangedBatch($scope, function (rows) {
-                    // var msg = 'rows changed ' + rows.length;
-                    //  console.log(msg);
                 });
             }
         };
+
         var getPage = function () {
             $http.get(km.model.urls["MyLog_pager"] + "&page=" + paginationOptions.pageNumber
                 + "&rows=" + paginationOptions.pageSize + "&sort=" + paginationOptions.sort + "&order=" +
-                paginationOptions.order + "&add_by=" + 0 + "&_t=" + com.settings.timestamp()).success(function (result) {
-                    $scope.gridOptions.totalItems = result.total;
+                paginationOptions.order + "&_t=" + com.settings.timestamp()).success(function (result) {
                     result.rows.forEach(function (d) {
                         d.editrow = false;
                     });
-
-                    $scope.gridOptions.data = result.rows;
-                    //console.log($scope.gridOptions.data );
+                    $scope.MyLog2gridOptions.totalItems = result.total;
+                    $scope.MyLog2gridOptions.data = result.rows;
                     GetIDS();
-                    $scope.gridApi.grid.modifyRows($scope.gridOptions.data);
+                    $scope.gridApi.grid.modifyRows($scope.MyLog2gridOptions.data);
 
-                    if ($scope.gridOptions.data.length > 0)
-                        $scope.gridApi.selection.selectRow($scope.gridOptions.data[0]);
+                    if ($scope.MyLog2gridOptions.data.length > 0)
+                        $scope.gridApi.selection.selectRow($scope.MyLog2gridOptions.data[0]);
                 });
         }
-
-
-        copyEmptyObject =function(source, isArray) {
+        copyEmptyObject = function (source, isArray) {
             var o = Array.isArray(source) ? [] : {};
             for (var key in source) {
                 if (source.hasOwnProperty(key)) {
@@ -325,12 +313,11 @@ app.controller('MyLogCtrl', [
                 }
             }
             return o;
-        } 
-
+        }
         GetIDS = function () {
             var names = [];
 
-            $.each($scope.gridOptions.data, function (index, item) {
+            $.each($scope.MyLog2gridOptions.data, function (index, item) {
                 names.push(item.id);
             });
 
@@ -339,7 +326,6 @@ app.controller('MyLogCtrl', [
             else
                 $scope.ids = names.join(",");
         }
-
         getPage();
     }
 ]);
