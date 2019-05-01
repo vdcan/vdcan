@@ -51,10 +51,13 @@
     }
 </style>
 
-<script src="/Javascripts/vendor/layout/ui-layout.js"></script>
-<link href="/Javascripts/vendor/layout/ui-layout.css" rel="stylesheet" />
-<script>
-</script>
+@*<script src="/Javascripts/vendor/layout/ui-layout.js"></script>
+    <link href="/Javascripts/vendor/layout/ui-layout.css" rel="stylesheet" />
+ *@
+
+
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">*@
+ 
 
 @Request.Params["id"]
 <script type="text/javascript">
@@ -137,53 +140,128 @@
         </div>*@
     @*<div ng-controller="MainCtrl2">
 
-        <input type="button" ng-click="test()" value="test">
-    </div>
+            <input type="button" ng-click="test()" value="test">
+        </div>
 
-   
-    <div class="wrapper-md" ng-controller="MyLogCtrl">
-        <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-        <input type="text" ng-model="row.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-        <input type="text" ng-model="row.action_data" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-        <input type="text" ng-model="row.ip" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change='ipchanged()' value="">
-        <input type="text" ng-model="row.menu_code" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
 
-        <input type="button" ng-click="toDetails(22)" value="toResult">
-        <input type="button" ng-click="update()" value="update">
-        <input type="button" ng-click="insert()" value="insert">
-        <input type="button" ng-click="delete()" value="delete">
-        <div class="tmpHide"> hello{{row.id}}</div>
+        <div class="wrapper-md" ng-controller="MyLogCtrl">
+            <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+            <input type="text" ng-model="row.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+            <input type="text" ng-model="row.action_data" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+            <input type="text" ng-model="row.ip" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change='ipchanged()' value="">
+            <input type="text" ng-model="row.menu_code" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
 
-         <div id="grid1" ui-grid="gridOptions" class="myGrid"></div>
-            <div style="width:700px">
-                <uib-alert ng-repeat="alert in alerts"
-                           type="{{alert.type}}"
-                           dismiss-on-timeout="5000"
-                           close="alerts.splice($index, 1);">
-                    {{alert.msg}}
-                </uib-alert>
-            </div> 
+            <input type="button" ng-click="toDetails(22)" value="toResult">
+            <input type="button" ng-click="update()" value="update">
+            <input type="button" ng-click="insert()" value="insert">
+            <input type="button" ng-click="delete()" value="delete">
+            <div class="tmpHide"> hello{{row.id}}</div>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                uiGrid <div style="float:right;">
-                    <button class="btn primary" ng-click="InsertRow()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+             <div id="grid1" ui-grid="gridOptions" class="myGrid"></div>
+                <div style="width:700px">
+                    <uib-alert ng-repeat="alert in alerts"
+                               type="{{alert.type}}"
+                               dismiss-on-timeout="5000"
+                               close="alerts.splice($index, 1);">
+                        {{alert.msg}}
+                    </uib-alert>
+                </div>
 
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    uiGrid <div style="float:right;">
+                        <button class="btn primary" ng-click="InsertRow()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
                 </div>
             </div>
-            <div class="table-responsive">
-                <div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
-            </div>
-        </div>
-    </div>*@
+        </div>*@
+
+
+
+    <div ng-controller="MyLog2Ctrl as pc">
+
+
+        @*<span ng-controller="ModalDemoCtrl2 as cc">
+            <script type="text/ng-template" id="myModalContent.html">
+
+
+                <div class="modal-body wrapper-lg">
+                    <div class="row">
+                        <div class="col-sm-6 b-r">
+                            <h3 class="m-t-none m-b font-thin">Sign in</h3>
+                            <p>Sign in to meet your friends.</p>
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="checkbox m-t-lg">
+                                    <button type="submit" class="btn btn-sm btn-success pull-right text-uc m-t-n-xs" ng-click="ok()"><strong>Log in</strong></button>
+                                    <label class="i-checks">
+                                        <input type="checkbox"><i></i> Remember me
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4>Not a member?</h4>
+                            <p>You can create an account <a href class="text-info">here</a></p>
+                            <p>OR</p>
+                            <a href class="btn btn-primary btn-block m-b-sm"><i class="fa fa-facebook pull-left"></i>Sign in with Facebook</a>
+                            <a href class="btn btn-info btn-block m-b-sm"><i class="fa fa-twitter pull-left"></i>Sign in with Twitter</a>
+                            <a href class="btn btn-danger btn-block"><i class="fa fa-google-plus pull-left"></i>Sign in with Google+</a>
+                        </div>
+                        <div class="row">
+                            <div class="col"> <input type="text" ng-model="pc.myrow.entity" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value=""></div>
+                            <div class="col"> <input type="text" ng-model="pc.row.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value=""></div>
+                            <div class="col"> <input type="text" ng-model="pc.row.action_data" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value=""></div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col"> {{row.menu_code}} <input type="text" ng-model="row.ip" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change='ipchanged()' value=""></div>
+                            <div class="col"> <input type="text" ng-model="pc.row.menu_code" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value=""></div>
+                            <div class="col">
+                                
+                                <input type="button" ng-click="toDetails(22)" value="toResult">
+                                <input type="button" ng-click="update()" value="update">
+                                <input type="button" ng-click="insert()" value="insert">
+                                <input type="button" ng-click="delete()" value="delete">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
 
-    <div   ng-controller="MyLog2Ctrl">
+
+
+
+
+            </script>
+            <button class="btn btn-success" ng-click="open('lg')">Form in a modal</button>
+        </span>*@
+
         <div class="panel panel-default">
+
+            <div ng-controller="MainCtrl2 as cc">
+                <input type="text" ng-model="pc.myrow.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
+                
+            </div>
+
             <div class="panel-heading">
-                MyLog2
+                MyLog
+                {{row.action}}
+                <input type="text" ng-model="pc.test" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
                 <div style="float:right;">
                     <button class="btn primary" ng-click="InsertRow()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
                 </div>
@@ -192,7 +270,7 @@
                 <div ui-grid="MyLog2gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
             </div>
         </div>
-    </div> 
+    </div>
 
 
     <div style="display:none;">

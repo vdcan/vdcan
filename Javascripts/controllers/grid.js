@@ -3,20 +3,43 @@ km.model = null;
 km.init = function () {
 }
 
-var counter = 0;
-app.controller('MainCtrl2', [
-    '$scope', '$rootScope', '$http', '$modal', function ($scope, $rootScope, $http, $modal) {
-        //$rootScope.$broadcast("destory"); 
-        $scope.test = function () {
-            //    console.log(angular.isDefined('MyLogCtrl243214'));
-            $rootScope.$broadcast("test");
+////var counter = 0;
+////app.controller('MainCtrl2', [
+////    '$scope', '$rootScope', '$http', '$modal', function ($scope, $rootScope, $http, $modal) {
+////        //$rootScope.$broadcast("destory"); 
+////        $scope.test = function () {
+////            //    console.log(angular.isDefined('MyLogCtrl243214'));
+////            $rootScope.$broadcast("test");
 
-        };
+////        };
 
-    }]);
+////    }]);
 
 
+app.controller('MainCtrl2', ['$scope', '$modal', '$log', function ($scope, $modal, $log) {
+    $scope.items = ['item1', 'item2', 'item3'];
+    $scope.row = $scope.$parent.row;
+    $scope.test = "fdsaf";
+    $scope.open = function (size) {
+        var modalInstance = $modal.open({
+            templateUrl: 'myModalContent.html',
+            controller: 'ModalInstanceCtrl', 
+            size: size,
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
 
+        modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    };
+}])
+    ; 
 
 //------------------------------------------------------------------------------ 
 //        Date  2019-04-30
@@ -30,6 +53,9 @@ app.controller('MyLog2Ctrl', [
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
         var editType = "";
+        var vm = this;
+        vm.test = "parent";
+        vm.myrow = {}; 
         /*$scope.$on('$destroy', function () {
             console.log('Child1 is no longer necessary');
         })
@@ -280,6 +306,7 @@ app.controller('MyLog2Ctrl', [
                     // var msg = 'row selected ' + row.;
                     $scope.SelectedRow = row;
                     $scope.row = Object.assign({}, row.entity);
+                    vm.myrow = $scope.row;
                     $scope.selectedRowIndex = $scope.MyLog2gridOptions.data.indexOf(row.entity);
                     $scope.sync();
                 });
