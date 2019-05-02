@@ -71,75 +71,96 @@
 
 
     <div class="row">
-
-
-        <div class="col-sm-8">
-            <div ng-controller="MyLog2Ctrl">
+        <div class="col-sm-12">
 
 
 
+            <tabset justified="true" class="tab-container">
 
-                <script type="text/ng-template" id="myhtml">
-                    <div class="modal-header">
-                        {{row.EditType}} {{row.ip}}
-                    </div>
-                    <div class="col-sm-12">
-                        @*<form role="form">*@
-                        <div class="form-group">
-                            <label>Action</label>
-                            <p><input ng-model="row.action" class="form-control" placeholder="Action" /></p>
+                <tab heading="My Log " id="tab_a1">
+
+                    <div ng-controller="MyLogCtrl">
+                        <script type="text/ng-template" id="MyLogDetail">
+                            <div class="modal-header">
+                                {{row.EditType}} MyLog
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>action</label>
+                                    <p><input ng-model="row.action" class="form-control" placeholder="action" /></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>action_data</label>
+                                    <p><input ng-model="row.action_data" class="form-control" placeholder="action_data" /></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>add_by</label>
+                                    <p><input ng-model="row.add_by" class="form-control" placeholder="add_by" /></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>add_on</label>
+                                    <p><input ng-model="row.add_on" class="form-control" placeholder="add_on" /></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>app_code</label>
+                                    <p><input ng-model="row.app_code" class="form-control" placeholder="app_code" /></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>ip</label>
+                                    <p><input ng-model="row.ip" class="form-control" placeholder="ip" /></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>menu_code</label>
+                                    <p><input ng-model="row.menu_code" class="form-control" placeholder="menu_code" /></p>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button ng-click="ok()" class="btn btn-primary">Save</button>
+                                <button ng-click="cancel()" class="btn">close</button>
+                            </div>
+                        </script>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                MyLog
+                                <div style="float:right;">
+                                    <button class="btn primary" ng-click="InsertPopup()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <div ui-grid="MyLoggridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
+                    </div>
+
+                </tab>
+
+                <tab heading="My Log2 " id="tab_a2">
+
+
+                    <div ng-controller="MyLog2Ctrl">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                MyLog2
+                                <div style="float:right;">
+                                    <button class="btn primary" ng-click="InsertRow()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <div ui-grid="MyLog2gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
+                            </div>
                         </div>
-                        <div class="checkbox">
-                            <label class="i-checks">
-                                <input type="checkbox" checked disabled><i></i> Check me out
-                            </label>
-                        </div>
-                        @*//   <button type="submit" class="btn btn-sm btn-primary">Submit</button>
-                </form>*@
                     </div>
-                    <div class="modal-footer">
-                        <button ng-click="ok()" class="btn btn-primary">Save</button>
-                        <button ng-click="cancel()" class="btn">close</button>
-                    </div>
-                </script>
 
-                <button class="btn btn-info" ng-click="open('lg','Edit')" style="margin: 15px;">Edit</button>
-                <button class="btn btn-info" ng-click="open('lg','Insert')" style="margin: 15px;">Insert</button>
+                </tab>
 
-                @*<input type="text" ng-model="pc.myrow.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">*@
-
-
-                <div class="panel-heading">
-                    MyLog
-                    {{row.action}}
-                    @*<input type="text" ng-model="pc.test" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">*@
-                    <div style="float:right;">
-                        <button class="btn primary" ng-click="InsertRow()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
-                    </div>
-                </div>
-                <div class="table-responsive">
-                    <div ui-grid="MyLog2gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
-                </div>
-            </div>
+            </tabset>
 
         </div>
     </div>
-    <div style="display:none;">
-
-        @*<div class="product-options">
-                <a id="myWish" href="javascript:;" class="btn btn-mini">Add to Wishlist </a>
-                <a href="" class="btn btn-mini"> Purchase </a>
-            </div>
-            <div class="alert alert-success" id="success-alert">
-                <button type="button" class="close" data-dismiss="alert">x</button>
-                <strong>Success! </strong>
-                Product have added to your wishlist.
-            </div>*@
-
+    <div style='display:none'>
 
     </div>
 </body>
