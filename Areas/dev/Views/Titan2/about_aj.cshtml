@@ -70,94 +70,83 @@
 <body>
 
 
+
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
 
 
-
-            <tabset justified="true" class="tab-container">
-
-                <tab heading="My Log " id="tab_a1">
-
-                    <div ng-controller="MyLogCtrl">
-                        <script type="text/ng-template" id="MyLogDetail">
-                            <div class="modal-header">
-                                {{row.EditType}} MyLog
-                            </div>
-
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>action</label>
-                                    <p><input ng-model="row.action" class="form-control" placeholder="action" /></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>action_data</label>
-                                    <p><input ng-model="row.action_data" class="form-control" placeholder="action_data" /></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>add_by</label>
-                                    <p><input ng-model="row.add_by" class="form-control" placeholder="add_by" /></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>add_on</label>
-                                    <p><input ng-model="row.add_on" class="form-control" placeholder="add_on" /></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>app_code</label>
-                                    <p><input ng-model="row.app_code" class="form-control" placeholder="app_code" /></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>ip</label>
-                                    <p><input ng-model="row.ip" class="form-control" placeholder="ip" /></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>menu_code</label>
-                                    <p><input ng-model="row.menu_code" class="form-control" placeholder="menu_code" /></p>
-                                </div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button ng-click="ok()" class="btn btn-primary">Save</button>
-                                <button ng-click="cancel()" class="btn">close</button>
-                            </div>
-                        </script>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                MyLog
-                                <div style="float:right;">
-                                    <button class="btn primary" ng-click="InsertPopup()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
-                                </div>
-                            </div>
-                            <div class="table-responsive">
-                                <div ui-grid="MyLoggridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
-                            </div>
+            <div ng-controller="MyLog2Ctrl">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        MyLog2
+                        <div style="float:right;">
+                            <button class="btn primary" ng-click="InsertRow()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
                         </div>
                     </div>
+                    <div class="table-responsive">
+                        <div ui-grid="MyLog2gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
+                    </div>
+                </div>
+            </div>
 
-                </tab>
+        </div>
+        <div class="col-sm-6">
 
-                <tab heading="My Log2 " id="tab_a2">
-
-
-                    <div ng-controller="MyLog2Ctrl">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                MyLog2
-                                <div style="float:right;">
-                                    <button class="btn primary" ng-click="InsertRow()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
-                                </div>
-                            </div>
-                            <div class="table-responsive">
-                                <div ui-grid="MyLog2gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
-                            </div>
-                        </div>
+            <div ng-controller="MyLogCtrl">
+                <script type="text/ng-template" id="MyLogDetail">
+                    <div class="modal-header">
+                        {{row.EditType}} MyLog
                     </div>
 
-                </tab>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>action</label>
+                            <p><input ng-model="row.action" class="form-control" placeholder="action" /></p>
+                        </div>
+                        <div class="form-group">
+                            <label>action_data</label>
+                            <p><input ng-model="row.action_data" class="form-control" placeholder="action_data" /></p>
+                        </div>
+                        <div class="form-group">
+                            <label>add_by</label>
+                            <p><input ng-model="row.add_by" class="form-control" placeholder="add_by" /></p>
+                        </div>
+                        <div class="form-group">
+                            <label>add_on</label>
+                            <p><input ng-model="row.add_on" class="form-control" placeholder="add_on" /></p>
+                        </div>
+                        <div class="form-group">
+                            <label>app_code</label>
+                            <p><input ng-model="row.app_code" class="form-control" placeholder="app_code" /></p>
+                        </div>
+                        <div class="form-group">
+                            <label>ip</label>
+                            <p><input ng-model="row.ip" class="form-control" placeholder="ip" /></p>
+                        </div>
+                        <div class="form-group">
+                            <label>menu_code</label>
+                            <p><input ng-model="row.menu_code" class="form-control" placeholder="menu_code" /></p>
+                        </div>
 
-            </tabset>
+                    </div>
+                    <div class="modal-footer">
+                        <button ng-click="ok()" class="btn btn-primary">Save</button>
+                        <button ng-click="cancel()" class="btn">close</button>
+                    </div>
+                </script>
 
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        MyLog
+                        <div style="float:right;">
+                            <button class="btn primary" ng-click="InsertPopup()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <div ui-grid="MyLoggridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div style='display:none'>

@@ -4,8 +4,6 @@ km.init = function () {
 }
 
 
-
-
 /*
 //for other controllers to listen the selected row changed. 
 app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
@@ -141,9 +139,9 @@ app.controller('MyLogCtrl', [
             var index = $scope.MyLoggridOptions.data.indexOf(row);
             //Use that to set the editrow attrbute value for seleted rows
             $scope.MyLoggridOptions.data[index].editrow = !$scope.MyLoggridOptions.data[index].editrow;
-            if (editType == "u")
+            if ($scope.editType == "u")
                 $scope.updateData(row);
-            if (editType == "i") {
+            if ($scope.editType == "i") {
                 $scope.insertData(row);
             }
         };
@@ -300,7 +298,7 @@ app.controller('MyLogCtrl', [
             columnDefs:
                 [
                     {
-                        field: 'action', displayName: 'action', width: "*", align: 'center',
+                        field: 'action', displayName: 'action', width: 80, align: 'center',
                         cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/></div>'
                     },
                     {
@@ -474,7 +472,7 @@ app.controller('MyLog2Ctrl', [
 
 
 
-        var editType = "";
+        $scope.editType = "";
         /*$scope.$on('$destroy', function () {
             console.log('Child1 is no longer necessary');
         })
@@ -485,17 +483,17 @@ app.controller('MyLog2Ctrl', [
         })*/
         $scope.InsertRow = function () {
 
-            editType = "i";
+            $scope.editType = "i";
             var row = $scope.copyEmptyObject($scope.row);
             row.editrow = true;
             $scope.MyLog2gridOptions.data.unshift(row);
             $scope.gridApi.grid.modifyRows($scope.MyLog2gridOptions.data);
             $scope.gridApi.selection.selectRow($scope.MyLog2gridOptions.data[0]);
             $scope.gridApi.core.refresh();
-            GetIDS();
+            $scope.GetIDS();
         }
         $scope.editRow = function (row) {
-            editType = "u";
+            $scope.editType = "u";
             var index = $scope.MyLog2gridOptions.data.indexOf(row);
             $scope.row = Object.assign({}, row);
             //Use that to set the editrow attrbute value for seleted rows
@@ -505,20 +503,20 @@ app.controller('MyLog2Ctrl', [
             var index = $scope.MyLog2gridOptions.data.indexOf(row);
             //Use that to set the editrow attrbute value for seleted rows
             $scope.MyLog2gridOptions.data[index].editrow = !$scope.MyLog2gridOptions.data[index].editrow;
-            if (editType == "u")
-                updateData(row);
-            if (editType == "i") {
-                insertData(row);
+            if ($scope.editType == "u")
+                $scope.updateData(row);
+            if ($scope.editType == "i") {
+                $scope.insertData(row);
             }
         };
         //Method to cancel the edit mode in UIGrid
         $scope.cancelEdit = function (row) {
             //Get the index of selected row from row object
             var index = $scope.MyLog2gridOptions.data.indexOf(row);
-            if (editType == "i") {
+            if ($scope.editType == "i") {
                 $scope.MyLog2gridOptions.data.splice(0, 1);
             }
-            if (editType == "u") {
+            if ($scope.editType == "u") {
                 //  $scope.MyLog2gridOptions.data.splice(0, 1);
                 var keys = Object.keys($scope.row);
                 keys.forEach(function (k) {
@@ -532,58 +530,58 @@ app.controller('MyLog2Ctrl', [
         };
 
         $scope.$on("MyLog2Update", function (event, row) {
-            updateData(row)
+            $scope.updateData(row)
         });
         $scope.$on("MyLog2Insert", function (event, row) {
-            insertData(row);
+            $scope.insertData(row);
         });
         $scope.$on("MyLog2Delete", function (event, id, text) {
-            deleteIt(id, text)
+            $scope.deleteIt(id, text)
         });
 
         $scope.insert = function () {
-            insertData($scope.row);
+            $scope.insertData($scope.row);
         };
         $scope.delete = function () {
-            deleteIt($scope.row.id, $scope.row.id);
+            $scope.deleteIt($scope.row.id, $scope.row.id);
         };
         $scope.update = function () {
-            updateData($scope.row);
+            $scope.updateData($scope.row);
         };
-        showResult = function (result, title) {
+        $scope.showResult = function (result, title) {
             if (result.s) {
                 $rootScope.$broadcast("SysToaster", 'success', title, result.message);
             } else {
                 $rootScope.$broadcast("SysToaster", 'error', title, result.message);
             }
         }
-        insertData = function (row) {
+        $scope.insertData = function (row) {
             com.ajax({
                 type: 'POST', url: km.model.urls["MyLog_insert"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
-                        afterInsert(r);
+                        $scope.afterInsert(r);
                     }
-                    showResult(result, "Insert");
+                    $scope.showResult(result, "Insert");
                 }
             });
         }
-        afterInsert = function (row) {
-            if (editType == "i") {
+        $scope.afterInsert = function (row) {
+            if ($scope.editType == "i") {
                 $scope.MyLog2gridOptions.data.splice(0, 1);
             }
             if ($scope.MyLog2gridOptions.totalItems >= (paginationOptions.pageNumber) * paginationOptions.pageSize) {
                 $scope.MyLog2gridOptions.data.splice($scope.MyLog2gridOptions.data.length - 1, 1);
             }
-            editType = "";
+            $scope.editType = "";
             $scope.MyLog2gridOptions.data.unshift(row);
             $scope.gridApi.grid.modifyRows($scope.MyLog2gridOptions.data);
             $scope.gridApi.selection.selectRow($scope.MyLog2gridOptions.data[0]);
             $scope.gridApi.core.refresh();
-            GetIDS();
+            $scope.GetIDS();
             $scope.MyLog2gridOptions.totalItems = $scope.MyLog2gridOptions.totalItems + 1;
         }
-        deleteIt = function (id, text) {
+        $scope.deleteIt = function (id, text) {
             var message = "Are you sure to delete";
             if (text == "")
                 text = "it";
@@ -596,22 +594,22 @@ app.controller('MyLog2Ctrl', [
                 controller: ModalInstanceCtrl
             });
             modalInstance.result.then(function () {
-                deleteData(id);
+                $scope.deleteData(id);
             });
         }
-        deleteData = function (id) {
+        $scope.deleteData = function (id) {
             var parms = { id: id, ids: $scope.ids, sort: paginationOptions.sort, order: paginationOptions.order }
             com.ajax({
                 type: 'POST', url: km.model.urls["MyLog_delete"], data: parms, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
-                        afterDelete(r);
+                        $scope.afterDelete(r);
                     }
-                    showResult(result, "Delete");
+                    $scope.showResult(result, "Delete");
                 }
             });
         }
-        afterDelete = function (row) {
+        $scope.afterDelete = function (row) {
             if ($scope.MyLog2gridOptions.totalItems > (paginationOptions.pageNumber) * paginationOptions.pageSize) {
                 $scope.MyLog2gridOptions.data.push(row);
             }
@@ -620,9 +618,9 @@ app.controller('MyLog2Ctrl', [
             $scope.gridApi.grid.modifyRows($scope.MyLog2gridOptions.data);
             $scope.gridApi.selection.selectRow($scope.MyLog2gridOptions.data[0]);
             $scope.gridApi.core.refresh();
-            GetIDS();
+            $scope.GetIDS();
         }
-        updateData = function (row) {
+        $scope.updateData = function (row) {
             com.ajax({
                 type: 'POST', url: km.model.urls["MyLog_update"], data: row, success: function (result) {
                     if (result.s) {
@@ -633,14 +631,14 @@ app.controller('MyLog2Ctrl', [
                                 $scope.SelectedRow.entity[key] = r[key];
                             }
                         }
-                        afterUpdate();
+                        $scope.afterUpdate();
                     }
-                    showResult(result, "Update");
+                    $scope.showResult(result, "Update");
                 }
             });
         }
-        afterUpdate = function () {
-            editType = "";
+        $scope.afterUpdate = function () {
+            $scope.editType = "";
             $scope.gridApi.core.refresh();
         }
 
@@ -668,7 +666,7 @@ app.controller('MyLog2Ctrl', [
                         cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/></div>'
                     },
                     {
-                        field: 'action_data', displayName: 'action_data', width: "*", align: 'center',
+                        field: 'action_data', displayName: 'action_data', width: 80, align: 'center',
                         cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/></div>'
                     },
                     {
@@ -715,12 +713,12 @@ app.controller('MyLog2Ctrl', [
                         paginationOptions.order = sortColumns[0].sort.direction;
                         paginationOptions.sort = sortColumns[0].field;
                     }
-                    getPage();
+                    $scope.getPage();
                 });
                 gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
                     paginationOptions.pageNumber = newPage;
                     paginationOptions.pageSize = pageSize;
-                    getPage();
+                    $scope.getPage();
                 });
                 gridApi.selection.on.rowSelectionChanged($scope, function (row) {
                     // var msg = 'row selected ' + row.;
@@ -734,7 +732,7 @@ app.controller('MyLog2Ctrl', [
             }
         };
 
-        var getPage = function () {
+        $scope.getPage = function () {
             $http.get(km.model.urls["MyLog_pager"] + "&page=" + paginationOptions.pageNumber
                 + "&rows=" + paginationOptions.pageSize + "&sort=" + paginationOptions.sort + "&order=" +
                 paginationOptions.order + "&_t=" + com.settings.timestamp()).success(function (result) {
@@ -743,7 +741,7 @@ app.controller('MyLog2Ctrl', [
                     });
                     $scope.MyLog2gridOptions.totalItems = result.total;
                     $scope.MyLog2gridOptions.data = result.rows;
-                    GetIDS();
+                    $scope.GetIDS();
                     $scope.gridApi.grid.modifyRows($scope.MyLog2gridOptions.data);
 
                     if ($scope.MyLog2gridOptions.data.length > 0)
@@ -760,7 +758,7 @@ app.controller('MyLog2Ctrl', [
             }
             return o;
         }
-        GetIDS = function () {
+        $scope.GetIDS = function () {
             var names = [];
 
             $.each($scope.MyLog2gridOptions.data, function (index, item) {
@@ -772,6 +770,9 @@ app.controller('MyLog2Ctrl', [
             else
                 $scope.ids = names.join(",");
         }
-        getPage();
+        $scope.getPage();
     }
 ]);
+
+
+
