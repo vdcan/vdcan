@@ -69,52 +69,54 @@
 
 <body>
 
-      
+
+    <div class="row">
 
 
-    <div ng-controller="MyLog2Ctrl as pc">
-         
+        <div class="col-sm-8">
+            <div ng-controller="MyLog2Ctrl as pc">
 
-        <div class="panel panel-default">
-            
 
-                <script type="text/ng-template" id="myhtml"> 
-                    <div class="modal-header">
-                        <h2>Edit {{row.ip}}</h2>
+                <div class="panel panel-default">
+
+
+                    <script type="text/ng-template" id="myhtml">
+                        <div class="modal-header">
+                            Edit {{row.ip}}
+                        </div>
+                        <div class="modal-body">
+                            <p><input ng-model="row.action" /></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button ng-click="ok()" class="btn btn-primary">Save</button>
+                            <button ng-click="cancel()" class="btn">close</button>
+                        </div>
+                    </script>
+
+                    <button class="btn btn-info" ng-click="open('lg')" style="margin: 15px;">Open Modal</button>
+
+                    @*<input type="text" ng-model="pc.myrow.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">*@
+
+
+                    <div class="panel-heading">
+                        MyLog
+                        {{row.action}}
+                        @*<input type="text" ng-model="pc.test" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">*@
+                        <div style="float:right;">
+                            <button class="btn primary" ng-click="InsertRow()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <p><input ng-model="row.action"/></p>
+                    <div class="table-responsive">
+                        <div ui-grid="MyLog2gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
                     </div>
-                    <div class="modal-footer">
-                        <button ng-click="ok()" class="btn btn-primary">Save</button>
-                        <button ng-click="cancel()" class="btn">close</button>
-                    </div>
-                </script>
-
-                <button class="btn btn-info" ng-click="open('lg')" style="margin: 15px;">Open Modal</button>
-
-                <h2 style="color: red;">{{result}}</h2>
-                <input type="text" ng-model="pc.myrow.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-             
-
-            <div class="panel-heading">
-                MyLog
-                {{row.action}}
-                <input type="text" ng-model="pc.test" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-                <div style="float:right;">
-                    <button class="btn primary" ng-click="InsertRow()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
                 </div>
             </div>
-            <div class="table-responsive">
-                <div ui-grid="MyLog2gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
-            </div>
+
         </div>
     </div>
+        <div style="display:none;">
 
-
-    <div style="display:none;">
-
-        @*<div class="product-options">
+            @*<div class="product-options">
                 <a id="myWish" href="javascript:;" class="btn btn-mini">Add to Wishlist </a>
                 <a href="" class="btn btn-mini"> Purchase </a>
             </div>
@@ -125,5 +127,5 @@
             </div>*@
 
 
-    </div>
+        </div>
 </body>
