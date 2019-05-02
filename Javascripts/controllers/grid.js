@@ -2,77 +2,17 @@ var km = {};
 km.model = null;
 km.init = function () {
 }
-
-////var counter = 0;
-app.controller('MainCtrl2', [
-    '$scope', '$rootScope', '$http', '$modal', function ($scope, $rootScope, $http, $modal) {
-        //$rootScope.$broadcast("destory"); 
-        $scope.test = function () {
-            //    console.log(angular.isDefined('MyLogCtrl243214'));
-            $rootScope.$broadcast("test");
-
-        };
-
-    }]);
-
-//app.controller('MainCtrl2', function ($scope, $uibModal) {
-
-//    $scope.open = function () {
-//        var modalInstance = $uibModal.open({
-//            templateUrl: "modalContent.html",
-//            controller: "ModalContentCtrl",
-//            size: '',
-//        });
-
-//        modalInstance.result.then(function (response) {
-//            $scope.result = `${response} button hitted`;
-//        });
-
-//    };
-//})
-
-
-//app.controller('ModalCtrl', function ($scope, $uibModal) {
-
-//    $scope.open = function () {
-//        var modalInstance = $uibModal.open({
-//          //  templateUrl: "modalContent.html",
-//            controller: "ModalContentCtrl",
-//            size: '',
-//        });
-
-//        modalInstance.result.then(function (response) {
-//            $scope.result = `${response} button hitted`;
-//        });
-
-//    };
-//})
-
-
-//app.controller('MainCtrl2', ['$scope', '$modal', '$log', function ($scope, $modal, $log) {
-//    $scope.items = ['item1', 'item2', 'item3'];
-//    $scope.row = $scope.$parent.row;
-//    $scope.test = "fdsaf";
-//    $scope.open = function (size) {
-//        var modalInstance = $modal.open({
-//            templateUrl: 'myModalContent.html',
-//            controller: 'ModalInstanceCtrl', 
-//            size: size,
-//            resolve: {
-//                items: function () {
-//                    return $scope.items;
-//                }
-//            }
-//        });
-
-//        modalInstance.result.then(function (selectedItem) {
-//            $scope.selected = selectedItem;
-//        }, function () {
-//            $log.info('Modal dismissed at: ' + new Date());
-//        });
-//    };
-//}])
-    ; 
+ 
+app.controller('ModalInstanceCtrl2', ['$scope', '$modalInstance', 'row', function ($scope, $modalInstance, row) {
+    $scope.row = row; 
+    $scope.ok = function () {
+        $modalInstance.close($scope.row);//$scope.selected.item);
+    }; 
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}])
+ 
 
 //------------------------------------------------------------------------------ 
 //        Date  2019-04-30
@@ -97,6 +37,32 @@ app.controller('MyLog2Ctrl', [
 
             console.log('test' + counter); counter++;
         })*/
+
+
+
+
+
+
+        $scope.open = function (size) {
+            var modalInstance = $modal.open({
+                templateUrl: 'myhtml',
+                controller: 'ModalInstanceCtrl2',
+                size: size,
+                resolve: {
+                    row: function () {
+                        return $scope.row;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (row) {
+                console.log(row);
+            }, function () {
+               console.log('Modal dismissed at: ' + new Date());
+            });
+        };
+
+
         $scope.InsertRow = function () {
 
             editType = "i";

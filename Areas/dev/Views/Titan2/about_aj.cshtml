@@ -65,207 +65,37 @@
        km.model = JSON.parse(model_string);
 </script>
 
-
-
-@*<a [routerLink]="['product-list']" [queryParams]="{ page: 99 }">Go to Page 99</a>
-
-    Alternatively, we can navigate programmatically using the Router service:
-
-      goToPage(pageNum) {
-        this.router.navigate(['/product-list'], { queryParams: { page: pageNum } });
-      }*@
-
+ 
 
 <body>
 
-
-    @*<div class="wrapper-md" ng-controller="ToasterDemoCtrl">
-            <!-- toaster directive -->
-            <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
-            <!-- / toaster directive -->
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Title</label>
-                        <input type="text" class="form-control" placeholder="Enter a title..." ng-model="toaster.title">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea class="form-control" placeholder="Enter a message" rows="5" ng-model="toaster.text"></textarea>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <label>Toast Type</label>
-                    <div class="radio">
-                        <label class="i-checks">
-                            <input type="radio" name="toasts" ng-model="toaster.type" value="success">
-                            <i></i>
-                            Success
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label class="i-checks">
-                            <input type="radio" name="toasts" ng-model="toaster.type" value="info">
-                            <i></i>
-                            Info
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label class="i-checks">
-                            <input type="radio" name="toasts" ng-model="toaster.type" value="wait">
-                            <i></i>
-                            Wait
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label class="i-checks">
-                            <input type="radio" name="toasts" ng-model="toaster.type" value="warning">
-                            <i></i>
-                            Warning
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label class="i-checks">
-                            <input type="radio" name="toasts" ng-model="toaster.type" value="error">
-                            <i></i>
-                            Error
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <button class="btn btn-info" ng-click="pop()">Show a Toaster</button>
-
-        </div>*@
-    @*<div ng-controller="MainCtrl2">
-
-            <input type="button" ng-click="test()" value="test">
-        </div>
-
-
-        <div class="wrapper-md" ng-controller="MyLogCtrl">
-            <input type="text" ng-model="row.id" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-            <input type="text" ng-model="row.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-            <input type="text" ng-model="row.action_data" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-            <input type="text" ng-model="row.ip" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change='ipchanged()' value="">
-            <input type="text" ng-model="row.menu_code" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-
-            <input type="button" ng-click="toDetails(22)" value="toResult">
-            <input type="button" ng-click="update()" value="update">
-            <input type="button" ng-click="insert()" value="insert">
-            <input type="button" ng-click="delete()" value="delete">
-            <div class="tmpHide"> hello{{row.id}}</div>
-
-             <div id="grid1" ui-grid="gridOptions" class="myGrid"></div>
-                <div style="width:700px">
-                    <uib-alert ng-repeat="alert in alerts"
-                               type="{{alert.type}}"
-                               dismiss-on-timeout="5000"
-                               close="alerts.splice($index, 1);">
-                        {{alert.msg}}
-                    </uib-alert>
-                </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    uiGrid <div style="float:right;">
-                        <button class="btn primary" ng-click="InsertRow()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
-
-                    </div>
-                </div>
-                <div class="table-responsive">
-                    <div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
-                </div>
-            </div>
-        </div>*@
-
+      
 
 
     <div ng-controller="MyLog2Ctrl as pc">
-
-
-        @*<span ng-controller="ModalDemoCtrl2 as cc">
-            <script type="text/ng-template" id="myModalContent.html">
-
-
-                <div class="modal-body wrapper-lg">
-                    <div class="row">
-                        <div class="col-sm-6 b-r">
-                            <h3 class="m-t-none m-b font-thin">Sign in</h3>
-                            <p>Sign in to meet your friends.</p>
-                            <form role="form">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
-                                </div>
-                                <div class="checkbox m-t-lg">
-                                    <button type="submit" class="btn btn-sm btn-success pull-right text-uc m-t-n-xs" ng-click="ok()"><strong>Log in</strong></button>
-                                    <label class="i-checks">
-                                        <input type="checkbox"><i></i> Remember me
-                                    </label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-sm-6">
-                            <h4>Not a member?</h4>
-                            <p>You can create an account <a href class="text-info">here</a></p>
-                            <p>OR</p>
-                            <a href class="btn btn-primary btn-block m-b-sm"><i class="fa fa-facebook pull-left"></i>Sign in with Facebook</a>
-                            <a href class="btn btn-info btn-block m-b-sm"><i class="fa fa-twitter pull-left"></i>Sign in with Twitter</a>
-                            <a href class="btn btn-danger btn-block"><i class="fa fa-google-plus pull-left"></i>Sign in with Google+</a>
-                        </div>
-                        <div class="row">
-                            <div class="col"> <input type="text" ng-model="pc.myrow.entity" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value=""></div>
-                            <div class="col"> <input type="text" ng-model="pc.row.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value=""></div>
-                            <div class="col"> <input type="text" ng-model="pc.row.action_data" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value=""></div>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col"> {{row.menu_code}} <input type="text" ng-model="row.ip" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change='ipchanged()' value=""></div>
-                            <div class="col"> <input type="text" ng-model="pc.row.menu_code" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value=""></div>
-                            <div class="col">
-                                
-                                <input type="button" ng-click="toDetails(22)" value="toResult">
-                                <input type="button" ng-click="update()" value="update">
-                                <input type="button" ng-click="insert()" value="insert">
-                                <input type="button" ng-click="delete()" value="delete">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-            </script>
-            <button class="btn btn-success" ng-click="open('lg')">Form in a modal</button>
-        </span>*@
+         
 
         <div class="panel panel-default">
-            @*
-        <div ng-controller="ModalCtrl">
-            <button class="btn btn-info" ng-click="open()" style="margin: 15px;">Open Modal</button>
+            
 
-            <h2 style="color: red;">{{result}}</h2>
-        </div>
-            *@
-            <div ng-controller="MainCtrl2 as cc">
+                <script type="text/ng-template" id="myhtml"> 
+                    <div class="modal-header">
+                        <h2>Edit {{row.ip}}</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p><input ng-model="row.action"/></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button ng-click="ok()" class="btn btn-primary">Save</button>
+                        <button ng-click="cancel()" class="btn">close</button>
+                    </div>
+                </script>
+
                 <button class="btn btn-info" ng-click="open('lg')" style="margin: 15px;">Open Modal</button>
 
                 <h2 style="color: red;">{{result}}</h2>
                 <input type="text" ng-model="pc.myrow.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">
-
-            </div>
+             
 
             <div class="panel-heading">
                 MyLog
