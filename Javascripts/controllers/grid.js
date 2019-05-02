@@ -43,13 +43,14 @@ app.controller('MyLog2Ctrl', [
 
 
 
-        $scope.open = function (size) {
+        $scope.open = function (size, EditType) {
             var modalInstance = $modal.open({
                 templateUrl: 'myhtml',
                 controller: 'ModalInstanceCtrl2',
                 size: size,
                 resolve: {
                     row: function () {
+                        $scope.row.EditType = EditType;
                         return $scope.row;
                     }
                 }

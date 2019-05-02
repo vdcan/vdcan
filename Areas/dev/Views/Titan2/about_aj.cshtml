@@ -53,11 +53,11 @@
 
 @*<script src="/Javascripts/vendor/layout/ui-layout.js"></script>
     <link href="/Javascripts/vendor/layout/ui-layout.css" rel="stylesheet" />
- *@
+*@
 
 
 @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">*@
- 
+
 
 @Request.Params["id"]
 <script type="text/javascript">
@@ -65,7 +65,7 @@
        km.model = JSON.parse(model_string);
 </script>
 
- 
+
 
 <body>
 
@@ -74,49 +74,63 @@
 
 
         <div class="col-sm-8">
-            <div ng-controller="MyLog2Ctrl as pc">
+            <div ng-controller="MyLog2Ctrl">
 
 
-                <div class="panel panel-default">
 
 
-                    <script type="text/ng-template" id="myhtml">
-                        <div class="modal-header">
-                            Edit {{row.ip}}
-                        </div>
-                        <div class="modal-body">
-                            <p><input ng-model="row.action" /></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button ng-click="ok()" class="btn btn-primary">Save</button>
-                            <button ng-click="cancel()" class="btn">close</button>
-                        </div>
-                    </script>
-
-                    <button class="btn btn-info" ng-click="open('lg')" style="margin: 15px;">Open Modal</button>
-
-                    @*<input type="text" ng-model="pc.myrow.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">*@
-
-
-                    <div class="panel-heading">
-                        MyLog
-                        {{row.action}}
-                        @*<input type="text" ng-model="pc.test" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">*@
-                        <div style="float:right;">
-                            <button class="btn primary" ng-click="InsertRow()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
-                        </div>
+                <script type="text/ng-template" id="myhtml">
+                    <div class="modal-header">
+                        {{row.EditType}} {{row.ip}}
                     </div>
-                    <div class="table-responsive">
-                        <div ui-grid="MyLog2gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
+                    <div class="col-sm-12">
+                        @*<form role="form">*@
+                        <div class="form-group">
+                            <label>Action</label>
+                            <p><input ng-model="row.action" class="form-control" placeholder="Action" /></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="checkbox">
+                            <label class="i-checks">
+                                <input type="checkbox" checked disabled><i></i> Check me out
+                            </label>
+                        </div>
+                        @*//   <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                </form>*@
                     </div>
+                    <div class="modal-footer">
+                        <button ng-click="ok()" class="btn btn-primary">Save</button>
+                        <button ng-click="cancel()" class="btn">close</button>
+                    </div>
+                </script>
+
+                <button class="btn btn-info" ng-click="open('lg','Edit')" style="margin: 15px;">Edit</button>
+                <button class="btn btn-info" ng-click="open('lg','Insert')" style="margin: 15px;">Insert</button>
+
+                @*<input type="text" ng-model="pc.myrow.action" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">*@
+
+
+                <div class="panel-heading">
+                    MyLog
+                    {{row.action}}
+                    @*<input type="text" ng-model="pc.test" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" value="">*@
+                    <div style="float:right;">
+                        <button class="btn primary" ng-click="InsertRow()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <div ui-grid="MyLog2gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
                 </div>
             </div>
 
         </div>
     </div>
-        <div style="display:none;">
+    <div style="display:none;">
 
-            @*<div class="product-options">
+        @*<div class="product-options">
                 <a id="myWish" href="javascript:;" class="btn btn-mini">Add to Wishlist </a>
                 <a href="" class="btn btn-mini"> Purchase </a>
             </div>
@@ -127,5 +141,5 @@
             </div>*@
 
 
-        </div>
+    </div>
 </body>
