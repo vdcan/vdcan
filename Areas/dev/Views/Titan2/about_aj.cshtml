@@ -71,105 +71,28 @@
 
 
 
-<script src="../Javascripts/vendor/angular/angularjs-autocomplete.min.js"></script>
+
+<div class="row">
+    <div class="col-sm-6">
 
 
-<div class="row justify-content-center h-100">
-    <div class="col-sm-6 hidden-md-down  ">
+        <div ng-controller="MyLogCtrl">
 
-
-        <div ng-controller="MyLogCtrl" class=" h-100">
-
-            <div class="panel panel-default ">
-                <div auto-complete
-                     source="source"
-                     @*path-to-data="results"*@
-                     display-property="text"
-                     value-property="text"
-                     listFormatter="fromat"
-                     min-chars="2"
-                     placeholder="Enter Address"
-                     @*value-changed="callback(value)"*@
-                     style=" z-index:200">
-                    <input id='ip' ng-model="ip" name="addressText" style="width: 300px;" />
-                    {{ip}}
-                </div>
-
-                <div class="checkbox">
-                    <label class="i-checks">
-                        <input type="checkbox" checked><i></i> Remember me
-                    </label>
-                </div>
-
-                <div class="radio">
-                    <label class="i-checks">
-                        <input type="radio" name="a" value="option1">
-                        <i></i>
-                        Option one
-                    </label>
-                </div>
-                <div class="radio">
-                    <label class="i-checks">
-                        <input type="radio" name="a" value="option2" checked>
-                        <i></i>
-                        Option two checked
-                    </label>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Switch</label>
-                    <div class="col-sm-10">
-                        <label class="i-switch m-t-xs m-r">
-                            <input type="checkbox" checked>
-                            <i></i>
-                        </label>
-                        <label class="i-switch bg-info m-t-xs m-r">
-                            <input type="checkbox" checked>
-                            <i></i>
-                        </label>
-                        <label class="i-switch bg-primary m-t-xs m-r">
-                            <input type="checkbox" checked>
-                            <i></i>
-                        </label>
-                        <label class="i-switch bg-danger m-t-xs m-r">
-                            <input type="checkbox" checked>
-                            <i></i>
-                        </label>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    MyLog
+                    <div style="float:right;">
+                        <button class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
                     </div>
                 </div>
-             
-
-
-            </div>
-                <div class="panel panel-default  h-100">
-                    <div class="panel-heading">
-                        MyLog   &nbsp; <div ng-init="data1=[ 16,15,15,14,17,18,16,15,16 ]" ui-jq="sparkline" ui-options="{{data1}}, {type:'bar', height:19, barWidth:4, barSpacing:2, barColor:'{{app.color.success}}'}" class="sparkline inline">loading...</div>
-
-
-
-
-                                       <div style="float:right;">
-                                            
-                                               <div class="col-sm-10" ng-controller="DatepickerDemoCtrl">
-                                                   <div class="input-group w-md">
-                                                       <input type="text" class="form-control" datepicker-popup="{{format}}" 
-                                                              ng-model="row.add_on" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                                                       <span class="input-group-btn">
-                                                           <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                                                       </span>
-                                                   </div>
-                                               </div> 
-                                           <button class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
-                                       </div>
-                    </div>
-                    <div class="table-responsive  h-100">
-                        <div ui-grid="MyLoggridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
-                    </div>
+                <div class="table-responsive">
+                    <div ui-grid="MyLoggridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
                 </div>
-
             </div>
 
         </div>
+
+    </div>
     <div class="col-sm-6">
 
         <tabset justified="false" class="tab-container">
@@ -183,38 +106,58 @@
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label>action</label>
-                            <p><input ng-model="row.action" class="form-control" placeholder="action" /></p>
+                            <p>
+                                <div auto-complete source='loader' myloader='ccn' display-property='text' value-property='text' min-chars='2' placeholder='action' style=' z-index:200'>
+                                <input id='ip' ng-model='row.action' name='addressText' style='width: 300px;' />
+                                </div>
+                            </p>
                         </div>
                         <div class="form-group">
                             <label>action_data</label>
-                            <p><input ng-model="row.action_data" class="form-control" placeholder="action_data" /></p>
+                            <p>
+                                <textarea type='text' class='form-control' ng-model='row.action_data'></textarea>
+                            </p>
                         </div>
                         <div class="form-group">
                             <label>add_by</label>
-                            <p><input ng-model="row.add_by" class="form-control" placeholder="add_by" /></p>
+                            <p>
+                                <input type='url' class='form-control' ng-model='row.add_by'>
+                            </p>
                         </div>
                         <div class="form-group">
                             <label>add_on</label>
-                            <p><input ng-model="row.add_on" class="form-control" placeholder="add_on" /></p>
+                            <p>
+                                <div ng-controller='DatepickerDemoCtrl'> <div class='input-group w-md'> <input type='text' class='form-control' datepicker-popup='{format}' ng-model='row.add_on' is-open='opened' datepicker-options='dateOptions' ng-required='true' close-text='Close' /> <span class='input-group-btn'> <button type='button' class='btn btn-default' ng-click='open($event)'><i class='glyphicon glyphicon-calendar'></i></button> </span> </div> </div>
+                            </p>
                         </div>
                         <div class="form-group">
                             <label>app_code</label>
-                            <p><input ng-model="row.app_code" class="form-control" placeholder="app_code" /></p>
+                            <p>
+                                <select name='app_code' ui-select  ng-init="getDDL('client')" kendo-drop-down-list class='form-control m-b' ng-model='row.app_code'>
+
+                                    <option data-ng-repeat="client in DDLData['client']" value="{{client.id}}">{{ client.text }}</option>
+
+                                </select>
+                            </p>
                         </div>
                         <div class="form-group">
                             <label>ip</label>
-                            <p><input ng-model="row.ip" class="form-control" placeholder="ip" /></p>
+                            <p>
+                                <label class='i-switch m-t-xs m-r'> <input type='checkbox' ng-model='row.ip' checked>  <i></i> </label>
+                            </p>
                         </div>
                         <div class="form-group">
                             <label>menu_code</label>
-                            <p><input ng-model="row.menu_code" class="form-control" placeholder="menu_code" /></p>
+                            <p>
+                                <div '><label  ><input type='radio' ng-model='row.menu_code' value='1' name='r_menu_code'> active</label><label><input type='radio' ng-model='row.menu_code' value='0' name='r_menu_code'> inactive</label></div>
+                            </p>
                         </div>
 
                     </div>
                     <div class="modal-footer">
                         <div class=" MyLogDetailButtons" style="display:none;">
                             <button ng-click="save()" class="btn btn-primary">Save</button>
-                            <button ng-click="cancel()" class="btn">close</button>
+                            <button ng-click="cancel()" class="btn">Cancel</button>
 
                         </div>
                     </div>
@@ -234,7 +177,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <div ui-grid="MyLog2gridOptions" ui-grid-pagination ui-grid-selection></div>
+                            <div ui-grid="MyLog2gridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
                         </div>
                     </div>
                 </div>

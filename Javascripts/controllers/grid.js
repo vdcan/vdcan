@@ -10,17 +10,48 @@ km.init = function () {
 //			   
 //------------------------------------------------------------------------------  
 
-app.controller('MyLogDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$modal', function ($scope, $rootScope, $stateParams, $modal) {
+app.controller('MyLogDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$modal', '$http', function ($scope, $rootScope, $stateParams, $modal, $http) {
     /*  var id = $stateParams.id;
       var number = $stateParams.number;
       console.log(id);
       console.log(number);
       */
+
+    $scope.loader = function (param) {
+        //  console.log(param);
+        // return [{ id: "fdsaf", value: "fdsaf" }];
+        // console.log(km.model.urls["loader"] + "&loader=ccn&value=" + param.keyword);
+        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
+    };
+    $scope.DDLData  = {};
+    $scope.getDDL = function (param) {
+        console.log(param);
+        if (typeof $scope.DDLData == "undefined")
+            $scope.DDLData = new Object();
+        if ($scope.DDLData.hasOwnProperty(param))
+            return $scope.DDLData[param];
+
+        $http({
+            method: 'GET',
+            url: km.model.urls["ddler"] + "&ddl=" + param
+        }).then(function successCallback(response) {
+            //console.log(response.data);
+            $scope.DDLData[param] = response.data;
+        console.log($scope.DDLData);
+            return $scope.DDLData[param];
+            // this callback will be called asynchronously
+            // when the response is available
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+            }); 
+    };
+
     $scope.row = {};// = {id:43124};
     $scope.row_old = {};// = {id:43124};
     //$scope.row_original = {};// = {id:43124};
     $rootScope.$on("MyLogSelectedRowChanged", function (event, row, ids, paginationOptions) {
-        $scope.row = Object.assign({}, row);
+        $scope.row = row;// Object.assign({}, row);
         $scope.row_old = row;
         $(".tmpHide").removeClass("tmpHide");
     });
@@ -387,7 +418,7 @@ app.controller('MyLogCtrl', [
                 gridApi.selection.on.rowSelectionChanged($scope, function (row) {
                     // var msg = 'row selected ' + row.;
                     $scope.SelectedRow = row;
-                    $scope.row = Object.assign({}, row.entity);
+                    $scope.row = row.entity;// Object.assign({}, row.entity);
                     $scope.selectedRowIndex = $scope.MyLoggridOptions.data.indexOf(row.entity);
                     $scope.sync();
                 });
