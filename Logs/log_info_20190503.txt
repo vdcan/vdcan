@@ -484,3 +484,28 @@
 [5/3/2019 7:34:47 AM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=pKSPw9Y_XleOSrxGgCZcE3U4p7fMzcGuRGEZR3IPnYY=&b=BceMrqiCr5eBp9c8PtsO5w==
 [5/3/2019 7:34:48 AM]about_aj
 [5/3/2019 7:34:51 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/3/2019 9:04:31 AM]baseindex 6Obb
+[5/3/2019 9:04:31 AM]tmpMenuCode about_aj
+[5/3/2019 9:04:31 AM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=pKSPw9Y_XleizANBoM1o841ShEir87tIWoYmynNOi8c=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/3/2019 9:04:31 AM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=pKSPw9Y_XleizANBoM1o87_bs1bE18-BIY-3QMlq668=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/3/2019 9:04:31 AM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=pKSPw9Y_XleizANBoM1o8z_tCWznF0H4sW9XAX18Jrs=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/3/2019 9:04:31 AM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=pKSPw9Y_XlfH07gL6N2W9iIQeAUrZcWA-VGPHs9LK1E=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/3/2019 9:04:31 AM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=pKSPw9Y_XlfH07gL6N2W9lT8Qp_7J--PfjiwTPBBv08=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/3/2019 9:04:31 AM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=pKSPw9Y_XlfH07gL6N2W9gV5c_m6YWQrjHQynaD3wTw=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/3/2019 9:04:31 AM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=pKSPw9Y_XlfyBqZZhTwkjMkvnCB9W_qEnzA9XyGtgLA=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/3/2019 9:04:32 AM]about_aj
+[5/3/2019 9:04:35 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/3/2019 9:04:48 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/3/2019 9:04:57 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/3/2019 9:05:31 AM]baseindex 6Obb
+[5/3/2019 9:05:31 AM]tmpMenuCode about_aj
+[5/3/2019 9:05:31 AM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=pKSPw9Y_Xlfxx2qHwv3JiHVvipKEiWQ6co-M4LaO3L8=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/3/2019 9:05:31 AM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=pKSPw9Y_Xlfxx2qHwv3JiL1Adit5sgbNA4-hxxUGcFc=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/3/2019 9:05:31 AM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=pKSPw9Y_Xlfxx2qHwv3JiJcU32QgLSzHnOzgWAB0GJ4=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/3/2019 9:05:31 AM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=pKSPw9Y_Xlcu22GWIx2SNhxPniBCmvrajvnUm8S92Ek=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/3/2019 9:05:31 AM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=pKSPw9Y_Xlcu22GWIx2SNuHt87OnY7mLXslZ4uUSLcg=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/3/2019 9:05:31 AM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=pKSPw9Y_Xlcu22GWIx2SNrnytueVZ3FjGAjf30cq9Js=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/3/2019 9:05:31 AM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=pKSPw9Y_Xlcu22GWIx2SNt4WYEDOFiF4odW5taGl0Go=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/3/2019 9:05:31 AM]about_aj
+[5/3/2019 9:05:35 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/3/2019 9:05:42 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
