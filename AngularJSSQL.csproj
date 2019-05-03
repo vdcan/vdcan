@@ -574,6 +574,7 @@
     <Content Include="Javascripts\vendor\angular\angular-ui-router\angular-ui-router.js" />
     <Content Include="Javascripts\vendor\angular\angular-ui-utils\ui-utils.js" />
     <Content Include="Javascripts\vendor\angular\angular.js" />
+    <Content Include="Javascripts\vendor\angular\angularjs-autocomplete.min.js" />
     <Content Include="Javascripts\vendor\angular\ngstorage\ngStorage.js" />
     <Content Include="Javascripts\vendor\angular\oclazyload\ocLazyLoad.js" />
     <Content Include="Javascripts\vendor\jquery\bootstrap.js" />

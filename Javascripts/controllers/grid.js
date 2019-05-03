@@ -4,6 +4,56 @@ km.init = function () {
 }
 
 
+//------------------------------------------------------------------------------ 
+//        Date  2019-05-02
+//        Author  ²Ì½Ý   
+//			   
+//------------------------------------------------------------------------------  
+
+app.controller('MyLogDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$modal', function ($scope, $rootScope, $stateParams, $modal) {
+    /*  var id = $stateParams.id;
+      var number = $stateParams.number;
+      console.log(id);
+      console.log(number);
+      */
+    $scope.row = {};// = {id:43124};
+    $scope.row_old = {};// = {id:43124};
+    //$scope.row_original = {};// = {id:43124};
+    $rootScope.$on("MyLogSelectedRowChanged", function (event, row, ids, paginationOptions) {
+        $scope.row = Object.assign({}, row);
+        $scope.row_old = row;
+        $(".tmpHide").removeClass("tmpHide");
+    });
+    $rootScope.$on("MyLogEditSide", function (event, row) {
+        $scope.row = Object.assign({}, row);
+        $(".MyLogDetailButtons").show();
+    });
+    $scope.save = function () {
+        $rootScope.$broadcast("MyLog" + $scope.row.EditType, $scope.row);
+        $(".MyLogDetailButtons").hide();
+    }
+    $scope.cancel = function () {
+        $(".MyLogDetailButtons").hide();
+        $scope.row = Object.assign({}, $scope.row_old);
+    }
+
+}]);
+
+
+//------------------------------------------------------------------------------ 
+//        Date  2019-05-02
+//        Author  ²Ì½Ý   
+//			   
+//------------------------------------------------------------------------------  
+
+
+function MyLog_8_Init() {
+
+}
+
+
+
+
 /*
 //for other controllers to listen the selected row changed. 
 app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
@@ -45,66 +95,34 @@ app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
 
 
 
-
-app.controller('MyLogModalInstanceControl', ['$scope', '$modalInstance', 'row', function ($scope, $modalInstance, row) {
-    $scope.row = row;
-    $scope.ok = function () {
-        $modalInstance.close($scope.row);
-    };
-    $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
-    };
-}])
-
-
-
-
 app.controller('MyLogCtrl', [
     '$scope', '$rootScope', '$http', '$modal', function ($scope, $rootScope, $http, $modal) {
         $scope.SelectedRow = {};//for getting row detail
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
-
-
-
-
-
-
-        $scope.open = function (size, EditType) {
-            var modalInstance = $modal.open({
-                templateUrl: 'MyLogDetail',
-                controller: 'MyLogModalInstanceControl',
-                size: size,
-                resolve: {
-                    row: function () {
-                        $scope.row.EditType = EditType;
-                        return $scope.row;
-                    }
-                }
-            });
-
-            modalInstance.result.then(function (row) {
-                if (row.EditType == "Edit") {
-                    $scope.updateData(row)
-                }
-                if (row.EditType == "Insert") {
-                    $scope.insertData(row)
-                }
-            }, function () {
-                console.log('Modal dismissed at: ' + new Date());
-            });
+        $scope.ip = "";
+        $scope.source= function (param) {
+            console.log(param);
+           // return [{ id: "fdsaf", value: "fdsaf" }];
+           // console.log(km.model.urls["loader"] + "&loader=ccn&value=" + param.keyword);
+            return $http.get(km.model.urls["loader"] + "&loader=ccn&value=" + param.keyword  );
         };
-        $scope.InsertPopup = function () {
+        $scope.format = function (obj, scope) {
+            console.log(obj);
+            return text;
 
-            var row = $scope.copyEmptyObject($scope.row);
-            $scope.row = row;
-            $scope.open('lg', 'Insert');
         }
-        $scope.EditPopup = function (row) {
+        $scope.callback = function (address) {
+            $scope.ip = address.text;
+        }
 
-            $scope.row = Object.assign({}, row);
-            $scope.open('lg', 'Edit');
+        this.querySearch = function (query) {
+            console.log(query);
+            return $http.get(km.model.urls["loader"], { params: { q: query } })
+                .then(function (response) {
+                    return response.data.items;
+                })
         }
 
 
@@ -279,7 +297,17 @@ app.controller('MyLogCtrl', [
         }
 
         $scope.sync = function () {
-            $rootScope.$broadcast("MyLogSelectedRowChanged");
+            $rootScope.$broadcast("MyLogSelectedRowChanged", $scope.row);
+        };
+        $scope.EditSide = function (row) {
+            row.EditType = "Update";
+            $rootScope.$broadcast("MyLogEditSide", row);
+        };
+        $scope.InsertSide = function () {
+
+            var row = $scope.copyEmptyObject($scope.row);
+            row.EditType = "Insert";
+            $rootScope.$broadcast("MyLogEditSide", row);
         };
         var paginationOptions = {
             pageNumber: 1,
@@ -294,7 +322,8 @@ app.controller('MyLogCtrl', [
             useExternalPagination: true,
             useExternalSorting: true,
             multiSelect: false,
-            enableRowHeaderSelection: false,
+          //  enableMinHeightCheck: true,
+           enableRowHeaderSelection: false,
             columnDefs:
                 [
                     {
@@ -330,8 +359,8 @@ app.controller('MyLogCtrl', [
                         cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" style="height:30px" ng-model="MODEL_COL_FIELD"/></div>'
                     },
                     {
-                        name: 'pActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
-                        cellTemplate: '<div><button  class="btn primary" ng-click="grid.appScope.EditPopup(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
+                        name: 'sActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
+                        cellTemplate: '<div><button  class="btn primary" ng-click="grid.appScope.EditSide(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
                             '<button class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
                             '</div>', width: 80
                     }
@@ -340,6 +369,7 @@ app.controller('MyLogCtrl', [
 
             onRegisterApi: function (gridApi) {
                 $scope.gridApi = gridApi;
+             //   $scope.gridApi.core.handleWindowResize();
                 $scope.gridApi.core.on.sortChanged($scope, function (grid, sortColumns) {
                     if (sortColumns.length == 0) {
                         paginationOptions.sort = "";
@@ -407,8 +437,6 @@ app.controller('MyLogCtrl', [
         $scope.getPage();
     }
 ]);
-
-
 
 
 
@@ -557,7 +585,7 @@ app.controller('MyLog2Ctrl', [
         }
         $scope.insertData = function (row) {
             com.ajax({
-                type: 'POST', url: km.model.urls["MyLog_insert"], data: row, success: function (result) {
+                type: 'POST', url: km.model.urls["MyLog2_insert"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
                         $scope.afterInsert(r);
@@ -600,7 +628,7 @@ app.controller('MyLog2Ctrl', [
         $scope.deleteData = function (id) {
             var parms = { id: id, ids: $scope.ids, sort: paginationOptions.sort, order: paginationOptions.order }
             com.ajax({
-                type: 'POST', url: km.model.urls["MyLog_delete"], data: parms, success: function (result) {
+                type: 'POST', url: km.model.urls["MyLog2_delete"], data: parms, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
                         $scope.afterDelete(r);
@@ -622,7 +650,7 @@ app.controller('MyLog2Ctrl', [
         }
         $scope.updateData = function (row) {
             com.ajax({
-                type: 'POST', url: km.model.urls["MyLog_update"], data: row, success: function (result) {
+                type: 'POST', url: km.model.urls["MyLog2_update"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
                         var iterator = Object.keys(r);
@@ -643,7 +671,17 @@ app.controller('MyLog2Ctrl', [
         }
 
         $scope.sync = function () {
-            $rootScope.$broadcast("MyLog2SelectedRowChanged");
+            $rootScope.$broadcast("MyLog2SelectedRowChanged", $scope.row);
+        };
+        $scope.EditSide = function (row) {
+            row.EditType = "Update";
+            $rootScope.$broadcast("MyLog2EditSide", row);
+        };
+        $scope.InsertSide = function () {
+
+            var row = $scope.copyEmptyObject($scope.row);
+            row.EditType = "Insert";
+            $rootScope.$broadcast("MyLog2EditSide", row);
         };
         var paginationOptions = {
             pageNumber: 1,
@@ -733,7 +771,7 @@ app.controller('MyLog2Ctrl', [
         };
 
         $scope.getPage = function () {
-            $http.get(km.model.urls["MyLog_pager"] + "&page=" + paginationOptions.pageNumber
+            $http.get(km.model.urls["MyLog2_pager"] + "&page=" + paginationOptions.pageNumber
                 + "&rows=" + paginationOptions.pageSize + "&sort=" + paginationOptions.sort + "&order=" +
                 paginationOptions.order + "&_t=" + com.settings.timestamp()).success(function (result) {
                     result.rows.forEach(function (d) {
@@ -773,6 +811,3 @@ app.controller('MyLog2Ctrl', [
         $scope.getPage();
     }
 ]);
-
-
-

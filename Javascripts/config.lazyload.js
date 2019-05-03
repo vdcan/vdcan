@@ -46,7 +46,8 @@ angular.module('app')
             files: [
                 '/Javascripts/vendor/angular/angular-animate/angular-animate.js',
                 '/Javascripts/vendor/modules/ui-grid/ui-grid.min.js',
-                '/Javascripts/vendor/modules/ui-grid/ui-grid.min.css'
+                '/Javascripts/vendor/modules/ui-grid/ui-grid.min.css',
+                '/Javascripts/vendor/angular/angularjs-autocomplete.min.js'
             ]
         },
         {

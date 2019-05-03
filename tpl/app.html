@@ -3,7 +3,6 @@
 <!--<script src="/Javascripts/vendor/modules/angularjs-toaster/toaster.js"></script>
 
 <link rel="stylesheet" href="/Javascripts/vendor/modules/angularjs-toaster/toaster.css" type="text/css" />-->
-
 <!-- navbar -->
 <div data-ng-include=" '/tpl/blocks/header.html' " class="app-header navbar">
 </div>
@@ -16,16 +15,16 @@
 <div class="app-content">
     <div ui-butterbar></div>
     <a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".app-aside"></a>
-     
     <div style="position:absolute; left : -100px;">
         <div class="wrapper-md" ng-controller="SysToasterCtrl">
             <!-- toaster directive -->
             <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
         </div>
-    </div>
+    </div> 
+
+        <div class="app-content-body fade-in-up container-fluid h-100"  ui-view></div> 
 
 
-    <div class="app-content-body fade-in-up" ui-view></div>
 </div>
 <!-- /content -->
 <!-- aside right -->
