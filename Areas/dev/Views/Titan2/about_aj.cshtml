@@ -50,9 +50,9 @@
         display: none;
     }
 
-    .ui-grid, .ui-grid-viewport {
+    /*.ui-grid, .ui-grid-viewport {
         height: auto !important;
-    }
+    }*/
 </style>
 
 @*<script src="/Javascripts/vendor/layout/ui-layout.js"></script>
@@ -79,39 +79,99 @@
 
 
         <div ng-controller="MyLogCtrl" class=" h-100">
-            <div auto-complete
-                 source="source"
-                 @*path-to-data="results"*@
-                 display-property="text"
-                 value-property="text"
-                 listFormatter="fromat"
-                 min-chars="2"
-                 placeholder="Enter Address"
-                 value-changed="callback(value)" style=" z-index:200">
-                <input id='ip' ng-model="addressText" name="addressText"  style="width: 300px;"/>
-                {{ip}}
-            </div>
-            <div class="panel panel-default  h-100">
-                <div class="panel-heading">
-                    MyLog   &nbsp; <div ng-init="data1=[ 16,15,15,14,17,18,16,15,16 ]" ui-jq="sparkline" ui-options="{{data1}}, {type:'bar', height:19, barWidth:4, barSpacing:2, barColor:'{{app.color.success}}'}" class="sparkline inline">loading...</div>
 
+            <div class="panel panel-default ">
+                <div auto-complete
+                     source="source"
+                     @*path-to-data="results"*@
+                     display-property="text"
+                     value-property="text"
+                     listFormatter="fromat"
+                     min-chars="2"
+                     placeholder="Enter Address"
+                     @*value-changed="callback(value)"*@
+                     style=" z-index:200">
+                    <input id='ip' ng-model="ip" name="addressText" style="width: 300px;" />
+                    {{ip}}
+                </div>
 
+                <div class="checkbox">
+                    <label class="i-checks">
+                        <input type="checkbox" checked><i></i> Remember me
+                    </label>
+                </div>
 
+                <div class="radio">
+                    <label class="i-checks">
+                        <input type="radio" name="a" value="option1">
+                        <i></i>
+                        Option one
+                    </label>
+                </div>
+                <div class="radio">
+                    <label class="i-checks">
+                        <input type="radio" name="a" value="option2" checked>
+                        <i></i>
+                        Option two checked
+                    </label>
+                </div>
 
-                    <div style="float:right;">
-
-
-                        <button class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Switch</label>
+                    <div class="col-sm-10">
+                        <label class="i-switch m-t-xs m-r">
+                            <input type="checkbox" checked>
+                            <i></i>
+                        </label>
+                        <label class="i-switch bg-info m-t-xs m-r">
+                            <input type="checkbox" checked>
+                            <i></i>
+                        </label>
+                        <label class="i-switch bg-primary m-t-xs m-r">
+                            <input type="checkbox" checked>
+                            <i></i>
+                        </label>
+                        <label class="i-switch bg-danger m-t-xs m-r">
+                            <input type="checkbox" checked>
+                            <i></i>
+                        </label>
                     </div>
                 </div>
-                <div class="table-responsive  h-100">
-                    <div ui-grid="MyLoggridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Datepicker</label>
+                    <div class="col-sm-10" ng-controller="DatepickerDemoCtrl">
+                        <div class="input-group w-md">
+                            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </div>
+                    </div>
                 </div>
+
+
+            </div>
+                <div class="panel panel-default  h-100">
+                    <div class="panel-heading">
+                        MyLog   &nbsp; <div ng-init="data1=[ 16,15,15,14,17,18,16,15,16 ]" ui-jq="sparkline" ui-options="{{data1}}, {type:'bar', height:19, barWidth:4, barSpacing:2, barColor:'{{app.color.success}}'}" class="sparkline inline">loading...</div>
+
+
+
+
+                        <div style="float:right;">
+
+
+                            <button class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+                        </div>
+                    </div>
+                    <div class="table-responsive  h-100">
+                        <div ui-grid="MyLoggridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
+                    </div>
+                </div>
+
             </div>
 
         </div>
-
-    </div>
     <div class="col-sm-6">
 
         <tabset justified="false" class="tab-container">
