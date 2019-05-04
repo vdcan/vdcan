@@ -107,9 +107,7 @@
                         <div class="form-group">
                             <label>action</label>
                             <p>
-                                <div auto-complete source='loader' myloader='ccn' display-property='text' value-property='text' min-chars='2' placeholder='action' style=' z-index:200'>
-                                <input id='ip' ng-model='row.action' name='addressText' style='width: 300px;' />
-                                </div>
+                                <div auto-complete source='loader' loader='ccn' display-property='text' value-property='text' min-chars='2' placeholder='action' style=' z-index:200'> <input id='ip' ng-model='row.action' name='addressText' style='width: 300px;' />   </div>
                             </p>
                         </div>
                         <div class="form-group">
@@ -133,11 +131,7 @@
                         <div class="form-group">
                             <label>app_code</label>
                             <p>
-                                <select name='app_code' ui-select  ng-init="getDDL('client')" kendo-drop-down-list class='form-control m-b' ng-model='row.app_code'>
-
-                                    <option data-ng-repeat="client in DDLData['client']" value="{{client.id}}">{{ client.text }}</option>
-
-                                </select>
+                                <select ui-select ng-init='getDDL("client")' class='form-control m-b' ng-model='row.app_code'><option data-ng-repeat='d in DDLData["client"]' value='{{d.id}}'>{{ d.text }}</ option ></select>
                             </p>
                         </div>
                         <div class="form-group">
