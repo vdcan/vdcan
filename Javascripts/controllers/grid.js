@@ -213,7 +213,7 @@ app.controller('MyLogCtrl', [
             }
         };
         //Method to cancel the edit mode in UIGrid
-        $scope.cancelEdit = function (row) { 
+        $scope.cancelEdit = function (row) {
             //Get the index of selected row from row object
             var index = $scope.MyLoggridOptions.data.indexOf(row);
             if ($scope.editType == "i") {
@@ -228,8 +228,8 @@ app.controller('MyLogCtrl', [
                 //Use that to set the editrow attrbute value to false
                 $scope.MyLoggridOptions.data[index].editrow = false;
             }
+
             $scope.SelectedRow.entity.editrow = false;
-          //  console.log($scope.SelectedRow);
             $rootScope.$broadcast("SysToaster", 'info', "", "Row editing cancelled");
         };
 
@@ -355,7 +355,7 @@ app.controller('MyLogCtrl', [
         };
         $scope.EditSide = function (row) {
             row.EditType = "Update";
-            $scope.SelectedRow = row;
+
             row.editrow = true;
             $rootScope.$broadcast("MyLogEditSide", row);
         };
@@ -371,6 +371,36 @@ app.controller('MyLogCtrl', [
             order: "desc",
             sort: "id",
         };
+
+        $scope.showValue= function  (value, data, type) {
+
+            var tmp = "";
+            var a = data.split(" ");
+            for (var i = 0; i < a.length; i++) {
+
+                var v = a[i].split("=")[0];
+                var t = a[i].split("=")[1];
+                if (type == "checkbox") {
+
+                    if (("," + value + ",").indexOf("," + v + ",") >= 0)
+                        tmp += "&nbsp;<input type='checkbox' checked  disabled='true'  >&nbsp;" + t;
+                    else
+                        tmp += "&nbsp;<input type='checkbox' disabled='true' >&nbsp;" + t;
+
+
+                } else if (type == "radio") {
+                    if (value == v)
+                        tmp += "&nbsp;<input type='radio' checked disabled='true' >&nbsp;" + t;
+                    else
+                        tmp += "&nbsp;<input type='radio' disabled='true' >&nbsp;" + t;
+                } else {
+                    if (value == v)
+                        return t;
+                }
+            }
+            return tmp+type;
+        } 
+
         $scope.MyLoggridOptions = {
             paginationPageSizes: [10, 15, 25, 50, 75],
             paginationPageSize: paginationOptions.pageSize,
@@ -388,11 +418,16 @@ app.controller('MyLogCtrl', [
                     { field: 'app_code', displayName: 'app_code', width: 80, align: 'center' },
                     { field: 'id', displayName: 'id', width: 80, align: 'center' },
                     { field: 'ip', displayName: 'ip', width: 80, align: 'center' },
-                    { field: 'menu_code', displayName: 'menu_code', width: 80, align: 'center' },
+                    {
+                        field: 'menu_code', displayName: 'menu_code', width: "*", align: 'center',
+
+                        cellTemplate: '<div>{{row.entity.menu_code}}-{{grid.appScope.showValue(  row.entity.menu_code, "0=no 1=yes","checkbox")}} ' + 
+                            '</div>'
+                    },
                     {
                         name: 'sActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
                         cellTemplate: '<div><button  ng-show="!row.entity.editrow"   class="btn primary" ng-click="grid.appScope.EditSide(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
-                            '<button  ng-show="!row.entity.editrow"  class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
+                            '<button  ng-show="!row.entity.editrow" class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
                             '</div>', width: 80
                     }
 
@@ -612,6 +647,7 @@ app.controller('MyLog2Ctrl', [
                 $scope.MyLog2gridOptions.data[index].editrow = false;
             }
 
+            $scope.SelectedRow.entity.editrow = false;
             $rootScope.$broadcast("SysToaster", 'info', "", "Row editing cancelled");
         };
 
@@ -625,7 +661,7 @@ app.controller('MyLog2Ctrl', [
             $scope.deleteIt(id, text)
         });
 
-        $scope.$on("MMyLog2Cancel", function (event, row) {
+        $scope.$on("MyLog2Cancel", function (event, row) {
             $scope.cancelEdit(row)
         });
         $scope.insert = function () {
@@ -646,7 +682,7 @@ app.controller('MyLog2Ctrl', [
         }
         $scope.insertData = function (row) {
             com.ajax({
-                type: 'POST', url: km.model.urls["MyLog_insert"], data: row, success: function (result) {
+                type: 'POST', url: km.model.urls["MyLog2_insert"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
                         $scope.afterInsert(r);
@@ -689,7 +725,7 @@ app.controller('MyLog2Ctrl', [
         $scope.deleteData = function (id) {
             var parms = { id: id, ids: $scope.ids, sort: paginationOptions.sort, order: paginationOptions.order }
             com.ajax({
-                type: 'POST', url: km.model.urls["MyLog_delete"], data: parms, success: function (result) {
+                type: 'POST', url: km.model.urls["MyLog2_delete"], data: parms, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
                         $scope.afterDelete(r);
@@ -711,7 +747,7 @@ app.controller('MyLog2Ctrl', [
         }
         $scope.updateData = function (row) {
             com.ajax({
-                type: 'POST', url: km.model.urls["MyLog_update"], data: row, success: function (result) {
+                type: 'POST', url: km.model.urls["MyLog2_update"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
                         var iterator = Object.keys(r);
@@ -727,6 +763,7 @@ app.controller('MyLog2Ctrl', [
             });
         }
         $scope.afterUpdate = function () {
+            $scope.SelectedRow.entity.editrow = false;
             $scope.editType = "";
             $scope.gridApi.core.refresh();
         }
@@ -736,7 +773,8 @@ app.controller('MyLog2Ctrl', [
         };
         $scope.EditSide = function (row) {
             row.EditType = "Update";
-            row.
+
+            row.editrow = true;
             $rootScope.$broadcast("MyLog2EditSide", row);
         };
         $scope.InsertSide = function () {
@@ -833,7 +871,7 @@ app.controller('MyLog2Ctrl', [
         };
 
         $scope.getPage = function () {
-            $http.get(km.model.urls["MyLog_pager"] + "&page=" + paginationOptions.pageNumber
+            $http.get(km.model.urls["MyLog2_pager"] + "&page=" + paginationOptions.pageNumber
                 + "&rows=" + paginationOptions.pageSize + "&sort=" + paginationOptions.sort + "&order=" +
                 paginationOptions.order + "&_t=" + com.settings.timestamp()).success(function (result) {
                     result.rows.forEach(function (d) {
