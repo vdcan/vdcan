@@ -1329,3 +1329,276 @@
 [5/8/2019 4:55:43 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dsUDjMADK9G_80GutAGnuZ0umR5XU_onM=&b=JEIsGfj-vwkyMfmYzBNp1A==
 [5/8/2019 4:55:44 PM]about_aj
 [5/8/2019 4:55:47 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:00:00 PM]baseindex 6Obb
+[5/8/2019 5:00:00 PM]tmpMenuCode about_aj
+[5/8/2019 5:00:00 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dhZm-Rb3B8xPxi1UgoUABdktWTcDm1daM=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:00:00 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dhZm-Rb3B8xF4SAUJvx6uXievvv5UKI3I=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:00:00 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0fAoU4zjdPX6MLq3o8_AYFDbI33Kfywbww=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:00:00 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0fAoU4zjdPX6BdVqiBm5R-Dg3HL-_ME5Z8=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:00:00 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0fAoU4zjdPX6HVvZgV3sQikMlerUcM4akY=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:00:00 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cpY897nDv3loFBtbDXVRv5F0GdsMXWQl8=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:00:00 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cpY897nDv3lh6Z4TxRv3QceQRNdMkSyQw=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:00:00 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cpY897nDv3luKNzCp-yGyq6Z6dA7NAGNM=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:00:00 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cpY897nDv3lgGfWfrwRBbU29TJ-YEk76g=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:00:01 PM]about_aj
+[5/8/2019 5:00:01 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:00:35 PM]baseindex 6Obb
+[5/8/2019 5:00:35 PM]tmpMenuCode about_aj
+[5/8/2019 5:00:35 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cjg6LQNz2O9DRNsI_poSJdcxjG04uW0Kk=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:00:35 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cjg6LQNz2O9IsVglZiYB1K7mXxfhpAiGg=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:00:35 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0cjg6LQNz2O9O7Enyj2CLbNjHdTFlxQnkw=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:00:35 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0eo4cYdYzVVI0PPNL3VNWHythUzQmWOEGI=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:00:35 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0eo4cYdYzVVI3xRU86mekahdzhYNchE-FY=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:00:35 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0eo4cYdYzVVI9Rtd7p_B6SEbfRKyBBWI34=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:00:35 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0eo4cYdYzVVIxJw5DpZRG69Qf-os6vafmo=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:00:35 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0eo4cYdYzVVI2aKwasszCXHcdAE9r0gF5k=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:00:35 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0eo4cYdYzVVIzTFYU3Ry3ucoNeriJT9c58=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:00:35 PM]about_aj
+[5/8/2019 5:00:36 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:01:30 PM]baseindex 6Obb
+[5/8/2019 5:01:30 PM]tmpMenuCode about_aj
+[5/8/2019 5:01:30 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cqUMJP6FwSycZM2i4Wskk0Z3fa_2Ah-50=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:01:30 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cqUMJP6FwSyYAsIbtGvUCkhtIqNJMZR0Q=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:01:30 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0cH5RKnjhbOLalnTQPJHo8DjbM2tTlG8ec=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:01:30 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0cH5RKnjhbOLfBlId-xuGcmcwg1Zf1a_Ik=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:01:30 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0cH5RKnjhbOLY0_F4iksyCw3HxTcKcpfY8=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:01:30 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cH5RKnjhbOLUuDR8Eex-3PoonBJpFussI=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:01:30 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cH5RKnjhbOLYXD9HJ0epNiyd--L6N4v4U=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:01:30 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0ezZX1eW7wUHQGKHs_8WFXAmQQj_7VIovk=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:01:30 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0ezZX1eW7wUHdDpGYBCePv9EKoixQVMBXo=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:01:31 PM]about_aj
+[5/8/2019 5:01:31 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:06:37 PM]baseindex 6Obb
+[5/8/2019 5:06:37 PM]tmpMenuCode about_aj
+[5/8/2019 5:06:37 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dUy6tidSLFVa0CpRn3ifn8Qh3fLcbZuOk=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:06:37 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dUy6tidSLFVUE9TIAJgis6GLbQ40QNJas=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:06:37 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0dUy6tidSLFVbF41FyZx4ptbGYzlK4dy2M=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:06:37 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0cSlZHOeKAlzWvSAMsB5YNeGeR5kw1alGs=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:06:37 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0cSlZHOeKAlzXUjZUZ-94d9VQTj_3BhMwM=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:06:37 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cSlZHOeKAlzdhuOiGFQjtrGzIUq7d1faQ=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:06:37 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cSlZHOeKAlzWli6tsWwkZJj_uU4_Ci-ew=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:06:37 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0d9zOkTnsDCJ7HyYdGo8qGSo4VS7JrvayE=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:06:37 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0d9zOkTnsDCJ6iu22FBES2V2y51CcAMSvw=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:06:38 PM]about_aj
+[5/8/2019 5:06:38 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:07:37 PM]baseindex 6Obb
+[5/8/2019 5:07:37 PM]tmpMenuCode about_aj
+[5/8/2019 5:07:37 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0d5CXuF6SbFvEtJoFUTiEC3e6WKH7kAw0s=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:07:37 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0d5CXuF6SbFvBEvsS4GQ02yJoo9kT-gxNU=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:07:37 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0deN3hyBziFYXCzq_ytsc6UyuAxZiMXbXw=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:07:37 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0deN3hyBziFYYoRUiAsUA-4d4l9G2S5cJM=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:07:37 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0deN3hyBziFYfujXu0H-98pB0dplFM8i5A=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:07:37 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0deN3hyBziFYa8HkghQuFw0YlxDPjtvr_I=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:07:37 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0deN3hyBziFYQmQ69oJTXxYOW5AVzvL1H4=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:07:37 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cqqSO2vQ-Rl4yCl1k1ih39216Dlj7CGo0=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:07:37 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cqqSO2vQ-Rl46sW0FtFYXZYoHA3XBDqFY=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:07:38 PM]about_aj
+[5/8/2019 5:07:38 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:09:56 PM]baseindex 6Obb
+[5/8/2019 5:09:56 PM]tmpMenuCode about_aj
+[5/8/2019 5:09:56 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0etT6JlhH-ZMG16CC6pLSYEAeJaQd6EX7E=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:09:56 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0etT6JlhH-ZMHHDFaZHvvak0Tn2_FnFbCU=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:09:56 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0dCDM54dh2330L0DQw9ckjiU6mK9rNwxD8=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:09:56 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0dCDM54dh233_IDssk1BmQxHzGT4sZp7eg=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:09:56 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0dCDM54dh23303ZWUsC6QG54ugwpCYhsTE=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:09:56 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0dCDM54dh233zkF1vv7THxbo46ifaU_bRA=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:09:56 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0dCDM54dh2336P6f2J05Xey-4B90VcJ65A=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:09:56 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dCDM54dh2336_OcgvFLzejj97Pm86kFi0=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:09:56 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0ePQ2OH4TrgnniEPNUR54SJCpGXbH9j0tk=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:09:56 PM]about_aj
+[5/8/2019 5:09:56 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:11:21 PM]baseindex 6Obb
+[5/8/2019 5:11:21 PM]tmpMenuCode about_aj
+[5/8/2019 5:11:21 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0ffEP9MCl0CqVsfG4qgcaE53yJPs3Ju5m8=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:11:21 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0ffEP9MCl0CqUCAf--ZjL0VIjmn24sE-CY=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:11:21 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0eVcn0Q5Hs3X7hPqQx79cUlvtVGY_GZfL8=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:11:21 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0eVcn0Q5Hs3X60QJFbuHg7LHgVqfiB7LVk=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:11:21 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0eVcn0Q5Hs3X1JkkTFjKk1p4tvVL4yV51k=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:11:21 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0eVcn0Q5Hs3X0Mid9ewy73KoItvsDVNHk4=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:11:21 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0eVcn0Q5Hs3X1KFpl83r9MuZvqXChVvHbQ=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:11:21 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0eVcn0Q5Hs3X9rccyXjv4RWNAuzJQV0yek=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:11:21 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dJ1KnbbloWQHV-LrOVNS9qOxZFsHiwb98=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:11:21 PM]about_aj
+[5/8/2019 5:11:22 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:19:09 PM]baseindex 6Obb
+[5/8/2019 5:19:09 PM]tmpMenuCode about_aj
+[5/8/2019 5:19:09 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0fyUlxC_jwxHF48PFPLsgBtgz6-Vl7FFek=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:19:09 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0fyUlxC_jwxHDwX46-6wyvsAx6sk9uc2J4=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:19:09 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0fyUlxC_jwxHF74PVv8fg34y2w0zVI7rNM=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:19:09 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0fyUlxC_jwxHIWN0FJJ-wvpiz8nvCEI98k=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:19:09 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0fyUlxC_jwxHNBgHK33-4q2hXWL95V_mLk=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:19:09 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0fyUlxC_jwxHDSIuUIcEVhoe6Xb5uPuO6s=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:19:09 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0dkqmIVDd5PndLaDU2A_NdizGzKU8bH24g=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:19:09 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dkqmIVDd5PnS28-HQLNLOLKIaT_KJZH70=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:19:09 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dkqmIVDd5PnYVRT05bAMqA_RwoTywP354=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:19:09 PM]about_aj
+[5/8/2019 5:19:10 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:20:28 PM]baseindex 6Obb
+[5/8/2019 5:20:28 PM]tmpMenuCode about_aj
+[5/8/2019 5:20:28 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cdWntRmobx6Tz5HIfTzlqsTxpMrO9li4A=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:20:28 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cdWntRmobx6QJrB0-25lJja-_kjYyNtv4=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:20:28 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0cdWntRmobx6YRfhqAaNF8nuFhgQSY2yxU=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:20:28 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0evhFP4Lhfa4Z9bPMOiqHiPZybPrwesX-4=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:20:28 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0evhFP4Lhfa4b7Knjk5Fv8GZA7eZqyhBYM=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:20:28 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0evhFP4Lhfa4dr-b_35vDmjz2Gwzb_oznQ=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:20:28 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0evhFP4Lhfa4Ql9Gl0hzIEIn_Jyq9az76M=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:20:28 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cO8c9w71csf5bAjvptDgnYZtaGGzcSIPg=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:20:28 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cO8c9w71csf_QrdeK0B3O2kwCKsJtp1m4=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:20:28 PM]about_aj
+[5/8/2019 5:20:28 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:24:08 PM]baseindex 6Obb
+[5/8/2019 5:24:08 PM]tmpMenuCode about_aj
+[5/8/2019 5:24:08 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0doUrrHYx6jRLBML8Y7m8G2dKglw3CaVps=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:24:08 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0doUrrHYx6jROn5aJMIokeSGavZCwdaR1U=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:24:08 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0doUrrHYx6jRCYItdVQwoTEb9afEGMzXyk=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:24:08 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0doUrrHYx6jRNBjr_6Dp4UXdC6YXOYMavE=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:24:08 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0fYEUGirEFw184G3xlVxC5iucaz2zpZ7Pk=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:24:08 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0fYEUGirEFw1_ZWV07_58CE6bOBdbWtxRw=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:24:08 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0fYEUGirEFw15byQa1FZf_O0-W4aPR4SAc=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:24:08 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0fYEUGirEFw153FgsOQi6Ajb0QzEXAoRn0=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:24:08 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0fYEUGirEFw1wLJ_H-jD1Fv708ZHDjkiiE=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:24:09 PM]about_aj
+[5/8/2019 5:24:09 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:26:06 PM]baseindex 6Obb
+[5/8/2019 5:26:06 PM]tmpMenuCode about_aj
+[5/8/2019 5:26:06 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0c51E3SE3HY_gcGRnNUttQ15zqVYaWD-Uw=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:26:06 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cELDe7Bs_CX6G-rMOhY6I0CEfkkGLRD_U=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:26:06 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0cELDe7Bs_CX0dLjJvhBqJqWm1CAbdZD5U=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:26:06 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0cELDe7Bs_CX80KZS4DFIZT6YINUkUZhy8=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:26:06 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0cELDe7Bs_CX9Nyu2WP4I5HXt6HYSDSSoI=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:26:06 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cELDe7Bs_CXzuLnYeO-dZWfuChinN0WoA=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:26:06 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cvpP62mvyz--8nktBRv-HcEYapdnW7rBA=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:26:06 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cvpP62mvyz-3OKOD2pJ7txtE0j6pM4J44=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:26:06 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cvpP62mvyz-3l0huc-0xTBwDbmTZ96fkE=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:26:07 PM]about_aj
+[5/8/2019 5:26:07 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:26:50 PM]baseindex 6Obb
+[5/8/2019 5:26:50 PM]tmpMenuCode about_aj
+[5/8/2019 5:26:50 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cvqfv0-rOKXNb81cAhNCuX58J72x4UdnY=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:26:50 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cvqfv0-rOKXH6OlIaN4D6AvUi11wJXaDw=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:26:50 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0c_-tdmXcJNlkGpp2TGMrhgTxSLluzKti4=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:26:50 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0c_-tdmXcJNlvNqmzDZBJq2n_8rJipd5_4=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:26:50 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0c_-tdmXcJNlgZ5KoXA46M2w81FV6FpxMA=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:26:50 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0c_-tdmXcJNlh3QQg2r9Kbt5zFzLI_96Tw=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:26:50 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0c_-tdmXcJNlmQmswxj4FUlJ8cWRfBjEZQ=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:26:50 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dyOMnMXh0gaHxePo_2MjM8e-CHf71nN2g=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:26:50 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dyOMnMXh0gaDOOaL3j3ngruvCEl2R_yEE=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:26:50 PM]about_aj
+[5/8/2019 5:26:51 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:35:40 PM]baseindex 6Obb
+[5/8/2019 5:35:40 PM]tmpMenuCode about_aj
+[5/8/2019 5:35:40 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cP7qhHcfYiTdf4bp1geEzpmGnu7sYaZBw=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:35:40 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cP7qhHcfYiTVtXqxxa9h5imX3A10FDBOQ=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:35:40 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0exzckKBS1X9rfe0K5fTtu3J65zaZBkL4A=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:35:40 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0exzckKBS1X9v6aDojbDG5DyzjhflazN2s=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:35:40 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0exzckKBS1X9k8zRqC5WdFgf5PGH0cwQ4c=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:35:40 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0exzckKBS1X9nc7tOdc_R-9MseE1pfKYIg=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:35:40 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0exzckKBS1X9sDfdQwbEyALynppQknpgP0=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:35:40 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0exzckKBS1X9q6pMz5n0-4JzSnrCt9qUfo=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:35:40 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dWpLaQ-NsIsMQddG66xEcc9MAWQBywO0A=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:35:40 PM]about_aj
+[5/8/2019 5:35:41 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:37:34 PM]baseindex 6Obb
+[5/8/2019 5:37:34 PM]tmpMenuCode about_aj
+[5/8/2019 5:37:34 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0d8qYbyCF0BNG5PoTeEgNARMMl7tPjkdgU=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:37:34 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0d8qYbyCF0BNEVlhmbyibrEIknwVEoB5b0=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:37:34 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0cQIjx6CXyeqFu0vZqFp-csvD_7aU5dyhY=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:37:34 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0cQIjx6CXyeqG0vM8mpgSM0M9AFz1BQaCw=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:37:34 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0cQIjx6CXyeqEv20q5HiOcn&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:37:34 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cQIjx6CXyeqCCRuJGMKNoHTgKnfBWnRrQ=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:37:34 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cQIjx6CXyeqH-iuqLqqcPYlQMNhAVLOZU=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:37:34 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cQIjx6CXyeqIZ9x77erXTYJbZIrGHtOsU=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:37:34 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cQIjx6CXyeqIwYaIm5xOKUsqM9EEaLvDw=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:37:35 PM]about_aj
+[5/8/2019 5:37:35 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:41:14 PM]baseindex 6Obb
+[5/8/2019 5:41:14 PM]tmpMenuCode about_aj
+[5/8/2019 5:41:14 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dQ35RJV80TnsDh9XEvMTy-vfl9oxCup-I=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:41:14 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dQ35RJV80TnvUCHr8Ab7W9t7jJirP9cpM=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:41:14 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0dQ35RJV80Tnr6q5QSlMCzRLxMm3An-KR0=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:41:15 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0eJaDUnMZqRnxCyCFHEcAVVe8gtcqj41zQ=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:41:15 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0eJaDUnMZqRn020jlPXvkE7D6uw8u89zpY=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:41:15 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0eJaDUnMZqRn2eLrZz9DJmkhvte3SG0F8U=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:41:15 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0fvRwSGra8BDe5mQELdsXBenLPAbEeveto=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:41:15 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0fvRwSGra8BDZ3TnmnqQpvoWF2EDYYiMBc=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:41:15 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0fvRwSGra8BDfsydzdHMixdbpKsldBSyWc=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:41:15 PM]about_aj
+[5/8/2019 5:41:15 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:42:51 PM]baseindex 6Obb
+[5/8/2019 5:42:51 PM]tmpMenuCode about_aj
+[5/8/2019 5:42:51 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0clhT_jOrXqNlTEgp0Si5ABE7_AMwdP8ic=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:42:51 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0clhT_jOrXqNmljqQcrB_neLsdRnjbZjhM=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:42:51 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0clhT_jOrXqNm68r5dja2aOjT4rt3gOhUM=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:42:51 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0clhT_jOrXqNpHZ4m6x30jxJ_DZTXEQz0k=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:42:51 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0clhT_jOrXqNkCoQx0wCDSSP2PX4e-WoYs=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:42:51 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0clhT_jOrXqNgfQydpjtkBeiCEu0pWaGXg=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:42:51 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0dzTFArHY_3JejFKoVe3vm67alGFR6j73M=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:42:51 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dzTFArHY_3JQ138odF1cMVOk1Vi3T7lQE=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:42:51 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dzTFArHY_3JV3uZjv35uuQwFAlOtAbax4=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:42:52 PM]about_aj
+[5/8/2019 5:42:55 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:43:39 PM]baseindex 6Obb
+[5/8/2019 5:43:39 PM]tmpMenuCode about_aj
+[5/8/2019 5:43:39 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0eg2-_lajVNYvi6eFk7P62_Cu7Wj7elHlo=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:43:39 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0eg2-_lajVNYqTiB0MEUF4JzC5t1pU2W40=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:43:39 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0eg2-_lajVNYjSgcrp8bUA2ibuTiJIlGss=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:43:39 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0cB8I3nqnyIpm1sN20rkp0guCI_GowgIPE=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:43:39 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0cB8I3nqnyIpqshCVzZT6oRznJdP77n7fA=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:43:39 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cB8I3nqnyIpg0bSBMgm-6gQEBsK2eVSII=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:43:39 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cB8I3nqnyIphbaPJL0FSuo1XVsjQ1OAyQ=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:43:39 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cB8I3nqnyIphv3eCr-pMDXu8qcxh83qiM=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:43:39 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cB8I3nqnyIprOpMPc4lxYNuI5Ol8RfUzE=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:43:39 PM]about_aj
+[5/8/2019 5:43:39 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:45:08 PM]baseindex 6Obb
+[5/8/2019 5:45:08 PM]tmpMenuCode about_aj
+[5/8/2019 5:45:08 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0e0Xnp4frtsdpCXHIBm9O5EhlMdR7bZ2f0=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:45:08 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0e0Xnp4frtsduZZaLxQn0OdJkVxViLNJms=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:45:08 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0e0Xnp4frtsdgBXVg7h8lhL1p0UvgsN5Yg=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:45:08 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0cHMagj-hBtw8iDsivBFVIebwru5ggfQT0=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:45:08 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0cHMagj-hBtw3Tft0iCStmu3go21gm0LTI=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:45:08 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cHMagj-hBtw2pQ9kPP-btYgnfYY9Lrq8Y=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:45:08 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0cHMagj-hBtw4SvKi9Sw4kD9aFmBhrg_X4=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:45:08 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cHMagj-hBtwxvddsJQt48ZxWSq7nMnIPY=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:45:08 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cHMagj-hBtw4WbpDeX3n3lt378kI5NVgs=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:45:08 PM]about_aj
+[5/8/2019 5:45:09 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:48:00 PM]baseindex 6Obb
+[5/8/2019 5:48:00 PM]tmpMenuCode about_aj
+[5/8/2019 5:48:00 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dskV8Ut7huvfZ9gCb69Adckb3OyEK-7_c=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:48:00 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dpLK9oeRPr4KAjwft8bPcWnlITFVEhBwc=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:48:00 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0dpLK9oeRPr4BoKT3nFYrY5MObQRy8a2OY=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:48:00 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0dpLK9oeRPr4LipaWOpIvuPm2VHv2d3cNI=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:48:00 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0dpLK9oeRPr4CtEseMLxFF_56NxBbAahRU=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:48:00 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0etQLIgUqOw0pgfszQcnOQrM6WMtC-TbD4=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:48:00 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0etQLIgUqOw0pCt8QKmoU_r4VCOwI7aknM=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:48:00 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0etQLIgUqOw0jSBytDOM9IjY4XloVwOkzU=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:48:00 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0etQLIgUqOw0tKqm-2VyI7h7NIxjETpzl8=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:48:01 PM]about_aj
+[5/8/2019 5:48:01 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:48:46 PM]baseindex 6Obb
+[5/8/2019 5:48:46 PM]tmpMenuCode about_aj
+[5/8/2019 5:48:46 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cvqrrtmcC17098bzOrJYlVkcxIEnhAGJY=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:48:46 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0cvqrrtmcC179F1l4XHJqOvq65P68q3HvE=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:48:46 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0cvqrrtmcC170_mkc5SmHRScS5VGy2MkkM=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:48:46 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0eD6e51ZHHVfiebBErEl1Orq-zMxnhDO5s=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:48:46 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0eD6e51ZHHVfgDeLUVWlCxzuni_OsgQ_js=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:48:46 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0eD6e51ZHHVfoTyQyrpZk05gxsv5upAFfs=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:48:46 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0eD6e51ZHHVflq_8tHwIusp12LDmzFZmLs=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:48:46 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0eD6e51ZHHVfh4OYzypcYHeF_aJWuRCXF8=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:48:46 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0eD6e51ZHHVfpolGP9xg9K0Q_oG7Rt7B2E=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:48:47 PM]about_aj
+[5/8/2019 5:48:47 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/8/2019 5:50:00 PM]baseindex 6Obb
+[5/8/2019 5:50:00 PM]tmpMenuCode about_aj
+[5/8/2019 5:50:00 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0ehIGJvNzMH5DW0pPP_RMpq9SLdBa2dfbY=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/8/2019 5:50:00 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0ehIGJvNzMH5AqEkeHBvLDHK-pkCbrfNL8=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/8/2019 5:50:00 PM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0ehIGJvNzMH5FwoBqa2wyPzMR_Cuk6XWE4=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/8/2019 5:50:00 PM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/pager?token=ce1M-RO6C0dxVHz472nVfaEeyi5dm0z-_hFM4uI8dzQ=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/8/2019 5:50:00 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/runProc?token=ce1M-RO6C0dxVHz472nVffH5jk-3TMq8o1aL-icPrJo=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/8/2019 5:50:00 PM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0dxVHz472nVfbl0ZnVOx2bEeni2DzVe-Tg=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/8/2019 5:50:00 PM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/Dev/titan2/RunProc?token=ce1M-RO6C0dxVHz472nVfQLEBWpYd4j8dXOTo16pJF8=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/8/2019 5:50:00 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dxVHz472nVfXlEVr45gfuhAnq1WnGLkuk=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/8/2019 5:50:00 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/Dev/titan2/listdt?token=ce1M-RO6C0dxVHz472nVfbdqaMMBp6gQTuVtEXGNCQ8=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/8/2019 5:50:00 PM]about_aj
+[5/8/2019 5:50:01 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]

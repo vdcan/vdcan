@@ -86,7 +86,7 @@ app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
 
 
 app.controller('MyLogCtrl', [
-    '$scope', '$rootScope', '$http', '$modal', function ($scope, $rootScope, $http, $modal) {
+    '$scope', '$rootScope', '$http', '$modal', '$q', function ($scope, $rootScope, $http, $modal, $q) {
         $scope.SelectedRow = {};//for getting row detail
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
@@ -182,7 +182,9 @@ app.controller('MyLogCtrl', [
         };
 
         $scope.$on("MyLogUpdate", function (event, row) {
-            $scope.updateData(row)
+            
+                 
+            $scope.updateData(row) 
         });
         $scope.$on("MyLogInsert", function (event, row) {
             $scope.insertData(row);
@@ -439,6 +441,29 @@ app.controller('MyLogCtrl', [
                 });
                 gridApi.selection.on.rowSelectionChangedBatch($scope, function (rows) {
                 });
+                //gridApi.rowEdit = function (r) {
+                //    console.log(r);
+                //}
+                gridApi.rowEdit.on.saveRow($scope, function (rowEntity) {
+                   // console.log(rowEntity);
+                    $scope.updateData(rowEntity) 
+                    // create a fake promise - normally you'd use the promise returned by $http or $resource
+                    //Get all selected rows
+                    //var selectedRows = $scope.gridApi.selection.getSelectedRows();
+                    ////var rowCol = $scope.gridApi.cellNav.getFocusedCell().col.colDef.name;
+                    var promise = $q.defer();
+                    $scope.gridApi.rowEdit.setSavePromise(rowEntity, promise.promise);
+
+                    //$interval(function () {
+                    //    if (rowEntity.gender === 'male') {
+                    //        promise.reject();
+                    //    } else {
+                    //        promise.resolve();
+                    //    }
+                    //}, 3000, 1);
+                    promise.resolve();
+                })
+
             }
         };
 
@@ -449,15 +474,16 @@ app.controller('MyLogCtrl', [
                     result.rows.forEach(function (d) {
                         d.editrow = false;
                     });
-                  //  $scope.MyLoggridOptions.totalItems = result.total;
+                    $scope.MyLoggridOptions.totalItems = result.total;
                   $scope.MyLoggridOptions.data = result.rows;
-                  //  $scope.GetIDS();
-                    //$scope.gridApi.grid.modifyRows($scope.MyLoggridOptions.data);
+                    $scope.GetIDS();
+                    $scope.gridApi.grid.modifyRows($scope.MyLoggridOptions.data);
 
-                    //if ($scope.MyLoggridOptions.data.length > 0)
-                    //    $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
+                    if ($scope.MyLoggridOptions.data.length > 0)
+                        $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
                 });
         }
+
         $scope.copyEmptyObject = function (source, isArray) {
             var o = Array.isArray(source) ? [] : {};
             for (var key in source) {
@@ -587,13 +613,16 @@ app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
                     event && event.stopPropagation();
                     var self = this;
 
+
+                    
                     self.isEditModeOn = false;
 
                     for (var prop in self.entity) {
                         self.entity[prop].isSave = true;
                         self.entity[prop].isEdit = false;
                     }
-
+                //   console.log( self.entity[prop]);
+                  //  $rootScope.$broadcast("MyLogUpdate",null);
                     uiGridRowEditService.saveRow(self.grid, self.grid.rows[self.index])();
                 },
 
