@@ -45,9 +45,10 @@ angular.module('app')
             name: 'uiGrid',
             files: [
                 '/Javascripts/vendor/angular/angular-animate/angular-animate.js',
-                '/Javascripts/vendor/modules/ui-grid/ui-grid.min.js',
+                '/Javascripts/vendor/modules/ui-grid/ui-grid.js',
+               // '/Javascripts/vendor/modules/ui-grid/inline.js',
                 '/Javascripts/vendor/modules/ui-grid/ui-grid.min.css',
-                '/Javascripts/vendor/angular/angularjs-autocomplete.min.js'
+                '/Javascripts/vendor/angular/angularjs-autocomplete.min.js',
             ]
         },
         {

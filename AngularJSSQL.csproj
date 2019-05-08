@@ -664,6 +664,7 @@
     <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid.bootstrap.css" />
     <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid.css" />
     <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid.js" />
+    <Content Include="Javascripts\vendor\modules\ui-grid\inline.js" />
     <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid.min.css" />
     <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid.min.js" />
     <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid.svg" />

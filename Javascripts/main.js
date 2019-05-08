@@ -125,6 +125,11 @@ app.service('ControllerChecker', ['$controller', function ($controller) {
 }]);
 
 
+
+
+
+
+
 //app.config(['$provide', function ($provide) {
 //    $provide.delegate('$controller', ['$delegate', function ($delegate) {
 //        $delegate.exists = function (controllerName) {
