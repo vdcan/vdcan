@@ -1,7 +1,7 @@
 
 /*
 //------------------------------------------------------------------------------ 
-//        Date  2019-05-08
+//        Date  2019-05-09
 //        Author  ²Ì½Ý   
 //			 				angular_test 
 //        File  angular_test.cshtml  Page file  
@@ -15,7 +15,18 @@ var km = {};
 km.init = function () {
 }
 
-  app = angular.module('app',
+
+
+//------------------------------------------------------------------------------ 
+//        Date  2019-05-09
+//        Author  ²Ì½Ý   
+//			   
+//------------------------------------------------------------------------------  
+
+
+
+
+app = angular.module('app',
     [
 
         'ui.grid',
@@ -35,12 +46,83 @@ km.init = function () {
         'ui.grid.grouping'
     ]);
 
-//------------------------------------------------------------------------------ 
-//        Date  2019-05-08
-//        Author  ²Ì½Ý   
-//			   
-//------------------------------------------------------------------------------  
 
+angular.module('ui.grid').factory('InlineEdit', ['$interval', '$rootScope', 'uiGridRowEditService',
+    function ($interval, $rootScope, uiGridRowEditService) {
+        function inlineEdit(entity, index, grid) {
+            this.grid = grid;
+            this.index = index;
+            this.entity = {};
+            this.isEditModeOn = false;
+            this.init(entity);
+        }
+
+        inlineEdit.prototype = {
+            init: function (rawEntity) {
+                var self = this;
+
+                for (var prop in rawEntity) {
+                    self.entity[prop] = {
+                        value: rawEntity[prop],
+                        isValueChanged: false,
+                        isSave: false,
+                        isCancel: false,
+                        isEdit: false
+                    }
+                }
+            },
+
+            enterEditMode: function (event) {
+                event && event.stopPropagation();
+                var self = this;
+                self.isEditModeOn = true;
+                console.log("enterEditMode");
+                // cancel all rows which are in edit mode
+                self.grid.rows.forEach(function (row) {
+                    if (row.inlineEdit && row.inlineEdit.isEditModeOn && row.uid !== self.grid.rows[self.index].uid) {
+                        row.inlineEdit.cancelEdit();
+                    }
+                });
+
+                // Reset all the values
+                for (var prop in self.entity) {
+                    self.entity[prop].isSave = false;
+                    self.entity[prop].isCancel = false;
+                    self.entity[prop].isEdit = true;
+                }
+            },
+
+            saveEdit: function (event) {
+                event && event.stopPropagation();
+                var self = this;
+
+
+
+                self.isEditModeOn = false;
+
+                for (var prop in self.entity) {
+                    self.entity[prop].isSave = true;
+                    self.entity[prop].isEdit = false;
+                }
+                //   console.log( self.entity[prop]);
+                //  $rootScope.$broadcast("MyLogUpdate",null);
+                uiGridRowEditService.saveRow(self.grid, self.grid.rows[self.index])();
+            },
+
+            cancelEdit: function (event) {
+                event && event.stopPropagation();
+                var self = this;
+
+                self.isEditModeOn = false;
+                for (var prop in self.entity) {
+                    self.entity[prop].isCancel = true;
+                    self.entity[prop].isEdit = false;
+                }
+            }
+        }
+
+        return inlineEdit;
+    }]);
 
 
 
@@ -67,6 +149,8 @@ app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
         $rootScope.$broadcast("MyLogInsert", $scope.row);
     };
     $scope.delete = function (id) {
+    console.log(id)
+    return;
         $rootScope.$broadcast("MyLogDelete", $scope.row.id, $scope.row.id);
     };
     $scope.update = function () {
@@ -98,8 +182,11 @@ app.controller('MyLogCtrl', [
         };
 
         $scope.DDLData = {};
+
+        $scope.DDLData['client'] = [{ id: 'M', text: 'male' },
+        { id: 'F', text: 'female' }];
         $scope.getDDL = function (param) {
-          //  console.log(param);
+            console.log(param);
             if (typeof $scope.DDLData == "undefined")
                 $scope.DDLData = new Object();
             if ($scope.DDLData.hasOwnProperty(param))
@@ -111,7 +198,7 @@ app.controller('MyLogCtrl', [
             }).then(function successCallback(response) {
                 //console.log(response.data);
                 $scope.DDLData[param] = response.data;
-             //   console.log($scope.DDLData);
+                console.log($scope.DDLData);
                 return $scope.DDLData[param];
                 // this callback will be called asynchronously
                 // when the response is available
@@ -182,9 +269,7 @@ app.controller('MyLogCtrl', [
         };
 
         $scope.$on("MyLogUpdate", function (event, row) {
-            
-                 
-            $scope.updateData(row) 
+            $scope.updateData(row)
         });
         $scope.$on("MyLogInsert", function (event, row) {
             $scope.insertData(row);
@@ -199,8 +284,13 @@ app.controller('MyLogCtrl', [
         $scope.insert = function () {
             $scope.insertData($scope.row);
         };
-        $scope.delete = function () {
+        $scope.delete = function ( ) {
+             
             $scope.deleteIt($scope.row.id, $scope.row.id);
+        };
+        $scope.deleteInline = function (inline) {
+             
+            $scope.deleteIt(inline.id.value, inline.id.value);
         };
         $scope.update = function () {
             $scope.updateData($scope.row);
@@ -322,14 +412,18 @@ app.controller('MyLogCtrl', [
             sort: "id",
         };
         $scope.TranslateToText = function (data, value) {
-           // console.log(data);
-            if (Array.isArray(data)) {
-                data.forEach(function (t) {
-                    if (t.id == value)
-                        return t.text;
-                });
-            } else {
 
+            var result = value;
+            if (Array.isArray(data)) {
+                data.forEach(function (d) {
+                    if (d.id == value) {
+
+                        result = d.text;
+                        return;
+                    }
+                })
+            } else {
+                // console.log(data);
                 var a = data.split(" ");
                 for (var i = 0; i < a.length; i++) {
 
@@ -339,9 +433,21 @@ app.controller('MyLogCtrl', [
                     if (value == v)
                         return t;
                 }
-            } 
-            return value;
+
+            }
+            return result;
         }
+        $scope.Translate = function (data, value, valcol, textcol) {
+            var d = $scope.getDDL(data);
+            var r = "";
+            d.forEach(function (t) {
+                if (t[valcol] == value)
+                    r = t[textcol];
+            });
+            return r;
+        };
+
+
         $scope.MyLoggridOptions = {
             paginationPageSizes: [10, 15, 25, 50, 75],
             paginationPageSize: paginationOptions.pageSize,
@@ -352,56 +458,50 @@ app.controller('MyLogCtrl', [
             enableRowHeaderSelection: false,
             columnDefs:
                 [
-                    //{
-                    //    field: 'action', displayName: 'action', width: 80, align: 'center', enableCellEdit: true,
-                    //    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"> <div auto-complete source="loader" loader="ccn" display-property="text" value-property="text"   min-chars="2" placeholder="action"   style=" z-index:200"> <input id="ip" ng-model="MODEL_COL_FIELD" name="addressText" style="width: 300px;"  />   </div></div>'
-                    //},
-                    //{
-                    //    field: 'action_data', displayName: 'action_data', width: 80, align: 'center',
-                    //    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><textarea type="text" class="form-control" ng-model="MODEL_COL_FIELD" ></textarea></div>'
-                    //},
-                    //{
-                    //    field: 'add_by', displayName: 'add_by', width: 80, align: 'center',
-                    //    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="url" class="form-control" ng-model="MODEL_COL_FIELD" ></div>'
-                    //},
-                    //{
-                    //    field: 'add_on', displayName: 'add_on', width: 80, align: 'center',
-                    //    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><div   ng-controller="DatepickerDemoCtrl"> <div class="input-group w-md"> <input type="text" class="form-control" datepicker-popup="{format}" ng-model="MODEL_COL_FIELD" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" /> <span class="input-group-btn"> <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button> </span> </div> </div></div>'
-                    //},
-                    //{
-                    //    field: 'app_code', displayName: 'app_code', width: 80, align: 'center',
-                    //    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow"> {{COL_FIELD}}</div><div ng-if="row.entity.editrow"><select ui-select  ng-init="getDDL("client")" class="form-control m-b"   ng-model="MODEL_COL_FIELD"  ><option data-ng-repeat="d in DDLData["client"]" value = "{{d.id}}">{{ d.text }}</ option ></select></div>'
-                    //},
-                    //{
-                    //    field: 'id', displayName: 'id', width: 80, align: 'center',
-                    //    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><input type="text" class="form-control" ng-model="MODEL_COL_FIELD" ></div>'
-                    //},
-                    //{
-                    //    field: 'ip', displayName: 'ip', width: 80, align: 'center',
-                    //    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><label class="i-switch m-t-xs m-r"> <input type="checkbox"  ng-model="MODEL_COL_FIELD" checked>  <i></i> </label></div>'
-                    //},
-                    { name: 'add_on', field: 'add_on', enableCellEdit: true, type: "date", cellFilter: 'date:"yyyy/MM/dd"' },
-                    //{
-                    //    field: 'menu_code', displayName: 'menu_code', width: 80, align: 'center',
-                    //    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{grid.appScope.TranslateToText("1=active 0=inactive",COL_FIELD)}}</div><div ng-if="row.entity.editrow"> <select name="menu_code" class="form-control m-b" ng-model="MODEL_COL_FIELD" ><option value="1">active</option><option value="0">inactive</option></select></div>'
-                    //},
-                    //{
-                    //    field: 'flag', displayName: 'flag', width: 80, align: 'center',
-                    //    cellTemplate: '<div class="ui-grid-cell-contents"  ng-if="!row.entity.editrow">{{COL_FIELD}}</div><div ng-if="row.entity.editrow"><label class="i-switch m-t-xs m-r"> <input type="checkbox"  ng-model="MODEL_COL_FIELD" checked>  <i></i> </label></div>'
-                    //},
                     {
-                        //name: 'IActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
-                        //cellTemplate: '<div><button ng-show="!row.entity.editrow" class="btn primary" ng-click="grid.appScope.editRow(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
-                        //    '<button ng-show="!row.entity.editrow" class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
-                        //    '<button ng-show="row.entity.editrow" class="btn primary" ng-click="grid.appScope.saveRow(row.entity)"><i class="fa fa-floppy-o"></i></button>' +//Save Button
-                        //    '<button ng-show="row.entity.editrow" class="btn primary" ng-click="grid.appScope.cancelEdit(row.entity)"><i class="fa fa-times"></i></button>' + //Cancel Button
-                        //    '</div>', width: 80
+                        field: 'action', displayName: 'action', width: 80, align: 'center',
 
-                           name: "",
+                    },
+                    {
+                        field: 'action_data', displayName: 'action_data', width: 80, align: 'center',
+
+                    },
+                    {
+                        field: 'add_by', displayName: 'add_by', width: 80, align: 'center',
+
+                    },
+                    {
+                        field: 'add_on', displayName: 'add_on', width: 80, align: 'center',
+                        type: "date", cellFilter: "date:\'yyyy/MM/dd\'",
+                    },
+                    {
+                        field: 'app_code', displayName: 'app_code', width: 80, align: 'center',
+                        editableCellTemplate: "ui-grid/dropdownEditor", editDropdownValueLabel: "text", editDropdownIdLabel: "id", editDropdownOptionsArray: $scope.getDDL('client'), cellTemplate: "<div class='ui-grid-cell-contents ng-binding ng-scope'>{{grid.appScope.Translate('client',COL_FIELD,'id','text')}}</div>",
+                    },
+                    {
+                        field: 'id', displayName: 'id', width: 80, align: 'center',
+
+                    },
+                    {
+                        field: 'ip', displayName: 'ip', width: 80, align: 'center',
+                        cellTemplate: "<label class=\'i-switch m-t-xs m-r\'> <input type=\'checkbox\'  ng-model=\'MODEL_COL_FIELD\' checked>  <i></i> </label>", editableCellTemplate: "ui-grid/switch",
+                    },
+                    {
+                        field: 'menu_code', displayName: 'menu_code', width: 80, align: 'center',
+                        editableCellTemplate: "ui-grid/dropdownEditor", editDropdownValueLabel: "text", editDropdownIdLabel: "id", editDropdownOptionsArray: [{ id: "1", text: "active" }, { id: "0", text: "inactive" },], cellTemplate: "<div class='ui-grid-cell-contents ng-binding ng-scope'>{{grid.appScope.TranslateToText('1=active 0=inactive',COL_FIELD )}}</div>",
+                    },
+                    {
+                        field: 'flag', displayName: 'flag', width: 80, align: 'center',
+                        cellTemplate: "<label class=\'i-switch m-t-xs m-r\'> <input type=\'checkbox\'  ng-model=\'MODEL_COL_FIELD\' checked>  <i></i> </label>", editableCellTemplate: "ui-grid/switch",
+                    },
+                    {
+                        name: "",
                         field: "fake",
                         cellTemplate: '<div   >' +
-                            '<button value="Edit" ng-if="!row.inlineEdit.isEditModeOn"  class="btn primary"  ng-click="row.inlineEdit.enterEditMode($event)"><i class="fa fa-trash"></i></button>' +
-                            '<button value="Edit" ng-if="!row.inlineEdit.isEditModeOn"  class="btn primary"  ng-click="row.inlineEdit.enterEditMode($event)"><i class="fa fa-edit"></i></button>' +
+                            // '<button value="Edit" ng-if="!row.inlineEdit.isEditModeOn"  class="btn primary"  ng-click="row.inlineEdit.enterEditMode($event)"><i class="fa fa-trash"></i></button>' +
+                           '<button value="Edit" ng-if="!row.inlineEdit.isEditModeOn"  class="btn primary"  ng-click="row.inlineEdit.enterEditMode($event)"><i class="fa fa-edit"></i></button>' +
+                            '<button  value="Edit"  ng-if="!row.inlineEdit.isEditModeOn"class="btn primary" ng-click="grid.appScope.deleteInline(row.inlineEdit.entity )"><i class="fa fa-trash"></i></button>' + 
+
                             '<button value="Edit" ng-if="row.inlineEdit.isEditModeOn"   class="btn primary"  ng-click="row.inlineEdit.saveEdit($event)"><i class="fa fa-floppy-o"></i></button>' +
                             '<button value="Edit" ng-if="row.inlineEdit.isEditModeOn"  class="btn primary"  ng-click="row.inlineEdit.cancelEdit($event)"><i class="fa fa-times"></i></button>' +
                             '</div>',
@@ -411,8 +511,6 @@ app.controller('MyLogCtrl', [
                         showSortMenu: false,
                         enableColumnMenu: false,
                     }
-
-
 
                 ],
 
@@ -441,12 +539,10 @@ app.controller('MyLogCtrl', [
                 });
                 gridApi.selection.on.rowSelectionChangedBatch($scope, function (rows) {
                 });
-                //gridApi.rowEdit = function (r) {
-                //    console.log(r);
-                //}
+
                 gridApi.rowEdit.on.saveRow($scope, function (rowEntity) {
-                   // console.log(rowEntity);
-                    $scope.updateData(rowEntity) 
+                    // console.log(rowEntity);
+                    $scope.updateData(rowEntity)
                     // create a fake promise - normally you'd use the promise returned by $http or $resource
                     //Get all selected rows
                     //var selectedRows = $scope.gridApi.selection.getSelectedRows();
@@ -475,7 +571,7 @@ app.controller('MyLogCtrl', [
                         d.editrow = false;
                     });
                     $scope.MyLoggridOptions.totalItems = result.total;
-                  $scope.MyLoggridOptions.data = result.rows;
+                    $scope.MyLoggridOptions.data = result.rows;
                     $scope.GetIDS();
                     $scope.gridApi.grid.modifyRows($scope.MyLoggridOptions.data);
 
@@ -483,7 +579,6 @@ app.controller('MyLogCtrl', [
                         $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
                 });
         }
-
         $scope.copyEmptyObject = function (source, isArray) {
             var o = Array.isArray(source) ? [] : {};
             for (var key in source) {
@@ -509,135 +604,3 @@ app.controller('MyLogCtrl', [
         $scope.getPage();
     }
 ]);
-
-
-
-
-
-//------------------------------------------------------------------------------ 
-//        Date  2019-05-08
-//        Author  ²Ì½Ý   
-//			   
-//------------------------------------------------------------------------------  
-
-
-
-
-/*
-//for other controllers to listen the selected row changed. 
-app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
-    var id = $stateParams.id;
-    var number = $stateParams.number;
-    console.log(id);
-    console.log(number);
-    id++;
-    //console.log($scope);
-    $scope.toDetails = function (product_id) {
-     //   console.log(product_id);
-        $state.go('app.about_aj', { id: id, number: 2 })
-    }; 
-    $scope.row = {};// = {id:43124};
-    //$scope.row_original = {};// = {id:43124};
-    $rootScope.$on("MyLog2SelectedRowChanged", function (event, row, ids, paginationOptions) {
-        $scope.row = Object.assign({}, row ); 
-        $(".tmpHide").removeClass("tmpHide");
-    });
-    $scope.insert = function () {  
-        $rootScope.$broadcast("MyLog2Insert", $scope.row);
-    };
-    $scope.delete = function (id) {
-        $rootScope.$broadcast("MyLog2Delete", $scope.row.id, $scope.row.id);
-    };
-    $scope.update = function () {
-        $rootScope.$broadcast("MyLog2Update", $scope.row);
-    }; 
-    //$scope.$watch("row.ip", function (newValue, oldValue) {
-    //    console.log("$watch:"+newValue); 
-    //});
-
-    $scope.ipchanged = function () {
-        console.log("ipchanged:"+$scope.row.ip);
-    }
-
-});
-*/
-
-  
-
-    angular.module('ui.grid').factory('InlineEdit', ['$interval', '$rootScope', 'uiGridRowEditService',
-        function ($interval, $rootScope, uiGridRowEditService) {
-            function inlineEdit(entity, index, grid) {
-                this.grid = grid;
-                this.index = index;
-                this.entity = {};
-                this.isEditModeOn = false;
-                this.init(entity);
-            }
-
-            inlineEdit.prototype = {
-                init: function (rawEntity) {
-                    var self = this;
-
-                    for (var prop in rawEntity) {
-                        self.entity[prop] = {
-                            value: rawEntity[prop],
-                            isValueChanged: false,
-                            isSave: false,
-                            isCancel: false,
-                            isEdit: false
-                        }
-                    }
-                },
-
-                enterEditMode: function (event) {
-                    event && event.stopPropagation();
-                    var self = this;
-                    self.isEditModeOn = true;
-                    console.log("enterEditMode");
-                    // cancel all rows which are in edit mode
-                    self.grid.rows.forEach(function (row) {
-                        if (row.inlineEdit && row.inlineEdit.isEditModeOn && row.uid !== self.grid.rows[self.index].uid) {
-                            row.inlineEdit.cancelEdit();
-                        }
-                    });
-
-                    // Reset all the values
-                    for (var prop in self.entity) {
-                        self.entity[prop].isSave = false;
-                        self.entity[prop].isCancel = false;
-                        self.entity[prop].isEdit = true;
-                    }
-                },
-
-                saveEdit: function (event) {
-                    event && event.stopPropagation();
-                    var self = this;
-
-
-                    
-                    self.isEditModeOn = false;
-
-                    for (var prop in self.entity) {
-                        self.entity[prop].isSave = true;
-                        self.entity[prop].isEdit = false;
-                    }
-                //   console.log( self.entity[prop]);
-                  //  $rootScope.$broadcast("MyLogUpdate",null);
-                    uiGridRowEditService.saveRow(self.grid, self.grid.rows[self.index])();
-                },
-
-                cancelEdit: function (event) {
-                    event && event.stopPropagation();
-                    var self = this;
-
-                    self.isEditModeOn = false;
-                    for (var prop in self.entity) {
-                        self.entity[prop].isCancel = true;
-                        self.entity[prop].isEdit = false;
-                    }
-                }
-            }
-
-            return inlineEdit;
-        }]);
- 

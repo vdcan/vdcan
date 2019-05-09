@@ -26685,6 +26685,9 @@ angular.module('ui.grid').run(['$templateCache', function($templateCache) {
     "<div><form name=\"inputForm\"><select ng-class=\"'colt' + col.uid\" ui-grid-edit-dropdown ng-model=\"MODEL_COL_FIELD\" ng-options=\"field[editDropdownIdLabel] as field[editDropdownValueLabel] CUSTOM_FILTERS for field in editDropdownOptionsArray\"></select></form></div>"
   );
 
+  $templateCache.put('ui-grid/switch',
+    "<div><form name=\"inputForm\"><label class='i-switch m-t-xs m-r'> <input type='checkbox'  ng-model=\"MODEL_COL_FIELD\"  >  <i></i> </label></form></div>"
+  );
 
   $templateCache.put('ui-grid/fileChooserEditor',
     "<div><form name=\"inputForm\"><input ng-class=\"'colt' + col.uid\" ui-grid-edit-file-chooser type=\"file\" id=\"files\" name=\"files[]\" ng-model=\"MODEL_COL_FIELD\"></form></div>"
