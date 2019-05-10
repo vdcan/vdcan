@@ -160,6 +160,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\WeChatController.cs" />
+    <Compile Include="Controllers\WSMonitorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -602,7 +603,7 @@
     <Content Include="Javascripts\controllers\imgcrop.js" />
     <Content Include="Javascripts\controllers\select.js" />
     <Content Include="Javascripts\controllers\signin.js" />
-    <Content Include="Javascripts\controllers\user.js" />
+    <Content Include="Javascripts\controllers\mainController.js" />
     <Content Include="Javascripts\controllers\signup.js" />
     <Content Include="Javascripts\controllers\slider.js" />
     <Content Include="Javascripts\controllers\tab.js" />
@@ -646,6 +647,7 @@
     <Content Include="Javascripts\vendor\angular\angular-ui-utils\ui-utils.js" />
     <Content Include="Javascripts\vendor\angular\angular.js" />
     <Content Include="Javascripts\vendor\angular\angularjs-autocomplete.min.js" />
+    <Content Include="Javascripts\vendor\angular\ng-websocket.js" />
     <Content Include="Javascripts\vendor\angular\ngstorage\ngStorage.js" />
     <Content Include="Javascripts\vendor\angular\oclazyload\ocLazyLoad.js" />
     <Content Include="Javascripts\vendor\jquery\bootstrap.js" />
