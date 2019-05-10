@@ -119,6 +119,7 @@ angular.module('ui.grid').factory('InlineEdit', ['$interval', '$rootScope', 'uiG
                     self.entity[prop].isCancel = true;
                     self.entity[prop].isEdit = false;
                 }
+                $rootScope.$broadcast("MyLogCancel", null);
             }
         }
 
@@ -243,14 +244,7 @@ app.controller('MyLogCtrl', [
             $scope.gridApi.grid.modifyRows($scope.MyLoggridOptions.data);
             $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
             $scope.gridApi.core.refresh();
-            //  $scope.GetIDS();
-           //  console.log($scope.gridApi.grid.rows[0]inlineEdit); 
-           $scope.gridApi.grid.rows[0].inlineEdit.enterEditMode();
-          //  var n = new InlineEdit($scope.MyLoggridOptions.data[0], 0, $scope.gridApi.grid);
-        //    n.init();
-           // n.isEditModeOn = true;
-          //  n.enterEditMode(); 
-         //   console.log(n);
+           $scope.gridApi.grid.rows[0].inlineEdit.enterEditMode(); 
         }
         $scope.editRow = function (row) {
             $scope.editType = "u";
@@ -273,18 +267,21 @@ app.controller('MyLogCtrl', [
         $scope.cancelEdit = function (row) {
             //Get the index of selected row from row object
             var index = $scope.MyLoggridOptions.data.indexOf(row);
+
             if ($scope.editType == "i") {
                 $scope.MyLoggridOptions.data.splice(0, 1);
             }else {
-                //  $scope.MyLoggridOptions.data.splice(0, 1);
-                var keys = Object.keys($scope.row);
-                keys.forEach(function (k) {
-                    $scope.MyLoggridOptions.data[index][k] = $scope.row[k];
-                });
-                //Use that to set the editrow attrbute value to false
-                $scope.MyLoggridOptions.data[index].editrow = false;
+                if (row != null) {
+                    //  $scope.MyLoggridOptions.data.splice(0, 1);
+                    var keys = Object.keys($scope.row);
+                    keys.forEach(function (k) {
+                        $scope.MyLoggridOptions.data[index][k] = $scope.row[k];
+                    });
+                    //Use that to set the editrow attrbute value to false
+                    $scope.MyLoggridOptions.data[index].editrow = false;
+                }
             }
-
+            $scope.editType = "";
             $scope.SelectedRow.entity.editrow = false;
             $rootScope.$broadcast("SysToaster", 'info', "", "Row editing cancelled");
         };
