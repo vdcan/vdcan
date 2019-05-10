@@ -1,0 +1,72 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//        Date  2019-05-10
+//        Author  蔡捷   
+//			 				angular_test 
+//        File  angular_test.cshtml  Page file 
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "angular_test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+  <style type="text/css">
+       
+    </style>
+}
+
+@section scripts{
+    <script src="~/Areas/anjs/ViewJS/angular_test.js?v=@ViewBag.ts"></script>
+    <script type="text/javascript">
+     var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+       km.model = JSON.parse(model_string); 
+     var ddls_string = '@Html.Raw(ViewData["DLLS"].ToString().Replace("\r\n",""))';
+    km.ddls = JSON.parse(ddls_string);
+    </script>
+}
+
+ 
+ 
+<div class="row">
+ <div class="col-sm-6">
+    	
+ 
+<div  ng-controller="MyLogCtrl">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	      MyLog   
+	      <div style="float:right;">
+    			<button  class="btn primary" ng-click="InsertRowInline()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+        </div> 
+		</div>  
+	  <div class="table-responsive"  >
+	      <div ui-grid="MyLoggridOptions" ui-grid-edit="" ui-grid-row-edit ui-grid-pagination ui-grid-selection  style="min-height:420px;"></div>
+	  </div>
+	</div>
+</div>
+    	
+    </div>
+ <div class="col-sm-6">
+    	
+ 
+<div  ng-controller="MyLog2Ctrl">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	      MyLog2   
+	      <div style="float:right;">
+    			<button  class="btn primary" ng-click="InsertRowInline()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+        </div> 
+		</div>  
+	  <div class="table-responsive"  >
+	      <div ui-grid="MyLog2gridOptions" ui-grid-edit="" ui-grid-row-edit ui-grid-pagination ui-grid-selection  style="min-height:420px;"></div>
+	  </div>
+	</div>
+</div>
+    </div>
+</div>
+<div style='display:none'>
+	
+</div>
+ 
