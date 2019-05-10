@@ -228,6 +228,24 @@ app.controller('MyLogCtrl', [
             $scope.gridApi.grid.modifyRows($scope.MyLoggridOptions.data);
             $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
             $scope.gridApi.core.refresh();
+
+            var n = new inlineEdit(row, 0);
+            n.init();
+            n.enableCellEdit();
+          //  $scope.GetIDS();
+        }
+
+        $scope.InsertRowInline = function () {
+
+          //  console.log($scope.gridApi.rowEdit);
+          //  return;
+            $scope.editType = "i";
+            var row = $scope.copyEmptyObject($scope.row);
+            row.editrow = true;
+            $scope.MyLoggridOptions.data.unshift(row);
+            $scope.gridApi.grid.modifyRows($scope.MyLoggridOptions.data);
+            $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
+            $scope.gridApi.core.refresh();
             $scope.GetIDS();
         }
         $scope.editRow = function (row) {
@@ -241,11 +259,11 @@ app.controller('MyLogCtrl', [
             var index = $scope.MyLoggridOptions.data.indexOf(row);
             //Use that to set the editrow attrbute value for seleted rows
             $scope.MyLoggridOptions.data[index].editrow = !$scope.MyLoggridOptions.data[index].editrow;
-            if ($scope.editType == "u")
-                $scope.updateData(row);
+           
             if ($scope.editType == "i") {
                 $scope.insertData(row);
-            }
+            }else
+                $scope.updateData(row);
         };
         //Method to cancel the edit mode in UIGrid
         $scope.cancelEdit = function (row) {
@@ -253,8 +271,7 @@ app.controller('MyLogCtrl', [
             var index = $scope.MyLoggridOptions.data.indexOf(row);
             if ($scope.editType == "i") {
                 $scope.MyLoggridOptions.data.splice(0, 1);
-            }
-            if ($scope.editType == "u") {
+            }else {
                 //  $scope.MyLoggridOptions.data.splice(0, 1);
                 var keys = Object.keys($scope.row);
                 keys.forEach(function (k) {
@@ -541,8 +558,11 @@ app.controller('MyLogCtrl', [
                 });
 
                 gridApi.rowEdit.on.saveRow($scope, function (rowEntity) {
-                    // console.log(rowEntity);
-                    $scope.updateData(rowEntity)
+                    console.log(rowEntity);
+                    if ($scope.editType == "")
+                        $scope.editType == "u";
+                    $scope.saveRow(rowEntity)
+                  //  $scope.updateData(rowEntity)
                     // create a fake promise - normally you'd use the promise returned by $http or $resource
                     //Get all selected rows
                     //var selectedRows = $scope.gridApi.selection.getSelectedRows();
