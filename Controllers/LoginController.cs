@@ -119,7 +119,10 @@ namespace JSBase.Controllers
                     IsAdmin = false// user.UserType == 1  //根据用户UserType判断。用户类型：0=未定义 1=超级管理员 2=普通用户 3=其他
                 };
 
+                var jason2 = JsonConvert.SerializeObject(JsonNet(b).Data, Newtonsoft.Json.Formatting.Indented, this.IsoDateTimeConverter);
 
+
+                ViewData["UserInfo"] = jason2;
                 Session["logininfo"] = ""; 
 
                 //读取配置登录默认失效时长：小时

@@ -117,6 +117,13 @@ namespace JSBase.Controllers
                 return RedirectToAction("Index", "Login");
 
             initLan();
+
+
+            var jason2 = JsonConvert.SerializeObject(JsonNet(CurrentUser).Data, Newtonsoft.Json.Formatting.Indented, this.IsoDateTimeConverter);
+
+
+            ViewData["UserInfo"] = jason2;
+
             return View( ); ;
 
             ViewBag.Token = CreateToken();

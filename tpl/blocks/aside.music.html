@@ -1,4 +1,4 @@
-<div class="aside-wrap">
+<div class="aside-wrap"  ng-controller="userDetailController">
   <div class="app-aside-footer dk">    
     <div class="dropdown dropup" dropdown>
       <a href class="pull-right wrapper m-r-xs" ng-click="app.settings.asideFolded = !app.settings.asideFolded">
@@ -8,7 +8,7 @@
         <span class="thumb-xxs avatar pull-left m-r-sm">
           <img src="img/a0.jpg" alt="...">
         </span>
-        <span class="hidden-sm hidden-md m-t-xs text-ellipsis">John.Smith</span>
+        <span class="hidden-sm hidden-md m-t-xs text-ellipsis">{{user.RealName}}</span>
       </a>      
       <!-- dropdown -->
       <ul class="dropdown-menu animated fadeInRight w">

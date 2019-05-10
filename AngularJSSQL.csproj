@@ -602,6 +602,7 @@
     <Content Include="Javascripts\controllers\imgcrop.js" />
     <Content Include="Javascripts\controllers\select.js" />
     <Content Include="Javascripts\controllers\signin.js" />
+    <Content Include="Javascripts\controllers\user.js" />
     <Content Include="Javascripts\controllers\signup.js" />
     <Content Include="Javascripts\controllers\slider.js" />
     <Content Include="Javascripts\controllers\tab.js" />

@@ -91,4 +91,14 @@
     <script src="~/Scripts/MyUtility.js"></script>
     <script src="/Javascripts/controllers/signin.js"></script>
     <script src="/Javascripts/controllers/signup.js"></script>
+    <script src="~/Javascripts/controllers/user.js"></script>
+    <script>
+
+         var userinfo_string = '@Html.Raw(ViewData["UserInfo"].ToString().Replace("\r\n",""))';
+
+        var gUserInfo = JSON.parse(userinfo_string);
+
+
+
+    </script>
 </html>
