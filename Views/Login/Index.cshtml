@@ -1,198 +1,92 @@
 ﻿@{
-    //   Layout = null;
+    //------------------------------------------------------------------------------
+    //        Date  2018-05-27
+    //        Author  蔡捷
+    //			 				About page
+    //        File  about.cshtml  Page file
+    //------------------------------------------------------------------------------
 
-    Layout = "~/Views/Home/_main_layout.cshtml";
+    ViewBag.Title = "About";
+    Layout = null;
 }
-
-<script src="~/Scripts/02jquery/layer/layer.js"></script>
-<script src="~/Scripts/app.login.js?v=@ViewBag.ts"></script>
-<style>
-    .noscript {
-        position: absolute;
-        z-index: 100000;
-        height: 2046px;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        background: white;
-        text-align: center;
-    }
-
-    /**/ body {
-        #background: #dfdfdf;
-        /*background-size: 100%; background: url(/Content/images/bg.jpg) no-repeat; color: #3b6e81;*/
-    }
-
-    #login {
-        width: 300px;
-        height: auto;
-        margin: 0 auto;
-        margin-top: 100px;
-    }
-
-    #login_panel {
-        margin-top: 20px;
-        background: #FFF;
-        #border: 1px solid #CCC;
-        overflow: hidden;
-        #-moz-border-radius: 8px;
-        #-webkit-border-radius: 8px;
-        border-radius: 8px;
-        #-moz-box-shadow: 1px 1px 1px rgba(0,0,0,.2);
-        #-webkit-box-shadow: 1px 1px 1px rgba(0,0,0,.2);
-        #box-shadow: 1px 1px 1px rgba(0,0,0,.2);
-        width: 350px;
-    }
-
-        #login_panel .inputbox {
-            width: 330px;
-            height: 34px;
-            margin: 10px auto;
-        }
-
-        #login_panel input {
-            width: 190px;
-            height: 22px;
-            line-height: 22px;
-            border: 1px solid #ccc;
-            padding: 5px 2px;
-        }
-
-        #login_panel .login_actions {
-            background: #E8E8E8;
-            width: auto;
-            padding: 15px;
-            border-top: 1px dotted #CCC;
-            text-align: center;
-        }
-
-    .login_msg {
-        width: 300px;
-        height: auto;
-        margin: 0 auto;
-        margin-top: 20px;
-        text-align: center;
-    }
-
-    .language {
-        float: right;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>Be Angular | Bootstrap Admin Web App with AngularJS</title>
+    <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/css/font.css" type="text/css" />
+    <link rel="stylesheet" href="/css/app.css" type="text/css" />
+</head>
+<body ng-controller="AppCtrl">
+    <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
 
 
-<div id="login">
-    @*<img src="~/Content/images/km_logo_easyui.png" />*@
-    <div id="login_panel">
-        <table style="width: 450px; height: 150px; padding:10px;">
-            <tr>
-                <td>
-                    @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "account")
-                </td>
-                <td>
-                    <input type="text" id="UserCode" name="user_code" value="" tabindex="1" placeholder="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "please_input_account") " />
-                </td>
-            </tr>
+    <!-- jQuery -->
+    <script src="/Javascripts/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Angular -->
+    <script src="/Javascripts/vendor/angular/angular.js"></script>
+
+    <script src="/Javascripts/vendor/angular/angular-animate/angular-animate.js"></script>
+    <script src="/Javascripts/vendor/angular/angular-cookies/angular-cookies.js"></script>
+    <script src="/Javascripts/vendor/angular/angular-resource/angular-resource.js"></script>
+    <script src="/Javascripts/vendor/angular/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/Javascripts/vendor/angular/angular-touch/angular-touch.js"></script>
+    <!-- Vendor -->
+    <script src="/Javascripts/vendor/angular/angular-ui-router/angular-ui-router.js"></script>
+    <script src="/Javascripts/vendor/angular/ngstorage/ngStorage.js"></script>
+
+    <!-- bootstrap -->
+    <script src="/Javascripts/vendor/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- lazyload -->
+    <script src="/Javascripts/vendor/angular/oclazyload/ocLazyLoad.js"></script>
+    <!-- translate -->
+    <script src="/Javascripts/vendor/angular/angular-translate/angular-translate.js"></script>
+    <script src="/Javascripts/vendor/angular/angular-translate/loader-static-files.js"></script>
+    <script src="/Javascripts/vendor/angular/angular-translate/storage-cookie.js"></script>
+    <script src="/Javascripts/vendor/angular/angular-translate/storage-local.js"></script>
+
+    <!-- App -->
+    <script src="/Javascripts/app.js"></script>
+    <script src="/Javascripts/config.js"></script>
+    <script src="/Javascripts/config.lazyload.js"></script>
+    @*<script src="/Javascripts/config.router.js"></script>*@
 
 
-            <tr>
-                <td>
-                    @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "password")
-                </td>
-                <td>
-                    <input type="password" id="Password" name="password" value="" tabindex="2" placeholder="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "please input password")  " />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <a href="javascript:void(0)" class="cssbtn cssbtn_size12 cssbtn_green" title=" @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "login") " style=" padding:8px 10px" onclick="doLogin();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "login") </a>
-                    <a href="javascript:void(0)" class="cssbtn cssbtn_size12 cssbtn_green" title=" @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "forgot pwd") " style=" padding:8px 10px" onclick="doForgot();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "forgot pwd") </a>
+    <script src="/Javascripts/login.config.router.js"></script>
+    <script src="/Javascripts/main.js"></script>
+
+    <script src="/Javascripts/services/ui-load.js"></script>
+    <script src="/Javascripts/filters/fromNow.js"></script>
+    <script src="/Javascripts/directives/setnganimate.js"></script>
+    <script src="/Javascripts/directives/ui-butterbar.js"></script>
+    <script src="/Javascripts/directives/ui-focus.js"></script>
+    <script src="/Javascripts/directives/ui-fullscreen.js"></script>
+    <script src="/Javascripts/directives/ui-jq.js"></script>
+    <script src="/Javascripts/directives/ui-module.js"></script>
+    <script src="/Javascripts/directives/ui-nav.js"></script>
+    <script src="/Javascripts/directives/ui-scroll.js"></script>
+    <script src="/Javascripts/directives/ui-shift.js"></script>
+    <script src="/Javascripts/directives/ui-toggleclass.js"></script>
+    <script src="/Javascripts/directives/ui-validate.js"></script>
+    <script src="/Javascripts/controllers/bootstrap.js"></script>
+    <!---->
+    <!-- Lazy loading -->
 
 
-                    <a href="/home/register" class="cssbtn cssbtn_size12 cssbtn_green" title=" @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "register") " style=" padding:8px 10px">
-                        @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "register")
-                    </a>
-                </td>
-            </tr>
-        </table>
-
-        @*<div class="inputbox">
-
-            </div>
-            <div class="inputbox">
-
-            </div>
-            <div class="login_actions">
-
-
-            </div>*@
-    </div>
-
-
-    <div id="pwd_panel" style="display:none;">
-        <table style="width: 450px; height: 150px; padding:10px;">
-            <tr>
-                <td>
-                    @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "account")
-                </td>
-                <td>
-                    <input type="text" id="user_code" name="user_code" value="" tabindex="1" placeholder="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "please_input_account") " />
-                </td>
-            </tr>
-
-            <tr>
-                <td colspan="2">
-                    @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "or")
-                </td> 
-            </tr>
-
-            <tr>
-                <td>
-                    @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "email")
-                </td>
-                <td>
-                    <input type="text" id="email" name="email" value="" tabindex="1" placeholder="@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "please_input_email") " />
-                </td>
-            </tr>
-
-             
-            <tr>
-                <td colspan="2">
-                     <a href="javascript:void(0)" class="cssbtn cssbtn_size12 cssbtn_green" title=" @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "reset") " style=" padding:8px 40px" onclick="doRetrieve();">@MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "reset") </a>
-
-
-                    <a href="javascript:void(0)" onclick="doCancel();" class="cssbtn cssbtn_size12 cssbtn_green" title=" @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel") " style=" padding:8px 40px">
-                        @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "cancel")
-                    </a>
-                </td>
-            </tr>
-        </table>
-
-        @*<div class="inputbox">
-
-            </div>
-            <div class="inputbox">
-
-            </div>
-            <div class="login_actions">
-
-
-            </div>*@
-    </div>
-</div>
-<div class="login_msg">
-    @{
-        if (ViewBag.LoginType == "reset")
-      {
-     @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "your password has been reset to 123456") 
-      }
-
-        if (ViewBag.LoginType == "active")
-      {
-     @MyUIHelper.Get((System.Data.DataTable)ViewData["dictionary"], "your account has been activated, password is 123456") 
-      }
-        
-    }
-</div>
+    <link rel="stylesheet" href="/css/jquery-ui.css" />
+    <script src="/Javascripts/jquery-ui.min.js"></script>
+    <!--PQ Grid files-->
+    <link rel="stylesheet" href="/css/pqgrid.min.css" />
+    <script src="/Javascripts/pqgrid.min.js"></script>
+    <!--PQ Grid Office theme-->
+    <link rel="stylesheet" href="/css/pqgrid.css" />
+    <script src="~/Scripts/01core/common.js"></script>
+    <script src="~/Scripts/MyUtility.js"></script>
+</html>

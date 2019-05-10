@@ -19,7 +19,36 @@ angular.module('app')
           $urlRouterProvider
               .otherwise('/app/dashboard-v1');
           $stateProvider
-          ###DETAIL###   
+                ###DETAIL###   
+                
+              .state('access', {
+                    url: '/access',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                 .state('access.signin', {
+                    url: '/signin',
+                    templateUrl: '/tpl/page_signin.html',
+                    resolve: {
+                        deps: ['uiLoad',
+                            function (uiLoad) {
+                                return uiLoad.load(['/Javascripts/controllers/signin.js']);
+                            }]
+                    }
+                })
+                    .state('access.signup', {
+                        url: '/signup',
+                        templateUrl: '/tpl/page_signup.html',
+                        resolve: {
+                            deps: ['uiLoad',
+                                function (uiLoad) {
+                                    return uiLoad.load(['/Javascripts/controllers/signup.js']);
+                                }]
+                        }
+                    })
+                    .state('access.forgotpwd', {
+                        url: '/forgotpwd',
+                        templateUrl: '/tpl/page_forgotpwd.html'
+                    })
                 ;
           function load(srcs, callback) {
               return {

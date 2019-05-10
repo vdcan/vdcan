@@ -112,6 +112,7 @@ namespace JSBase.Controllers
         //首页
         public ActionResult admin(string timestamp)
         {
+          //  / Login ?#/access/signin
             if (!FormsAuth.IsAuthenticated)
                 return RedirectToAction("Index", "Login");
 

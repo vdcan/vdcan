@@ -12,7 +12,7 @@ angular.module('app')
 
       // config
       $scope.app = {
-        name: 'Angulr',
+        name: 'My Website',
         version: '1.3.3',
         // for chart colors
         color: {

@@ -89,7 +89,7 @@ namespace JSBase.Controllers
             data["slanguage"] = Session["slanguage"].ToString();
 
             AppConnectionString = ConfigurationManager.ConnectionStrings["app"].ConnectionString;
-            DataSet dt = base.RunProcedureDataSet(data, "vdp_sys_Login", "app");
+            DataSet dt = base.RunProcedureDataSet(data, "vdp_sys_Login", "sys");
             //if (dt.Rows.Count > 0)
             var ResultID =  dt.Tables[0].Rows[0]["result_id"];
             var ResultMsg = (string)dt.Tables[0].Rows[0]["result_msg"];

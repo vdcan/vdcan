@@ -802,7 +802,7 @@
     <Content Include="Javascripts\app\note\notes.json" />
     <Content Include="Javascripts\config.js.bak" />
     <Content Include="Javascripts\config.lazyload.js.bak" />
-    <Content Include="Javascripts\config.router.js.bak" />
+    <Content Include="Javascripts\login.config.router.js" />
     <Content Include="Javascripts\controllers\largeLoad.json" />
     <Content Include="Javascripts\directives\ui-fullscreen.js.bak" />
     <Content Include="Javascripts\main.js.bak" />
