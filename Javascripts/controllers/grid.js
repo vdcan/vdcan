@@ -73,6 +73,7 @@ angular.module('ui.grid').factory('InlineEdit', ['$interval', '$rootScope', 'uiG
             },
 
             enterEditMode: function (event) {
+                console.log(this);
                 event && event.stopPropagation();
                 var self = this;
                 self.isEditModeOn = true;
@@ -170,7 +171,7 @@ app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
 
 
 app.controller('MyLogCtrl', [
-    '$scope', '$rootScope', '$http', '$modal', '$q', function ($scope, $rootScope, $http, $modal, $q) {
+    '$scope', '$rootScope', '$http', '$modal', '$q',  function ($scope, $rootScope, $http, $modal, $q ) {
         $scope.SelectedRow = {};//for getting row detail
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
@@ -229,15 +230,11 @@ app.controller('MyLogCtrl', [
             $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
             $scope.gridApi.core.refresh();
 
-            var n = new inlineEdit(row, 0);
-            n.init();
-            n.enableCellEdit();
           //  $scope.GetIDS();
         }
 
         $scope.InsertRowInline = function () {
-
-          //  console.log($scope.gridApi.rowEdit);
+             
           //  return;
             $scope.editType = "i";
             var row = $scope.copyEmptyObject($scope.row);
@@ -246,7 +243,14 @@ app.controller('MyLogCtrl', [
             $scope.gridApi.grid.modifyRows($scope.MyLoggridOptions.data);
             $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
             $scope.gridApi.core.refresh();
-            $scope.GetIDS();
+            //  $scope.GetIDS();
+           //  console.log($scope.gridApi.grid.rows[0]inlineEdit); 
+           $scope.gridApi.grid.rows[0].inlineEdit.enterEditMode();
+          //  var n = new InlineEdit($scope.MyLoggridOptions.data[0], 0, $scope.gridApi.grid);
+        //    n.init();
+           // n.isEditModeOn = true;
+          //  n.enterEditMode(); 
+         //   console.log(n);
         }
         $scope.editRow = function (row) {
             $scope.editType = "u";
