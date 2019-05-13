@@ -5132,3 +5132,8 @@ a.text-#000000:hover {
     background-color: #7266ba;
   }
 }
+
+.disabled {
+    pointer-events: none;
+    color: gray;
+}
