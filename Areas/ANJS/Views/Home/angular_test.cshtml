@@ -35,50 +35,43 @@
           {{row.EditType}} MyLog
       </div>
        
-<div class="col-sm-12"  ng-init="getDDL('client')" >       			<div class="form-group">
-              <label>action</label>
-              <p>   <div auto-complete source="loader" loader="ccn"   display-property="text" value-property="text"   min-chars="2" placeholder="action"   style=" z-index:200"> <input id="loaderaction"  ng-disabled="!row.editrow"  ng-model="row.action" name="addressText" style="width: 300px;"  />   </div>
+<div class="col-sm-12">       			<div class="form-group">
+              <label></label>
+              <p>   <div auto-complete source="loader" myloader="ccn"   display-property="text" value-property="text"   min-chars="2" placeholder=""   style=" z-index:200"> <input id="loaderaction"  ng-disabled="!row.editrow"  ng-model="row.action" name="addressText" style="width: 300px;"  />   </div>
            </p>
           </div>
                 			<div class="form-group">
-              <label>action_data</label>
+              <label></label>
               <p>  <input type="fdsf" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.action_data" >
            </p>
           </div>
                 			<div class="form-group">
-              <label>add_by</label>
+              <label></label>
               <p>  <input type="url" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.add_by" >
            </p>
           </div>
                 			<div class="form-group">
-              <label>add_on</label>
+              <label></label>
               <p>  <div   ng-controller="DatepickerDemoCtrl"   > <div class="input-group w-md"> <input type="text" class="form-control" datepicker-popup="{format}"  ng-disabled="!row.editrow" ng-model="row.add_on" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" /> <span class="input-group-btn"> <button type="button"  ng-disabled="!row.editrow" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button> </span> </div> </div>
            </p>
           </div>
                 			<div class="form-group">
-              <label>app_code</label>
-              <p>
-                 
-                  <select class="form-control"  ng-disabled="!row.editrow"  ng-model="row.app_code">
-                      <option ng-selected="{{row.app_code == statusselect}}" ng-repeat="mode in DDLData['client']" value="{{mode.id}}" >
-                          {{mode.text}}
-                      </option>
-                  </select>
-
-              </p>
+              <label></label>
+              <p>  <select ui-select  ng-disabled="!row.editrow"  ng-init="getDDL('client')" class="form-control m-b"   ng-model="row.app_code"  ><option data-ng-repeat="d in DDLData['client']" value = "{{d.id}}">{{ d.text }}</ option ></select>
+           </p>
           </div>
                 			<div class="form-group">
-              <label>ip</label>
+              <label></label>
               <p>  <label class="i-switch m-t-xs m-r"> <input type="checkbox"  ng-disabled="!row.editrow"  ng-model="row.ip" checked>  <i></i> </label>
            </p>
           </div>
                 			<div class="form-group">
-              <label>menu_code</label>
+              <label></label>
               <p>   <select name="menu_code"  ng-disabled="!row.editrow"  class="form-control m-b" ng-model="row.menu_code" ><option value="1">active</option><option value="0">inactive</option></select>
            </p>
           </div>
                 			<div class="form-group">
-              <label>flag</label>
+              <label></label>
               <p>  <label class="i-switch m-t-xs m-r"> <input type="checkbox"  ng-disabled="!row.editrow"  ng-model="row.flag" checked>  <i></i> </label>
            </p>
           </div>

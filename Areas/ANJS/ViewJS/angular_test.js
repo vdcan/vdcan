@@ -11,12 +11,12 @@
  Description angular_test(angular_test)  js File 
 */
 // Current page object 
-var km = {}; 
+var km = {};
 km.init = function () {
 }
 
- 
- 
+
+
 //------------------------------------------------------------------------------ 
 //        Date  2019-05-13
 //        Author  蔡捷   
@@ -24,10 +24,10 @@ km.init = function () {
 //------------------------------------------------------------------------------  
 
 
- 
- 
-  
-  app = angular.module('app',
+
+
+
+app = angular.module('app',
     [
 
         'ui.grid',
@@ -119,7 +119,7 @@ angular.module('ui.grid').factory('InlineEdit', ['$interval', '$rootScope', 'uiG
                     self.entity[prop].isCancel = true;
                     self.entity[prop].isEdit = false;
                 }
-                
+
                 $rootScope.$broadcast("MyLogCancel", null);
             }
         }
@@ -166,70 +166,67 @@ app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
 });
 */
 
-       
- 
- 
-app.controller('MyLogModalInstanceControl', ['$scope', '$modalInstance', '$http', 'row',  function ($scope, $modalInstance, $http, row ) {
-   // console.log(row.ddldata);
+
+
+
+app.controller('MyLogModalInstanceControl', ['$scope', '$modalInstance', '$http', 'row', function ($scope, $modalInstance, $http, row) {
+
     $scope.DDLData = row.ddldata;
-   // $scope.DDLData['client'] = [{ id: "1", text: "341" },{ id: "1", text: "341" }]
-    $scope.loader = function (param) { 
-        var r = $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
-     //   console.log(r);
-        return r.data;
+    $scope.loader = function (param) {
+        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
     };
-    $scope.row = row; 
+    $scope.row = row;
     $scope.ok = function () {
-        $modalInstance.close($scope.row); 
-    }; 
+        $modalInstance.close($scope.row);
+    };
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
 }])
- 
-    
- 
-  
+
+
+
+
 app.controller('MyLogCtrl', [
-    '$scope', '$rootScope', '$http', '$modal','$q', function ($scope, $rootScope, $http, $modal,$q) {
+    '$scope', '$rootScope', '$http', '$modal', '$q', function ($scope, $rootScope, $http, $modal, $q) {
         $scope.SelectedRow = {};//for getting row detail
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
-        
-        
-	    $scope.loader = function (param) { 
-	        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
-	    };
-	    
-   
-    $scope.DDLData = km.ddls;
-    $scope.getDDL = function (param) {
-        console.log(param);
-        if (typeof $scope.DDLData == "undefined")
-            $scope.DDLData = new Object();
-        if ($scope.DDLData.hasOwnProperty(param))
-            return $scope.DDLData[param];
 
-        $http({
-            method: 'GET',
-            url: km.model.urls["ddler"] + "&ddl=" + param
-        }).then(function successCallback(response) {
-            //console.log(response.data);
-            $scope.DDLData[param] = response.data;
-        console.log($scope.DDLData);
-            return $scope.DDLData[param];
-            // this callback will be called asynchronously
-            // when the response is available
-        }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-            }); 
-    	};
-        
-     
- 
- 
+
+        $scope.loader = function (param) {
+            return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
+        };
+
+
+        $scope.DDLData = km.ddls;
+        $scope.getDDL = function (param) {
+            console.log(param);
+            if (typeof $scope.DDLData == "undefined")
+                $scope.DDLData = new Object();
+            if ($scope.DDLData.hasOwnProperty(param))
+                return $scope.DDLData[param];
+
+            $http({
+                method: 'GET',
+                url: km.model.urls["ddler"] + "&ddl=" + param
+            }).then(function successCallback(response) {
+                //console.log(response.data);
+                $scope.DDLData[param] = response.data;
+                console.log($scope.DDLData);
+                return $scope.DDLData[param];
+                // this callback will be called asynchronously
+                // when the response is available
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        };
+
+
+
+
 
         $scope.open = function (size, EditType) {
             var modalInstance = $modal.open({
@@ -239,9 +236,9 @@ app.controller('MyLogCtrl', [
                 resolve: {
                     row: function () {
                         $scope.row.EditType = EditType;
-                        $scope.row.ddldata =$scope.DDLData
+                        $scope.row.ddldata = $scope.DDLData
                         return $scope.row;
-                    } 
+                    }
                 }
             });
 
@@ -253,24 +250,26 @@ app.controller('MyLogCtrl', [
                     $scope.insertData(row)
                 }
             }, function () {
-               console.log('Modal dismissed at: ' + new Date());
+                console.log('Modal dismissed at: ' + new Date());
             });
         };
-        $scope.InsertPopup = function(){
-        
-          var row = $scope.copyEmptyObject($scope.row);
+        $scope.InsertPopup = function () {
+
+            var row = $scope.copyEmptyObject($scope.row);
             $scope.row = row;
+
             $scope.row.editrow = true;
-        	$scope.open('lg','Insert');
+            $scope.open('lg', 'Insert');
         }
-        $scope.EditPopup = function(row){
-        
+        $scope.EditPopup = function (row) {
+
             $scope.row = Object.assign({}, row);
+
             $scope.row.editrow = true;
-        	$scope.open('lg','Edit');
+            $scope.open('lg', 'Edit');
         }
- 
-       
+
+
         $scope.editType = "";
         /*$scope.$on('$destroy', function () {
             console.log('Child1 is no longer necessary');
@@ -287,11 +286,11 @@ app.controller('MyLogCtrl', [
             row.editrow = true;
             $scope.MyLoggridOptions.data.unshift(row);
             $scope.gridApi.grid.modifyRows($scope.MyLoggridOptions.data);
-             $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
+            $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
             $scope.gridApi.core.refresh();
             $scope.GetIDS();
         }
-         $scope.InsertRowInline = function () { 
+        $scope.InsertRowInline = function () {
             $scope.editType = "i";
             var row = $scope.copyEmptyObject($scope.row);
             row.editrow = true;
@@ -299,24 +298,24 @@ app.controller('MyLogCtrl', [
             $scope.gridApi.grid.modifyRows($scope.MyLoggridOptions.data);
             $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
             $scope.gridApi.core.refresh();
-           $scope.gridApi.grid.rows[0].inlineEdit.enterEditMode(); 
+            $scope.gridApi.grid.rows[0].inlineEdit.enterEditMode();
         }
-        
+
         $scope.editRow = function (row) {
             $scope.editType = "u";
             var index = $scope.MyLoggridOptions.data.indexOf(row);
-            $scope.row = Object.assign({}, row); 
+            $scope.row = Object.assign({}, row);
             //Use that to set the editrow attrbute value for seleted rows
-            $scope.MyLoggridOptions.data[index].editrow = !$scope.MyLoggridOptions.data[index].editrow; 
+            $scope.MyLoggridOptions.data[index].editrow = !$scope.MyLoggridOptions.data[index].editrow;
         };
-        $scope.saveRow = function (row) { 
+        $scope.saveRow = function (row) {
             var index = $scope.MyLoggridOptions.data.indexOf(row);
             //Use that to set the editrow attrbute value for seleted rows
-            $scope.MyLoggridOptions.data[index].editrow = !$scope.MyLoggridOptions.data[index].editrow; 
-         
-            if ($scope.editType == "i"){
+            $scope.MyLoggridOptions.data[index].editrow = !$scope.MyLoggridOptions.data[index].editrow;
+
+            if ($scope.editType == "i") {
                 $scope.insertData(row);
-            }else
+            } else
                 $scope.updateData(row);
         };
         //Method to cancel the edit mode in UIGrid
@@ -326,25 +325,25 @@ app.controller('MyLogCtrl', [
 
             if ($scope.editType == "i") {
                 $scope.MyLoggridOptions.data.splice(0, 1);
-            }else {
-            
+            } else {
+
                 if (index > 0) {
-	                if (row != null) {
-	                    //  $scope.MyLoggridOptions.data.splice(0, 1);
-	                    var keys = Object.keys($scope.row);
-	                    keys.forEach(function (k) {
-	                        $scope.MyLoggridOptions.data[index][k] = $scope.row[k];
-	                    });
-	                    //Use that to set the editrow attrbute value to false
-	                    $scope.MyLoggridOptions.data[index].editrow = false;
-	                }
+                    if (row != null) {
+                        //  $scope.MyLoggridOptions.data.splice(0, 1);
+                        var keys = Object.keys($scope.row);
+                        keys.forEach(function (k) {
+                            $scope.MyLoggridOptions.data[index][k] = $scope.row[k];
+                        });
+                        //Use that to set the editrow attrbute value to false
+                        $scope.MyLoggridOptions.data[index].editrow = false;
+                    }
                 }
             }
             $scope.editType = "";
             $scope.SelectedRow.entity.editrow = false;
             $rootScope.$broadcast("SysToaster", 'info', "", "Row editing cancelled");
         };
-         
+
         $scope.$on("MyLogUpdate", function (event, row) {
             $scope.updateData(row)
         });
@@ -355,7 +354,7 @@ app.controller('MyLogCtrl', [
             $scope.deleteIt(id, text)
         });
 
-        $scope.$on("MyLogCancel", function (event, row) { 
+        $scope.$on("MyLogCancel", function (event, row) {
             $scope.cancelEdit(row)
         });
         $scope.insert = function () {
@@ -365,7 +364,7 @@ app.controller('MyLogCtrl', [
             $scope.deleteIt($scope.row.id, $scope.row.id);
         };
         $scope.deleteInline = function (inline) {
-             
+
             $scope.deleteIt(inline.id.value, inline.id.value);
         };
         $scope.update = function () {
@@ -383,7 +382,7 @@ app.controller('MyLogCtrl', [
                 type: 'POST', url: km.model.urls["MyLog_insert"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
-                        
+
                         r.editrow = false;
                         $scope.afterInsert(r);
                     }
@@ -450,7 +449,7 @@ app.controller('MyLogCtrl', [
                 type: 'POST', url: km.model.urls["MyLog_update"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
-                        
+
                         r.editrow = false;
                         var iterator = Object.keys(r);
                         for (let key of iterator) {
@@ -469,22 +468,22 @@ app.controller('MyLogCtrl', [
             $scope.editType = "";
             $scope.gridApi.core.refresh();
         }
-        
+
         $scope.sync = function () {
-            $rootScope.$broadcast("MyLogSelectedRowChanged", $scope.row );
+            $rootScope.$broadcast("MyLogSelectedRowChanged", $scope.row);
         };
         $scope.EditSide = function (row) {
-        		row.EditType ="Update";
-        		
+            row.EditType = "Update";
+
             $scope.SelectedRow = row;
             row.editrow = true;
-            $rootScope.$broadcast("MyLogEditSide", row );
+            $rootScope.$broadcast("MyLogEditSide", row);
         };
-        $scope.InsertSide = function ( ) {
-        		
+        $scope.InsertSide = function () {
+
             var row = $scope.copyEmptyObject($scope.row);
-        		row.EditType ="Insert";
-            $rootScope.$broadcast("MyLogEditSide", row );
+            row.EditType = "Insert";
+            $rootScope.$broadcast("MyLogEditSide", row);
         };
         var paginationOptions = {
             pageNumber: 1,
@@ -492,43 +491,43 @@ app.controller('MyLogCtrl', [
             order: "desc",
             sort: "id",
         };
-         $scope.TranslateToText = function (data, value) {
+        $scope.TranslateToText = function (data, value) {
 
-            var result=value;
+            var result = value;
             if (Array.isArray(data)) {
                 data.forEach(function (d) {
-                    if (d.id ==  value) {
+                    if (d.id == value) {
 
                         result = d.text;
-                    return;
+                        return;
                     }
                 })
             } else {
-            // console.log(data);
-            var a = data.split(" ");
-            for (var i = 0; i < a.length; i++) {
+                // console.log(data);
+                var a = data.split(" ");
+                for (var i = 0; i < a.length; i++) {
 
-                var v = a[i].split("=")[0];
-                var t = a[i].split("=")[1];
+                    var v = a[i].split("=")[0];
+                    var t = a[i].split("=")[1];
 
-                if (value == v)
-                    return t;
-            }
+                    if (value == v)
+                        return t;
+                }
 
             }
             return result;
         }
-        $scope.Translate = function (data, value,valcol, textcol) {
-				     var d= 	$scope.getDDL(data); 
-				     var r ="";
-        		d.forEach(function (t) {
-                    if (t[valcol] == value)
-                        r= t[textcol];
-                });
-                return r;
+        $scope.Translate = function (data, value, valcol, textcol) {
+            var d = $scope.getDDL(data);
+            var r = "";
+            d.forEach(function (t) {
+                if (t[valcol] == value)
+                    r = t[textcol];
+            });
+            return r;
         };
-        
-        
+
+
         $scope.MyLoggridOptions = {
             paginationPageSizes: [10, 15, 25, 50, 75],
             paginationPageSize: paginationOptions.pageSize,
@@ -537,26 +536,48 @@ app.controller('MyLogCtrl', [
             useExternalSorting: true,
             multiSelect: false,
             enableRowHeaderSelection: false,
-            columnDefs: 
-                [ 
-                 { field: 'action', displayName: 'action', width: 80, align: 'center' },
-  { field: 'action_data', displayName: 'action_data', width: 80, align: 'center' },
-  { field: 'add_by', displayName: 'add_by', width: 80, align: 'center' },
-  { field: 'add_on', displayName: 'add_on', width: 80, align: 'center' },
-  { field: 'app_code', displayName: 'app_code', width: 80, align: 'center' },
-  { field: 'id', displayName: 'id', width: 80, align: 'center' },
-  { field: 'ip', displayName: 'ip', width: 80, align: 'center' },
-  { field: 'menu_code', displayName: 'menu_code', width: 80, align: 'center' },
-  { field: 'flag', displayName: 'flag', width: 80, align: 'center' },
- {
+            columnDefs:
+                [
+                    {
+                        field: 'action', displayName: 'Action', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'action_data', displayName: 'Action Data', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'add_by', displayName: 'Add By', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'add_on', displayName: 'Add On', width: 80, align: 'center', cellTemplate: '   <div ng-init="data1=[ 16,15,15,14,17,18,16,15,16 ]" ui-jq="sparkline" ui-options="{{data1}}, {type:\'bar\', height:19, barWidth:4, barSpacing:2, barColor:\'{{ app.color.success }}\'}" class="sparkline inline">loading...</div>            '
+                    },
+                    {
+                        field: 'app_code', displayName: 'App Code', width: 80, align: 'center',
+                        cellTemplate: "<div>{{grid.appScope.TranslateToText(grid.appScope.DDLData['client'],row.entity.app_code)}}</div>"
+                    },
+                    {
+                        field: 'id', displayName: 'Id', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'ip', displayName: 'Ip', width: 80, align: 'center',
+                        cellTemplate: "<label class='i-switch m-t-xs m-r'> <input type='checkbox'   ng-disabled='true'  ng-model='row.entity.ip' checked>  <i></i> </label>",
+                    },
+                    {
+                        field: 'menu_code', displayName: 'Menu Code', width: 80, align: 'center',
+                        cellTemplate: "<div>{{grid.appScope.TranslateToText('1=active 0=inactive',row.entity.menu_code)}}</div>"
+                    },
+                    {
+                        field: 'flag', displayName: 'Flag', width: 80, align: 'center',
+                        cellTemplate: "<label class='i-switch m-t-xs m-r'> <input type='checkbox'   ng-disabled='true'  ng-model='row.entity.flag' checked>  <i></i> </label>",
+                    },
+                    {
                         name: 'pActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
                         cellTemplate: '<div><button  class="btn primary" ng-click="grid.appScope.EditPopup(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
                             '<button  class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
-                                   '</div>', width: 80
+                            '</div>', width: 80
                     }
-  
+
                 ],
-                 
+
             onRegisterApi: function (gridApi) {
                 $scope.gridApi = gridApi;
                 $scope.gridApi.core.on.sortChanged($scope, function (grid, sortColumns) {
@@ -582,26 +603,26 @@ app.controller('MyLogCtrl', [
                 });
                 gridApi.selection.on.rowSelectionChangedBatch($scope, function (rows) {
                 });
-              }
+            }
         };
-       
+
         $scope.getPage = function () {
             $http.get(km.model.urls["MyLog_pager"] + "&page=" + paginationOptions.pageNumber
                 + "&rows=" + paginationOptions.pageSize + "&sort=" + paginationOptions.sort + "&order=" +
-                paginationOptions.order +  "&add_by="+0+ "&_t="+com.settings.timestamp()).success(function (result) {
-   	 								result.rows.forEach(function (d) {
+                paginationOptions.order + "&add_by=" + 0 + "&_t=" + com.settings.timestamp()).success(function (result) {
+                    result.rows.forEach(function (d) {
                         d.editrow = false;
                     });
-                    $scope.MyLoggridOptions.totalItems  = result.total;
+                    $scope.MyLoggridOptions.totalItems = result.total;
                     $scope.MyLoggridOptions.data = result.rows;
                     $scope.GetIDS();
                     $scope.gridApi.grid.modifyRows($scope.MyLoggridOptions.data);
 
-                    if ($scope.MyLoggridOptions.data.length >0)
+                    if ($scope.MyLoggridOptions.data.length > 0)
                         $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
                 });
         }
-        $scope.copyEmptyObject =function(source, isArray) {
+        $scope.copyEmptyObject = function (source, isArray) {
             var o = Array.isArray(source) ? [] : {};
             for (var key in source) {
                 if (source.hasOwnProperty(key)) {
@@ -626,6 +647,6 @@ app.controller('MyLogCtrl', [
         $scope.getPage();
     }
 ]);
- 
- 
+
+
 
