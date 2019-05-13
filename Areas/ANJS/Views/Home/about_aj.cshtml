@@ -92,12 +92,58 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <div ui-grid="MyLoggridOptions"  ui-grid-edit=""  ui-grid-row-edit ui-grid-pagination ui-grid-selection style="min-height:420px;" class="h-100"></div>
+                    <div ui-grid="MyLoggridOptions" ui-grid-edit="" ui-grid-row-edit ui-grid-pagination ui-grid-selection style="min-height:420px;" class="h-100"></div>
                 </div>
             </div>
         </div>
 
-    </div> 
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        var ws;
+        $().ready(function () {
+            $("#btnConnect").click(function () {
+                $("#spanStatus").text("connecting");
+                //   ws = new WebSocket("ws://" + window.location.hostname + "/Mvc4WSChat/api/WSChat");
+                ws = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port + "/api/WS");
+                console.log(ws)
+                //  ws = new WebSocket("ws://localhost:2445");
+                //    ws = new WebSocket("ws://localhost:9813//api/WSChat");
+                ws.onopen = function () {
+                    $("#spanStatus").text("connected");
+                };
+                ws.onmessage = function (evt) {
+                    $("#spanStatus").text(evt.data);
+                };
+                ws.onerror = function (evt) {
+                    $("#spanStatus").text(evt.message);
+                };
+                ws.onclose = function () {
+                    $("#spanStatus").text("disconnected");
+                };
+            });
+            $("#btnSend").click(function () {
+                if (ws.readyState == WebSocket.OPEN) {
+                    ws.send($("#textInput").val());
+                }
+                else {
+                    $("#spanStatus").text("Connection is closed");
+                }
+            });
+            $("#btnDisconnect").click(function () {
+                ws.close();
+            });
+        });
+    </script>
+
+
+    <input type="button" value="Connect" id="btnConnect" /><input type="button" value="Disconnect" id="btnDisconnect" /><br />
+    <input type="text" id="textInput" />
+    <input type="button" value="Send" id="btnSend" /><br />
+    <span id="spanStatus">(display)</span>
 </div>
 <div style='display:none'>
 
