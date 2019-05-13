@@ -171,7 +171,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Areas\ANJS\ViewJS\grid.js" />
+    <Content Include="Areas\ANJS\ViewJS\about_aj.js" />
+    <Content Include="Areas\ANJS\ViewJS\angular_test.js" />
     <Content Include="Areas\dev\ViewJS\m_test2.js" />
     <Content Include="Areas\dev\ViewJS\m_test1.js" />
     <Content Include="Areas\dev\ViewJS\search_line.js" />
@@ -884,6 +885,7 @@
     <Content Include="fonts\sourcesanspro\sourcesanspro-bold.woff" />
     <Content Include="fonts\sourcesanspro\sourcesanspro-light.woff" />
     <Content Include="fonts\sourcesanspro\sourcesanspro.woff" />
+    <Content Include="Areas\ANJS\Views\Home\angular_test.cshtml" />
     <None Include="Properties\PublishProfiles\js.pubxml" />
     <None Include="Properties\PublishProfiles\js2.pubxml" />
     <None Include="Scripts\02jquery\jquery-1.10.2.intellisense.js" />

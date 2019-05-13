@@ -1,27 +1,34 @@
 'use strict';
 
-// signup controller
-app.controller('mainController', ['$scope', '$http', '$state','$interval', function ($scope, $http, $state, $interval) {
-    $scope.user = gUserInfo;  
 
-    $interval(callAtInterval, 5000);
+// signup controller
+app.controller('mainController2', ['$scope', '$http', '$state', '$interval', function ($scope, $http, $state, $interval) {
+    $scope.user = gUserInfo;
+
+    $interval(callAtInterval, 30000);
 
     function callAtInterval() {
 
 
-        $http.post('/Login/CheckLogin', { _t: com.settings.timestamp()}).then(function (response) {
+        $http.post('/Login/CheckLogin', { _t: com.settings.timestamp() }).then(function (response) {
             //console.log(response); 
-           // console.log("logoff");
+            // console.log("logoff");
             if (!response.data.s) {
                 console.log("logoff");
                 $state.go('access.signin');
-                
+
             }
         }, function (x) {
             $scope.authError = 'Server Error';
-            });
+        });
 
-    }
+    } 
+}])
+// signup controller
+app.controller('mainController', ['$scope', '$http', '$state','$interval', function ($scope, $http, $state, $interval) {
+    $scope.user = gUserInfo;  
+
+    
     /*
 'ngWebsocket', $websocket
 
