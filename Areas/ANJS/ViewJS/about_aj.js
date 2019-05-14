@@ -473,7 +473,7 @@ app.controller('MyLogCtrl', [
 
                     },
                     {
-                        field: 'action_data', displayName: 'action_data', width: 80, align: 'center',
+                        field: 'action_data', displayName: 'action_data', width: "*", align: 'center',
 
                     },
                     {
@@ -507,6 +507,7 @@ app.controller('MyLogCtrl', [
                     {
                         name: "",
                         field: "fake",
+                        width:80,
                         cellTemplate: '<div   >' +
                             // '<button value="Edit" ng-if="!row.inlineEdit.isEditModeOn"  class="btn primary"  ng-click="row.inlineEdit.enterEditMode($event)"><i class="fa fa-trash"></i></button>' +
                             '<button value="Edit" ng-if="!row.inlineEdit.isEditModeOn"  class="btn primary"  ng-click="row.inlineEdit.enterEditMode($event)"><i class="fa fa-edit"></i></button>' +

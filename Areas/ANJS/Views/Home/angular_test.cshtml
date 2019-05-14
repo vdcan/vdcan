@@ -25,53 +25,66 @@
     </script>
 
  
+    <script type="text/ng-template" id="IframeDialog">
+        <div class="modal-header">
+            {{row.EditType}} MyLog
+        </div>
+        <div class="modal-body" width="800" height="600">
+            <iframe src="/user/dashboard" frameborder="0"  width="100%" height="100%" allowtransparency="true"></iframe>
+        </div>
+        <div class="modal-footer">
+            <button ng-click="ok()" class="btn btn-primary">Save</button>
+            <button ng-click="cancel()" class="btn">close</button>
+        </div>
+
+    </script>
  
 <div class="row">
- <div class="col-sm-6">
+ <div class="col-sm-12">
     	 
-<div  ng-controller="MyLogCtrl">
+<div  ng-controller="MyLogCtrl2">
    <script type="text/ng-template" id="MyLogDetail">
       <div class="modal-header">
           {{row.EditType}} MyLog
       </div>
        
 <div class="col-sm-12">       			<div class="form-group">
-              <label></label>
-              <p>   <div auto-complete source="loader" myloader="ccn"   display-property="text" value-property="text"   min-chars="2" placeholder=""   style=" z-index:200"> <input id="loaderaction"  ng-disabled="!row.editrow"  ng-model="row.action" name="addressText" style="width: 300px;"  />   </div>
+              <label>Action</label>
+              <p>   <div auto-complete source="loader" myloader="ccn"   display-property="text" value-property="text"   min-chars="2" placeholder="Action"   style=" z-index:200"> <input id="loaderaction"  ng-disabled="!row.editrow"  ng-model="row.action" name="addressText" style="width: 300px;"  />   </div>
            </p>
           </div>
                 			<div class="form-group">
-              <label></label>
+              <label>Action Data</label>
               <p>  <input type="fdsf" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.action_data" >
            </p>
           </div>
                 			<div class="form-group">
-              <label></label>
+              <label>Add By</label>
               <p>  <input type="url" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.add_by" >
            </p>
           </div>
                 			<div class="form-group">
-              <label></label>
+              <label>Add On</label>
               <p>  <div   ng-controller="DatepickerDemoCtrl"   > <div class="input-group w-md"> <input type="text" class="form-control" datepicker-popup="{format}"  ng-disabled="!row.editrow" ng-model="row.add_on" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" /> <span class="input-group-btn"> <button type="button"  ng-disabled="!row.editrow" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button> </span> </div> </div>
            </p>
           </div>
                 			<div class="form-group">
-              <label></label>
+              <label>App Code</label>
               <p>  <select ui-select  ng-disabled="!row.editrow"  ng-init="getDDL('client')" class="form-control m-b"   ng-model="row.app_code"  ><option data-ng-repeat="d in DDLData['client']" value = "{{d.id}}">{{ d.text }}</ option ></select>
            </p>
           </div>
                 			<div class="form-group">
-              <label></label>
+              <label>Ip</label>
               <p>  <label class="i-switch m-t-xs m-r"> <input type="checkbox"  ng-disabled="!row.editrow"  ng-model="row.ip" checked>  <i></i> </label>
            </p>
           </div>
                 			<div class="form-group">
-              <label></label>
+              <label>Menu Code</label>
               <p>   <select name="menu_code"  ng-disabled="!row.editrow"  class="form-control m-b" ng-model="row.menu_code" ><option value="1">active</option><option value="0">inactive</option></select>
            </p>
           </div>
                 			<div class="form-group">
-              <label></label>
+              <label>Flag</label>
               <p>  <label class="i-switch m-t-xs m-r"> <input type="checkbox"  ng-disabled="!row.editrow"  ng-model="row.flag" checked>  <i></i> </label>
            </p>
           </div>
@@ -84,12 +97,12 @@
   </script>
 
 	<div class="panel panel-default">
-	  <div class="panel-heading">
-	      MyLog   
-	      <div style="float:right;">
-    			<button  class="btn primary" ng-click="InsertPopup()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
-        </div> 
-		</div>  
+        <div class="panel-heading">
+            MyLog   &nbsp;<button ng-click="openIframe()" class="btn btn-primary">Open Iframe</button>
+            <div style="float:right;">
+                <button class="btn primary" ng-click="InsertPopup()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+            </div>
+        </div>  
 	  <div class="table-responsive"  >
 	      <div ui-grid="MyLoggridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
 	  </div>
