@@ -99,7 +99,7 @@ angular.module('ui.grid').factory('InlineEdit', ['$interval', '$rootScope', 'uiG
                     self.entity[prop].isCancel = true;
                     self.entity[prop].isEdit = false;
                 }
-
+                console.log(self.grid)
                 $rootScope.$broadcast("MyLogCancel", null);
             }
         }

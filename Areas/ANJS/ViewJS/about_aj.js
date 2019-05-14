@@ -27,85 +27,6 @@ km.init = function () {
  
 
 
-angular.module('ui.grid').factory('InlineEdit', ['$interval', '$rootScope', 'uiGridRowEditService',
-    function ($interval, $rootScope, uiGridRowEditService) {
-        function inlineEdit(entity, index, grid) {
-            this.grid = grid;
-            this.index = index;
-            this.entity = {};
-            this.isEditModeOn = false;
-            this.init(entity);
-        }
-
-        inlineEdit.prototype = {
-            init: function (rawEntity) {
-                var self = this;
-
-                for (var prop in rawEntity) {
-                    self.entity[prop] = {
-                        value: rawEntity[prop],
-                        isValueChanged: false,
-                        isSave: false,
-                        isCancel: false,
-                        isEdit: false
-                    }
-                }
-            },
-
-            enterEditMode: function (event) {
-                event && event.stopPropagation();
-                var self = this;
-                self.isEditModeOn = true;
-                console.log("enterEditMode");
-                // cancel all rows which are in edit mode
-                self.grid.rows.forEach(function (row) {
-                    if (row.inlineEdit && row.inlineEdit.isEditModeOn && row.uid !== self.grid.rows[self.index].uid) {
-                        row.inlineEdit.cancelEdit();
-                    }
-                });
-
-                // Reset all the values
-                for (var prop in self.entity) {
-                    self.entity[prop].isSave = false;
-                    self.entity[prop].isCancel = false;
-                    self.entity[prop].isEdit = true;
-                }
-            },
-
-            saveEdit: function (event) {
-                event && event.stopPropagation();
-                var self = this;
-
-
-
-                self.isEditModeOn = false;
-
-                for (var prop in self.entity) {
-                    self.entity[prop].isSave = true;
-                    self.entity[prop].isEdit = false;
-                }
-                //   console.log( self.entity[prop]);
-                //  $rootScope.$broadcast("MyLogUpdate",null);
-                uiGridRowEditService.saveRow(self.grid, self.grid.rows[self.index])();
-            },
-
-            cancelEdit: function (event) {
-                event && event.stopPropagation();
-                var self = this;
-
-                self.isEditModeOn = false;
-                for (var prop in self.entity) {
-                    self.entity[prop].isCancel = true;
-                    self.entity[prop].isEdit = false;
-                }
-
-                $rootScope.$broadcast("MyLogCancel", null);
-            }
-        }
-
-        return inlineEdit;
-    }]);
-
 
 
 /*
@@ -493,7 +414,7 @@ app.controller('MyLogCtrl', [
                             '<button value="Edit" ng-if="!row.inlineEdit.isEditModeOn"  class="btn primary"  ng-click="row.inlineEdit.enterEditMode($event)"><i class="fa fa-edit"></i></button>' +
                             '<button  value="Edit"  ng-if="!row.inlineEdit.isEditModeOn"class="btn primary" ng-click="grid.appScope.deleteInline(row.inlineEdit.entity )"><i class="fa fa-trash"></i></button>' +
                             '<button value="Edit" ng-if="row.inlineEdit.isEditModeOn"   class="btn primary"  ng-click="row.inlineEdit.saveEdit($event)"><i class="fa fa-floppy-o"></i></button>' +
-                            '<button value="Edit" ng-if="row.inlineEdit.isEditModeOn"  class="btn primary"  ng-click="row.inlineEdit.cancelEdit($event)"><i class="fa fa-times"></i></button>' +
+                            '<button value="Edit" ng-if="row.inlineEdit.isEditModeOn"  class="btn primary"  ng-click="row.inlineEdit.cancelEdit($event,\'MyLogCancel\')"><i class="fa fa-times"></i></button>' +
                             '</div>',
                         enableCellEdit: false,
                         enableFiltering: false,
