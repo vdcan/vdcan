@@ -231,6 +231,7 @@ app.controller('MyLogCtrl2', [
                 templateUrl: 'IframeDialog',
                 controller: 'MyLogModalInstanceControl',
                 size: size,
+                windowClass: 'my-modal',
                 resolve: {
                     row: function () {
                         $scope.row.EditType = EditType;

@@ -29,8 +29,8 @@
         <div class="modal-header">
             {{row.EditType}} MyLog
         </div>
-        <div class="modal-body" width="800" height="600">
-            <iframe src="/user/dashboard" frameborder="0"  width="100%" height="100%" allowtransparency="true"></iframe>
+        <div class="modal-body" width="1200" height="800">
+            <iframe src="/user/dashboard" frameborder="0"  width="100%" height="100%" scrolling="no" style="overflow:hidden;" allowtransparency="true"></iframe>
         </div>
         <div class="modal-footer">
             <button ng-click="ok()" class="btn btn-primary">Save</button>
@@ -98,7 +98,7 @@
 
 	<div class="panel panel-default">
         <div class="panel-heading">
-            MyLog   &nbsp;<button ng-click="openIframe()" class="btn btn-primary">Open Iframe</button>
+            MyLog   &nbsp;<button ng-click="openIframe('lg')" class="btn btn-primary">Open Iframe</button>
             <div style="float:right;">
                 <button class="btn primary" ng-click="InsertPopup()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
             </div>

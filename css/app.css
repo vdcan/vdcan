@@ -5137,3 +5137,10 @@ a.text-#000000:hover {
     pointer-events: none;
     color: gray;
 }
+
+
+@media(min-width: 1400px) {
+    .my-modal > .modal-lg {
+        width: 1308px;
+    }
+}
