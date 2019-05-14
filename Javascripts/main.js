@@ -126,6 +126,31 @@ app.service('ControllerChecker', ['$controller', function ($controller) {
 
 
 
+app.controller('IframePopup', ['$scope', '$modalInstance', '$http', 'parm', function ($scope, $modalInstance, $http, parm) {
+    $scope.Title = "Title";
+    $scope.hight = "200";
+
+    $scope.HideOk = false;
+    $scope.HideClose = false;
+
+    $scope.OkText = "OK";
+    $scope.CloseText = "Close";
+
+    for (var prop in parm) {
+        $scope[prop] = parm[prop];
+    }
+
+
+
+    $scope.parm = parm;
+
+    $scope.ok = function () {
+        $modalInstance.close($scope.parm);
+    };
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+}])
 
 
 

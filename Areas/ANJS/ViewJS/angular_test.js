@@ -229,14 +229,13 @@ app.controller('MyLogCtrl2', [
         $scope.openIframe = function (size, EditType) {
             var modalInstance = $modal.open({
                 templateUrl: 'IframeDialog',
-                controller: 'MyLogModalInstanceControl',
+                controller: 'IframePopup',
                 size: size,
                 windowClass: 'my-modal',
                 resolve: {
-                    row: function () {
-                        $scope.row.EditType = EditType;
-                        $scope.row.ddldata = $scope.DDLData
-                        return $scope.row;
+                    parm: function () {
+                        var r = { Title: "Test", hight: 400, OkText: "Save", URL: "/tpl/mail.html", HideOk:true}
+                        return r;
                     }
                 }
             });
