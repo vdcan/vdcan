@@ -202,7 +202,7 @@ app.controller('MyLogCtrl2', [
 
         $scope.DDLData = km.ddls;
         $scope.getDDL = function (param) {
-            console.log(param);
+           // console.log(param);
             if (typeof $scope.DDLData == "undefined")
                 $scope.DDLData = new Object();
             if ($scope.DDLData.hasOwnProperty(param))

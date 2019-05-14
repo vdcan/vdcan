@@ -15,73 +15,6 @@ var km = {};
 km.model = null;
 km.parent_model = null;
  
-   
- 
-//------------------------------------------------------------------------------ 
-//        Date  2019-05-14
-//        Author  蔡捷   
-//			   
-//------------------------------------------------------------------------------  
- 
-app.controller('MyLogDetailCtrl3', ['$scope', '$rootScope', '$stateParams', '$modal', '$http', function ($scope, $rootScope, $stateParams, $modal, $http) {
-    /*  var id = $stateParams.id;
-      var number = $stateParams.number;
-      console.log(id);
-      console.log(number);
-      */
-      
-    $scope.loader = function (param) { 
-        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
-    };
-    $scope.DDLData  = {};
-    $scope.getDDL = function (param) {
-        console.log(param);
-        if (typeof $scope.DDLData == "undefined")
-            $scope.DDLData = new Object();
-        if ($scope.DDLData.hasOwnProperty(param))
-            return $scope.DDLData[param];
-
-        $http({
-            method: 'GET',
-            url: km.model.urls["ddler"] + "&ddl=" + param
-        }).then(function successCallback(response) {
-            //console.log(response.data);
-            $scope.DDLData[param] = response.data;
-        console.log($scope.DDLData);
-            return $scope.DDLData[param];
-            // this callback will be called asynchronously
-            // when the response is available
-        }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-            }); 
-    };
-    $scope.row = {};// = {id:43124};
-    $scope.row_old = {};// = {id:43124};
-    //$scope.row_original = {};// = {id:43124};
-    $rootScope.$on("MyLogSelectedRowChanged", function (event, row, ids, paginationOptions) {
-        $scope.row = Object.assign({}, row);
-        $scope.row_old = row;
-        $(".tmpHide").removeClass("tmpHide");
-    });    
-    $rootScope.$on("MyLogEditSide", function (event, row) {
-        $scope.row = Object.assign({}, row);
-        $(".MyLogDetailButtons").show();
-    }); 
-    $scope.save = function () {
-        $rootScope.$broadcast("MyLog"+$scope.row.EditType, $scope.row);
-        $(".MyLogDetailButtons").hide(); 
-        $scope.row.editrow = false;
-    }
-    $scope.cancel = function () { 
-    	
-        $rootScope.$broadcast("MyLogCancel", $scope.row);
-        $(".MyLogDetailButtons").hide();
-        $scope.row = Object.assign({}, $scope.row_old);
-        $scope.row.editrow = false;
-    }
-    
-}]);  
 
  
 //------------------------------------------------------------------------------ 
@@ -238,7 +171,74 @@ app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
 });
 */
 
-       
+
+
+
+//------------------------------------------------------------------------------ 
+//        Date  2019-05-14
+//        Author  蔡捷   
+//			   
+//------------------------------------------------------------------------------  
+
+app.controller('MyLogDetailCtrl3', ['$scope', '$rootScope', '$stateParams', '$modal', '$http', function ($scope, $rootScope, $stateParams, $modal, $http) {
+    /*  var id = $stateParams.id;
+      var number = $stateParams.number;
+      console.log(id);
+      console.log(number);
+      */
+
+    $scope.loader = function (param) {
+        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
+    };
+    $scope.DDLData = {};
+    $scope.getDDL = function (param) {
+        console.log(param);
+        if (typeof $scope.DDLData == "undefined")
+            $scope.DDLData = new Object();
+        if ($scope.DDLData.hasOwnProperty(param))
+            return $scope.DDLData[param];
+
+        $http({
+            method: 'GET',
+            url: km.model.urls["ddler"] + "&ddl=" + param
+        }).then(function successCallback(response) {
+            //console.log(response.data);
+            $scope.DDLData[param] = response.data;
+            console.log($scope.DDLData);
+            return $scope.DDLData[param];
+            // this callback will be called asynchronously
+            // when the response is available
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+    };
+    $scope.row = {};// = {id:43124};
+    $scope.row_old = {};// = {id:43124};
+    //$scope.row_original = {};// = {id:43124};
+    $rootScope.$on("MyLogSelectedRowChanged", function (event, row, ids, paginationOptions) {
+        $scope.row = Object.assign({}, row);
+        $scope.row_old = row;
+        $(".tmpHide").removeClass("tmpHide");
+    });
+    $rootScope.$on("MyLogEditSide", function (event, row) {
+        $scope.row = Object.assign({}, row);
+        $(".MyLogDetailButtons").show();
+    });
+    $scope.save = function () {
+        $rootScope.$broadcast("MyLog" + $scope.row.EditType, $scope.row);
+        $(".MyLogDetailButtons").hide();
+        $scope.row.editrow = false;
+    }
+    $scope.cancel = function () {
+
+        $rootScope.$broadcast("MyLogCancel", $scope.row);
+        $(".MyLogDetailButtons").hide();
+        $scope.row = Object.assign({}, $scope.row_old);
+        $scope.row.editrow = false;
+    }
+
+}]);       
  
 app.controller('MyLogCtrl3', [
     '$scope', '$rootScope', '$http', '$modal','$q', function ($scope, $rootScope, $http, $modal,$q) {
@@ -255,7 +255,7 @@ app.controller('MyLogCtrl3', [
    
     $scope.DDLData = km.ddls;
     $scope.getDDL = function (param) {
-        console.log(param);
+      //  console.log(param);
         if (typeof $scope.DDLData == "undefined")
             $scope.DDLData = new Object();
         if ($scope.DDLData.hasOwnProperty(param))
