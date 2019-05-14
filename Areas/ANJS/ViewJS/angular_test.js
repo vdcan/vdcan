@@ -234,7 +234,7 @@ app.controller('MyLogCtrl2', [
                 windowClass: 'my-modal',
                 resolve: {
                     parm: function () {
-                        var r = { Title: "Test", hight: 400, OkText: "Save", URL: "/tpl/mail.html", HideOk:true}
+                        var r = { Title: "Test", hight: 400, OkText: "Save", URL: "/home/admin?mc=admin&name=popup#/app/about_aj//", HideOk:true}
                         return r;
                     }
                 }

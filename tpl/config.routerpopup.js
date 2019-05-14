@@ -2,6 +2,8 @@
 
 /**
  * Config for the router
+ * 
+ * popup
  */
 angular.module('app')
   .run(
@@ -23,7 +25,7 @@ angular.module('app')
 
                 .state('app', {
                     url: '/app',
-                    templateUrl: '/tpl/app.html',
+                    templateUrl: '/tpl/popup.html',
                     resolve: load(["toaster"]),
                     cache: false
                 })
@@ -59,7 +61,6 @@ angular.module('app')
                         templateUrl: '?menucode=yw6d',
                         cache: false
                     })
-
               .state('access', {
                     url: '/access',
                     template: '<div ui-view class="fade-in-right-big smooth"></div>'

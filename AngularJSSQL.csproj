@@ -3848,6 +3848,7 @@
     <Content Include="Scripts\uploadifive.min.js" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\ystep.js" />
+    <Content Include="tpl\config.routerpopup.js" />
     <Content Include="tpl\dialog_test.html" />
     <Content Include="tpl\app.html" />
     <Content Include="tpl\apps_contact.html" />

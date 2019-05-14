@@ -333,15 +333,17 @@ namespace JSBase.Controllers
             return Json(new { s = true, message = GetSysText("success") }, JsonRequestBehavior.DenyGet);
         }
         [AllowAnonymous]
-        public JavaScriptResult GetConfigRouterJS()
+        public JavaScriptResult GetConfigRouterJS(string name)
         {
+            if (name == null)
+                name = "";
             string p = Server.MapPath("/");
             p = p + "\\tpl\\";
 
             string root_path = p;
 
 
-            string result = System.IO.File.ReadAllText(root_path + "/config.router.js");
+            string result = System.IO.File.ReadAllText(root_path + "/config.router"+ name + ".js");
             //foreach (DataRow r in dt.Tables[0].Rows)
             //{
 
