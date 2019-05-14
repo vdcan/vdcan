@@ -3850,7 +3850,6 @@
     <Content Include="Scripts\ystep.js" />
     <Content Include="tpl\dialog_test.html" />
     <Content Include="tpl\app.html" />
-    <Content Include="tpl\app2.html" />
     <Content Include="tpl\apps_contact.html" />
     <Content Include="tpl\apps_note.html" />
     <Content Include="tpl\apps_weather.html" />
@@ -3907,6 +3906,7 @@
     <Content Include="tpl\page_signup.html" />
     <Content Include="tpl\pggrid.html" />
     <Content Include="tpl\pggrid2.html" />
+    <Content Include="tpl\popup.html" />
     <Content Include="tpl\table_datatable.html" />
     <Content Include="tpl\table_footable.html" />
     <Content Include="tpl\table_grid.html" />
