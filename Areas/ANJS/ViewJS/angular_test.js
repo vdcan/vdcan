@@ -25,27 +25,7 @@ km.init = function () {
 
 
 
-
-
-app = angular.module('app',
-    [
-
-        'ui.grid',
-        'ui.grid.pagination',
-        'ui.grid.selection',
-        'ui.grid.cellNav',
-        'ui.grid.expandable',
-        'ui.grid.edit',
-        'ui.grid.rowEdit',
-        'ui.grid.saveState',
-        'ui.grid.resizeColumns',
-        'ui.grid.pinning',
-        'ui.grid.moveColumns',
-        'ui.grid.exporter',
-        'ui.grid.infiniteScroll',
-        'ui.grid.importer',
-        'ui.grid.grouping'
-    ]);
+ 
 
 
 angular.module('ui.grid').factory('InlineEdit', ['$interval', '$rootScope', 'uiGridRowEditService',
@@ -234,7 +214,7 @@ app.controller('MyLogCtrl2', [
                 windowClass: 'my-modal',
                 resolve: {
                     parm: function () {
-                        var r = { Title: "Test", hight: 400, OkText: "Save", URL: "/home/admin?mc=admin&name=popup#/app/about_aj//", HideOk:true}
+                        var r = { Title: "Test", hight: 600, OkText: "Save", URL: "/home/admin?mc=admin&name=popup#/app/about_aj//", HideOk:true}
                         return r;
                     }
                 }
@@ -569,7 +549,7 @@ app.controller('MyLogCtrl2', [
                         field: 'add_by', displayName: 'Add By', width: 80, align: 'center',
                     },
                     {
-                        field: 'add_on', displayName: 'Add On', width: 80, align: 'center', cellTemplate: '   <div ng-init="data1=[ 16,15,15,14,17,18,16,15,16 ]" ui-jq="sparkline" ui-options="{{data1}}, {type:\'bar\', height:19, barWidth:4, barSpacing:2, barColor:\'{{ app.color.success }}\'}" class="sparkline inline">loading...</div>            '
+                        field: 'add_on', displayName: 'Add On', width: 80, align: 'center', cellTemplate: '   <div ng-init="data1=[ 16,15,15,14,17,18,16,15,16 ]" ui-jq="sparkline" ui-options="{{data1}}, {type:\'bar\', height:19, barWidth:4, barSpacing:2, barColor:\'green\'}" class="sparkline inline">loading...</div>            '
                     },
                     {
                         field: 'app_code', displayName: 'App Code', width: "*", align: 'center',

@@ -75,6 +75,8 @@ angular.module('app')
 
         }]);
 
+
+
 //added by Jerry Cai 
 app.controller('SysToasterCtrl', ['$scope', 'toaster', '$rootScope', function ($scope, toaster, $rootScope) {
     $scope.toaster = {
@@ -91,6 +93,8 @@ app.controller('SysToasterCtrl', ['$scope', 'toaster', '$rootScope', function ($
         toaster.pop(type, title, text);
     });
 }]);
+
+
 
 
 var ModalInstanceCtrl = function ($scope, $modalInstance) {

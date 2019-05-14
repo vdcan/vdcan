@@ -39,9 +39,15 @@
     <script src="/Javascripts/vendor/angular/angular-resource/angular-resource.js"></script>
     <script src="/Javascripts/vendor/angular/angular-sanitize/angular-sanitize.js"></script>
     <script src="/Javascripts/vendor/angular/angular-touch/angular-touch.js"></script>
+
     <!-- Vendor -->
     <script src="/Javascripts/vendor/angular/angular-ui-router/angular-ui-router.js"></script>
     <script src="/Javascripts/vendor/angular/ngstorage/ngStorage.js"></script>
+
+    <script src="~/Javascripts/vendor/modules/ui-grid/ui-grid.js"></script>
+    @*
+        <script src="/Javascripts/vendor/angular/angularjs-autocomplete.min.js"></script>
+            <link rel="stylesheet" href="/Javascripts/vendor/modules/ui-grid/ui-grid.min.css" />*@
 
     <!-- bootstrap -->
     <script src="/Javascripts/vendor/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
@@ -93,6 +99,15 @@
     <script src="/Javascripts/controllers/signin.js"></script>
     <script src="/Javascripts/controllers/signup.js"></script>
     <script src="~/Javascripts/controllers/mainController.js"></script>
+
+
+    '/Javascripts/vendor/angular/angular-animate/angular-animate.js',
+    '/Javascripts/vendor/modules/ui-grid/ui-grid.js',
+    // '/Javascripts/vendor/modules/ui-grid/inline.js',
+    '/Javascripts/vendor/modules/ui-grid/ui-grid.min.css',
+    '/Javascripts/vendor/angular/angularjs-autocomplete.min.js',
+
+
     <script>
 
          var userinfo_string = '@Html.Raw(ViewData["UserInfo"].ToString().Replace("\r\n",""))';
