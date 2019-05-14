@@ -97,3 +97,77 @@
 [5/14/2019 6:53:33 AM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0cxJ_Yf-eeUkJ7GWRsMcxKJVC09kJuC39k=&b=O-bJu2DgNalYzH69FZhG5w==
 [5/14/2019 6:53:33 AM]angular_test
 [5/14/2019 6:53:35 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/14/2019 7:01:59 AM]tmpMenuCode index_lan@en
+[5/14/2019 7:02:11 AM]baseindex jWMmp
+[5/14/2019 7:02:11 AM]tmpMenuCode angular_side
+[5/14/2019 7:02:11 AM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0fgxHFXacYmImTRaOT3zEJLQRVzTHsm3uo=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/14/2019 7:02:11 AM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0fgxHFXacYmIi9QBXI5ZzAp47zZ7l-gmTs=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/14/2019 7:02:11 AM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0fgxHFXacYmIs6U9Xwvcp52EAPgvUKggUs=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/14/2019 7:02:11 AM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0fgxHFXacYmItGK6-3GHmplVbAA13UbAIk=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/14/2019 7:02:11 AM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0fgxHFXacYmImla7yuNuG9rYVgliNJdgug=&b=ttnU-U8e9Ev3HG54i4unpQ==
+[5/14/2019 7:02:11 AM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0fgxHFXacYmIrlt0yK-lZq-UTTajl5qewE=&b=M1xr--77hyaXR3-Cb7aw-g==
+[5/14/2019 7:02:11 AM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0fFnUkdbWDpg_n446XwwECc4biImqXifSE=&b=O-bJu2DgNamQvwq3hZKN9A==
+[5/14/2019 7:02:11 AM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=ce1M-RO6C0fFnUkdbWDpg--7EbEDnOaF_qQ3Zjwq5zc=&b=JEIsGfj-vwn0gnd_142E9g==
+[5/14/2019 7:02:12 AM]angular_side
+[5/14/2019 7:03:37 AM]baseindex jWMmp
+[5/14/2019 7:03:37 AM]tmpMenuCode angular_side
+[5/14/2019 7:03:37 AM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0fA5jc1dnh-kcgE_rZRDuF92OZR1zsA7gk=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/14/2019 7:03:37 AM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0fA5jc1dnh-kYWIaJn3Y1hE3D_YPcVi2II=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/14/2019 7:03:37 AM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0fA5jc1dnh-keXWM4PsczI7CFsGfeG2YvQ=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/14/2019 7:03:37 AM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0fA5jc1dnh-kXIUL_VJ-fUgxlXtVRbGsoQ=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/14/2019 7:03:37 AM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0fA5jc1dnh-kU-BYCI0Ec1sEQtFCX7Meso=&b=ttnU-U8e9Ev3HG54i4unpQ==
+[5/14/2019 7:03:37 AM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0fA5jc1dnh-kf3KoijWsQxPFr79zSHHon0=&b=M1xr--77hyaXR3-Cb7aw-g==
+[5/14/2019 7:03:37 AM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0cBN-QC-YK0EhOzDseryrkiXEQ_b_xm0Z4=&b=O-bJu2DgNamQvwq3hZKN9A==
+[5/14/2019 7:03:37 AM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=ce1M-RO6C0cBN-QC-YK0Er_zLvPsKvZ4OZEhk0oc6T0=&b=JEIsGfj-vwn0gnd_142E9g==
+[5/14/2019 7:03:37 AM]angular_side
+[5/14/2019 7:05:33 AM]baseindex jWMmp
+[5/14/2019 7:05:33 AM]tmpMenuCode angular_side
+[5/14/2019 7:05:34 AM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0duerOR7xZdulQScDrK4X3b5nx43ihqwm8=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/14/2019 7:05:34 AM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0duerOR7xZdumvriAdUqDBKp0ezfRl7vX4=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/14/2019 7:05:34 AM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0duerOR7xZdupt_dvi41f0a4URhwDQLD_Y=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/14/2019 7:05:34 AM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0e-FR5gWrPqI8cNYde27GOi9jAdX2bfIQE=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/14/2019 7:05:34 AM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0e-FR5gWrPqIzACihK_LZVF5Vvh7FquT2Q=&b=ttnU-U8e9Ev3HG54i4unpQ==
+[5/14/2019 7:05:34 AM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0e-FR5gWrPqI_6mcxxF6YPb6OS7b3WQwvw=&b=M1xr--77hyaXR3-Cb7aw-g==
+[5/14/2019 7:05:34 AM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0e-FR5gWrPqIyWHJuqGIZxOfsuqy8iel6M=&b=O-bJu2DgNamQvwq3hZKN9A==
+[5/14/2019 7:05:34 AM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=ce1M-RO6C0e-FR5gWrPqIzXcu9rKjGUZ-qhDJnibQew=&b=JEIsGfj-vwn0gnd_142E9g==
+[5/14/2019 7:05:34 AM]angular_side
+[5/14/2019 7:05:34 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/14/2019 7:06:42 AM]baseindex jWMmp
+[5/14/2019 7:06:42 AM]tmpMenuCode angular_side
+[5/14/2019 7:06:42 AM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0ft_l44WCmNMTrhdMNiPZ2FyDhyhNp05dk=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/14/2019 7:06:42 AM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0ft_l44WCmNMfv53JtUn2b8ruGkiug6sp4=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/14/2019 7:06:42 AM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0dInd78JMHel9UrXXWYNMFBETugb2IiRiI=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/14/2019 7:06:42 AM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0dInd78JMHel7zYmue2CQS8PHuVwSQ56Ig=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/14/2019 7:06:42 AM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0dInd78JMHelzYOBLc4NBpWHKi4u7tq7Sk=&b=ttnU-U8e9Ev3HG54i4unpQ==
+[5/14/2019 7:06:42 AM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0dInd78JMHel7REwamrT8-Mh887QfTO1XE=&b=M1xr--77hyaXR3-Cb7aw-g==
+[5/14/2019 7:06:42 AM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0dInd78JMHel_vronBmAqVh5PbGZuAtF64=&b=O-bJu2DgNamQvwq3hZKN9A==
+[5/14/2019 7:06:42 AM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=ce1M-RO6C0dInd78JMHel1r4dSilTQoY190w4_TmuUM=&b=JEIsGfj-vwn0gnd_142E9g==
+[5/14/2019 7:06:43 AM]angular_side
+[5/14/2019 7:06:44 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/14/2019 7:06:51 AM]baseindex jWMmpw
+[5/14/2019 7:06:51 AM]tmpMenuCode angular_test
+[5/14/2019 7:06:51 AM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0dcXYvNnt-m8_-6tKkeVhrrHozUI6nEG_c=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/14/2019 7:06:51 AM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0dyVjqlR1qlyfo5d1-oogqcRnvEtR_apD0=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/14/2019 7:06:51 AM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0dyVjqlR1qlyfFqpDPE5Ouf_g2f1-VN_lY=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/14/2019 7:06:51 AM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0dyVjqlR1qlybHyjW-u96tm19trm70GHo4=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/14/2019 7:06:51 AM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=ce1M-RO6C0dyVjqlR1qlyT4fOdGmz2_nkFlNB82EIYU=&b=JEIsGfj-vwnARkJEvtvHAQ==
+[5/14/2019 7:06:51 AM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0dyVjqlR1qlycc9SAxNIIX_oo5r6-S2xRA=&b=64he47yLHvWgKOYS6FaNIQ==
+[5/14/2019 7:06:51 AM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0dyVjqlR1qlyTY7_fhDrqwGnbgj43KjCDs=&b=M1xr--77hyZ1THW7TiMITw==
+[5/14/2019 7:06:51 AM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0fjPQoMMWtR3DcTXbh7sVxaZ5d-f5XXu9o=&b=O-bJu2DgNalYzH69FZhG5w==
+[5/14/2019 7:06:51 AM]angular_test
+[5/14/2019 7:06:51 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/14/2019 7:06:54 AM]baseindex jWMm
+[5/14/2019 7:06:54 AM]tmpMenuCode about_aj
+[5/14/2019 7:06:54 AM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0dxr-9z1Es-vznDskVJf5O9JAt7W61lZPo=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/14/2019 7:06:54 AM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0dxr-9z1Es-v7h3sKdckEq_nBjlZ8TeyFk=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/14/2019 7:06:54 AM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=ce1M-RO6C0dxr-9z1Es-vxk4L2-ruFyjzVSNkyHsEAY=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/14/2019 7:06:54 AM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=ce1M-RO6C0dxr-9z1Es-v_kgGbGrdFDj4I03SZof0kI=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/14/2019 7:06:54 AM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0dxr-9z1Es-v-pQ1a3kniJEm6_LTv9QqHY=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/14/2019 7:06:54 AM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/anjs/home/RunProc?token=ce1M-RO6C0dxr-9z1Es-v2xNZqRvxFrYE91cZ0W72m0=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/14/2019 7:06:54 AM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/anjs/home/RunProc?token=ce1M-RO6C0cZJoCM-RkQuuyVYFhQg2fdVtGusn3ZW6M=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/14/2019 7:06:54 AM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0cZJoCM-RkQuuLZZ9buvPjdBaagluyrUSQ=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/14/2019 7:06:54 AM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0cZJoCM-RkQur9UUnGmJF0kWpa2k69_AY8=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/14/2019 7:06:54 AM]about_aj
+[5/14/2019 7:06:56 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/14/2019 7:06:59 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/14/2019 7:07:00 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]

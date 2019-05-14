@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
  
     ViewBag.Title = "Angular Side";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
 @section head{
@@ -16,32 +16,21 @@
        
     </style>
 }
-
-@section scripts{
-    <script src="~/Areas/anjs/ViewJS/angular_side.js?v=@ViewBag.ts"></script>
+ 
     <script type="text/javascript">
-    //    var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
-    //    km.model = JSON.parse(model_string); 
-     //   km.pageSize = @ViewBag.Settings["gridrows"];
+     var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+       km.model = JSON.parse(model_string); 
+     var ddls_string = '@Html.Raw(ViewData["DLLS"].ToString().Replace("\r\n",""))';
+    km.ddls = JSON.parse(ddls_string);
     </script>
-}
 
  
-
-<div class="easyui-layout" data-options="fit:true" style=" overflow:hidden;">
-    <div id="north_panel" data-options="region:'north',border:false" style="background-color: #f3f3f3;">
-           <div class="km_toolbar">
-            <div id="km_toolbar" style="float:left;"></div><div id="km_toolbar2" style="float:left;"></div>
-        </div>
-           <div id="km_toolbar_2" class="km_toolbar" style="display:none">
-            <a id="toolbar_delete" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" title=" cancel " onclick="km.toolbar.do_undo();"> cancel </a>
-            <a id="toolbar_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" title=" save " onclick="km.toolbar.do_save();"> save </a>
-        </div>
-    </div>
-    <div id="main-panel_a" data-options="region: 'west',border:true" style='width: 50%;'> 
+ 
+<div class="row">
+ <div class="col-sm-6">
     	
 
-<div   ng-controller="MyLogCtrl">
+<div   ng-controller="MyLogCtrl3">
 	 
 	<div class="panel panel-default">
 	  <div class="panel-heading">
@@ -58,9 +47,9 @@
 </div>
     	
     </div>
-    <div id="main-panel_b" data-options="region: 'center',border:true"  style='width: 50%;'> 
+ <div class="col-sm-6">
     	 
-<div  ng-controller="MyLogDetailCtrl"> 
+<div  ng-controller="MyLogDetailCtrl3"> 
       <div class="modal-header">
         MyLog
       </div>       
