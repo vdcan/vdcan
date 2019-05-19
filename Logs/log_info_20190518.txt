@@ -33,3 +33,7 @@
 [5/18/2019 6:47:21 PM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=B2qwoJFX6efvdSWllKS0TMaPiLJ__1I6QgEo_fAmY6o=&b=O-bJu2DgNalYzH69FZhG5w==
 [5/18/2019 6:47:21 PM]angular_test
 [5/18/2019 6:47:22 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/18/2019 7:15:03 PM]tmpMenuCode index_lan@en
+[5/18/2019 7:15:07 PM]tmpMenuCode index_lan@en
+[5/18/2019 7:15:11 PM]tmpMenuCode index_lan@en
+[5/18/2019 7:15:11 PM]tmpMenuCode index_lan@en

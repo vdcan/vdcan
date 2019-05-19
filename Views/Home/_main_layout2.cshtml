@@ -1,0 +1,473 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Shifter - Responsive HTML5 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/web/images/favicon.gif" />
+    <link rel="stylesheet" href="/web/css/style.css" media="screen" /><!-- MAIN STYLE CSS FILE -->
+    <link rel="stylesheet" href="/web/css/responsive.css" media="screen" /><!-- RESPONSIVE CSS FILE -->
+    <link rel="stylesheet" id="style-color" href="/web/css/colors/blue-color.css" media="screen" /><!-- DEFAULT BLUE COLOR CSS FILE -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700,500' rel='stylesheet' type='text/css'><!-- ROBOTO FONT FROM GOOGLE CSS FILE -->
+    <link rel="stylesheet" href="/web/css/prettyPhoto.css" media="screen" /><!--PRETTYPHOTO CSS FILE -->
+    <link rel="stylesheet" href="/web/css/font-awesome/font-awesome.min.css" media="screen" /><!-- FONT AWESOME ICONS CSS FILE -->
+    <link rel="stylesheet" href="/web/css/layer-slider.css" media="screen" /><!-- LAYER SLIDER CSS FILE -->
+    <link rel="stylesheet" href="/web/css/flexslider.css" media="screen" /><!-- FLEX SLIDER CSS FILE -->
+    <link rel="stylesheet" href="/web/css/revolution-slider.css" media="screen" /><!-- REVOLUTION SLIDER CSS FILE -->
+    <!-- All JavaScript Files (FOR FASTER LOADING OF YOUR SITE, REMOVE ALL JS PLUGINS YOU WILL NOT USE)-->
+    <script type="text/javascript" src="/web/js/jquery.min.js"></script><!-- JQUERY JS FILE -->
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script><!-- JQUERY UI JS FILE -->
+    <script type="text/javascript" src="/web/js/flex-slider.min.js"></script><!-- FLEX SLIDER JS FILE -->
+    <script type="text/javascript" src="/web/js/navigation.min.js"></script><!-- MAIN NAVIGATION JS FILE -->
+    <script type="text/javascript" src="/web/js/jquery.layerslider.js"></script><!-- LAYER SLIDER JS FILE -->
+    <script type="text/javascript" src="/web/js/layerslider.transitions.js"></script><!-- LAYER SLIDER TRANSITIONS JS FILE -->
+    <script type="text/javascript" src="/web/js/map.min.js"></script><!-- GOOGLE MAP JS FILE -->
+    <script type="text/javascript" src="/web/js/carousel.js"></script><!-- CAROUSEL SLIDER JS -->
+    <script type="text/javascript" src="/web/js/jquery.theme.plugins.min.js"></script><!-- REVOLUTION SLIDER PLUGINS JS FILE -->
+    <script type="text/javascript" src="/web/js/jquery.themepunch.revolution.min.js"></script><!-- REVOLUTION SLIDER JS FILE -->
+    <script type="text/javascript" src="/web/js/flickr.js"></script><!-- FLICKR WIDGET JS FILE -->
+    <script type="text/javascript" src="/web/js/instagram.js"></script><!-- INSTAGRAM WIDGET JS FILE -->
+    <script type="text/javascript" src="/web/js/jquery.twitter.js"></script><!--TWITTER WIDGET JS FILE -->
+    <script type="text/javascript" src="/web/js/prettyPhoto.min.js"></script><!-- PRETTYPHOTO JS FILE -->
+    <script type="text/javascript" src="/web/js/jquery.tooltips.min.js"></script><!-- TOOLTIPS JS FILE -->
+    <script type="text/javascript" src="/web/js/isotope.min.js"></script><!--ISOTOPE JS FILE -->
+    <script type="text/javascript" src="/web/js/scrolltopcontrol.js"></script><!-- SCROLL TO TOP JS PLUGIN -->
+    <script type="text/javascript" src="/web/js/jquery.easy-pie-chart.js"></script><!-- EASY PIE JS FILE -->
+    <script type="text/javascript" src="/web/js/jquery.transit.min.js"></script><!-- TRANSITION JS FILE -->
+    <script type="text/javascript" src="/web/js/custom.js"></script><!-- CUSTOM JAVASCRIPT JS FILE -->
+
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <div id="container">
+        <!-- main container starts-->
+        <div id="wrapp">
+            <!-- main wrapp starts-->
+            <header id="header">
+                <!--header starts -->
+                <div id="header-links">
+                    <div class="container">
+                        <div class="one-half">
+                            <ul class="contact-links">
+                                <!-- header social links starts-->
+                                <li><a href="#"><i class="icon-home"></i>5 Avenue, Some City </a></li>
+                                <li><a href="#"><i class="icon-phone"></i>+987 654 321 </a></li>
+                                <li><a href="#"><i class="icon-map-marker"></i>mail@yoursite.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="one-half">
+                            <ul class="social-links">
+                                <!-- header social links starts-->
+                                <li><a href="#" class="tooltip" title="Some Title"><i class="icon-twitter"></i></a></li>
+                                <li><a href="#" class="tooltip" title="Some Title"><i class="icon-facebook"></i></a></li>
+                                <li><a href="#" class="tooltip" title="Some Title"><i class="icon-linkedin"></i></a></li>
+                                <li><a href="#" class="tooltip" title="Some Title"><i class="icon-google-plus"></i></a></li>
+                                <li><a href="#" class="tooltip" title="Some Title"><i class="icon-skype"></i></a></li>
+                                <li><a href="#" class="tooltip" title="Some Title"><i class="icon-dribbble"></i></a></li>
+                                <li><a href="#" class="tooltip" title="Some Title"><i class="icon-pinterest"></i></a></li>
+                                <li><a href="#" class="tooltip" title="Some Title"><i class="icon-tumblr"></i></a></li>
+                            </ul>
+                            <!--header social links ends -->
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="head-wrapp">
+                        <a href="index.html" id="logo"><img src="images/logo.png" alt="" /><span>Responsive Business Template</span></a>
+                        <!--your logo-->
+                        <nav class="top-search">
+                            <!-- search starts-->
+                            <form action="404-error.html" method="get">
+                                <button class="search-btn"></button>
+                                <input class="search-field" type="text" onblur="if(this.value=='')this.value='Search';" onfocus="if(this.value=='Search')this.value='';" value="Search" />
+                            </form>
+                        </nav>
+                        <!--search ends -->
+                    </div>
+                </div>
+                <div id="main-navigation">
+                    <!--main navigation wrapper starts -->
+                    <div class="container">
+                        <ul class="main-menu">
+
+                            @{System.Data.DataTable dt = (System.Data.DataTable)ViewData["menu"];
+                                    if (dt != null)
+                                    {
+
+                                        foreach (System.Data.DataRow dr in dt.Rows)
+                                        {
+                                            string mc = dr[1].ToString();
+                                            if (mc == ViewData["mc"].ToString())
+                                            {
+
+
+                                <li class="active"><a href="@dr["url"]?mc=@mc" class="scroll-link">@dr["menu_name"]</a></li>
+                                            }
+                                            else
+                                            {
+
+                                <li><a href="@dr["url"]?mc=@mc" class="scroll-link">@dr["menu_name"]</a></li>
+                                            }
+                                        }
+
+                                    }
+                            }
+
+
+                        </ul>
+                    </div>
+                    <!--/.navbar-collapse-->
+                    </nav>
+                    <!--/.navbar-->
+                    <!-- main navigation ends-->
+                    <div class="after-nav-info">
+                        <h4>contact phone: +987 654 321 000</h4>
+                    </div>
+                </div>
+        </div>
+        <!--main navigation wrapper ends -->
+        </header>
+        <!-- header ends-->
+        <div id="layerslider">
+
+            <div id="content">
+
+
+                @RenderBody()
+            </div>
+
+          
+            <!--layer slider ends-->
+            @RenderSection("scripts", required: false)
+            <script type="text/javascript">
+        var gLanguageList = @Html.Raw(ViewData["language_list"]);
+        var gDictionary = {
+            @MyUIHelper.GetJson((System.Data.DataTable)ViewData["dictionary"])
+        };
+            </script>
+            <script src="~/Scripts/mycookie.js?v=s"></script>
+        </div>
+        @*<div class="home-intro">
+                <!-- home intro starts -->
+                <div class="container">
+                    <div class="three-fourth">
+                        <h4>Shifter is a responsive template ready for Business. shared on weidea.net</h4>
+                        <p>
+                            A super clean template ready for some serious business.
+                        </p>
+                    </div>
+                    <div class="one-fourth">
+                        <a href="#" class="button grey huge round">Purchase Now</a>
+                    </div>
+                </div>
+            </div>
+            <!--home intro ends-->
+            <div class="container">
+                <div class="one-third">
+                    <div class="feature-block">
+                        <!-- features blocks starts -->
+                        <div class="feature-block-title">
+                            <div class="feature-block-icon">
+                                <i class="icon-lightbulb"></i><span></span>
+                            </div>
+                            <h4>Simplistic Design</h4>
+                            <h6>Mobile &amp; Tablets Ready</h6>
+                        </div>
+                        <p>
+                            Integer libero lectus, porta acean pulvinar ac, facilisis non arcu. Maecenas enim orci, adipiscing dictum sit amet gusce dapibus.
+                        </p>
+                    </div>
+                </div>
+                <div class="one-third">
+                    <div class="feature-block">
+                        <div class="feature-block-title">
+                            <div class="feature-block-icon">
+                                <i class="icon-desktop"></i><span></span>
+                            </div>
+                            <h4>Lots of Layout Options</h4>
+                            <h6>Fullwidth &amp; Boxed Versions</h6>
+                        </div>
+                        <p>
+                            Integer libero lectus, porta acean pulvinar ac, facilisis non arcu. Maecenas enim orci, adipiscing dictum sit amet gusce dapibus.
+                        </p>
+                    </div>
+                </div>
+                <div class="one-third">
+                    <div class="feature-block">
+                        <div class="feature-block-title">
+                            <div class="feature-block-icon">
+                                <i class="icon-cog"></i><span></span>
+                            </div>
+                            <h4>Premium Sliders Included</h4>
+                            <h6>Layer &amp; Revolution Slider Included</h6>
+                        </div>
+                        <p>
+                            Integer libero lectus, porta acean pulvinar ac, facilisis non arcu. Maecenas enim orci, adipiscing dictum sit amet gusce dapibus.
+                        </p>
+                    </div>
+                </div><!--features block ends-->
+            </div>
+            <div class="intro-features">
+                <!-- intro features panel starts -->
+                <div class="container">
+                    <h4>Our Latest Projects</h4>
+                    <div class="slidewrap">
+                        <!--project carousel starts-->
+                        <ul class="slider" id="sliderName">
+                            <li class="slide">
+                                <!-- carousel item starts -->
+                                <div class="one-fourth">
+                                    <div class="item-wrapp">
+                                        <div class="portfolio-item">
+                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                                            <a href="images/portfolio/portfolio-item-1.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
+                                            <img src="images/portfolio/portfolio-item-1.jpg" alt="" />
+                                        </div>
+                                        <div class="portfolio-item-title">
+                                            <a href="single-project-small.html">Custom WordPress Theme</a>
+                                            <p>
+                                                Design / Development
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="one-fourth">
+                                    <div class="item-wrapp">
+                                        <div class="portfolio-item">
+                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                                            <a href="images/portfolio/portfolio-item-2.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
+                                            <img src="images/portfolio/portfolio-item-2.jpg" alt="" />
+                                        </div>
+                                        <div class="portfolio-item-title">
+                                            <a href="single-project-small.html">T-Shirt Design</a>
+                                            <p>
+                                                Design / Development
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="one-fourth">
+                                    <div class="item-wrapp">
+                                        <div class="flexslider portfolio-items-slider fade">
+                                            <ul class="slides">
+                                                <li><img src="images/portfolio/portfolio-item-3.jpg" alt="" /></li>
+                                                <li><img src="images/portfolio/portfolio-item-4.jpg" alt="" /></li>
+                                                <li><img src="images/portfolio/portfolio-item-5.jpg" alt="" /></li>
+                                            </ul>
+                                        </div>
+                                        <div class="portfolio-item-title">
+                                            <a href="single-project-small.html">Video Project</a>
+                                            <p>
+                                                Design / Development
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="one-fourth">
+                                    <div class="item-wrapp">
+                                        <div class="portfolio-item">
+                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                                            <a href="images/portfolio/portfolio-item-6.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
+                                            <img src="images/portfolio/portfolio-item-6.jpg" alt="" />
+                                        </div>
+                                        <div class="portfolio-item-title">
+                                            <a href="single-project-small.html">Custom PHP CMS</a>
+                                            <p>
+                                                Design / Development
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="slide">
+                                <!-- carousel item starts -->
+                                <div class="one-fourth">
+                                    <div class="item-wrapp">
+                                        <div class="portfolio-item">
+                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                                            <a href="images/portfolio/portfolio-item-7.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
+                                            <img src="images/portfolio/portfolio-item-7.jpg" alt="" />
+                                        </div>
+                                        <div class="portfolio-item-title">
+                                            <a href="single-project-small.html">Joomla Templates</a>
+                                            <p>
+                                                Design / Development
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="one-fourth">
+                                    <div class="item-wrapp">
+                                        <div class="portfolio-item">
+                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                                            <a href="images/portfolio/portfolio-item-8.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
+                                            <img src="images/portfolio/portfolio-item-8.jpg" alt="" />
+                                        </div>
+                                        <div class="portfolio-item-title">
+                                            <a href="single-project-small.html">Custom WordPress Theme</a>
+                                            <p>
+                                                Design / Development
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="one-fourth">
+                                    <div class="item-wrapp">
+                                        <div class="portfolio-item">
+                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                                            <a href="images/portfolio/portfolio-item-9.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
+                                            <img src="images/portfolio/portfolio-item-9.jpg" alt="" />
+                                        </div>
+                                        <div class="portfolio-item-title">
+                                            <a href="single-project-small.html">Font Design</a>
+                                            <p>
+                                                Design / Development
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="one-fourth">
+                                    <div class="item-wrapp">
+                                        <div class="portfolio-item">
+                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                                            <a href="images/portfolio/portfolio-item-10.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
+                                            <img src="images/portfolio/portfolio-item-10.jpg" alt="" />
+                                        </div>
+                                        <div class="portfolio-item-title">
+                                            <a href="single-project-small.html">Custom Drupal Theme</a>
+                                            <p>
+                                                Design / Development
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul><!-- carousel items UL ends -->
+                        <ul class="slidecontrols">
+                            <li><a href="#sliderName" class="prev">Prev</a></li>
+                            <li><a href="#sliderName" class="next">Next</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- intro features panel ends -->
+            <div class=" clients-wrapp">
+                <div class="container">
+                    <div class="flexslider clients-slider ">
+                        <!-- flex slider starts -->
+                        <ul class="slides client-block">
+                            <li>
+                                <div class="one-fifth">
+                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-1.png" alt="" /></a>
+                                </div>
+                                <div class="one-fifth">
+                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-2.png" alt="" /></a>
+                                </div>
+                                <div class="one-fifth">
+                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-3.png" alt="" /></a>
+                                </div>
+                                <div class="one-fifth">
+                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-4.png" alt="" /></a>
+                                </div>
+                                <div class="one-fifth ">
+                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-5.png" alt="" /></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="one-fifth">
+                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-6.png" alt="" /></a>
+                                </div>
+                                <div class="one-fifth">
+                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-5.png" alt="" /></a>
+                                </div>
+                                <div class="one-fifth">
+                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-4.png" alt="" /></a>
+                                </div>
+                                <div class="one-fifth">
+                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-3.png" alt="" /></a>
+                                </div>
+                                <div class="one-fifth ">
+                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-2.png" alt="" /></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div><!-- flex slider ends -->
+                </div>
+            </div>*@
+    </div>
+    @* <section class="footer-call-to-action">
+            <!-- footer call to action starts -->
+            <section class="container">
+                <div class="three-fourth">
+                    <h4>If you you’re interested in working with Us, feel free to contact Us via contact form.</h4>
+                </div>
+                <div class="one-fourth">
+                    <a href="#" class="button grey huge round">Purchase Now</a>
+                </div>
+            </section>
+        </section><!-- footer call to action ends -->*@
+    <footer id="footer">
+        <!--footer starts -->
+        <section class="container">
+            <section class="one-third">
+                <h4>Twitter Feeds</h4>
+                <ul class="twitter-feeds">
+                    <!-- twitter widget starts-->
+                </ul>
+                <!-- twitter widget ends-->
+                <p>
+                    <a href="#">Follow Me on Twitter</a>
+                </p>
+            </section>
+            <section class="one-third">
+                <h4>Latest Posts</h4>
+                <ul>
+                    <!-- latest posts widget starts-->
+                    <li><a href="blog-post.html">Free Responsive HTML5 Template.</a></li>
+                    <li><a href="blog-post.html">PSD Widget UI Free Download</a></li>
+                    <li><a href="blog-post.html">Free Business Bootsrap Template</a></li>
+                    <li><a href="blog-post.html">Custom WordPress Themes</a></li>
+                </ul>
+                <!-- lastest posts widget ends-->
+            </section>
+            <section class="one-third">
+                <h4>Flickr Photos</h4>
+                <div class="flickr-widget">
+                    <!-- flickr widget starts-->
+                </div>
+            </section>
+        </section>
+    </footer>
+    <section id="copyrights">
+        <section class="container">
+            <div class="one-half">
+                <p>
+                    Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+                </p>
+            </div>
+            <div class="one-half">
+                <ul class="copyright_links">
+                    <li><a href="#" title="Home">Home</a></li>
+                    <li><a href="#" title="About">About us</a></li>
+                    <li><a href="#" title="Blog">Blog</a></li>
+                    <li><a href="#" title="Contact">Contact</a></li>
+                </ul>
+            </div>
+        </section>
+    </section>
+    </div>
+    <!-- main wrapp starts-->
+    </div>
+    <!-- main container ends-->
+
+</body>
+</html>

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJSSQL", "AngularJSSQL.csproj", "{B93A546F-6A4A-4ABD-A8BD-78C4875C4F55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EagleWebSite", "EagleWebSite.csproj", "{B93A546F-6A4A-4ABD-A8BD-78C4875C4F55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSBaseV3", "..\JSBaseV3\JSBaseV3.csproj", "{B247CAFD-A94A-41B5-953B-D954545236D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSBaseV3", "..\..\..\..\PollTekProjects\JSSQLEnterprise\JSBaseV3\JSBaseV3.csproj", "{B247CAFD-A94A-41B5-953B-D954545236D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

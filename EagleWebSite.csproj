@@ -68,7 +68,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\dlls\v4.5\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\PollTekProjects\dlls\v4.5\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -3953,7 +3953,6 @@
     <Content Include="Views\Mobile\index.cshtml" />
     <Content Include="Views\Home\test.cshtml" />
     <Content Include="Views\Home\test2.cshtml" />
-    <Content Include="Views\Home\_main_layout.cshtml" />
     <Content Include="Views\Home\register.cshtml" />
     <Content Include="Views\Home\Index_en.cshtml" />
     <Content Include="Views\Home\about.cshtml">
@@ -3964,6 +3963,7 @@
     <Content Include="tpl\config.router.js.bak" />
     <Content Include="tpl\pggrid.html.bak" />
     <Content Include="tpl\pggrid2.html.bak" />
+    <Content Include="Views\Home\_main_layout2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3994,7 +3994,7 @@
     <Content Include="Scripts\02jquery\ztree\css\awesomeStyle\fa.less" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JSBaseV3\JSBaseV3.csproj">
+    <ProjectReference Include="..\..\..\..\PollTekProjects\JSSQLEnterprise\JSBaseV3\JSBaseV3.csproj">
       <Project>{b247cafd-a94a-41b5-953b-d954545236d2}</Project>
       <Name>JSBaseV3</Name>
     </ProjectReference>
