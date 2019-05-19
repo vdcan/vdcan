@@ -1,0 +1,18 @@
+[5/15/2019 6:01:27 AM]tmpMenuCode index_lan@en
+[5/15/2019 7:34:34 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/15/2019 7:41:02 AM]baseindex jWMm
+[5/15/2019 7:41:03 AM]tmpMenuCode about_aj
+[5/15/2019 7:41:03 AM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0fx4_2gp0kMcqXKdUr8jGrZ&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/15/2019 7:41:03 AM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=ce1M-RO6C0fqMxO0_ecGRWv6TfJmaDrNFgkY03z8_Ig=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/15/2019 7:41:03 AM]BaseIndex (SampleFile_pager):pager--ProcedureName:usp_SampleFile_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=ce1M-RO6C0fqMxO0_ecGRXKrWBEeH9AsC5V7CUro95U=&b=JEIsGfj-vwk2Zk45sYd3ZQ==
+[5/15/2019 7:41:03 AM]BaseIndex (MyLog_pager):pager--ProcedureName:usp_MyLog_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=ce1M-RO6C0fqMxO0_ecGRf2T8W-rVqiPQ04ja12sO00=&b=JEIsGfj-vwn6-TEsiA6Ceg==
+[5/15/2019 7:41:03 AM]BaseIndex (MyLog_delete):runproc--ProcedureName:usp_MyLog_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=ce1M-RO6C0fqMxO0_ecGRTn4-PDo-oY9H-4EyQtAxWk=&b=QZKSARlgGgg5xt4mEJ3jrA==
+[5/15/2019 7:41:03 AM]BaseIndex (MyLog_update):runproc--ProcedureName:usp_MyLog_update SQL: Type:proc ConnStr:app ActionType:--/anjs/home/RunProc?token=ce1M-RO6C0fqMxO0_ecGRRTHUplsK7ieqI0nvJDL6F0=&b=5vQ-aMzrSkvurNei7OFxOA==
+[5/15/2019 7:41:03 AM]BaseIndex (MyLog_insert):runproc--ProcedureName:usp_MyLog_insert SQL: Type:proc ConnStr:app ActionType:--/anjs/home/RunProc?token=ce1M-RO6C0fqMxO0_ecGRf74mVIooe8R1HWQL1ubot4=&b=BceMrqiCr5eBp9c8PtsO5w==
+[5/15/2019 7:41:03 AM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0fqMxO0_ecGReqQe5-QsRGH5JbmCuzu1L4=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/15/2019 7:41:03 AM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=ce1M-RO6C0fqMxO0_ecGRcuAJtvMyBjyWUDZTQQscKc=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/15/2019 7:41:03 AM]about_aj
+[5/15/2019 7:41:04 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/15/2019 9:02:21 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/15/2019 9:02:25 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/15/2019 10:22:22 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]

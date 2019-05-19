@@ -59,34 +59,148 @@
     @*<script src="/Javascripts/config.router.js"></script>*@
 
 
-    <script src="/Javascripts/login.config.router.js"></script>
-    <script src="/Javascripts/main.js"></script>
+    <script src="/home/GetConfigRouterJS?name=login"></script>
+    @*<script src="/Javascripts/login.config.router.js"></script>*@@{
+        //------------------------------------------------------------------------------
+        //        Date  2018-05-27
+        //        Author  蔡捷
+        //			 				About page
+        //        File  about.cshtml  Page file
+        //------------------------------------------------------------------------------
 
-    <script src="/Javascripts/services/ui-load.js"></script>
-    <script src="/Javascripts/filters/fromNow.js"></script>
-    <script src="/Javascripts/directives/setnganimate.js"></script>
-    <script src="/Javascripts/directives/ui-butterbar.js"></script>
-    <script src="/Javascripts/directives/ui-focus.js"></script>
-    <script src="/Javascripts/directives/ui-fullscreen.js"></script>
-    <script src="/Javascripts/directives/ui-jq.js"></script>
-    <script src="/Javascripts/directives/ui-module.js"></script>
-    <script src="/Javascripts/directives/ui-nav.js"></script>
-    <script src="/Javascripts/directives/ui-scroll.js"></script>
-    <script src="/Javascripts/directives/ui-shift.js"></script>
-    <script src="/Javascripts/directives/ui-toggleclass.js"></script>
-    <script src="/Javascripts/directives/ui-validate.js"></script>
-    <script src="/Javascripts/controllers/bootstrap.js"></script>
-    <!---->
-    <!-- Lazy loading -->
+        ViewBag.Title = "About";
+        Layout = null;
+    }
+    <!DOCTYPE html>
+    <html lang="en" data-ng-app="app">
+    <head>
+        <meta charset="utf-8" />
+        <title>Be Angular | Bootstrap Admin Web App with AngularJS</title>
+        <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+        <link rel="stylesheet" href="/css/animate.css" type="text/css" />
+        <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
+        <link rel="stylesheet" href="/css/simple-line-icons.css" type="text/css" />
+        <link rel="stylesheet" href="/css/font.css" type="text/css" />
+        <link rel="stylesheet" href="/css/app.css" type="text/css" />
+    </head>
+    <body ng-controller="AppCtrl">
+        <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
 
 
-    <link rel="stylesheet" href="/css/jquery-ui.css" />
-    <script src="/Javascripts/jquery-ui.min.js"></script>
-    <!--PQ Grid files-->
-    <link rel="stylesheet" href="/css/pqgrid.min.css" />
-    <script src="/Javascripts/pqgrid.min.js"></script>
-    <!--PQ Grid Office theme-->
-    <link rel="stylesheet" href="/css/pqgrid.css" />
-    <script src="~/Scripts/01core/common.js"></script>
-    <script src="~/Scripts/MyUtility.js"></script>
+        <!-- jQuery -->
+        <script src="/Javascripts/vendor/jquery/jquery.min.js"></script>
+
+        <!-- Angular -->
+        <script src="/Javascripts/vendor/angular/angular.js"></script>
+        @*<script src="/Javascripts/vendor/angular/ng-websocket.js"></script>*@
+
+        <script src="/Javascripts/vendor/angular/angular-animate/angular-animate.js"></script>
+        <script src="/Javascripts/vendor/angular/angular-cookies/angular-cookies.js"></script>
+        <script src="/Javascripts/vendor/angular/angular-resource/angular-resource.js"></script>
+        <script src="/Javascripts/vendor/angular/angular-sanitize/angular-sanitize.js"></script>
+        <script src="/Javascripts/vendor/angular/angular-touch/angular-touch.js"></script>
+
+        <!-- Vendor -->
+        <script src="/Javascripts/vendor/angular/angular-ui-router/angular-ui-router.js"></script>
+        <script src="/Javascripts/vendor/angular/ngstorage/ngStorage.js"></script>
+
+        <script src="~/Javascripts/vendor/modules/ui-grid/ui-grid.js"></script>
+
+        <!-- bootstrap -->
+        <script src="/Javascripts/vendor/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <!-- lazyload -->
+        <script src="/Javascripts/vendor/angular/oclazyload/ocLazyLoad.js"></script>
+        <!-- translate -->
+        <script src="/Javascripts/vendor/angular/angular-translate/angular-translate.js"></script>
+        <script src="/Javascripts/vendor/angular/angular-translate/loader-static-files.js"></script>
+        <script src="/Javascripts/vendor/angular/angular-translate/storage-cookie.js"></script>
+        <script src="/Javascripts/vendor/angular/angular-translate/storage-local.js"></script>
+
+        <!-- App -->
+        <script src="/Javascripts/app.js"></script>
+        <script src="/Javascripts/config.js"></script>
+        <script src="/Javascripts/config.lazyload.js"></script>
+        @*<script src="/Javascripts/config.router.js"></script>*@
+
+
+        <script src="/home/GetConfigRouterJS?name=login"></script>
+        <script src="/Javascripts/main.js"></script>
+
+        <script src="/Javascripts/services/ui-load.js"></script>
+        <script src="/Javascripts/filters/fromNow.js"></script>
+        <script src="/Javascripts/directives/setnganimate.js"></script>
+        <script src="/Javascripts/directives/ui-butterbar.js"></script>
+        <script src="/Javascripts/directives/ui-focus.js"></script>
+        <script src="/Javascripts/directives/ui-fullscreen.js"></script>
+        <script src="/Javascripts/directives/ui-jq.js"></script>
+        <script src="/Javascripts/directives/ui-module.js"></script>
+        <script src="/Javascripts/directives/ui-nav.js"></script>
+        <script src="/Javascripts/directives/ui-scroll.js"></script>
+        <script src="/Javascripts/directives/ui-shift.js"></script>
+        <script src="/Javascripts/directives/ui-toggleclass.js"></script>
+        <script src="/Javascripts/directives/ui-validate.js"></script>
+        <script src="/Javascripts/controllers/bootstrap.js"></script>
+        <!---->
+        <!-- Lazy loading -->
+
+
+        <link rel="stylesheet" href="/css/jquery-ui.css" />
+        <script src="/Javascripts/jquery-ui.min.js"></script>
+        <!--PQ Grid files-->
+        <link rel="stylesheet" href="/css/pqgrid.min.css" />
+        <script src="/Javascripts/pqgrid.min.js"></script>
+        <!--PQ Grid Office theme-->
+        <link rel="stylesheet" href="/css/pqgrid.css" />
+        <script src="~/Scripts/01core/common.js"></script>
+        <script src="~/Scripts/MyUtility.js"></script>
+        <script src="/Javascripts/controllers/signin.js"></script>
+        <script src="/Javascripts/controllers/signup.js"></script>
+        <script src="~/Javascripts/controllers/mainController.js"></script>
+
+
+        '/Javascripts/vendor/angular/angular-animate/angular-animate.js',
+        '/Javascripts/vendor/modules/ui-grid/ui-grid.js',
+        // '/Javascripts/vendor/modules/ui-grid/inline.js',
+        '/Javascripts/vendor/modules/ui-grid/ui-grid.min.css',
+        '/Javascripts/vendor/angular/angularjs-autocomplete.min.js',
+
+
+        <script>
+ 
+
+
+
+        </script>
+</html>
+<script src="/Javascripts/main.js"></script>
+
+<script src="/Javascripts/services/ui-load.js"></script>
+<script src="/Javascripts/filters/fromNow.js"></script>
+<script src="/Javascripts/directives/setnganimate.js"></script>
+<script src="/Javascripts/directives/ui-butterbar.js"></script>
+<script src="/Javascripts/directives/ui-focus.js"></script>
+<script src="/Javascripts/directives/ui-fullscreen.js"></script>
+<script src="/Javascripts/directives/ui-jq.js"></script>
+<script src="/Javascripts/directives/ui-module.js"></script>
+<script src="/Javascripts/directives/ui-nav.js"></script>
+<script src="/Javascripts/directives/ui-scroll.js"></script>
+<script src="/Javascripts/directives/ui-shift.js"></script>
+<script src="/Javascripts/directives/ui-toggleclass.js"></script>
+<script src="/Javascripts/directives/ui-validate.js"></script>
+<script src="/Javascripts/controllers/bootstrap.js"></script>
+<!---->
+<!-- Lazy loading -->
+
+
+<link rel="stylesheet" href="/css/jquery-ui.css" />
+<script src="/Javascripts/jquery-ui.min.js"></script>
+<!--PQ Grid files-->
+<link rel="stylesheet" href="/css/pqgrid.min.css" />
+<script src="/Javascripts/pqgrid.min.js"></script>
+<!--PQ Grid Office theme-->
+<link rel="stylesheet" href="/css/pqgrid.css" />
+<script src="~/Scripts/01core/common.js"></script>
+<script src="~/Scripts/MyUtility.js"></script>
 </html>
