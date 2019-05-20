@@ -286,7 +286,8 @@ namespace JSBase.Controllers
             //    return JsonNet(new { s = false, message = result }, JsonRequestBehavior.DenyGet);
 
 
-            RunProcResult result = RunProcedure(data, new ProcInfo("vdp_user_register", "sys"));
+            data["password"] = Md5Util.MD5(data["password"].ToString());
+            RunProcResult result = RunProcedure(data, new ProcInfo("vdp_user_signup", "sys"));
 
 
             result.message = GetSysText(result.message);

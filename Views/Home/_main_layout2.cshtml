@@ -76,18 +76,27 @@
                 </div>
                 <div class="container">
                     <div class="head-wrapp">
-                        <a href="index.html" id="logo"><img src="images/logo.png" alt="" /><span>Responsive Business Template</span></a>
-                        <!--your logo-->
-                        <nav class="top-search">
-                            <!-- search starts-->
-                            <form action="404-error.html" method="get">
-                                <button class="search-btn"></button>
-                                <input class="search-field" type="text" onblur="if(this.value=='')this.value='Search';" onfocus="if(this.value=='Search')this.value='';" value="Search" />
-                            </form>
-                        </nav>
+                        <div class="one-half">
+                            <a href="index.html" id="logo">Eagle Online</a>
+                        </div>
+
+                        @*<img src="/web/images/logo.png" alt="" /><span>Responsive Business Template</span>
+        <!--your logo-->
+        <nav class="top-search">
+            <!-- search starts-->
+            <form action="404-error.html" method="get">
+                <button class="search-btn"></button>
+                <input class="search-field" type="text" onblur="if(this.value=='')this.value='Search';" onfocus="if(this.value=='Search')this.value='';" value="Search" />
+            </form>
+        </nav>*@
+
+                        <div class="one-half"  >
+                            <a href="/home/admin" style="float:right" class="button big round color">Teacher Login</a><span style="float:right;">&nbsp;&nbsp;</span>
+                            <a href="/home/admin" style="float:right"  class="button big round color">Student Login</a> 
+                        </div>
                         <!--search ends -->
                     </div>
-                </div>
+                    </div>
                 <div id="main-navigation">
                     <!--main navigation wrapper starts -->
                     <div class="container">
@@ -120,24 +129,20 @@
                         </ul>
                     </div>
                     <!--/.navbar-collapse-->
-                    </nav>
+                    @*</nav>*@
                     <!--/.navbar-->
                     <!-- main navigation ends-->
-                    <div class="after-nav-info">
+                    @*<div class="after-nav-info">
                         <h4>contact phone: +987 654 321 000</h4>
-                    </div>
+                    </div>*@
                 </div>
         </div>
         <!--main navigation wrapper ends -->
         </header>
-        <!-- header ends-->
-        <div id="layerslider">
-
-            <div id="content">
+        <!-- header ends--> 
 
 
-                @RenderBody()
-            </div>
+                @RenderBody() 
 
           
             <!--layer slider ends-->
@@ -148,273 +153,8 @@
             @MyUIHelper.GetJson((System.Data.DataTable)ViewData["dictionary"])
         };
             </script>
-            <script src="~/Scripts/mycookie.js?v=s"></script>
-        </div>
-        @*<div class="home-intro">
-                <!-- home intro starts -->
-                <div class="container">
-                    <div class="three-fourth">
-                        <h4>Shifter is a responsive template ready for Business. shared on weidea.net</h4>
-                        <p>
-                            A super clean template ready for some serious business.
-                        </p>
-                    </div>
-                    <div class="one-fourth">
-                        <a href="#" class="button grey huge round">Purchase Now</a>
-                    </div>
-                </div>
-            </div>
-            <!--home intro ends-->
-            <div class="container">
-                <div class="one-third">
-                    <div class="feature-block">
-                        <!-- features blocks starts -->
-                        <div class="feature-block-title">
-                            <div class="feature-block-icon">
-                                <i class="icon-lightbulb"></i><span></span>
-                            </div>
-                            <h4>Simplistic Design</h4>
-                            <h6>Mobile &amp; Tablets Ready</h6>
-                        </div>
-                        <p>
-                            Integer libero lectus, porta acean pulvinar ac, facilisis non arcu. Maecenas enim orci, adipiscing dictum sit amet gusce dapibus.
-                        </p>
-                    </div>
-                </div>
-                <div class="one-third">
-                    <div class="feature-block">
-                        <div class="feature-block-title">
-                            <div class="feature-block-icon">
-                                <i class="icon-desktop"></i><span></span>
-                            </div>
-                            <h4>Lots of Layout Options</h4>
-                            <h6>Fullwidth &amp; Boxed Versions</h6>
-                        </div>
-                        <p>
-                            Integer libero lectus, porta acean pulvinar ac, facilisis non arcu. Maecenas enim orci, adipiscing dictum sit amet gusce dapibus.
-                        </p>
-                    </div>
-                </div>
-                <div class="one-third">
-                    <div class="feature-block">
-                        <div class="feature-block-title">
-                            <div class="feature-block-icon">
-                                <i class="icon-cog"></i><span></span>
-                            </div>
-                            <h4>Premium Sliders Included</h4>
-                            <h6>Layer &amp; Revolution Slider Included</h6>
-                        </div>
-                        <p>
-                            Integer libero lectus, porta acean pulvinar ac, facilisis non arcu. Maecenas enim orci, adipiscing dictum sit amet gusce dapibus.
-                        </p>
-                    </div>
-                </div><!--features block ends-->
-            </div>
-            <div class="intro-features">
-                <!-- intro features panel starts -->
-                <div class="container">
-                    <h4>Our Latest Projects</h4>
-                    <div class="slidewrap">
-                        <!--project carousel starts-->
-                        <ul class="slider" id="sliderName">
-                            <li class="slide">
-                                <!-- carousel item starts -->
-                                <div class="one-fourth">
-                                    <div class="item-wrapp">
-                                        <div class="portfolio-item">
-                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
-                                            <a href="images/portfolio/portfolio-item-1.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
-                                            <img src="images/portfolio/portfolio-item-1.jpg" alt="" />
-                                        </div>
-                                        <div class="portfolio-item-title">
-                                            <a href="single-project-small.html">Custom WordPress Theme</a>
-                                            <p>
-                                                Design / Development
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="one-fourth">
-                                    <div class="item-wrapp">
-                                        <div class="portfolio-item">
-                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
-                                            <a href="images/portfolio/portfolio-item-2.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
-                                            <img src="images/portfolio/portfolio-item-2.jpg" alt="" />
-                                        </div>
-                                        <div class="portfolio-item-title">
-                                            <a href="single-project-small.html">T-Shirt Design</a>
-                                            <p>
-                                                Design / Development
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="one-fourth">
-                                    <div class="item-wrapp">
-                                        <div class="flexslider portfolio-items-slider fade">
-                                            <ul class="slides">
-                                                <li><img src="images/portfolio/portfolio-item-3.jpg" alt="" /></li>
-                                                <li><img src="images/portfolio/portfolio-item-4.jpg" alt="" /></li>
-                                                <li><img src="images/portfolio/portfolio-item-5.jpg" alt="" /></li>
-                                            </ul>
-                                        </div>
-                                        <div class="portfolio-item-title">
-                                            <a href="single-project-small.html">Video Project</a>
-                                            <p>
-                                                Design / Development
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="one-fourth">
-                                    <div class="item-wrapp">
-                                        <div class="portfolio-item">
-                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
-                                            <a href="images/portfolio/portfolio-item-6.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
-                                            <img src="images/portfolio/portfolio-item-6.jpg" alt="" />
-                                        </div>
-                                        <div class="portfolio-item-title">
-                                            <a href="single-project-small.html">Custom PHP CMS</a>
-                                            <p>
-                                                Design / Development
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="slide">
-                                <!-- carousel item starts -->
-                                <div class="one-fourth">
-                                    <div class="item-wrapp">
-                                        <div class="portfolio-item">
-                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
-                                            <a href="images/portfolio/portfolio-item-7.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
-                                            <img src="images/portfolio/portfolio-item-7.jpg" alt="" />
-                                        </div>
-                                        <div class="portfolio-item-title">
-                                            <a href="single-project-small.html">Joomla Templates</a>
-                                            <p>
-                                                Design / Development
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="one-fourth">
-                                    <div class="item-wrapp">
-                                        <div class="portfolio-item">
-                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
-                                            <a href="images/portfolio/portfolio-item-8.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
-                                            <img src="images/portfolio/portfolio-item-8.jpg" alt="" />
-                                        </div>
-                                        <div class="portfolio-item-title">
-                                            <a href="single-project-small.html">Custom WordPress Theme</a>
-                                            <p>
-                                                Design / Development
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="one-fourth">
-                                    <div class="item-wrapp">
-                                        <div class="portfolio-item">
-                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
-                                            <a href="images/portfolio/portfolio-item-9.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
-                                            <img src="images/portfolio/portfolio-item-9.jpg" alt="" />
-                                        </div>
-                                        <div class="portfolio-item-title">
-                                            <a href="single-project-small.html">Font Design</a>
-                                            <p>
-                                                Design / Development
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="one-fourth">
-                                    <div class="item-wrapp">
-                                        <div class="portfolio-item">
-                                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
-                                            <a href="images/portfolio/portfolio-item-10.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
-                                            <img src="images/portfolio/portfolio-item-10.jpg" alt="" />
-                                        </div>
-                                        <div class="portfolio-item-title">
-                                            <a href="single-project-small.html">Custom Drupal Theme</a>
-                                            <p>
-                                                Design / Development
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul><!-- carousel items UL ends -->
-                        <ul class="slidecontrols">
-                            <li><a href="#sliderName" class="prev">Prev</a></li>
-                            <li><a href="#sliderName" class="next">Next</a></li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div><!-- intro features panel ends -->
-            <div class=" clients-wrapp">
-                <div class="container">
-                    <div class="flexslider clients-slider ">
-                        <!-- flex slider starts -->
-                        <ul class="slides client-block">
-                            <li>
-                                <div class="one-fifth">
-                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-1.png" alt="" /></a>
-                                </div>
-                                <div class="one-fifth">
-                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-2.png" alt="" /></a>
-                                </div>
-                                <div class="one-fifth">
-                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-3.png" alt="" /></a>
-                                </div>
-                                <div class="one-fifth">
-                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-4.png" alt="" /></a>
-                                </div>
-                                <div class="one-fifth ">
-                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-5.png" alt="" /></a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="one-fifth">
-                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-6.png" alt="" /></a>
-                                </div>
-                                <div class="one-fifth">
-                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-5.png" alt="" /></a>
-                                </div>
-                                <div class="one-fifth">
-                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-4.png" alt="" /></a>
-                                </div>
-                                <div class="one-fifth">
-                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-3.png" alt="" /></a>
-                                </div>
-                                <div class="one-fifth ">
-                                    <a href="#" class="tooltip" title="Some Clients Name"><img src="images/clients/client-2.png" alt="" /></a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div><!-- flex slider ends -->
-                </div>
-            </div>*@
-    </div>
-    @* <section class="footer-call-to-action">
-            <!-- footer call to action starts -->
-            <section class="container">
-                <div class="three-fourth">
-                    <h4>If you you’re interested in working with Us, feel free to contact Us via contact form.</h4>
-                </div>
-                <div class="one-fourth">
-                    <a href="#" class="button grey huge round">Purchase Now</a>
-                </div>
-            </section>
-        </section><!-- footer call to action ends -->*@
+            <script src="~/Scripts/mycookie.js?v=s"></script> 
+      
     <footer id="footer">
         <!--footer starts -->
         <section class="container">
@@ -451,17 +191,17 @@
         <section class="container">
             <div class="one-half">
                 <p>
-                    Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+                    Copyright &copy; 2014.Company name All rights reserved. 
                 </p>
             </div>
-            <div class="one-half">
+            @*<div class="one-half">
                 <ul class="copyright_links">
                     <li><a href="#" title="Home">Home</a></li>
                     <li><a href="#" title="About">About us</a></li>
                     <li><a href="#" title="Blog">Blog</a></li>
                     <li><a href="#" title="Contact">Contact</a></li>
                 </ul>
-            </div>
+            </div>*@
         </section>
     </section>
     </div>

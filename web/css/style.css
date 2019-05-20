@@ -672,7 +672,7 @@ ul.contact-links li a i { margin-right: 5px }
 .head-wrapp {
     float: left;
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 ul.contact-links li a:hover i,
 ul.social-links li a:hover i { color: #656d78 }
