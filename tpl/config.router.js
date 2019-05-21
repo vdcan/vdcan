@@ -43,6 +43,12 @@ angular.module('app')
                         templateUrl: '/tpl/pggrid.html',
                         cache: false
                     })
+                    .state('app.profile', {
+                        url: '/profile',
+                        templateUrl: '/tpl/page_profile.html',
+
+                        cache: false
+                    })
                     .state('app.ui.pggrid2', {
                         url: '/pggrid2',
                         templateUrl: '/tpl/pggrid2.html',

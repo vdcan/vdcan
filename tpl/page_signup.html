@@ -21,6 +21,10 @@
               <div class="list-group-item">
                   <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" required>
               </div>
+              <div   class="list-group-item">
+                  <input type="radio"  name="type" checked =" checked" ng-model="user.type" required value="teacher"> Teacher
+                  <input type="radio"   name="type"  ng-model="user.type" required value="student"> Student
+              </div>
           </div>
           <div class="checkbox m-b-md m-t-none">
             <label class="i-checks">

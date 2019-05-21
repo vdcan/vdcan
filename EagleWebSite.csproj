@@ -510,6 +510,7 @@
     <Content Include="Content_d\weixin\kmqr200x200.png" />
     <Content Include="Content_d\weixin\kmqr430x430.jpg" />
     <Content Include="Content_d\ystep.css" />
+    <Content Include="css\style.css" />
     <Content Include="css\animate.css" />
     <Content Include="css\app.css" />
     <Content Include="css\bootstrap.css" />

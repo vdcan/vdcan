@@ -38,7 +38,7 @@ ul.commentlist li.child .comment-entry{  width:70%;}
 /*---------------iPhone & Samsung Mobiles landscape---------------*/
 /*___________________________________________________________________*/
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-#container{ width: 440px;}
+###container{ width: 440px;}
 .container {width: 400px; }
 #main-navigation select { display: block}
 #main-navigation ul{display: none;}
