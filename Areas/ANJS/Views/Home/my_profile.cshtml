@@ -1,0 +1,56 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//        Date  2019-05-21
+//        Author  蔡捷   
+//			 				Profile 
+//        File  my_profile.cshtml  Page file 
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "Profile";
+    Layout = null;
+}
+
+@section head{
+  <style type="text/css">
+       
+    </style>
+}
+ 
+
+    <script type="text/javascript">
+        var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+       km.model = JSON.parse(model_string); 
+     var ddls_string = '@Html.Raw(ViewData["DLLS"].ToString().Replace("\r\n",""))';
+    km.ddls = JSON.parse(ddls_string);
+    
+    </script>
+ 
+<div class="row">
+ <div class="col-sm-12">
+ 
+        
+    	
+
+<div   ng-controller="ProfileCtrl">
+	 
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	      Profile     
+	      <div style="float:right;">
+    			<button  class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+        </div> 
+		</div>  
+	  <div class="table-responsive"  >
+	      <div ui-grid="ProfilegridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
+	  </div>
+	</div>
+	
+</div>
+    	
+    </div> 
+</div>
+<div style='display:none'>
+	
+</div>
+ 

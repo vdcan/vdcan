@@ -110,3 +110,18 @@ All：System.Data.SyntaxErrorException: Syntax error: Missing operand after 'vdp_
    at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
    at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1491
 
+[5/21/2019 2:53:32 PM] GetSysText : 过程或函数 'usp_UserInfo_update' 需要参数 '@secretkey'，但未提供该参数。
+ExecptionMessage：Syntax error: Missing operand after 'usp_UserInfo_update' operator.
+ex.Source：System.Data
+ex.StackTrace：   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1491
+All：System.Data.SyntaxErrorException: Syntax error: Missing operand after 'usp_UserInfo_update' operator.
+   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1491
+

@@ -595,7 +595,7 @@ app.controller('MyLogCtrl', [
             for (var key in source) {
                 if (source.hasOwnProperty(key)) {
                     var t = typeof source[key];
-                    o[key] = t == 'object' ? skeleton(source[key]) : { string: '', number: 0, boolean: false }[t];
+                    o[key] = t == 'object' ? $scope.copyEmptyObject(source[key]) : { string: '', number: 0, boolean: false }[t];
                 }
             }
             return o;
