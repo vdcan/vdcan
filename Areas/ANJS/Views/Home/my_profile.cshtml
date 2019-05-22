@@ -59,6 +59,13 @@
                 <div class="form-group">
                     <label>Add By</label>
                     <p>
+                        <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)" /> Upload images
+                      <img src="/upload/thumb/{{row.photo}}" /> 
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Add By</label>
+                    <p>
                         <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
                     </p>
                 </div>
@@ -77,7 +84,7 @@
                 <div class="form-group">
                     <label>Context</label>
                     <p>
-                       
+
                         <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.context">
                     </p>
                 </div>

@@ -317,6 +317,64 @@ namespace JSBase.Areas.anjs.Controllers
             return Request.Params["testid"] + ";" + tmpFile;
         }
 
+
+
+
+        public JsonResult   SaveImage(System.Web.UI.HtmlControls.HtmlInputFile uploadFiles)
+        {
+
+            string p = Server.MapPath("/");
+            p = p + "\\upload\\";
+            string tmpFile = "";
+
+            if (!System.IO.Directory.Exists(p))
+                System.IO.Directory.CreateDirectory(p);
+
+            for (int i = 0; i <= Request.Files.Count - 1; i++)
+            {
+
+                if (Request.Files[i].FileName.Trim().Length > 0)
+                {
+
+                    string n = Request.Files[i].FileName.Substring(Request.Files[i].FileName.LastIndexOf("\\") + 1);
+
+                    DateTime now = DateTime.Now;
+                    DateTime old = new DateTime(2017, 6, 28);
+                    TimeSpan ts = now - old;
+                    int s = (int)ts.TotalSeconds;
+                    Random r = new Random();
+
+                    string ext = n.Substring(n.IndexOf("."));
+                    n = s.ToString() + "_" + r.Next(100).ToString() + ext;
+                    tmpFile = n + "," + tmpFile;
+                    Request.Files[i].SaveAs(p + "\\" + n);
+                    string thumbP = p + "\\thumb\\";
+                    if (!System.IO.Directory.Exists(thumbP))
+                        System.IO.Directory.CreateDirectory(thumbP);
+                    ImageClass ic = new ImageClass(p + "\\" + n);
+                    ic.GetReducedImage(80, 80, thumbP + "\\" + n);
+                    //if (n.EndsWith(".xls"))
+                    //{
+
+                    //    Request.Files[i].SaveAs(p + "\\" + n);
+
+                    //    SaveExcel(p + "\\" + n);
+
+                    //}
+
+                }
+            }
+            JObject data = new JObject();
+            if (Request.Params["id"] == null)
+                data["id"] = 0;
+            else
+            data["id"] = Request.Params["id"];
+
+            data["photo"] = tmpFile.Replace(",","");
+
+            return runProc(data);
+        }
+
         //public string upload(System.Web.UI.HtmlControls.HtmlInputFile uploadFiles)
         //{
 

@@ -104,6 +104,7 @@ namespace JSBase.Controllers
                 b.DepartmentID = (int)dt.Tables[1].Rows[0]["department_id"];
                 b.UserId = (int)dt.Tables[1].Rows[0]["id"];
                 b.UserCode = (String)dt.Tables[1].Rows[0]["user_code"];
+                b.Photo = (String)dt.Tables[1].Rows[0]["photo"];
 
                 b.RoleIDs = (string)dt.Tables[1].Rows[0]["role_ids"];
                 b.DepartmentCode = ((int)dt.Tables[1].Rows[0]["department_id"]).ToString();

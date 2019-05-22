@@ -57,6 +57,28 @@ app.controller('ProfileDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$m
             // or server returns response with an error status.
         });
     };
+    $scope.uploadFile = function (files) {
+        var fd = new FormData();
+        //Take the first selected file
+        fd.append("file", files[0]);
+        //"/anjs/home/uploadImage"
+        $http.post(km.model.urls["save_photo"], fd, {
+            withCredentials: true,
+            headers: { 'Content-Type': undefined },
+            transformRequest: angular.identity
+        }).success(function (r) {
+               console.log($scope.row);
+              $scope.row.photo = r.dt[0].photo;
+            //  $scope.row.photo = r.replaceAll(";", "");
+            console.log($scope.row);
+            $scope.row_old.photo = r.dt[0].photo;
+           $rootScope.$broadcast("ProfileUploaded", r.dt[0]);
+            // $rootScope.$broadcast("SysToaster", 'info', "upload success!");
+        }
+        );
+
+    };
+
     $scope.row = {};// = {id:43124};
     $scope.row_old = {};// = {id:43124};
     //$scope.row_original = {};// = {id:43124};
@@ -177,7 +199,7 @@ app.controller('ProfileCtrl', [
                 // or server returns response with an error status.
             });
         };
-
+      
 
 
         $scope.editType = "";
@@ -253,6 +275,12 @@ app.controller('ProfileCtrl', [
             $scope.SelectedRow.entity.editrow = false;
             $rootScope.$broadcast("SysToaster", 'info', "", "Row editing cancelled");
         };
+
+
+        $scope.$on("ProfileUploaded", function (event, row) {
+            $scope.row.photo = row.photo;
+          //  console.log($scope.row);
+        });
 
         $scope.$on("ProfileUpdate", function (event, row) {
             $scope.updateData(row)
