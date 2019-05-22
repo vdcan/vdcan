@@ -8,6 +8,9 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', '$timeout',
     $http.post('/Login/LogOff', {}).then(function (response) {
         //   console.log(response); 
         console.log("logoff");
+        console.log(document.URL);
+        if (document.URL.indexOf("Login") <0)
+        document.location = "/Login";
         }, function (x) {
             $scope.authError = 'Server Error';
         });
