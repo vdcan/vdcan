@@ -13,6 +13,74 @@
 
 @section head{
     <style type="text/css">
+
+        /*Profile Pic Start*/
+        .picture-container {
+            position: relative;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .picture {
+            width: 106px;
+            height: 106px;
+            background-color: #999999;
+            border: 4px solid #CCCCCC;
+            color: #FFFFFF;
+            border-radius: 50%;
+            margin: 0px auto;
+            overflow: hidden;
+            transition: all 0.2s;
+            -webkit-transition: all 0.2s;
+        }
+
+            .picture:hover {
+                border-color: #2ca8ff;
+            }
+
+        .content.ct-wizard-green .picture:hover {
+            border-color: #05ae0e;
+        }
+
+        .content.ct-wizard-blue .picture:hover {
+            border-color: #3472f7;
+        }
+
+        .content.ct-wizard-orange .picture:hover {
+            border-color: #ff9500;
+        }
+
+        .content.ct-wizard-red .picture:hover {
+            border-color: #ff3b30;
+        }
+
+        .picture input[type="file"] {
+            cursor: pointer;
+            display: block;
+            height: 100%;
+            left: 0;
+            opacity: 0 !important;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .picture-src {
+            width: 100%;
+        }
+
+        input[type="file"] {
+            cursor: pointer;
+            display: block;
+            height: 100%;
+            left: 0;
+            opacity: 0 !important;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        /*Profile Pic End*/
     </style>
 }
 
@@ -57,12 +125,40 @@
         <div>
             <div class="col-sm-6" style="padding-top: 10px;">
                 <div class="form-group">
-                    <label>Add By</label>
-                    <p>
-                        <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)" /> Upload images
-                      <img src="/upload/thumb/{{row.photo}}" /> 
-                    </p>
-                </div>
+
+                    <span class="thumb-lg w-auto-folded avatar m-t-sm">
+                        <img src="/upload/thumb/{{row.photo}}" class="img-full" alt="...">
+                        <h6 class="">Choose Picture</h6>
+
+                        <input type="file" id="wizard-picture" style=" cursor: pointer;
+            display: block;
+            height: 100%;
+            left: 0;
+            opacity: 0 !important;
+            position: absolute;
+            top: 0;
+            width: 100%;" onchange="angular.element(this).scope().uploadFile(this.files)">
+
+                    </span>
+
+                    @*<div class="container">
+                        <div class="picture-container">
+                            <div class="picture thumb-lg w-auto-folded avatar m-t-sm">
+                                <img src="/upload/thumb/{{row.photo}}"
+                                     class="picture-src" id="wizardPicturePreview" title="">
+                                <input type="file" id="wizard-picture" class="">
+                            </div>
+                            <h6 class="">Choose Picture</h6>
+                        </div>
+                    </div>*@ 
+
+
+                @*<label>Add By</label>
+                <p>
+                    <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)" /> Upload images
+                    <img src="/upload/thumb/{{row.photo}}" />
+                </p>*@
+            </div>
                 <div class="form-group">
                     <label>Add By</label>
                     <p>
@@ -111,88 +207,88 @@
 
 
 
-            <div class="   col-sm-6" style="padding-top: 10px;">
-                <div class="form-group  ">
-                    <label>用户代码</label>
+        <div class="   col-sm-6" style="padding-top: 10px;">
+            <div class="form-group  ">
+                <label>用户代码</label>
+                <p>
+                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.user_code">
+                </p>
+            </div>
+            <div class="form-group  ">
+                <label>Active</label>
+                <p>
+                    <select name="active" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.active">
+                        <option value="0">inactive</option>
+                        <option value="1">active</option>
+                    </select>
+                </p>
+            </div>
+            @*<div class="form-group  col-sm-6">
+                    <label>创建人</label>
                     <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.user_code">
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
                     </p>
                 </div>
-                <div class="form-group  ">
-                    <label>Active</label>
+                <div class="form-group  col-sm-6">
+                    <label>创建日期</label>
                     <p>
-                        <select name="active" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.active">
-                            <option value="0">inactive</option>
-                            <option value="1">active</option>
-                        </select>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
                     </p>
-                </div>
-                @*<div class="form-group  col-sm-6">
-                        <label>创建人</label>
+                </div>*@
+                    @*<div class="form-group">
+            <label>部门编号</label>
+            <p>
+                <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.department_id">
+            </p>
+        </div>*@
+                    <div class="form-group  ">
+                        <label>Language</label>
                         <p>
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.language">
                         </p>
                     </div>
-                    <div class="form-group  col-sm-6">
-                        <label>创建日期</label>
+                    <div class="form-group  ">
+                        <label>电子邮件</label>
                         <p>
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.email">
                         </p>
-                    </div>*@
-                @*<div class="form-group">
-                        <label>部门编号</label>
+                    </div>
+                    @*<div class="form-group">
+            <label>口令</label>
+            <p>
+                <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.password">
+            </p>
+        </div>*@
+                    <div class="form-group  ">
+                        <label>电话</label>
                         <p>
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.department_id">
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.phone">
                         </p>
-                    </div>*@
-                <div class="form-group  ">
-                    <label>Language</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.language">
-                    </p>
-                </div>
-                <div class="form-group  ">
-                    <label>电子邮件</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.email">
-                    </p>
-                </div>
-                @*<div class="form-group">
-                        <label>口令</label>
+                    </div>
+                    <div class="form-group  2">
+                        <label>姓名</label>
                         <p>
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.password">
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.real_name">
                         </p>
-                    </div>*@
-                <div class="form-group  ">
-                    <label>电话</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.phone">
-                    </p>
-                </div>
-                <div class="form-group  2">
-                    <label>姓名</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.real_name">
-                    </p>
-                    @*</div>
-                                         <div class="form-group">
-                           <label>Secretkey</label>
-                           <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.secretkey" >
-                        </p>*@
-                </div>
-                <div class="form-group  ">
-                    <label>性别</label>
-                    <p>
-                        <select name="sex" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.sex"><option value="m">Male</option><option value="f">Famle</option></select>
-                    </p>
-                </div>
-                @*<div class="form-group">
-                        <label>拼写</label>
+                        @*</div>
+                             <div class="form-group">
+               <label>Secretkey</label>
+               <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.secretkey" >
+            </p>*@
+                    </div>
+                    <div class="form-group  ">
+                        <label>性别</label>
                         <p>
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.spell">
+                            <select name="sex" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.sex"><option value="m">Male</option><option value="f">Famle</option></select>
                         </p>
-                    </div>*@
-            </div>
+                    </div>
+                    @*<div class="form-group">
+            <label>拼写</label>
+            <p>
+                <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.spell">
+            </p>
+        </div>*@
+                </div>
             <div class="modal-footer">
                 <div class=" ProfileDetailButtons" style="display:none;">
                     <button ng-click="save()" class="btn btn-primary">Save</button>
@@ -204,6 +300,24 @@
     </div>
 </div>
 <div style='display:none'>
+    <script>
 
+        $(document).ready(function () {
+            // Prepare the preview for profile picture
+            $("#wizard-picture").change(function () {
+                readURL(this);
+            });
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </div>
 
