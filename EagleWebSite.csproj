@@ -725,6 +725,7 @@
     <Content Include="Javascripts\vendor\modules\ngImgCrop\ng-img-crop.js" />
     <Content Include="Javascripts\vendor\modules\textAngular\textAngular-sanitize.min.js" />
     <None Include="Javascripts\vendor\modules\textAngular\textAngular.min._oldjs" />
+    <Content Include="Javascripts\vendor\modules\textAngular\uploader.js" />
     <Content Include="Javascripts\vendor\modules\textAngular\textAngular.min.js" />
     <Content Include="Javascripts\vendor\modules\ui-grid\animation.css" />
     <Content Include="Javascripts\vendor\modules\ui-grid\cell.css" />

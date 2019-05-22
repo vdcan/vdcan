@@ -14,7 +14,58 @@
 var km = {}; 
 km.init = function () {
 }
- 
+
+//app.config(['$provide',
+//    function ($provide) {
+//        $provide.decorator('taOptions', ['taRegisterTool', '$modal', '$delegate',
+//            function (taRegisterTool, $modal, taOptions) {
+//                // $delegate is the taOptions we are decorating
+//                // here we override the default toolbars specified in taOptions.
+//                taOptions.toolbar = [
+//                    ['clear', 'h1', 'h2', 'h3'],
+//                    ['ul', 'ol'],
+//                    ['bold', 'italics'],
+//                    ['insertLink', 'insertVideo']
+//                ];
+
+//                // Create our own insertImage button
+//                taRegisterTool('customInsertImage', {
+//                    iconclass: "fa fa-picture-o",
+//                    action: function () {
+//                        var textAngular = this;
+//                        var savedSelection = rangy.saveSelection();
+//                        var modalInstance = $modal.open({
+//                            // Put a link to your template here or whatever
+//                            template: '<label>Enter the url to your image:</label><input type="text" ng-model="img.url"><button ng-click="submit()">OK</button>',
+//                            size: 'sm',
+//                            controller: ['$modalInstance', '$scope',
+//                                function ($modalInstance, $scope) {
+//                                    $scope.img = {
+//                                        url: ''
+//                                    };
+//                                    $scope.submit = function () {
+//                                        $modalInstance.close($scope.img.url);
+//                                    };
+//                                }
+//                            ]
+//                        });
+
+//                        modalInstance.result.then(function (imgUrl) {
+//                            rangy.restoreSelection(savedSelection);
+//                            textAngular.$editor().wrapSelection('insertImage', imgUrl);
+//                        });
+//                        return false;
+//                    },
+//                });
+
+//                // Now add the button to the default toolbar definition
+//                // Note: It'll be the last button
+//                taOptions.toolbar[3].push('customInsertImage');
+//                return taOptions;
+//            }
+//        ]);
+//    }
+//]);
 
    
  
@@ -140,15 +191,94 @@ app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
 });
 */
 
+app.controller('editorCtrl', ['$scope', 'textAngularManager', '$timeout', '$http', function ($scope, textAngularManager, $timeout, $http) {
+    $scope.color = "";
+    $scope.timesSubmitted = 0;
+    $scope.canEdit = false;
+    $scope.testFrm = {};
+          $scope.formatDoc = function (command ) {
+              console.log(command);
+              console.log($scope.color);
+        //var editor = textAngularManager.retrieveEditor('item_bodyHTML').scope;
+        //editor.displayElements.text.trigger('focus');
+        //      editor.wrapSelection('forecolor', $scope.color, true);
+          };
+    $scope.test = function () {
+        $scope.timesSubmitted++;
+    };
+    $scope.uploadFile = function (files) {
+        var fd = new FormData();
+        //Take the first selected file
+        fd.append("file", files[0]);
+        //"/anjs/home/uploadImage"
+        $http.post("/anjs/home/uploadimage", fd, {
+            withCredentials: true,
+            headers: { 'Content-Type': undefined },
+            transformRequest: angular.identity
+        }).success(function (r) {
+            console.log(r);
+            var img = r.replaceAll(";", "").replaceAll(",", "")
+            $scope.insertToHtml("<img src='/upload/" + img+"'/>");
+        }
+        );
+
+    };
+
+    //$scope.insertToHtml = function (newText) {
+    //    var editor = textAngularManager.retrieveEditor('item_bodyHTML')
+    //    $timeout(function () {
+    //        editor.scope.displayElements.text.trigger('focus');
+    //        rangy.getSelection().getRangeAt(0).insertNode(document.createTextNode(newText))
+    //    });
+    //}
+    $scope.insertToHtml3 = function (newText) {
+        var sel = window.getSelection();
+
+        if (sel.getRangeAt && sel.rangeCount) {
+            var range = sel.getRangeAt(0);
+            var ancestor = range.commonAncestorContainer;
+
+            while (typeof ancestor.id === "undefined" || (ancestor.id !== "item_bodyHTML" && ancestor.parentNode !== null)) {
+                ancestor = ancestor.parentNode;
+            }
+
+            if (ancestor.id == "item_bodyHTML") {
+                range.insertNode(document.createTextNode(newText));
+            }
+        }
+    }
+    $scope.insertToHtml = function (newText) {
+        var editor = textAngularManager.retrieveEditor('item_bodyHTML').scope;
        
+
+        $timeout(function () {
+            editor.displayElements.text.trigger('focus');
+            editor.wrapSelection('insertHTML', newText, true);
+        });
+
+
+    }
+
+    $scope.insertToHtml2 = function (newText) {
+        var editor = textAngularManager.retrieveEditor('item_bodyHTML')
+        $timeout(function () {
+            editor.scope.displayElements.text.trigger('focus');
+            rangy.getSelection().getRangeAt(0).insertNode(document.createTextNode(newText))
+        });
+    }
+    $scope.accessFormFromScope = function () {
+        alert("Form Invalid: " + $scope.testFrm.$invalid);
+    }
+
+}]); 
  
 app.controller('contextCtrl', [
-    '$scope', '$rootScope', '$http', '$modal','$q', function ($scope, $rootScope, $http, $modal,$q) {
+    '$scope', '$rootScope', '$http', '$modal', '$q', function ($scope, $rootScope, $http, $modal, $q, textAngularManager) {
         $scope.SelectedRow = {};//for getting row detail
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
-        
+        console.log(textAngularManager);
         
 	    $scope.loader = function (param) { 
 	        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
