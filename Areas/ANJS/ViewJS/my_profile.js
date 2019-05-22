@@ -71,6 +71,9 @@ app.controller('ProfileDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$m
               $scope.row.photo = r.dt[0].photo;
             //  $scope.row.photo = r.replaceAll(";", "");
             console.log($scope.row);
+
+
+            $rootScope.$broadcast("ProfilePhoto", $scope.row.photo );
             $scope.row_old.photo = r.dt[0].photo;
            $rootScope.$broadcast("ProfileUploaded", r.dt[0]);
             // $rootScope.$broadcast("SysToaster", 'info', "upload success!");

@@ -23,6 +23,10 @@ app.controller('mainController2', ['$scope', '$http', '$state', '$interval', fun
         });
 
     } 
+
+    $scope.$on("ProfilePhoto", function (event, photo) {
+        $scope.user.Photo  = photo
+    });
 }])
 // signup controller
 app.controller('mainController', ['$scope', '$http', '$state','$interval', function ($scope, $http, $state, $interval) {
