@@ -73,7 +73,11 @@
                     <label>内容</label>
                     <p>
 
-                        <div class="col-sm-10">
+                        <div lazy-load="textAngular">
+                            <div text-angular ng-model="row.context" class="btn-groups" ></div>
+                        </div>
+
+                        @*<div class="col-sm-10">
                             <div class="btn-toolbar m-b-sm btn-editor" data-role="editor-toolbar" data-target="#editor">
                                 <div class="btn-group dropdown" dropdown>
                                     <a class="btn btn-default" dropdown-toggle tooltip="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
@@ -131,10 +135,10 @@
                                     <a class="btn btn-default" data-edit="redo" tooltip="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
                                 </div>
                             </div>
-                            <div ui-jq="wysiwyg" class="form-control" id="input_context" style="overflow:scroll;height:200px;max-height:200px"  ng-model="row.context">
-                                
+                            <div ui-jq="wysiwyg" class="form-control" id="input_context" style="overflow:scroll;height:200px;max-height:200px" ng-model="row.context">
+
                             </div>
-                        </div>
+                        </div>*@
                         <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.context">
                     </p>
                 </div><div class="form-group">

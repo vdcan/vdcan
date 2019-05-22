@@ -30,6 +30,7 @@ angular.module('app', [
     'ui.grid.exporter',
     'ui.grid.infiniteScroll',
     'ui.grid.importer',
-    'ui.grid.grouping'
+    'ui.grid.grouping',
+    'textAngular'
    // 'ngWebsocket'
 ]);

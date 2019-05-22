@@ -290,13 +290,15 @@ app.controller('contextCtrl', [
         }
         $scope.insertData = function (row) {
             row.category = "";
-            row.context = $("#input_context").html();
+          //  row.context = $("#input_context").html();
             com.ajax({
                 type: 'POST', url: km.model.urls["context_insert"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
                         
                         r.editrow = false;
+                        f.context = r.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+
                         $scope.afterInsert(r);
                     }
                     $scope.showResult(result, "Insert");
@@ -359,7 +361,7 @@ app.controller('contextCtrl', [
         }
         $scope.updateData = function (row) {
             row.category = "";
-            row.context = $("#input_context").html();
+           // row.context = $("#input_context").html();
             com.ajax({
                 type: 'POST', url: km.model.urls["context_update"], data: row, success: function (result) {
                     if (result.s) {
@@ -372,6 +374,7 @@ app.controller('contextCtrl', [
                                 $scope.SelectedRow.entity[key] = r[key];
                             }
                         }
+                        $scope.SelectedRow.entity.context = $scope.SelectedRow.entity.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
                         $scope.afterUpdate();
                     }
                     $scope.showResult(result, "Update");
@@ -498,7 +501,7 @@ app.controller('contextCtrl', [
                 gridApi.selection.on.rowSelectionChanged($scope, function (row) {
                     // var msg = 'row selected ' + row.;
                     $scope.SelectedRow = row;
-                    $("#input_context").html(row.entity.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">"));
+                  //  $("#input_context").html(row.entity.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">"));
                     //var oDoc = document.getElementById("input_context");
                   //  oDoc.innerHTML = row.entity.context;
                     $scope.row = Object.assign({}, row.entity);
@@ -519,6 +522,7 @@ app.controller('contextCtrl', [
       if (Array.isArray(result.rows)) {
    	 								result.rows.forEach(function (d) {
                                                     d.editrow = false; 
+                                                    d.context = d.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
                         });
           $scope.contextgridOptions.data = result.rows;
                     $scope.GetIDS();
