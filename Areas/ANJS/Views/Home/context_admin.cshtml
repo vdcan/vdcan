@@ -1,0 +1,101 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//        Date  2019-05-22
+//        Author  蔡捷   
+//			 				Context Admin 
+//        File  context_admin.cshtml  Page file 
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "Context Admin";
+    Layout = null;
+}
+
+@section head{
+  <style type="text/css">
+       
+    </style>
+}
+ 
+    <script type="text/javascript">
+     var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+       km.model = JSON.parse(model_string); 
+     var ddls_string = '@Html.Raw(ViewData["DLLS"].ToString().Replace("\r\n",""))';
+    km.ddls = JSON.parse(ddls_string);
+    </script>
+
+ 
+ 
+<div class="row">
+ <div class="col-sm-6">
+    	
+
+<div   ng-controller="contextCtrl">
+	 
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	      context     
+	      <div style="float:right;">
+    			<button  class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+        </div> 
+		</div>  
+	  <div class="table-responsive"  >
+	      <div ui-grid="contextgridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
+	  </div>
+	</div>
+	
+</div>
+    	
+    </div>
+ <div class="col-sm-6">
+    	 
+<div  ng-controller="contextDetailCtrl"> 
+      <div class="modal-header">
+        context
+      </div>       
+<div class="col-sm-12">       			<div class="form-group">
+              <label>启用标记</label>
+              <p>   <select name="active_flag"  ng-disabled="!row.editrow"  class="form-control m-b" ng-model="row.active_flag" ><option value="1">Active</option><option value="0">Inactive</option></select>
+           </p>
+          </div>
+                			<div class="form-group">
+              <label>创建人</label>
+              <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.add_by" >
+           </p>
+          </div>
+                			<div class="form-group">
+              <label>创建日期</label>
+              <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.add_on" >
+           </p>
+          </div>
+                			<div class="form-group">
+              <label>内容</label>
+              <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.context" >
+           </p>
+          </div>
+                			<div class="form-group">
+              <label>标题</label>
+              <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.title" >
+           </p>
+          </div>
+                			<div class="form-group">
+              <label>类型</label>
+              <p>  <select ui-select  ng-disabled="!row.editrow"  ng-init="getDDL('context_type')" class="form-control m-b"   ng-model="row.type"  ><option data-ng-repeat="d in DDLData['context_type']" value = "{{d.id}}">{{ d.text }}</ option ></select>
+           </p>
+          </div>
+                        
+      </div>  
+      <div class="modal-footer">
+          <div class=" contextDetailButtons" style="display:none;">
+              <button ng-click="save()" class="btn btn-primary">Save</button>
+              <button ng-click="cancel()" class="btn">Cancel</button>
+
+          </div>
+      </div>
+	</div> 
+    </div>
+</div>
+<div style='display:none'>
+	
+</div>
+ 
