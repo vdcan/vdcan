@@ -34,7 +34,7 @@ app.controller('contextDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$m
     $scope.loader = function (param) { 
         return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
     };
-    $scope.DDLData  = {};
+    $scope.DDLData = km.ddls ;
     $scope.getDDL = function (param) {
         console.log(param);
         if (typeof $scope.DDLData == "undefined")
@@ -289,6 +289,8 @@ app.controller('contextCtrl', [
             }
         }
         $scope.insertData = function (row) {
+            row.category = "";
+            row.context = $("#input_context").html();
             com.ajax({
                 type: 'POST', url: km.model.urls["context_insert"], data: row, success: function (result) {
                     if (result.s) {
@@ -356,6 +358,8 @@ app.controller('contextCtrl', [
             $scope.GetIDS();
         }
         $scope.updateData = function (row) {
+            row.category = "";
+            row.context = $("#input_context").html();
             com.ajax({
                 type: 'POST', url: km.model.urls["context_update"], data: row, success: function (result) {
                     if (result.s) {
@@ -452,20 +456,19 @@ app.controller('contextCtrl', [
             enableRowHeaderSelection: false,
             columnDefs: 
                 [ 
+  { field: 'id', displayName: '编号', width: 80, align: 'center',
+    },
+  { field: 'title', displayName: '标题', width: "*", align: 'center',
+    },
+  { field: 'type', displayName: '类型', width: 80, align: 'center',
+  cellTemplate:"<div>{{grid.appScope.TranslateToText(grid.appScope.DDLData['context_type'],row.entity.type)}}</div>"  },
                  { field: 'active_flag', displayName: '启用标记', width: 80, align: 'center',
   cellTemplate:"<div>{{grid.appScope.TranslateToText('1=Active 0=Inactive',row.entity.active_flag)}}</div>"  },
   { field: 'add_by', displayName: '创建人', width: 80, align: 'center',
     },
   { field: 'add_on', displayName: '创建日期', width: 80, align: 'center',
-    },
-  { field: 'context', displayName: '内容', width: 80, align: 'center',
-    },
-  { field: 'id', displayName: '编号', width: 80, align: 'center',
-    },
-  { field: 'title', displayName: '标题', width: 80, align: 'center',
-    },
-  { field: 'type', displayName: '类型', width: 80, align: 'center',
-  cellTemplate:"<div>{{grid.appScope.TranslateToText(grid.appScope.DDLData['context_type'],row.entity.type)}}</div>"  },
+                    },
+
  {
                         name: 'sActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
                         cellTemplate: '<div><button  ng-show="!row.entity.editrow"   class="btn primary" ng-click="grid.appScope.EditSide(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
@@ -495,6 +498,9 @@ app.controller('contextCtrl', [
                 gridApi.selection.on.rowSelectionChanged($scope, function (row) {
                     // var msg = 'row selected ' + row.;
                     $scope.SelectedRow = row;
+                    $("#input_context").html(row.entity.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">"));
+                    //var oDoc = document.getElementById("input_context");
+                  //  oDoc.innerHTML = row.entity.context;
                     $scope.row = Object.assign({}, row.entity);
                     $scope.selectedRowIndex = $scope.contextgridOptions.data.indexOf(row.entity);
                     $scope.sync();
@@ -505,15 +511,16 @@ app.controller('contextCtrl', [
         };
        
         $scope.getPage = function () {
+            var type = 0;
             $http.get(km.model.urls["context_pager"] + "&page=" + paginationOptions.pageNumber
                 + "&rows=" + paginationOptions.pageSize + "&sort=" + paginationOptions.sort + "&order=" +
-                paginationOptions.order +   "&_t="+com.settings.timestamp()).success(function (result) {
+                paginationOptions.order + "&type=" + type+  "&_t="+com.settings.timestamp()).success(function (result) {
    
       if (Array.isArray(result.rows)) {
    	 								result.rows.forEach(function (d) {
                                                     d.editrow = false; 
                         });
-                    $scope.ProfilegridOptions.data = result.rows;
+          $scope.contextgridOptions.data = result.rows;
                     $scope.GetIDS();
 
                     }else
