@@ -71,13 +71,13 @@ app.controller('contextDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$m
     }); 
     $scope.save = function () {
         $rootScope.$broadcast("context"+$scope.row.EditType, $scope.row);
-        $(".MyLogDetailButtons").hide(); 
+        $(".contextDetailButtons").hide(); 
         $scope.row.editrow = false;
     }
     $scope.cancel = function () { 
     	
         $rootScope.$broadcast("contextCancel", $scope.row);
-        $(".MyLogDetailButtons").hide();
+        $(".contextDetailButtons").hide();
         $scope.row = Object.assign({}, $scope.row_old);
         $scope.row.editrow = false;
     }
@@ -205,9 +205,9 @@ app.controller('contextCtrl', [
             $scope.editType = "i";
             var row = $scope.copyEmptyObject($scope.row);
             row.editrow = true;
-            $scope.MyLoggridOptions.data.unshift(row);
-            $scope.gridApi.grid.modifyRows($scope.MyLoggridOptions.data);
-            $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
+            $scope.contextgridOptions.data.unshift(row);
+            $scope.gridApi.grid.modifyRows($scope.contextgridOptions.data);
+            $scope.gridApi.selection.selectRow($scope.contextgridOptions.data[0]);
             $scope.gridApi.core.refresh();
            $scope.gridApi.grid.rows[0].inlineEdit.enterEditMode(); 
         }
@@ -232,21 +232,21 @@ app.controller('contextCtrl', [
         //Method to cancel the edit mode in UIGrid
         $scope.cancelEdit = function (row) {
             //Get the index of selected row from row object
-            var index = $scope.MyLoggridOptions.data.indexOf(row);
+            var index = $scope.contextgridOptions.data.indexOf(row);
 
             if ($scope.editType == "i") {
-                $scope.MyLoggridOptions.data.splice(0, 1);
+                $scope.contextgridOptions.data.splice(0, 1);
             }else {
             
                 if (index > 0) {
 	                if (row != null) {
-	                    //  $scope.MyLoggridOptions.data.splice(0, 1);
+	                    //  $scope.contextgridOptions.data.splice(0, 1);
 	                    var keys = Object.keys($scope.row);
 	                    keys.forEach(function (k) {
-	                        $scope.MyLoggridOptions.data[index][k] = $scope.row[k];
+	                        $scope.contextgridOptions.data[index][k] = $scope.row[k];
 	                    });
 	                    //Use that to set the editrow attrbute value to false
-	                    $scope.MyLoggridOptions.data[index].editrow = false;
+	                    $scope.contextgridOptions.data[index].editrow = false;
 	                }
                 }
             }
