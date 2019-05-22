@@ -1,56 +1,201 @@
 ﻿
-@{ 
-//------------------------------------------------------------------------------ 
-//        Date  2019-05-21
-//        Author  蔡捷   
-//			 				Profile 
-//        File  my_profile.cshtml  Page file 
-//------------------------------------------------------------------------------
- 
+@{
+    //------------------------------------------------------------------------------
+    //        Date  2019-05-21
+    //        Author  蔡捷
+    //			 				Profile
+    //        File  my_profile.cshtml  Page file
+    //------------------------------------------------------------------------------
+
     ViewBag.Title = "Profile";
     Layout = null;
 }
 
 @section head{
-  <style type="text/css">
-       
+    <style type="text/css">
     </style>
 }
- 
 
-    <script type="text/javascript">
-        var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
-       km.model = JSON.parse(model_string); 
+<script type="text/javascript">
+     var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+       km.model = JSON.parse(model_string);
      var ddls_string = '@Html.Raw(ViewData["DLLS"].ToString().Replace("\r\n",""))';
     km.ddls = JSON.parse(ddls_string);
-    
-    </script>
- 
-<div class="row">
- <div class="col-sm-12">
- 
-        
-    	
+</script>
 
-<div   ng-controller="ProfileCtrl">
-	 
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-	      Profile     
-	      <div style="float:right;">
-    			<button  class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
-        </div> 
-		</div>  
-	  <div class="table-responsive"  >
-	      <div ui-grid="ProfilegridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
-	  </div>
-	</div>
-	
-</div>
-    	
-    </div> 
+
+
+<div class="row"  ng-controller="ProfileCtrl" >
+    <div class="col-sm-6"style="display:none;">
+
+
+        <div ng-controller="ProfileCtrl">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Profile2
+                    <div style="float:right;">
+                        <button class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <div ui-grid="ProfilegridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-sm-12" ng-controller="ProfileDetailCtrl as vm">
+
+        <div class="modal-header">
+            Profile  <div style="float:right;"> 
+                @*<button class="btn primary" ng-click="InsertSide()" style="padding:0px;" ng-hide="!showInsert"><i class="fa fa-plus-circle">Edit&nbsp;&nbsp;</i></button>*@
+                <button class="btn primary" ng-click="EditSide(row)" style="padding:0px;"  ><i class="fa fa-plus-circle">Edit&nbsp;&nbsp;</i></button>
+            </div>
+        </div>
+        <div>
+            <div class="col-sm-6" style="padding-top: 10px;">
+                <div class="form-group">
+                    <label>Add By</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Add On</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Background</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.background">
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Context</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.context">
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Skills</label>
+                    <p>
+                        <select name="skills" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.skills"><option value="reading,writing,orial">reading,writing,orial</option><option value="english">english</option></select>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Title</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.title">
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>User Id</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.user_id">
+                    </p>
+                </div>
+
+            </div>
+
+
+
+            <div class="   col-sm-6" style="padding-top: 10px;">
+                <div class="form-group  ">
+                    <label>用户代码</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.user_code">
+                    </p>
+                </div>
+                <div class="form-group  ">
+                    <label>Active</label>
+                    <p>
+                        <select name="active" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.active">
+                            <option value="0">inactive</option>
+                            <option value="1">active</option>
+                        </select>
+                    </p>
+                </div>
+                @*<div class="form-group  col-sm-6">
+                        <label>创建人</label>
+                        <p>
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
+                        </p>
+                    </div>
+                    <div class="form-group  col-sm-6">
+                        <label>创建日期</label>
+                        <p>
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
+                        </p>
+                    </div>*@
+                @*<div class="form-group">
+                        <label>部门编号</label>
+                        <p>
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.department_id">
+                        </p>
+                    </div>*@
+                <div class="form-group  ">
+                    <label>Language</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.language">
+                    </p>
+                </div>
+                <div class="form-group  ">
+                    <label>电子邮件</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.email">
+                    </p>
+                </div>
+                @*<div class="form-group">
+                        <label>口令</label>
+                        <p>
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.password">
+                        </p>
+                    </div>*@
+                <div class="form-group  ">
+                    <label>电话</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.phone">
+                    </p>
+                </div>
+                <div class="form-group  2">
+                    <label>姓名</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.real_name">
+                    </p>
+                    @*</div>
+                                         <div class="form-group">
+                           <label>Secretkey</label>
+                           <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.secretkey" >
+                        </p>*@
+                </div>
+                <div class="form-group  ">
+                    <label>性别</label>
+                    <p>
+                        <select name="sex" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.sex"><option value="m">Male</option><option value="f">Famle</option></select>
+                    </p>
+                </div>
+                @*<div class="form-group">
+                        <label>拼写</label>
+                        <p>
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.spell">
+                        </p>
+                    </div>*@
+            </div>
+            <div class="modal-footer">
+                <div class=" ProfileDetailButtons" style="display:none;">
+                    <button ng-click="save()" class="btn btn-primary">Save</button>
+                    <button ng-click="cancel()" class="btn">Cancel</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div style='display:none'>
-	
+
 </div>
- 
+

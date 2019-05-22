@@ -148,7 +148,7 @@ app.controller('ProfileCtrl', [
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
-        
+        $scope.showInsert = false;
         
 	    $scope.loader = function (param) { 
 	        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
@@ -384,8 +384,8 @@ app.controller('ProfileCtrl', [
             $rootScope.$broadcast("ProfileSelectedRowChanged", $scope.row );
         };
         $scope.EditSide = function (row) {
-        		row.EditType ="Update";
-        		
+            row.EditType = "Update";
+            console.log(row);
             $scope.SelectedRow = row;
             row.editrow = true;
             $rootScope.$broadcast("ProfileEditSide", row );
@@ -393,7 +393,8 @@ app.controller('ProfileCtrl', [
         $scope.InsertSide = function ( ) {
         		
             var row = $scope.copyEmptyObject($scope.row);
-        		row.EditType ="Insert";
+            row.EditType = "Insert";
+            row.editrow = true;
             $rootScope.$broadcast("ProfileEditSide", row );
         };
         var paginationOptions = {
@@ -505,13 +506,20 @@ app.controller('ProfileCtrl', [
         $scope.getPage = function () {
             $http.get(km.model.urls["Profile_pager"] + "&page=" + paginationOptions.pageNumber
                 + "&rows=" + paginationOptions.pageSize + "&sort=" + paginationOptions.sort + "&order=" +
-                paginationOptions.order +  "&user_id="+0+ "&_t="+com.settings.timestamp()).success(function (result) {
+                paginationOptions.order + "&user_id=" + 0 + "&_t=" + com.settings.timestamp()).success(function (result) {
+                    console.log(result);
+                    if (Array.isArray(result.rows)) {
    	 								result.rows.forEach(function (d) {
-                        d.editrow = false;
-                    });
-                    $scope.ProfilegridOptions.totalItems  = result.total;
+                                                    d.editrow = false;
+                                                    $scope.showInsert = false;
+                        });
                     $scope.ProfilegridOptions.data = result.rows;
                     $scope.GetIDS();
+
+                    }
+                    else
+                        $scope.showInsert = true ;
+                    $scope.ProfilegridOptions.totalItems  = result.total;
                     $scope.gridApi.grid.modifyRows($scope.ProfilegridOptions.data);
 
                     if ($scope.ProfilegridOptions.data.length >0)
