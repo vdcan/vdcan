@@ -157,13 +157,13 @@
 
 
                         <div lazy-load="textAngular" ng-controller="editorCtrl as vm">
-                            <select ng-change="formatDoc('forecolor');this.selectedIndex=0;" ng-model="color">
+                            @*<select ng-change="formatDoc('forecolor');this.selectedIndex=0;" ng-model="color">
                                 <option class="heading" selected>- color -</option>
                                 <option value="red">Red</option>
                                 <option value="blue">Blue</option>
                                 <option value="green">Green</option>
                                 <option value="black">Black</option>
-                            </select>
+                            </select>*@
                             <span class="thumb-lg w-auto-folded avatar m-t-sm">
                                 <img src="/upload/thumb/a5.png" class="img-full" alt="...">
 
@@ -179,7 +179,7 @@
                             </span>
 
                             <a ng-click="insertToHtml('fdsaf')">insert</a>
-                            <div id="item_bodyHTML" name="item_bodyHTML" text-angular ng-model="row.context" class="btn-groups" style="height:300px;"></div>
+                            <div id="item_bodyHTML" name="item_bodyHTML" ta-disabled="!row.editrow" text-angular ng-model="row.context" class="btn-groups" style="height:300px;"></div>
                         </div>
 
                     </p>

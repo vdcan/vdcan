@@ -17,6 +17,54 @@ km.init = function () {
 
 
 
+app.controller('editorCtrl', ['$scope', 'textAngularManager', '$timeout', '$http', function ($scope, textAngularManager, $timeout, $http) {
+    $scope.color = "";
+    $scope.timesSubmitted = 0;
+    $scope.canEdit = false;
+    $scope.testFrm = {};
+    $scope.formatDoc = function (command) {
+        console.log(command);
+        console.log($scope.color);
+        //var editor = textAngularManager.retrieveEditor('item_bodyHTML').scope;
+        //editor.displayElements.text.trigger('focus');
+        //      editor.wrapSelection('forecolor', $scope.color, true);
+    };
+    $scope.test = function () {
+        $scope.timesSubmitted++;
+    };
+    $scope.uploadFile = function (files) {
+        var fd = new FormData();
+        //Take the first selected file
+        fd.append("file", files[0]);
+        //"/anjs/home/uploadImage"
+        $http.post("/anjs/home/uploadimage", fd, {
+            withCredentials: true,
+            headers: { 'Content-Type': undefined },
+            transformRequest: angular.identity
+        }).success(function (r) {
+            console.log(r);
+            var img = r.replaceAll(";", "").replaceAll(",", "")
+            $scope.insertToHtml("<img src='/upload/" + img + "'/>");
+        }
+        );
+
+    }; 
+    $scope.insertToHtml = function (newText) {
+        var editor = textAngularManager.retrieveEditor('item_bodyHTML').scope;
+
+
+        $timeout(function () {
+            editor.displayElements.text.trigger('focus');
+            editor.wrapSelection('insertHTML', newText, true);
+        });
+
+
+    } 
+    $scope.accessFormFromScope = function () {
+        alert("Form Invalid: " + $scope.testFrm.$invalid);
+    }
+
+}]); 
 
 //------------------------------------------------------------------------------ 
 //        Date  2019-05-21
@@ -559,6 +607,7 @@ app.controller('ProfileCtrl', [
                     if (Array.isArray(result.rows)) {
                         result.rows.forEach(function (d) {
                             d.editrow = false;
+                            d.context = d.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
                             $scope.showInsert = false;
                         });
                         $scope.ProfilegridOptions.data = result.rows;
