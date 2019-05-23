@@ -24,7 +24,7 @@
 20 - JQUERY CAROUSEL
 21 - CONTACT FORM VALIDATION
 */
-jQuery.noConflict()(function ($) {
+//jQuery.noConflict()(function ($) {
 $(document).ready(function ($) {
  /*----------------------------------------------------------*/
  /*              1 - CLIENTS IMAGE HOVER EFFECT                */
@@ -504,4 +504,4 @@ $(document).ready(function ($) {
             });
         }
     });
-});
+//});
