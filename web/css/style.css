@@ -154,12 +154,12 @@ header {
     background: #fff;
  }
 
-#content{
-     
-    float:left;
+#content {
+    float: left;
     width: 100%;
-    margin: 0px 0 0 0 ;
+    margin: 0px 0 0 0;
     position: relative;
+    padding-top: 10px;
 }
 header#header{
     padding: 0px 0  0px 0;   

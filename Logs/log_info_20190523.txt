@@ -1,0 +1,46 @@
+[5/23/2019 6:16:38 AM]tmpMenuCode about
+[5/23/2019 6:19:49 AM]tmpMenuCode home
+[5/23/2019 6:20:24 AM]tmpMenuCode index_lan@en
+[5/23/2019 6:20:27 AM]tmpMenuCode about
+[5/23/2019 6:20:39 AM]tmpMenuCode index_lan@en
+[5/23/2019 6:20:45 AM]tmpMenuCode about
+[5/23/2019 6:21:15 AM]tmpMenuCode about
+[5/23/2019 6:22:21 AM]tmpMenuCode about
+[5/23/2019 6:22:37 AM]tmpMenuCode about
+[5/23/2019 6:23:37 AM]tmpMenuCode about
+[5/23/2019 6:24:05 AM]tmpMenuCode index_lan@en
+[5/23/2019 6:24:07 AM]tmpMenuCode about
+[5/23/2019 6:24:10 AM]tmpMenuCode index_lan@en
+[5/23/2019 6:24:10 AM]tmpMenuCode about
+[5/23/2019 6:27:45 AM]tmpMenuCode index_lan@en
+[5/23/2019 6:31:31 AM]tmpMenuCode about
+[5/23/2019 6:31:31 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:31:31 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:33:01 AM]tmpMenuCode about
+[5/23/2019 6:33:01 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:33:01 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:35:38 AM]tmpMenuCode about
+[5/23/2019 6:35:38 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:35:38 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:36:02 AM]tmpMenuCode about
+[5/23/2019 6:36:02 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:36:02 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:36:18 AM]tmpMenuCode about
+[5/23/2019 6:36:18 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:36:18 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:36:40 AM]tmpMenuCode about
+[5/23/2019 6:36:40 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:36:40 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:37:10 AM]tmpMenuCode about
+[5/23/2019 6:37:10 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:37:10 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:37:32 AM]tmpMenuCode index_lan@en
+[5/23/2019 6:37:33 AM]tmpMenuCode about
+[5/23/2019 6:37:33 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:37:33 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:38:24 AM]tmpMenuCode index_lan@en
+[5/23/2019 6:39:32 AM]tmpMenuCode index_lan@en
+[5/23/2019 6:39:36 AM]tmpMenuCode about
+[5/23/2019 6:39:36 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:39:36 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/23/2019 6:40:50 AM]tmpMenuCode index_lan@en
