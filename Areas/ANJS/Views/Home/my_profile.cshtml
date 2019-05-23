@@ -145,13 +145,13 @@
                 <div class="form-group">
                     <label>Add By</label>
                     <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
+                        <input type="text" class="form-control" ng-disabled="true" ng-model="row.add_by">
                     </p>
                 </div>
                 <div class="form-group">
                     <label>Add On</label>
                     <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
+                        <input type="text" class="form-control" ng-disabled="true" ng-model="row.add_on">
                     </p>
                 </div>
                 <div class="form-group">
@@ -163,7 +163,11 @@
                 <div class="form-group">
                     <label>Skills</label>
                     <p>
-                        <select name="skills" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.skills"><option value="reading,writing,orial">reading,writing,orial</option><option value="english">english</option></select>
+                        <select name="skills" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.skills">
+                            <option value="reading">reading </option>
+                            <option value="writing"> writing </option>
+                            <option value="Orial English">Orial English</option>
+                        </select>
                     </p>
                 </div>
                 <div class="form-group">
@@ -212,8 +216,8 @@
                 <label>Active</label>
                 <p>
                     <select name="active" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.active">
-                        <option value="0">inactive</option>
-                        <option value="1">active</option>
+                        <option value="0">Inactive</option>
+                        <option value="1">Active</option>
                     </select>
                 </p>
             </div>
