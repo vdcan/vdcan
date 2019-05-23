@@ -6,33 +6,75 @@
     </style>
 
 }
-
+@using System.Data;
 @section scripts{
 
-}	
+}
 <div id="content">
     @*<div id="breadcrumb">
-        <!-- breadcrumb starts-->
-        <div class="container">
-            <div class="one-half">
-                <h4>Services</h4>
+            <!-- breadcrumb starts-->
+            <div class="container">
+                <div class="one-half">
+                    <h4>Services</h4>
+                </div>
+                <div class="one-half">
+                    <nav id="breadcrumbs">
+                        <!--breadcrumb nav starts-->
+                        <ul>
+                            <li>You are here:</li>
+                            <li><a href="index.html">Home</a></li>
+                            <li>Services</li>
+                        </ul>
+                    </nav>
+                    <!--breadcrumb nav ends -->
+                </div>
             </div>
-            <div class="one-half">
-                <nav id="breadcrumbs">
-                    <!--breadcrumb nav starts-->
-                    <ul>
-                        <li>You are here:</li>
-                        <li><a href="index.html">Home</a></li>
-                        <li>Services</li>
-                    </ul>
-                </nav>
-                <!--breadcrumb nav ends -->
-            </div>
-        </div>
-    </div>*@
+        </div>*@
     <!--breadcrumbs ends -->
     <div class="container">
-        <div class="one">
+
+        @{
+            int i = 0;
+            DataSet ds = (DataSet)ViewData["context_home"];
+            DataTable dt = ds.Tables[0];
+            foreach (DataRow r in dt.Rows)
+            {
+                string tmpStr = r["context"].ToString();
+                tmpStr = tmpStr.Replace("&gt;", ">").Replace("&lt;", "<");
+                tmpStr = tmpStr.Replace("&#10;", "");
+                if (i == 0)
+                {
+
+                    @Html.Raw("  <div class='one'>");
+                    @Html.Raw(tmpStr)
+                }
+                else
+                {
+                    @Html.Raw(tmpStr)
+                }
+
+
+                i++;
+                if (i == 3)
+                {
+
+                    @Html.Raw("  </div>");
+                    i = 0;
+
+                }
+
+            }
+
+            if (i < 3&&i!=0)
+            {
+
+                @Html.Raw("  </div>");
+                i = 0;
+
+            }
+        }
+
+        @*<div class="one">
             <div class="one-third">
                 <div class="service-item">
                     <!--service item starts -->
@@ -120,7 +162,7 @@
             </div>
         </div>
         <div class="one">
-        </div>
+        </div>*@
     </div>
     <div class="intro-features">
         <div class="container">
@@ -163,14 +205,14 @@
             </div>
         </div>
     </div>
-</div>
-<section class="footer-call-to-action">
-    <section class="container">
-        <div class="three-fourth">
-            <h4>If you you’re interested in working with Us, feel free to contact Us via contact form.</h4>
-        </div>
-        <div class="one-fourth">
-            <a href="#" class="button grey huge round">Purchase Now</a>
-        </div>
+    </div>
+    <section class="footer-call-to-action">
+        <section class="container">
+            <div class="three-fourth">
+                <h4>If you you’re interested in working with Us, feel free to contact Us via contact form.</h4>
+            </div>
+            <div class="one-fourth">
+                <a href="#" class="button grey huge round">Purchase Now</a>
+            </div>
+        </section>
     </section>
-</section>
