@@ -427,7 +427,7 @@ app.controller('contextCtrl', [
                         var r = result.dt[0];
                         
                         r.editrow = false;
-                        f.context = r.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+                        r.context = r.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
 
                         $scope.afterInsert(r);
                     }
@@ -538,7 +538,7 @@ app.controller('contextCtrl', [
         };
         var paginationOptions = {
             pageNumber: 1,
-            pageSize: 10,
+            pageSize: 25,
             order: "desc",
             sort: "id",
         };

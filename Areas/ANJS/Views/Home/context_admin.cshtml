@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <div ui-grid="contextgridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
+                    <div ui-grid="contextgridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px; height: 840px;"></div>
                 </div>
             </div>
 
@@ -119,6 +119,14 @@
         <div ng-controller="contextDetailCtrl">
             <div class="modal-header">
                 context
+            </div>
+
+            <div class="modal-footer">
+                <div class=" contextDetailButtons" style="display:none;">
+                    <button ng-click="save()" class="btn btn-primary">Save</button>
+                    <button ng-click="cancel()" class="btn">Cancel</button>
+
+                </div>
             </div>
             <div class="col-sm-12">
 
@@ -135,6 +143,12 @@
                     <label>类型</label>
                     <p>
                         <select ui-select ng-disabled="!row.editrow" ng-init="getDDL('context_type')" class="form-control m-b" ng-model="row.type"><option data-ng-repeat="d in DDLData['context_type']" value="{{d.id}}">{{ d.text }}</ option ></select>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>排序</label>
+                    <p>
+                        <input type="number" class="form-control" ng-disabled="!row.editrow" ng-model="row.order_num">
                     </p>
                 </div>
                 <div class="form-group">
@@ -168,69 +182,6 @@
                             <div id="item_bodyHTML" name="item_bodyHTML" text-angular ng-model="row.context" class="btn-groups" style="height:300px;"></div>
                         </div>
 
-                        @*<div class="col-sm-10">
-                                <div class="btn-toolbar m-b-sm btn-editor" data-role="editor-toolbar" data-target="#editor">
-                                    <div class="btn-group dropdown" dropdown>
-                                        <a class="btn btn-default" dropdown-toggle tooltip="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href data-edit="fontName Serif" style="font-family:'Serif'">Serif</a></li>
-                                            <li><a href data-edit="fontName Sans" style="font-family:'Sans'">Sans</a></li>
-                                            <li><a href data-edit="fontName Arial" style="font-family:'Arial'">Arial</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="btn-group dropdown" dropdown>
-                                        <a class="btn btn-default" dropdown-toggle data-toggle="dropdown" tooltip="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href data-edit="fontSize 5" style="font-size:24px">Huge</a></li>
-                                            <li><a href data-edit="fontSize 3" style="font-size:18px">Normal</a></li>
-                                            <li><a href data-edit="fontSize 1" style="font-size:14px">Small</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="btn-group">
-                                        <a class="btn btn-default" data-edit="bold" tooltip="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
-                                        <a class="btn btn-default" data-edit="italic" tooltip="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
-                                        <a class="btn btn-default" data-edit="strikethrough" tooltip="Strikethrough"><i class="fa fa-strikethrough"></i></a>
-                                        <a class="btn btn-default" data-edit="underline" tooltip="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
-                                    </div>
-                                    <div class="btn-group">
-                                        <a class="btn btn-default" data-edit="insertunorderedlist" tooltip="Bullet list"><i class="fa fa-list-ul"></i></a>
-                                        <a class="btn btn-default" data-edit="insertorderedlist" tooltip="Number list"><i class="fa fa-list-ol"></i></a>
-                                        <a class="btn btn-default" data-edit="outdent" tooltip="Reduce indent (Shift+Tab)"><i class="fa fa-dedent"></i></a>
-                                        <a class="btn btn-default" data-edit="indent" tooltip="Indent (Tab)"><i class="fa fa-indent"></i></a>
-                                    </div>
-                                    <div class="btn-group">
-                                        <a class="btn btn-default" data-edit="justifyleft" tooltip="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
-                                        <a class="btn btn-default" data-edit="justifycenter" tooltip="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
-                                        <a class="btn btn-default" data-edit="justifyright" tooltip="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
-                                        <a class="btn btn-default" data-edit="justifyfull" tooltip="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
-                                    </div>
-                                    <div class="btn-group dropdown" dropdown>
-                                        <a class="btn btn-default" dropdown-toggle tooltip="Hyperlink"><i class="fa fa-link"></i></a>
-                                        <div class="dropdown-menu">
-                                            <div class="input-group m-l-xs m-r-xs">
-                                                <input class="form-control input-sm" id="LinkInput" placeholder="URL" type="text" data-edit="createLink" />
-                                                <div class="input-group-btn">
-                                                    <button class="btn btn-sm btn-default" type="button">Add</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <a class="btn btn-default" data-edit="unlink" tooltip="Remove Hyperlink"><i class="fa fa-cut"></i></a>
-                                    </div>
-
-                                    <div class="btn-group">
-                                        <a class="btn btn-default" tooltip="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
-                                        <input type="file" data-edit="insertImage" style="position:absolute; opacity:0; width:41px; height:34px" />
-                                    </div>
-                                    <div class="btn-group">
-                                        <a class="btn btn-default" data-edit="undo" tooltip="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
-                                        <a class="btn btn-default" data-edit="redo" tooltip="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
-                                    </div>
-                                </div>
-                                <div ui-jq="wysiwyg" class="form-control" id="input_context" style="overflow:scroll;height:200px;max-height:200px" ng-model="row.context">
-
-                                </div>
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.context">
-                            </div>*@
                     </p>
                 </div><div class="form-group">
                     <label>启用标记</label>
@@ -251,13 +202,6 @@
                     </p>
                 </div>
 
-            </div>
-            <div class="modal-footer">
-                <div class=" contextDetailButtons" style="display:none;">
-                    <button ng-click="save()" class="btn btn-primary">Save</button>
-                    <button ng-click="cancel()" class="btn">Cancel</button>
-
-                </div>
             </div>
         </div>
     </div>
