@@ -1,0 +1,278 @@
+﻿
+@{
+    //------------------------------------------------------------------------------
+    //        Date  2018-05-27
+    //        Author  蔡捷
+    //			 				About page
+    //        File  about.cshtml  Page file
+    //------------------------------------------------------------------------------
+
+    ViewBag.Title = "About";
+    Layout = "~/Views/Home/_main_layout2.cshtml";
+}
+
+@using System.Data;
+@section head{
+    <style type="text/css">
+        .main_div img {
+            padding: 5px;
+        }
+    </style>
+
+}
+
+@section scripts{
+    <script type="text/javascript">
+
+      var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        km.model = JSON.parse(model_string);
+    </script>
+}
+
+<div id="content">
+    <div class="container main_div">
+
+
+        <div class="container main_div" id="abountDiv">
+
+            <ul id="portfolio-container" class="four-columns" style="background-color:none;">
+
+                @{
+                    DataTable dt = (DataTable)ViewData["staff_list"];
+                    if (dt != null)
+                    {
+                        foreach (DataRow r in dt.Rows)
+                        {
+
+                            <li class="isotope-item" data-categories="development photography">
+                                <div class="item-wrapp">
+                                    <div class="portfolio-item">
+                                        @*<a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>*@
+                                        <a href="/upload/@r["photo"]" class="item-preview" data-rel="prettyPhoto"><i class="icon-zoom-in"></i></a>
+                                        <img src="/upload/thumb/@r["photo"]" alt=""  style="width: 200px; height: 200px"/>
+                                    </div>
+                                    <div class="portfolio-item-title">
+                                        <a href="/home?mc=staff_info&sid=@r["id"]">@r["real_name"] </a>
+                                        <p>
+                                            Design / Development
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+
+                           
+
+                        }
+                    }
+                }
+
+
+
+
+                @*<li class="isotope-item" data-categories="design print">
+                    <div class="item-wrapp">
+                        <div class="portfolio-item">
+                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                            <a href="/web/images/portfolio/portfolio-item-1.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
+                            <img src="/web/images/portfolio/portfolio-item-1.jpg" alt="" />
+                        </div>
+                        <div class="portfolio-item-title">
+                            <a href="single-project-small.html">Custom WordPress Theme</a>
+                            <p>
+                                Design / Development
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="isotope-item" data-categories="development">
+                    <div class="item-wrapp">
+                        <div class="flexslider portfolio-items-slider slide">
+                            <ul class="slides">
+                                <li><img src="/web/images/portfolio/portfolio-item-2.jpg" alt="" /></li>
+                                <li><img src="/web/images/portfolio/portfolio-item-3.jpg" alt="" /></li>
+                                <li><img src="/web/images/portfolio/portfolio-item-4.jpg" alt="" /></li>
+                            </ul>
+                        </div>
+                        <div class="portfolio-item-title">
+                            <a href="single-project-small.html">T-Shirt Design</a>
+                            <p>
+                                Design / Development
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="isotope-item">
+                    <div class="item-wrapp">
+                        <div class="portfolio-item">
+                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                            <a href="/web/images/portfolio/portfolio-item-5.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
+                            <img src="/web/images/portfolio/portfolio-item-5.jpg" alt="" />
+                        </div>
+                        <div class="portfolio-item-title">
+                            <a href="single-project-small.html">Joomla Plugins</a>
+                            <p>
+                                Design / Development
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="isotope-item" data-categories="photography print">
+                    <div class="item-wrapp">
+                        <div class="portfolio-item">
+                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                            <a href="/web/images/portfolio/portfolio-item-6.jpg" data-rel="prettyPhoto" class="item-preview"><i class="icon-zoom-in"></i></a>
+                            <img src="/web/images/portfolio/portfolio-item-6.jpg" alt="" />
+                        </div>
+                        <div class="portfolio-item-title">
+                            <a href="single-project-small.html">Video Project</a>
+                            <p>
+                                Design / Development
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="isotope-item" data-categories="design development">
+                    <div class="item-wrapp">
+                        <div class="flexslider portfolio-items-slider slide">
+                            <ul class="slides">
+                                <li><img src="/web/images/portfolio/portfolio-item-8.jpg" alt="" /></li>
+                                <li><img src="/web/images/portfolio/portfolio-item-9.jpg" alt="" /></li>
+                                <li><img src="/web/images/portfolio/portfolio-item-10.jpg" alt="" /></li>
+                            </ul>
+                        </div>
+                        <div class="portfolio-item-title">
+                            <a href="single-project-small.html">Custom PHP CMS</a>
+                            <p>
+                                Design / Development
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="isotope-item" data-categories="development photography">
+                    <div class="item-wrapp">
+                        <div class="portfolio-item">
+                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                            <a href="/web/images/portfolio/portfolio-item-9" class="item-preview" data-rel="prettyPhoto"><i class="icon-zoom-in"></i></a>
+                            <img src="/web/images/portfolio/portfolio-item-9.jpg" alt="" />
+                        </div>
+                        <div class="portfolio-item-title">
+                            <a href="single-project-small.html">Joomla Templates</a>
+                            <p>
+                                Design / Development
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="isotope-item" data-categories="design illustration">
+                    <div class="item-wrapp">
+                        <div class="portfolio-item">
+                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                            <a href="/web/images/portfolio/portfolio-item-10.jpg" class="item-preview" data-rel="prettyPhoto"><i class="icon-zoom-in"></i></a>
+                            <img src="/web/images/portfolio/portfolio-item-10.jpg" alt="" />
+                        </div>
+                        <div class="portfolio-item-title">
+                            <a href="single-project-small.html">Custom Magento Theme</a>
+                            <p>
+                                Design / Development
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="isotope-item" data-categories="photography print">
+                    <div class="item-wrapp">
+                        <div class="flexslider portfolio-items-slider slide">
+                            <ul class="slides">
+                                <li><img src="/web/images/portfolio/portfolio-item-11.jpg" alt="" /></li>
+                                <li><img src="/web/images/portfolio/portfolio-item-12.jpg" alt="" /></li>
+                                <li><img src="/web/images/portfolio/portfolio-item-13.jpg" alt="" /></li>
+                            </ul>
+                        </div>
+                        <div class="portfolio-item-title">
+                            <a href="single-project-small.html">T-Shirt Design</a>
+                            <p>
+                                Design / Development
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="isotope-item" data-categories="design development illustration">
+                    <div class="item-wrapp">
+                        <div class="portfolio-item">
+                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                            <a href="/web/images/portfolio/portfolio-item-12.jpg" class="item-preview" data-rel="prettyPhoto"><i class="icon-zoom-in"></i></a>
+                            <img src="/web/images/portfolio/portfolio-item-12.jpg" alt="" />
+                        </div>
+                        <div class="portfolio-item-title">
+                            <a href="single-project-small.html">Video Project</a>
+                            <p>
+                                Design / Development
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="isotope-item" data-categories="print photography">
+                    <div class="item-wrapp">
+                        <div class="portfolio-item">
+                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                            <a href="/web/images/portfolio/portfolio-item-13.jpg" class="item-preview" data-rel="prettyPhoto"><i class="icon-zoom-in"></i></a>
+                            <img src="/web/images/portfolio/portfolio-item-13.jpg" alt="" />
+                        </div>
+                        <div class="portfolio-item-title">
+                            <a href="single-project-small.html">Custom PHP CMS</a>
+                            <p>
+                                Design / Development
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="isotope-item" data-categories="illustration development">
+                    <div class="item-wrapp">
+                        <div class="flexslider portfolio-items-slider slide">
+                            <ul class="slides">
+
+                                <li><img src="/web/images/portfolio/portfolio-item-14.jpg" alt="" /></li>
+                                <li><img src="/web/images/portfolio/portfolio-item-15.jpg" alt="" /></li>
+                            </ul>
+                        </div>
+                        <div class="portfolio-item-title">
+                            <a href="single-project-small.html">Joomla Templates</a>
+                            <p>
+                                Design / Development
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="isotope-item " data-categories="illustration">
+                    <div class="item-wrapp">
+                        <div class="portfolio-item">
+                            <a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>
+                            <a href="/web/images/portfolio/portfolio-item-16.jpg" class="item-preview" data-rel="prettyPhoto"><i class="icon-zoom-in"></i></a>
+                            <img src="/web/images/portfolio/portfolio-item-16.jpg" alt="" />
+                        </div>
+                        <div class="portfolio-item-title">
+                            <a href="single-project-small.html">Font Design</a>
+                            <p>
+                                Design / Development
+                            </p>
+                        </div>
+                    </div>
+                </li>*@
+            </ul>
+
+
+            <!-- Pagination -->
+            <nav class="pagination">
+                <ul>
+                    <li><a href="#">Previous</a></li>
+                    <li><a href="#" class="current">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">Next</a></li>
+                </ul>
+
+            </nav>
+
+
+        </div><!--/.container-->
+    </div>
+</div>

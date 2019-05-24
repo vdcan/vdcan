@@ -4312,6 +4312,8 @@
     <Content Include="web\css\font-awesome\fontawesome-webfont.ttf" />
     <Content Include="web\css\font-awesome\fontawesome-webfont.woff" />
     <Content Include="web\css\font-awesome\FontAwesome.otf" />
+    <Content Include="Views\Home\staff.cshtml" />
+    <Content Include="Views\Home\staff_info.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
