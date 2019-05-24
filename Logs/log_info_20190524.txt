@@ -66,3 +66,12 @@
 [5/24/2019 7:18:41 AM]tmpMenuCode staff
 [5/24/2019 7:19:23 AM]tmpMenuCode staff
 [5/24/2019 7:19:28 AM]tmpMenuCode staff_info
+[5/24/2019 7:25:11 AM]tmpMenuCode index_lan@en
+[5/24/2019 7:25:14 AM]tmpMenuCode about
+[5/24/2019 7:25:14 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/24/2019 7:25:14 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/24/2019 7:25:31 AM]tmpMenuCode staff
+[5/24/2019 7:25:40 AM]tmpMenuCode index_lan@en
+[5/24/2019 7:46:16 AM]tmpMenuCode staff
+[5/24/2019 7:46:23 AM]tmpMenuCode staff_info
+[5/24/2019 7:46:59 AM]tmpMenuCode staff_info

@@ -30,45 +30,53 @@
 
 
         <div class="container main_div" id="abountDiv">
-             
 
-                @{
-                    DataTable dt = (DataTable)ViewData["staff_info"];
-                    if (dt != null)
+
+            @{
+                DataTable dt = (DataTable)ViewData["staff_info"];
+                if (dt != null)
+                {
+                    foreach (DataRow r in dt.Rows)
                     {
-                        foreach (DataRow r in dt.Rows)
-                        {
-         
-            <div class="item-wrapp">
-                <div class="portfolio-item-title">
-                    <h1>  @r["real_name"] </h1>
-                    <p>
-                        Design / Development
-                    </p>
+
+            <div class="one">
+                <div class="one-fourth">
+                    <div class="team-member">
+                        <!-- team member starts -->
+                        <div class="avatar">
+                            <img src="/upload/@r["photo"]" alt=" " />
+                        </div>
+                        <h4> @r["real_name"] </h4>
+                        <h5>Senior Web Developer</h5>
+                        <ul class="social-links alternative">
+                            <!-- header social links starts-->
+                            <li><a href="#" class="twitter tooltip" title="Some Title"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#" class="facebook tooltip" title="Some Title"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#" class="linkedin tooltip" title="Some Title"><i class="icon-linkedin"></i></a></li>
+
+                            <li><a href="#" class="skype tooltip" title="Some Title"><i class="icon-skype"></i></a></li>
+                            <li><a href="#" class="dribbble tooltip" title="Some Title"><i class="icon-dribbble"></i></a></li>
+
+
+                        </ul>
+                    </div>
+                    <!-- team member ends -->
                 </div>
-                <div class="portfolio-item">
-                    @*<a href="single-project-small.html" class="item-permalink"><i class="icon-link"></i></a>*@
-                    <a href="/upload/@r["photo"]" class="item-preview" data-rel="prettyPhoto"><i class="icon-zoom-in"></i></a>
-                    <img src="/upload/thumb/@r["photo"]" alt="" />
-                </div>
-                <div style="float:left;clear:left;">
+                <div class="three-fourth">
 
                     @Html.Raw(r["context"].ToString().Replace("&gt;", ">").Replace("&lt;", "<"))
                 </div>
 
+            </div>
 
-            </div> 
-
-                           
-
-                        }
-                    }
+                }
+                }
                 }
 
 
-                 
 
 
-        </div><!--/.container-->
-    </div>
+
+            </div><!--/.container-->
+                    </div>
 </div>
