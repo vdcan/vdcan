@@ -75,3 +75,61 @@
 [5/24/2019 7:46:16 AM]tmpMenuCode staff
 [5/24/2019 7:46:23 AM]tmpMenuCode staff_info
 [5/24/2019 7:46:59 AM]tmpMenuCode staff_info
+[5/24/2019 8:31:34 AM]tmpMenuCode staff_info
+[5/24/2019 8:31:38 AM]tmpMenuCode index_lan@en
+[5/24/2019 10:08:48 AM]tmpMenuCode about
+[5/24/2019 10:08:48 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/24/2019 10:08:48 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/24/2019 10:08:50 AM]tmpMenuCode about@faq
+[5/24/2019 10:08:52 AM]tmpMenuCode staff
+[5/24/2019 10:09:02 AM]tmpMenuCode staff_info
+[5/24/2019 10:09:06 AM]tmpMenuCode staff
+[5/24/2019 10:09:10 AM]tmpMenuCode staff_info
+[5/24/2019 10:09:17 AM]tmpMenuCode index_lan@en
+[5/24/2019 10:20:31 AM]tmpMenuCode staff
+[5/24/2019 10:20:46 AM]tmpMenuCode staff_info
+[5/24/2019 10:20:56 AM]tmpMenuCode index_lan@en
+[5/24/2019 10:23:59 AM]baseindex jWMm
+[5/24/2019 10:23:59 AM]tmpMenuCode context_admin
+[5/24/2019 10:23:59 AM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=B2qwoJFX6ec0RhO_UOfzHomM31Be-Rd1HOmxQ6GG5zw=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/24/2019 10:23:59 AM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=B2qwoJFX6ec0RhO_UOfzHojFX5GGZZi2ZSf1GSU2x7k=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/24/2019 10:23:59 AM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=B2qwoJFX6ec0RhO_UOfzHnxMr9u9xdM7kNYSDaoFIFU=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/24/2019 10:23:59 AM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=B2qwoJFX6ec0RhO_UOfzHtLtE4htRfdooGF-FKvbAiw=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/24/2019 10:23:59 AM]BaseIndex (context_insert):runproc--ProcedureName:usp_context_insert SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=B2qwoJFX6ec0RhO_UOfzHkmbynOzcmfh5LaxnwKpras=&b=4GRHIgXeC-mJ8NkqxzQK3A==
+[5/24/2019 10:23:59 AM]BaseIndex (context_update):runproc--ProcedureName:usp_context_update SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=B2qwoJFX6ec0RhO_UOfzHgUI5Uv7V26YdupjzY4zV9I=&b=AT1uvy5s0sAyVJm5FMxyKA==
+[5/24/2019 10:23:59 AM]BaseIndex (context_delete):runproc--ProcedureName:usp_context_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=B2qwoJFX6ec0RhO_UOfzHuXnpy5RY0RYOnpFakcJNKc=&b=O-bJu2DgNamHggS5AOV75g==
+[5/24/2019 10:23:59 AM]BaseIndex (context_pager):pager--ProcedureName:usp_context_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=B2qwoJFX6eedczSurJh7vd1w9jmIrq50oN_q8Rcly04=&b=JEIsGfj-vwnf7Todl9g7Qg==
+[5/24/2019 10:24:00 AM]context_admin
+[5/24/2019 10:24:00 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/24/2019 10:24:10 AM]baseindex jWMmpw
+[5/24/2019 10:24:10 AM]tmpMenuCode sm_user
+[5/24/2019 10:24:10 AM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=B2qwoJFX6ecpaZlGlvsWO60ITc43eUMeVnaUaANmiTw=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[5/24/2019 10:24:10 AM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=B2qwoJFX6ecjdIbaUy-0CUG5rUGtF_NKxLqO_br1BJI=&b=JEIsGfj-vwmcs228uo_YyQ==
+[5/24/2019 10:24:10 AM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=B2qwoJFX6ecjdIbaUy-0CRxll7x6PiXgsLPuLnZsNdo=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[5/24/2019 10:24:10 AM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=B2qwoJFX6ecjdIbaUy-0CVAu5D3j5uqeWFBsxc2KPr4=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[5/24/2019 10:24:10 AM]BaseIndex (UserInfo_pager):pager--ProcedureName:usp_UserInfo_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=B2qwoJFX6ecjdIbaUy-0CUa-TdTbPxCpXUaHkes2Vkg=&b=JEIsGfj-vwkkUoW4gKVppQ==
+[5/24/2019 10:24:10 AM]BaseIndex (UserInfo_insert):runproc--ProcedureName:usp_UserInfo_insert SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=B2qwoJFX6ecjdIbaUy-0Cao2dJj_WhyTcntK0trpoN4=&b=h5lboH8KXVP2QvBIUBSrLQ==
+[5/24/2019 10:24:10 AM]BaseIndex (UserInfo_update):runproc--ProcedureName:usp_UserInfo_update SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=B2qwoJFX6edtUhK3-wxEYo0tIAp-BNu49bfiOG56rXA=&b=wo8BSWRXC6EfX5g93qllkg==
+[5/24/2019 10:24:10 AM]BaseIndex (UserInfo_delete):runproc--ProcedureName:usp_UserInfo_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=B2qwoJFX6edtUhK3-wxEYr6DdSiZGEvEgAomKakkYIc=&b=O-bJu2DgNamnBgNiWLeiwQ==
+[5/24/2019 10:24:10 AM]sm_user
+[5/24/2019 10:24:10 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[5/24/2019 10:28:55 AM]tmpMenuCode index_lan@en
+[5/24/2019 10:28:59 AM]tmpMenuCode index_lan@en
+[5/24/2019 10:52:03 AM]tmpMenuCode index_lan@en
+[5/24/2019 10:52:11 AM]tmpMenuCode index_lan@en
+[5/24/2019 10:52:13 AM]tmpMenuCode about
+[5/24/2019 10:52:13 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/24/2019 10:52:13 AM]can not find parameter type ProcedureName:usp_context_list SQL: Type:proc ConnStr:app ActionType:
+[5/24/2019 10:52:15 AM]tmpMenuCode about@faq
+[5/24/2019 10:52:17 AM]tmpMenuCode staff
+[5/24/2019 11:22:27 AM]tmpMenuCode index_lan@en
+[5/24/2019 11:26:19 AM]tmpMenuCode index_lan@en
+[5/24/2019 11:26:54 AM]tmpMenuCode index_lan@en
+[5/24/2019 11:49:15 AM]tmpMenuCode index_lan@en
+[5/24/2019 11:49:27 AM]tmpMenuCode index_lan@en
+[5/24/2019 11:49:30 AM]tmpMenuCode index_lan@en
+[5/24/2019 11:49:33 AM]tmpMenuCode index_lan@en
+[5/24/2019 11:49:37 AM]tmpMenuCode index_lan@en
+[5/24/2019 11:50:45 AM]tmpMenuCode index_lan@en
+[5/24/2019 11:50:57 AM]tmpMenuCode index_lan@en
+[5/24/2019 11:50:59 AM]tmpMenuCode index_lan@en

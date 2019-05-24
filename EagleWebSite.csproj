@@ -582,6 +582,7 @@
     <Content Include="img\c9.jpg" />
     <Content Include="img\logo.png" />
     <Content Include="img\p0.jpg" />
+    <Content Include="Javascripts\app2.js" />
     <Content Include="Javascripts\app.js" />
     <Content Include="Javascripts\app\calendar\calendar.js" />
     <Content Include="Javascripts\app\contact\contact.js" />
