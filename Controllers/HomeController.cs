@@ -407,20 +407,7 @@ namespace JSBase.Controllers
 
         [AllowAnonymous]
         public HtmlResult GetNavigation()
-        {
-            //string p = Server.MapPath("/");
-            //p = p + "\\tpl\\";
-
-            //string root_path = p;
-
-
-            //string result = System.IO.File.ReadAllText(root_path + "/config.router.js");
-
-
-            //ProcInfo pinfo = new ProcInfo();
-            //pinfo.ProcedureName = "usp_angular_state_list";
-            //pinfo.SQL = "";
-            //pinfo.Type = "proc";
+        { 
             JObject data = new JObject();
             DataTable dt = base.RunProcedureDataTable(data, "vdp_get_menu_angular");
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
