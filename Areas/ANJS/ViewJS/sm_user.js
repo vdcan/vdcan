@@ -335,6 +335,27 @@ app.controller('UserInfoCtrl', [
                 }
             });
         }
+        $scope.staff = function (id) {
+            var parms = { puser_id: id }
+            com.ajax({
+                type: 'POST', url: km.model.urls["update_to_staff"], data: parms, success: function (result) {
+
+                    if (result.s) {
+                        var r = result.dt[0];
+
+                        r.editrow = false;
+                        var iterator = Object.keys(r);
+                        for (let key of iterator) {
+                            if (key.indexOf("$") < 0) {
+                                $scope.SelectedRow.entity[key] = r[key];
+                            }
+                        }
+                        $scope.afterUpdate();
+                    }
+                    $scope.showResult(result, "Staff");
+                }
+            });
+        }
         $scope.afterDelete = function (row) {
             if ($scope.UserInfogridOptions.totalItems > (paginationOptions.pageNumber) * paginationOptions.pageSize) {
                 $scope.UserInfogridOptions.data.push(row);
@@ -467,14 +488,18 @@ app.controller('UserInfoCtrl', [
   //{ field: 'spell', displayName: '拼写', width: 80, align: 'center',
   //  },
   { field: 'user_code', displayName: '用户代码', width: 80, align: 'center',
-    },
+                    },
+
+
+                   
   //{ field: 'user_type', displayName: '用户类型', width: 80, align: 'center',
   //  },
  {
-                        name: 'Actions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
+     name: '1Actions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
                         cellTemplate: '<div><button  class="btn primary" ng-click="grid.appScope.EditPopup(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
+                            '<button  class="btn primary" ng-click="grid.appScope.staff(row.entity.id)"><i class="fa  fa-cogs"></i></button>' +//Save Button
                             '<button  class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
-                                   '</div>', width: 80
+                                   '</div>', width: 120
                     }
   
                 ],
@@ -512,7 +537,8 @@ app.controller('UserInfoCtrl', [
                 + "&rows=" + paginationOptions.pageSize + "&sort=" + paginationOptions.sort + "&order=" +
                 paginationOptions.order +   "&_t="+com.settings.timestamp()).success(function (result) {
    	 								result.rows.forEach(function (d) {
-                        d.editrow = false;
+                                                    d.editrow = false;
+                                                    d.context = d.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
                     });
                     $scope.UserInfogridOptions.totalItems  = result.total;
                     $scope.UserInfogridOptions.data = result.rows;
