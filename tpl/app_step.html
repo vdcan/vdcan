@@ -1,0 +1,139 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <title>Shifter - Responsive HTML5 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/web/images/favicon.gif" />
+    <!--<link rel="stylesheet" href="/web/css/style.css" media="screen" />--><!-- MAIN STYLE CSS FILE -->
+    <link rel="stylesheet" href="/web/css/responsive.css" media="screen" /><!-- RESPONSIVE CSS FILE -->
+    <link rel="stylesheet" id="style-color" href="/web/css/colors/blue-color.css" media="screen" /><!-- DEFAULT BLUE COLOR CSS FILE -->
+    <link rel="stylesheet" href="/web/css/prettyPhoto.css" media="screen" /><!--PRETTYPHOTO CSS FILE -->
+    <link rel="stylesheet" href="/web/css/font-awesome/font-awesome.min.css" media="screen" /><!-- FONT AWESOME ICONS CSS FILE -->
+    <link rel="stylesheet" href="/web/css/layer-slider.css" media="screen" /><!-- LAYER SLIDER CSS FILE -->
+    <link rel="stylesheet" href="/web/css/flexslider.css" media="screen" /><!-- FLEX SLIDER CSS FILE -->
+    <link rel="stylesheet" href="/web/css/revolution-slider.css" media="screen" /><!-- REVOLUTION SLIDER CSS FILE -->
+    <style>
+
+
+        #multi-steps > li.is-active:before, #multi-steps > li.is-active ~ li:before {
+            content: counter(stepNum);
+            font-family: inherit;
+            font-weight: 700;
+        }
+
+        #multi-steps > li.is-active:after, #multi-steps > li.is-active ~ li:after {
+            background-color: #ededed;
+        }
+
+        #multi-steps {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        #multi-steps > li {
+            counter-increment: stepNum;
+            text-align: center;
+            display: table-cell;
+            position: relative;
+            color: tomato;
+        }
+
+                #multi-steps > li:before {
+                    content: '\f00c';
+                    content: '\2713;';
+                    content: '\10003';
+                    content: '\10004';
+                    content: '\2713';
+                    display: block;
+                    margin: 0 auto 4px;
+                    background-color: #fff;
+                    width: 36px;
+                    height: 36px;
+                    line-height: 32px;
+                    text-align: center;
+                    font-weight: bold;
+                    border-width: 2px;
+                    border-style: solid;
+                    border-color: tomato;
+                    border-radius: 50%;
+                }
+
+                #multi-steps > li:after {
+                    content: '';
+                    height: 2px;
+                    width: 100%;
+                    background-color: tomato;
+                    position: absolute;
+                    top: 16px;
+                    left: 50%;
+                    z-index: -1;
+                }
+
+               #multi-steps > li:last-child:after {
+                    display: none;
+                }
+
+        #multi-steps > li.is-active:before {
+            background-color: #fff;
+            border-color: tomato;
+        }
+
+        #multi-steps > li.is-active ~ li {
+            color: #808080;
+        }
+
+            #multi-steps > li.is-active ~ li:before {
+                background-color: #ededed;
+                border-color: #ededed;
+            }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+         
+            
+        <div class="container">
+            <div class="one-half">
+                <a href="/" id="logo" style="float:left; padding: 10px; text-align: left;"> Eagle Online </a>
+            </div>
+            <div class="container ">
+                <br /><br />
+                <ul class="list-unstyled multi-steps" id="multi-steps">
+                    <li class="st1">Start</li>
+                    <li  class="st2">First Step</li>
+                    <li class=" st3 is-active">Middle Stage</li>
+                    <li class=" st4 ">Finish</li>
+                </ul>
+            </div>
+
+
+            <div class="app-content-body fade-in-up container-fluid h-100" ui-view></div>
+
+        </div> 
+
+
+           
+          
+        </div>
+        <!-- main wrapp starts--> 
+    <!-- main container ends-->
+
+
+    <script type="text/ng-template" id="IframeDialog">
+        <div class="modal-header">
+            {{Title}}
+        </div>
+        <div class="modal-body">
+            <iframe src="{{URL}}" frameborder="0" width="100%" height="{{hight}}" scrolling="no" style="overflow:hidden;" allowtransparency="true"></iframe>
+        </div>
+        <div class="modal-footer">
+            <button ng-click="ok()" ng-hide="{{HideOk}}" class="btn btn-primary">{{OkText}}</button>
+            <button ng-click="cancel()" ng-hide="{{HideClose}}" class="btn">{{CloseText}}</button>
+        </div>
+
+    </script>
+
+</body>
+</html>

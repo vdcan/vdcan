@@ -258,6 +258,17 @@ app.controller('editorCtrl', ['$scope', 'textAngularManager', '$timeout', '$http
 
 
     }
+    $scope.color = function (newText) {
+        var editor = textAngularManager.retrieveEditor('item_bodyHTML').scope;
+
+        $timeout(function () {
+            editor.displayElements.text.trigger('focus');
+            editor.wrapSelection('insertHTML',"<span style='color:red'>"+ newText+"</span>", true);
+        });
+       // editor.wrapSelection('foreColor', "red");
+
+
+    }
 
     $scope.insertToHtml2 = function (newText) {
         var editor = textAngularManager.retrieveEditor('item_bodyHTML')

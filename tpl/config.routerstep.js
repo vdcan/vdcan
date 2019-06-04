@@ -19,10 +19,64 @@ angular.module('app')
             function ($stateProvider, $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG) {
           
           $urlRouterProvider
-              .otherwise('/access/signin');
+              .otherwise('/access/step1');
           $stateProvider
                 ###DETAIL###   
 
+                
+              .state('access.step1', {
+                    url: '/step1',
+                    templateUrl: '/tpl/page_step1.html',
+                    resolve: {
+                        deps: ['uiLoad',
+                            function (uiLoad) {
+                                return uiLoad.load(['/Javascripts/controllers/steps.js']);
+                            }]
+                    }
+                })
+
+                    .state('access.step2', {
+                        url: '/step2',
+                        templateUrl: '/tpl/page_step2.html',
+                        resolve: {
+                            deps: ['uiLoad',
+                                function (uiLoad) {
+                                    return uiLoad.load(['/Javascripts/controllers/steps.js']);
+                                }]
+                        }
+                    })
+                    .state('access.step3', {
+                        url: '/step3',
+                        templateUrl: '/tpl/page_step3.html',
+                        resolve: {
+                            deps: ['uiLoad',
+                                function (uiLoad) {
+                                    return uiLoad.load(['/Javascripts/controllers/steps.js']);
+                                }]
+                        }
+                    })
+
+                    .state('access.step4', {
+                        url: '/step4',
+                        templateUrl: '/tpl/page_step4.html',
+                        resolve: {
+                            deps: ['uiLoad',
+                                function (uiLoad) {
+                                    return uiLoad.load(['/Javascripts/controllers/steps.js']);
+                                }]
+                        }
+                    })
+
+                    .state('access.step5', {
+                        url: '/step5',
+                        templateUrl: '/tpl/page_step5.html',
+                        resolve: {
+                            deps: ['uiLoad',
+                                function (uiLoad) {
+                                    return uiLoad.load(['/Javascripts/controllers/steps.js']);
+                                }]
+                        }
+                    })
                 .state('app', {
                     url: '/app',
                     templateUrl: '/tpl/popup.html',
@@ -63,7 +117,7 @@ angular.module('app')
                     })
               .state('access', {
                     url: '/access',
-                  templateUrl: '/tpl/app_nomenu.html'
+                  templateUrl: '/tpl/app_step.html'
                    // template: '<div ui-view class="fade-in-right-big smooth">Access</div>'
                 })
                  .state('access.signin', {

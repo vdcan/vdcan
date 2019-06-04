@@ -5,7 +5,14 @@ app.controller('SignupFormController', ['$scope', '$http', '$state', function($s
     $scope.user = {};
     $scope.user.type ="teacher";
     $scope.authError = null;
-    
+
+
+    $scope.slider = {
+        value: 'E',
+        options: {
+            stepsArray: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('') // equals to ['A', 'B', ... 'Z']
+        }
+    };
     $scope.signup = function () {
         console.log($scope.user)
       $scope.authError = null;

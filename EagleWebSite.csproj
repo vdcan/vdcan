@@ -612,6 +612,7 @@
     <Content Include="Javascripts\controllers\select.js" />
     <Content Include="Javascripts\controllers\signin.js" />
     <Content Include="Javascripts\controllers\mainController.js" />
+    <Content Include="Javascripts\controllers\steps.js" />
     <Content Include="Javascripts\controllers\signup.js" />
     <Content Include="Javascripts\controllers\slider.js" />
     <Content Include="Javascripts\controllers\tab.js" />
@@ -636,6 +637,7 @@
     <Content Include="Javascripts\l10n\de_DE.js" />
     <Content Include="Javascripts\l10n\en.js" />
     <Content Include="Javascripts\l10n\it_IT.js" />
+    <Content Include="Javascripts\step.config.router.js" />
     <Content Include="Javascripts\main.js" />
     <Content Include="Javascripts\mygrid.js" />
     <Content Include="Javascripts\ng.js" />
@@ -896,6 +898,15 @@
     <Content Include="fonts\sourcesanspro\sourcesanspro.woff" />
     <Content Include="Areas\ANJS\Views\Home\angular_test.cshtml" />
     <Content Include="Areas\ANJS\Views\Home\angular_side.cshtml" />
+    <Content Include="tpl\app_step.html" />
+    <Content Include="tpl\app_nomenu.html" />
+    <Content Include="tpl\config.routerstep.js" />
+    <Content Include="tpl\page_step5.html" />
+    <Content Include="tpl\page_step4.html" />
+    <Content Include="tpl\page_step3.html" />
+    <Content Include="tpl\page_step2.html" />
+    <Content Include="tpl\page_step1.html" />
+    <Content Include="Views\Home\page_signin.html" />
     <Content Include="web\css\assets\arrowleft.png" />
     <Content Include="web\css\assets\arrowright.png" />
     <Content Include="web\css\assets\arrow_large_left.png" />
@@ -4316,6 +4327,7 @@
     <Content Include="web\css\font-awesome\FontAwesome.otf" />
     <Content Include="Views\Home\staff.cshtml" />
     <Content Include="Views\Home\staff_info.cshtml" />
+    <Content Include="Views\Home\steps.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
