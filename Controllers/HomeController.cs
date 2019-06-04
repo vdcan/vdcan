@@ -115,7 +115,16 @@ namespace JSBase.Controllers
           //  / Login ?#/access/signin
             if (!FormsAuth.IsAuthenticated)
                 return RedirectToAction("Index", "Login");
+            if(CurrentUser.Status != "")
+            {
+                JObject data2 = new JObject();
+                data2["add_by"] = CurrentUser.UserId; ;
+                DataTable dt4 = base.RunProcedureDataTable(data2, "usp_vd_user_get_status");
+                string status = dt4.Rows[0]["status"].ToString();
 
+                if(status!="")
+                return Redirect("/home?mc=steps#/access/"+ status);
+            }
             initLan();
 
 

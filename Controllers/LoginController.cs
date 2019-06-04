@@ -105,6 +105,7 @@ namespace JSBase.Controllers
                 b.UserId = (int)dt.Tables[1].Rows[0]["id"];
                 b.UserCode = (String)dt.Tables[1].Rows[0]["user_code"];
                 b.Photo = (String)dt.Tables[1].Rows[0]["photo"];
+                b.Status = (String)dt.Tables[1].Rows[0]["status"];
 
                 b.RoleIDs = (string)dt.Tables[1].Rows[0]["role_ids"];
                 b.DepartmentCode = ((int)dt.Tables[1].Rows[0]["department_id"]).ToString();
@@ -115,6 +116,7 @@ namespace JSBase.Controllers
                   //  Password = (string)dt.Tables[1].Rows[0]["Password"],// user.Password,
                     UserName = (string)dt.Tables[1].Rows[0]["real_name"],// user.RealName,
                     RoleIDs = (string)dt.Tables[1].Rows[0]["role_ids"],
+                    Status = (string)dt.Tables[1].Rows[0]["status"],
                     //  DepartmentCode =((int)dt.Tables[1].Rows[0]["DepartmentID"]).ToString(),
                     Data = b,
                     IsAdmin = false// user.UserType == 1  //根据用户UserType判断。用户类型：0=未定义 1=超级管理员 2=普通用户 3=其他

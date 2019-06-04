@@ -31,13 +31,13 @@
             width: 100%;
         }
 
-        #multi-steps > li {
-            counter-increment: stepNum;
-            text-align: center;
-            display: table-cell;
-            position: relative;
-            color: tomato;
-        }
+            #multi-steps > li {
+                counter-increment: stepNum;
+                text-align: center;
+                display: table-cell;
+                position: relative;
+                color: #169fe6;
+            }
 
                 #multi-steps > li:before {
                     content: '\f00c';
@@ -55,7 +55,7 @@
                     font-weight: bold;
                     border-width: 2px;
                     border-style: solid;
-                    border-color: tomato;
+                    border-color: #169fe6;
                     border-radius: 50%;
                 }
 
@@ -63,7 +63,7 @@
                     content: '';
                     height: 2px;
                     width: 100%;
-                    background-color: tomato;
+                    background-color: #169fe6;
                     position: absolute;
                     top: 16px;
                     left: 50%;
@@ -74,10 +74,10 @@
                     display: none;
                 }
 
-        #multi-steps > li.is-active:before {
-            background-color: #fff;
-            border-color: tomato;
-        }
+                #multi-steps > li.is-active:before {
+                    background-color: #fff;
+                    border-color: #169fe6;
+                }
 
         #multi-steps > li.is-active ~ li {
             color: #808080;
@@ -101,9 +101,9 @@
             <div class="container ">
                 <br /><br />
                 <ul class="list-unstyled multi-steps" id="multi-steps">
-                    <li class="st1">Start</li>
-                    <li  class="st2">First Step</li>
-                    <li class=" st3 is-active">Middle Stage</li>
+                    <li class="st1">Step 1</li>
+                    <li class="st2">Step 2</li>
+                    <li class=" st3  ">Step 3</li>
                     <li class=" st4 ">Finish</li>
                 </ul>
             </div>
