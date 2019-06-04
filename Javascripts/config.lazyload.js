@@ -108,7 +108,10 @@ angular.module('app')
               {
                   name: 'textAngular',
                   files: [
+                      //'/Javascripts/vendor/modules/textAngular/textAngular-sanitize.min.js',
+                      //'/Javascripts/vendor/modules/textAngular/textAngular.min.js'
                       '/Javascripts/vendor/modules/textAngular/textAngular-sanitize.min.js',
+                      '/Javascripts/vendor/modules/textAngular/textAngular-rangy.min.js',
                       '/Javascripts/vendor/modules/textAngular/textAngular.min.js'
                   ]
               },

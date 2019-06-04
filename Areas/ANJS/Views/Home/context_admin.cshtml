@@ -158,14 +158,14 @@
 
                         <div lazy-load="textAngular" ng-controller="editorCtrl as vm">
                             @*<select ng-change="formatDoc('forecolor');this.selectedIndex=0;" ng-model="color">
-                                <option class="heading" selected>- color -</option>
-                                <option value="red">Red</option>
-                                <option value="blue">Blue</option>
-                                <option value="green">Green</option>
-                                <option value="black">Black</option>
-                            </select>*@
-                            <span class="thumb-lg w-auto-folded avatar m-t-sm">
-                                <img src="/upload/thumb/a5.png" class="img-full" alt="...">
+            <option class="heading" selected>- color -</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="black">Black</option> avatarthumb-lg
+        </select>*@
+                            <span class="w-auto-foldedm-t-sm avatar thumb-lg">
+                                <img src="/img/upload.png" class="img-full" alt="..." style="width: 20px; height:20px;">
 
                                 <input type="file" id="wizard-picture" style=" cursor: pointer;
             display: block;
@@ -178,7 +178,7 @@
 
                             </span>
 
-                            <a ng-click="insertToHtml('fdsaf')">insert</a>
+                            @*<a ng-click="insertToHtml('fdsaf')">insert</a>*@
                             <div id="item_bodyHTML" name="item_bodyHTML" ta-disabled="!row.editrow" text-angular ng-model="row.context" class="btn-groups" style="height:300px;"></div>
                         </div>
 

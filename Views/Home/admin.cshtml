@@ -97,9 +97,13 @@
     <script src="/Javascripts/controllers/signup.js"></script>
     <script src="~/Javascripts/controllers/mainController.js"></script>
 
-    <script src="/Javascripts/vendor/modules/textAngular/textAngular-sanitize.min.js"></script>
-    <script src="/Javascripts/vendor/modules/textAngular/textAngular.min.js"></script> 
+    <link rel="stylesheet" href="http://textangular.com/dist/textAngular.css" type="text/css">
+    @*<script src="/Javascripts/vendor/modules/textAngular/textAngular-sanitize.min.js"></script>
+        <script src="/Javascripts/vendor/modules/textAngular/textAngular.min.js"></script>*@
 
+    <script src="/Javascripts/vendor/modules/textAngular/textAngular-sanitize.min.js"></script>
+    <script src="/Javascripts/vendor/modules/textAngular/textAngular-rangy.min.js"></script>
+    <script src="/Javascripts/vendor/modules/textAngular/textAngular.min.js"></script>
     <script>
 
          var userinfo_string = '@Html.Raw(ViewData["UserInfo"].ToString().Replace("\r\n",""))';

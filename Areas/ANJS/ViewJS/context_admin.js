@@ -273,7 +273,7 @@ app.controller('editorCtrl', ['$scope', 'textAngularManager', '$timeout', '$http
 }]); 
  
 app.controller('contextCtrl', [
-    '$scope', '$rootScope', '$http', '$modal', '$q', function ($scope, $rootScope, $http, $modal, $q, textAngularManager) {
+    '$scope', '$rootScope', '$http', '$modal', '$q','textAngularManager', function ($scope, $rootScope, $http, $modal, $q, textAngularManager) {
         $scope.SelectedRow = {};//for getting row detail
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting

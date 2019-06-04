@@ -497,8 +497,8 @@ app.controller('UserInfoCtrl', [
  {
      name: '1Actions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
                         cellTemplate: '<div><button  class="btn primary" ng-click="grid.appScope.EditPopup(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
-                            '<button  class="btn primary" ng-click="grid.appScope.staff(row.entity.id)"><i class="fa  fa-cogs"></i></button>' +//Save Button
-                            '<button  class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
+                            '<button  class="btn primary" ng-hide="!row.entity.flag_update_to_staff" ng-click="grid.appScope.staff(row.entity.id)"><i class="fa  fa-cogs"></i></button>' +//Save Button
+                            '<button  class="btn primary"  ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
                                    '</div>', width: 120
                     }
   
