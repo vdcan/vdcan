@@ -19,7 +19,7 @@ angular.module('app')
             function ($stateProvider, $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG) {
           
           $urlRouterProvider
-              .otherwise('/access/step');
+              .otherwise('/access');
                 $stateProvider
                 ###DETAIL###   
               .state('access.steps33', {

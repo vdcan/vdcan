@@ -81,7 +81,11 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
             method: 'POST',
             url: km.model.urls["steps_edit"],
             data: $scope.row
-        }).then(function successCallback(response) {
+          }).then(function successCallback(response) {
+
+               
+              document.location = "/home?mc=steps#/access/" + response.data.dt[0]["mystatus"]; 
+
             $scope.showResult(response.data, "Save");
 
         }, function errorCallback(response) {
@@ -125,7 +129,12 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
         //$scope.row.editrow = true;
         //$scope.row_old = data;
 
-
+        if (data["mystatus"] != "steps") {
+           // console.log(data["mystatus"]);
+           // console.log(data);
+            document.location = "/home?mc=steps#/access/" + data["mystatus"];
+            return;
+        }
         $http.post('http://ip-api.com/json/' + gIP)
             .then(function (response) {
 
