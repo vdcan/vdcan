@@ -81,6 +81,29 @@ namespace JSBase.Areas.anjs.Controllers
             return BaseIndex(menucode);
 
         }
+
+        public ActionResult Steps(string mc)
+        {
+            initLan();
+            //JObject data2 = new JObject();
+            //data2["slanguage"] = Session["slanguage"].ToString();
+
+            //ProcInfo pi = new ProcInfo("vdp_get_home_menu", "sys");
+            //JObject data = new JObject();
+            //SetData(pi, data2);
+
+            //DataTable dt3 = base.RunProcedureDataTable(data2, pi);// base.RunProcedureDataTable(data2, "vdp_get_home_menu");
+            //ViewData["menu"] = dt3;
+            //if (mc != null && mc.Trim().Length > 0)
+            //{
+            //}
+            //else
+            //    mc = "index_lan";
+            //ViewData["mc"] = mc;
+
+            mc = mc.Replace("_lan", "_lan@" + Session["slanguage"].ToString());
+            return BaseIndexA(mc);
+        }
         public ActionResult t2()
         {
             // Session["ActionFrom"] = "readfile";

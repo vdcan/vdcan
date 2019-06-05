@@ -19,11 +19,22 @@ angular.module('app')
             function ($stateProvider, $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG) {
           
           $urlRouterProvider
-              .otherwise('/access/step1');
-          $stateProvider
+              .otherwise('/access/steps');
+                $stateProvider
                 ###DETAIL###   
-
-                
+              .state('access.steps33', {
+                  url: '/steps',
+                  templateUrl: '/anjs/home?menucode=jWMm',
+                  resolve:
+                  //{
+                  //    deps: ['uiLoad',
+                  //        function (uiLoad) {
+                  //            return uiLoad.load(['areas/anjs/viewjs/steps.js?test=220652019316PM']);
+                  //        }]
+                  //  },
+                load(["/areas/anjs/viewjs/steps.js?test=220652019316PM"]),
+                  cache: false
+              })
               .state('access.step1', {
                     url: '/step1',
                     templateUrl: '/tpl/page_step1.html',
