@@ -129,11 +129,11 @@ $(document).ready(function ($) {
 /*----------------------------------------------------------*/
 /*              7 - TWITTER PLUGIN JQUERY                 */
 /*----------------------------------------------------------*/
-        if ($('.twitter-feeds').length && jQuery()) {
-            $.getJSON('twitter.php?url=' + encodeURIComponent('statuses/user_timeline.json?screen_name=trendyWebStar&count=1'), function (tweets) { //Put your username here
-                $(".twitter-feeds").html(tz_format_twitter(tweets));
-            });
-        }
+        //if ($('.twitter-feeds').length && jQuery()) {
+        //    $.getJSON('twitter.php?url=' + encodeURIComponent('statuses/user_timeline.json?screen_name=trendyWebStar&count=1'), function (tweets) { //Put your username here
+        //        $(".twitter-feeds").html(tz_format_twitter(tweets));
+        //    });
+        //}
 /*----------------------------------------------------------*/
 /*              8 - PORTFOLIO ISOTOPE JQUERY                */
 /*----------------------------------------------------------*/
