@@ -14,16 +14,7 @@
 var km = {}; 
 km.init = function () {
 }
- 
-
-   
- 
-//------------------------------------------------------------------------------ 
-//       ʱ�� 2019-06-05
-//       ���� 蔡捷   
-//			   
-//------------------------------------------------------------------------------  
- 
+  
 app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$modal', '$http', function ($scope, $rootScope, $stateParams, $modal, $http) {
     /*  var id = $stateParams.id;
       var number = $stateParams.number;
@@ -34,7 +25,7 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
     $scope.loader = function (param) { 
         return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
     };
-    $scope.DDLData  = {};
+    $scope.DDLData = km.ddls || {};
     $scope.getDDL = function (param) {
         console.log(param);
         if (typeof $scope.DDLData == "undefined")
@@ -48,7 +39,7 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
         }).then(function successCallback(response) {
             //console.log(response.data);
             $scope.DDLData[param] = response.data;
-        console.log($scope.DDLData);
+        //console.log($scope.DDLData);
             return $scope.DDLData[param];
             // this callback will be called asynchronously
             // when the response is available
@@ -123,7 +114,6 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
 
         $http.post('http://ip-api.com/json/' + gIP)
             .then(function (response) {
-                console.log(response.data);
 
                 var d = new Date();
                 var n = d.getTimezoneOffset();
@@ -134,14 +124,15 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
                 //console.log(d.toUTCString())
 
 
-                var keys = Object.keys(data);
+                var keys = Object.keys(response.data);
                 keys.forEach(function (k) {
                     data[k] = response.data[k];
                 });
                 data["state"] = response.data["regionName"];
                 data["time_zone_offset"] = n;
-                data["time_zone"] = response.data["timezone"];;
+                data["time_zone"] = response.data["timezone"];
 
+                console.log(data);
         $scope.row = Object.assign({}, data);
         $scope.row.editrow = true;
         $scope.row_old = data;

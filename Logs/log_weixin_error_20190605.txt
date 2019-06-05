@@ -1,0 +1,30 @@
+[6/5/2019 2:22:33 PM] GetSysText : 过程或函数 'usp_steps_edit' 需要参数 '@id'，但未提供该参数。
+ExecptionMessage：Syntax error: Missing operand after 'usp_steps_edit' operator.
+ex.Source：System.Data
+ex.StackTrace：   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+All：System.Data.SyntaxErrorException: Syntax error: Missing operand after 'usp_steps_edit' operator.
+   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+
+[6/5/2019 2:22:53 PM] GetSysText : 过程或函数 'usp_steps_edit' 需要参数 '@id'，但未提供该参数。
+ExecptionMessage：Syntax error: Missing operand after 'usp_steps_edit' operator.
+ex.Source：System.Data
+ex.StackTrace：   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+All：System.Data.SyntaxErrorException: Syntax error: Missing operand after 'usp_steps_edit' operator.
+   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+

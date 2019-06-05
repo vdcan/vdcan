@@ -1,166 +1,167 @@
 ﻿
-@{
-    //------------------------------------------------------------------------------
-    //        Date  2019-06-05
-    //        Author  蔡捷
-    //			 				steps
-    //        File  steps.cshtml  Page file
-    //------------------------------------------------------------------------------
-
+@{ 
+//------------------------------------------------------------------------------ 
+//        Date  2019-06-05
+//        Author  蔡捷   
+//			 				steps 
+//        File  steps.cshtml  Page file 
+//------------------------------------------------------------------------------
+ 
     ViewBag.Title = "steps";
     Layout = null;
 }
 
 @section head{
-    <style type="text/css">
+  <style type="text/css">
+       
     </style>
 }
+ 
 
-
-<script type="text/javascript">
+    <script type="text/javascript">
         var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
-       km.model = JSON.parse(model_string);
+       km.model = JSON.parse(model_string); 
      var ddls_string = '@Html.Raw(ViewData["DLLS"].ToString().Replace("\r\n",""))';
     km.ddls = JSON.parse(ddls_string);
-
-
+    
       var gIP = '59.110.148.199';// '104.255.209.14';//'24.48.0.1';//@Request.ServerVariables["REMOTE_ADDR"]';
-</script>
-
+    </script>
+ 
 <div class="row">
-    <div class="col-sm-12">
+ <div class="col-sm-12">
+ 
+        
+    	 
+     <div ng-controller="stepsDetailCtrl">
+         <div class="modal-header">
+             steps
+         </div>
+         <div class="col-sm-6">
+             @*<div class="form-group">
+                 <label>Add By</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>Add On</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
+                 </p>
+             </div>*@
+             <div class="form-group">
+                 <label>City</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.city">
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>Country</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.country">
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>Education</label>
+                 <p>
+                     <select ui-select ng-disabled="!row.editrow" ng-init="getDDL('education')" class="form-control m-b" ng-model="row.education"><option data-ng-repeat="d in DDLData['education']" value="{{d.id}}">{{ d.text }}</ option ></select>
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>Experience</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.experience">
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>First Name</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.first_name">
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>Gender</label>
+                 <p>
+                     <select name="gender" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.gender"><option value="m">Male</option><option value="f">Famle</option></select>
+                 </p>
+             </div>
 
+         </div>
+         <div class="col-sm-6">
+             <div class="form-group">
+                 <label>Languages</label>
+                 <p>
+                     <select ui-select ng-disabled="!row.editrow" ng-init="getDDL('languages')" class="form-control m-b" ng-model="row.languages"><option data-ng-repeat="d in DDLData['languages']" value="{{d.id}}">{{ d.text }}</ option ></select>
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>Last Name</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.last_name">
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>Middle Name</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.middle_name">
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>Phone</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.phone">
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>State</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.state">
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>Teaching Years</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.teaching_years">
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>Time Zone</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.time_zone">
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>Time Zone Offset</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.time_zone_offset">
+                 </p>
+             </div>
+             @*<div class="form-group">
+                 <label>User Id</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.user_id">
+                 </p>
+             </div>
+             <div class="form-group">
+                 <label>Where Info</label>
+                 <p>
+                     <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.where_info">
+                 </p>
+             </div>*@
 
+         </div>
+         <div class="modal-footer">
+             <div class=" stepsDetailButtons"  >
+                 <button ng-click="save()" class="btn btn-primary">Save</button>
+                 <button ng-click="cancel()" class="btn">Cancel</button>
 
-        <div ng-controller="stepsDetailCtrl">
-            <div class="modal-header">
-                steps
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Add By</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Add On</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>City</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.city">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Country</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.country">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Education</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.education">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Experience</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.experience">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>First Name</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.first_name">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Gender</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.gender">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Languages</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.languages">
-                    </p>
-                </div>
-
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Last Name</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.last_name">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Middle Name</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.middle_name">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Phone</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.phone">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>State</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.state">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Teaching Years</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.teaching_years">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Time Zone</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.time_zone">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Time Zone Offset</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.time_zone_offset">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>User Id</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.user_id">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Where Info</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.where_info">
-                    </p>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <div class=" stepsDetailButtons"  >
-                    <button ng-click="save()" class="btn btn-primary">Save</button>
-                    <button ng-click="cancel()" class="btn">Cancel</button>
-
-                </div>
-            </div>
-        </div>
-    </div>
+             </div>
+         </div>
+     </div> 
+    	
+    </div> 
 </div>
 <div style='display:none'>
-
+	
 </div>
-
+ 
