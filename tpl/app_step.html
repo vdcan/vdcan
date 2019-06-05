@@ -92,7 +92,12 @@
 </head>
 <body>
     <div id="container">
-
+        <div style="position:absolute; left : -100px;">
+            <div class="wrapper-md" ng-controller="SysToasterCtrl">
+                <!-- toaster directive -->
+                <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+            </div>
+        </div>
 
         <div class="container">
             <div class="one-half">

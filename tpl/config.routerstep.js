@@ -19,7 +19,7 @@ angular.module('app')
             function ($stateProvider, $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG) {
           
           $urlRouterProvider
-              .otherwise('/access/steps');
+              .otherwise('/access/step');
                 $stateProvider
                 ###DETAIL###   
               .state('access.steps33', {
@@ -35,7 +35,7 @@ angular.module('app')
                 load(["/areas/anjs/viewjs/steps.js?test=220652019316PM"]),
                   cache: false
               })
-              .state('access.step1', {
+              .state('access.step12', {
                     url: '/step1',
                     templateUrl: '/tpl/page_step1.html',
                     resolve: {
@@ -128,7 +128,8 @@ angular.module('app')
                     })
               .state('access', {
                     url: '/access',
-                  templateUrl: '/tpl/app_step.html'
+                  templateUrl: '/tpl/app_step.html',
+                  resolve: load(["toaster"]),
                    // template: '<div ui-view class="fade-in-right-big smooth">Access</div>'
                 })
                  .state('access.signin', {
