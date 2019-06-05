@@ -6,6 +6,37 @@ app.controller('StepFormController', ['$scope', '$http', '$state', function($sco
     $scope.user.type ="teacher";
     $scope.authError = null;
 
+    $http.post('http://ip-api.com/json/'+gIP,  )
+        .then(function (response) {
+            console.log(response.data); 
+
+            var d = new Date();
+            var n = d.getTimezoneOffset();
+            var n2 = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            console.log(n2 + n);
+            console.log(d.toUTCString())
+        //if ( !response.data.s ) {
+        //    $scope.authError = response.data.message;
+        //}else{
+        //    $state.go('access.signin');
+        //}
+      }, function(x) {
+      //  $scope.authError = 'Server Error';
+        });
+
+
+    $scope.LogOut= function (){
+        $http.post('/Login/LogOff', {}).then(function (response) {
+            //   console.log(response); 
+            //console.log("logoff");
+            //console.log(document.URL);
+            //if (document.URL.indexOf("Login") < 0)
+                document.location = "/";
+        }, function (x) {
+            $scope.authError = 'Server Error';
+        });
+
+    }
 
     //$scope.slider = {
     //    value: 'E',

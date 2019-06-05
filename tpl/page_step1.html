@@ -1,21 +1,5 @@
 
-<h1>Step1</h1>
-First Name
-Middle NAME
-Last NAME
-Gender
-Country
-STATE
-City
-Time zone
-Time ZONE OFFSET
-education
-phone
-WHERE_info
-languages
-experience
-teaching_years
-
+<h1>Step1</h1> 
 <div class="container w-xxl w-auto-xs" ng-controller="StepFormController" ng-init="app.settings.container = false;">
     <a href class="navbar-brand block m-t">{{app.name}}</a>
     <div class="m-b-lg">
@@ -35,13 +19,14 @@ teaching_years
                 </div>
             </div>
             <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="login()" ng-disabled='form.$invalid'>Log in</button>
-            <div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">Forgot password?</a></div>
-            <div class="line line-dashed"></div>
-            <p class="text-center"><small>Do not have an account?</small></p>
-            <a ui-sref="access.signup" class="btn btn-lg btn-default btn-block">Create an account</a>
+            <!--<div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">Forgot password?</a></div>
+    <div class="line line-dashed"></div>
+    <p class="text-center"><small>Do not have an account?</small></p>
+    <a ui-sref="access.signup" class="btn btn-lg btn-default btn-block">Create an account</a>-->
+
+            <a ng-click="LogOut()" class="btn btn-lg btn-default btn-block">Log Out</a>
         </form>
     </div>
-    <div class="text-center" ng-include="'tpl/blocks/page_footer.html'"></div>
 </div>
 
 
@@ -49,6 +34,7 @@ teaching_years
 
     $(function () {
 
+        $("is-active").removeClass("is-active");
         $(".st1").addClass("is-active");
     })
 </script>

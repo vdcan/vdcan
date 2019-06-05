@@ -22,7 +22,7 @@
         }
 
         #multi-steps > li.is-active:after, #multi-steps > li.is-active ~ li:after {
-            background-color: #ededed;
+            background-color: #aaaaaa;
         }
 
         #multi-steps {
@@ -85,15 +85,15 @@
 
             #multi-steps > li.is-active ~ li:before {
                 background-color: #ededed;
-                border-color: #ededed;
+                border-color: #aaaaaa;
             }
     </style>
 
 </head>
 <body>
     <div id="container">
-         
-            
+
+
         <div class="container">
             <div class="one-half">
                 <a href="/" id="logo" style="float:left; padding: 10px; text-align: left;"> Eagle Online </a>
@@ -111,29 +111,30 @@
 
             <div class="app-content-body fade-in-up container-fluid h-100" ui-view></div>
 
-        </div> 
-
-
-           
-          
-        </div>
-        <!-- main wrapp starts--> 
-    <!-- main container ends-->
-
-
-    <script type="text/ng-template" id="IframeDialog">
-        <div class="modal-header">
-            {{Title}}
-        </div>
-        <div class="modal-body">
-            <iframe src="{{URL}}" frameborder="0" width="100%" height="{{hight}}" scrolling="no" style="overflow:hidden;" allowtransparency="true"></iframe>
-        </div>
-        <div class="modal-footer">
-            <button ng-click="ok()" ng-hide="{{HideOk}}" class="btn btn-primary">{{OkText}}</button>
-            <button ng-click="cancel()" ng-hide="{{HideClose}}" class="btn">{{CloseText}}</button>
+            <div class="text-center" ng-include="'tpl/blocks/page_footer.html'"></div>
         </div>
 
-    </script>
+
+
+
+    </div> 
+        <!-- main wrapp starts-->
+        <!-- main container ends-->
+
+
+        <script type="text/ng-template" id="IframeDialog">
+            <div class="modal-header">
+                {{Title}}
+            </div>
+            <div class="modal-body">
+                <iframe src="{{URL}}" frameborder="0" width="100%" height="{{hight}}" scrolling="no" style="overflow:hidden;" allowtransparency="true"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button ng-click="ok()" ng-hide="{{HideOk}}" class="btn btn-primary">{{OkText}}</button>
+                <button ng-click="cancel()" ng-hide="{{HideClose}}" class="btn">{{CloseText}}</button>
+            </div>
+
+        </script>
 
 </body>
 </html>
