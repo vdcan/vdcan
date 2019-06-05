@@ -177,6 +177,7 @@
     <Content Include="Areas\ANJS\ViewJS\context_admin.js" />
     <Content Include="Areas\ANJS\ViewJS\my_profile.js" />
     <Content Include="Areas\ANJS\ViewJS\sm_user.js" />
+    <Content Include="Areas\ANJS\ViewJS\steps.js" />
     <Content Include="Areas\dev\ViewJS\m_test2.js" />
     <Content Include="Areas\dev\ViewJS\m_test1.js" />
     <Content Include="Areas\dev\ViewJS\search_line.js" />
@@ -728,6 +729,7 @@
     <Content Include="Javascripts\vendor\modules\ngImgCrop\ng-img-crop.js" />
     <Content Include="Javascripts\vendor\modules\textAngular\textAngular-rangy.min.js" />
     <Content Include="Javascripts\vendor\modules\textAngular\textAngular-sanitize.min.js" />
+    <Content Include="Areas\ANJS\Views\Home\steps.cshtml" />
     <None Include="Javascripts\vendor\modules\textAngular\textAngular.min._oldjs" />
     <Content Include="Javascripts\vendor\modules\textAngular\uploader.js" />
     <Content Include="Javascripts\vendor\modules\textAngular\textAngular.min.js" />
