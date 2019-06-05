@@ -71,8 +71,8 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
         $(".stepsDetailButtons").show();
     });     */ 
     $scope.save = function () {
-
-        $http({
+    	
+    	  $http({
             method: 'POST',
             url: km.model.urls["steps_edit"],
             data: $scope.row
@@ -83,8 +83,9 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
             // called asynchronously if an error occurs
             // or server returns response with an error status.
         }); 
-         
+    	 
     }
+    
     $scope.showResult = function (result, title) {
         if (result.s) {
             $rootScope.$broadcast("SysToaster", 'success', title, result.message);
@@ -93,34 +94,71 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
         }
     }
     $scope.load = function () {
-        console.log("load");
     	var row={id: 0}
-        console.log(km.model.urls["steps_detail"]);
-
-
-        $http({
+    	
+    	  $http({
             method: 'POST',
             url: km.model.urls["steps_detail"],
             data: row
-        }).then(function successCallback(response) {
-            console.log(response.data);
+          }).then(function successCallback(response) { 
 
-            $scope.row = Object.assign({}, response.data[0]);
-            $scope.row.editrow = true;
-            $scope.row_old = response.data[0];
+               
+              $scope.GetUserInfo(response.data[0]);
+
 
         }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
             }); 
+    	  
     }
+    $scope.GetUserInfo= function (data){
+
+
+
+        //$scope.row = Object.assign({}, data);
+        //$scope.row.editrow = true;
+        //$scope.row_old = data;
+
+
+        $http.post('http://ip-api.com/json/' + gIP)
+            .then(function (response) {
+                console.log(response.data);
+
+                var d = new Date();
+                var n = d.getTimezoneOffset();
+                var n2 = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+
+               // console.log(n2 + n);
+                //console.log(d.toUTCString())
+
+
+                var keys = Object.keys(data);
+                keys.forEach(function (k) {
+                    data[k] = response.data[k];
+                });
+                data["state"] = response.data["regionName"];
+                data["time_zone_offset"] = n;
+                data["time_zone"] = response.data["timezone"];;
+
+        $scope.row = Object.assign({}, data);
+        $scope.row.editrow = true;
+        $scope.row_old = data;
+               
+            }, function (x) {
+                //  $scope.authError = 'Server Error';
+            });
+    }
+    
     $scope.load();
+    
     $scope.cancel = function () { 
     	
         $rootScope.$broadcast("stepsCancel", $scope.row);
         $("stepsDetailButtons").hide();
         $scope.row = Object.assign({}, $scope.row_old);
-        $scope.row.editrow = true;
+        $scope.row.editrow = false;
     }
     
 }]);  
