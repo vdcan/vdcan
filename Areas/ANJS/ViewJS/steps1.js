@@ -21,21 +21,7 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
       console.log(id);
       console.log(number);
       */
-
-
-    $scope.LogOut = function () {
-        $http.post('/Login/LogOff', {}).then(function (response) {
-            //   console.log(response); 
-            //console.log("logoff");
-            //console.log(document.URL);
-            //if (document.URL.indexOf("Login") < 0)
-            document.location = "/";
-        }, function (x) {
-            $scope.authError = 'Server Error';
-        });
-
-    }
-
+      
     $scope.loader = function (param) { 
         return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
     };
@@ -107,7 +93,7 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
             data: row
           }).then(function successCallback(response) { 
 
-            //  console.log(response);
+               
               $scope.GetUserInfo(response.data[0]);
 
 

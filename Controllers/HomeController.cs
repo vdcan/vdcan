@@ -122,7 +122,9 @@ namespace JSBase.Controllers
                 DataTable dt4 = base.RunProcedureDataTable(data2, "usp_vd_user_get_status");
                 string status = dt4.Rows[0]["status"].ToString();
 
-                if(status!="")
+                if (status == "step1")
+                    status = "steps";
+                if (status!="")
                 return Redirect("/home?mc=steps#/access/"+ status);
             }
             initLan();

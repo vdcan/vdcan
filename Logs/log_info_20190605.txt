@@ -1115,3 +1115,302 @@
 [6/5/2019 3:57:55 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbl_VK8EAgW0gnoZH70A2R2LzrUsewqlTg8=&b=lWfOq7lakUFLXSm5DGg1Vg==
 [6/5/2019 3:57:55 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbl_VK8EAgW0govSUCnHZ-5TiA9rqln3uXo=&b=JEIsGfj-vwnDrlVjiX1Y-A==
 [6/5/2019 3:57:55 PM]steps
+[6/5/2019 4:04:48 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:04:53 PM]tmpMenuCode steps
+[6/5/2019 4:05:07 PM]tmpMenuCode steps
+[6/5/2019 4:05:24 PM]tmpMenuCode steps
+[6/5/2019 4:05:28 PM]tmpMenuCode steps
+[6/5/2019 4:05:57 PM]tmpMenuCode steps
+[6/5/2019 4:06:24 PM]tmpMenuCode steps
+[6/5/2019 4:06:28 PM]tmpMenuCode steps
+[6/5/2019 4:07:06 PM]tmpMenuCode steps
+[6/5/2019 4:07:11 PM]tmpMenuCode steps
+[6/5/2019 4:07:39 PM]tmpMenuCode steps
+[6/5/2019 4:08:11 PM]tmpMenuCode steps
+[6/5/2019 4:08:16 PM]tmpMenuCode steps
+[6/5/2019 4:08:20 PM]baseindex jWMm
+[6/5/2019 4:08:21 PM]tmpMenuCode step1
+[6/5/2019 4:08:21 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMblfNOC3vFaevLqynBpUvWps9vynCD6-uv0=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:08:21 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMblfNOC3vFaevE6usC-SFQK-tEQA_06Imlo=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:08:21 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMblfNOC3vFaevHNKEd0m7b3fBp4A0YqZAOg=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:08:21 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMblfNOC3vFaevNd-S8Df1z-9Z4OlnzGvHJg=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:08:21 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMblfNOC3vFaevJQsmw3KNfifnLge_cV0OI4=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:08:21 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMblfNOC3vFaevGALqHhNk7h4P7o6FkUcgdY=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:08:21 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMblfNOC3vFaevGKJw-ipZTqTTtf9ek_l88M=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:08:21 PM]step1
+[6/5/2019 4:08:58 PM]tmpMenuCode steps
+[6/5/2019 4:09:03 PM]tmpMenuCode steps
+[6/5/2019 4:09:24 PM]tmpMenuCode steps
+[6/5/2019 4:09:41 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:09:44 PM]tmpMenuCode steps
+[6/5/2019 4:09:47 PM]tmpMenuCode steps
+[6/5/2019 4:09:56 PM]baseindex jWMm
+[6/5/2019 4:09:56 PM]tmpMenuCode step1
+[6/5/2019 4:09:56 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkldRKfseoD93iFHVb4MqGT5FAddNct1cI=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:09:56 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkldRKfseoD98GwU1mcdaNFCqrbhO8N3tI=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:09:56 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkldRKfseoD9wcQf3YLiV3OZXYo28K6-cg=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:09:56 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkldRKfseoD92XaOWZQw-LIgHblnmp8rNQ=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:09:56 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbkldRKfseoD9zXE-sDVjq2TMqu5hUedfN0=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:09:56 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbkldRKfseoD92e55TtVHu-f-_RCU-QcWso=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:09:56 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkldRKfseoD936z4LWtMnLlCzHFis1pw98=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:09:56 PM]step1
+[6/5/2019 4:10:06 PM]tmpMenuCode steps
+[6/5/2019 4:10:07 PM]tmpMenuCode steps
+[6/5/2019 4:10:24 PM]tmpMenuCode steps
+[6/5/2019 4:10:43 PM]tmpMenuCode steps
+[6/5/2019 4:10:44 PM]baseindex jWMm
+[6/5/2019 4:10:44 PM]tmpMenuCode step1
+[6/5/2019 4:10:44 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbk_oeZ-6ztnUuJ__XNu5oelo4KeZxgaX_A=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:10:44 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbk_oeZ-6ztnUj8eLUZ9zwaT7yf-JlIeIYc=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:10:44 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbk_oeZ-6ztnUpgcVfdAkOJ5fKRO3uqlLJA=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:10:44 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbk_oeZ-6ztnUg6MjsItFOII33UPh5gGfeE=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:10:44 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbk_oeZ-6ztnUqqr5wELL24qXJDYMlPHBQQ=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:10:44 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbk_oeZ-6ztnUqPw_3NzkDH1suj6yCSDAvE=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:10:44 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbk_oeZ-6ztnUrA_74-0Zylp4cDIkWeHSdw=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:10:44 PM]step1
+[6/5/2019 4:10:45 PM]tmpMenuCode steps
+[6/5/2019 4:10:46 PM]baseindex jWMm
+[6/5/2019 4:10:46 PM]tmpMenuCode step1
+[6/5/2019 4:10:46 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkJxTw_RTNh5y4oklaqTHua9T032Cha8TI=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:10:46 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkJxTw_RTNh5zbgc1JR-9pEvbEacT4wHzI=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:10:46 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkJxTw_RTNh5xRozOo7CDg47RbMqwKw1F8=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:10:46 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkJxTw_RTNh59h_ToFO22nabZ1jJPDyAZk=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:10:46 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbkJxTw_RTNh53mxB0JJYsyYlM-M5p9HiaQ=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:10:46 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbkJxTw_RTNh53MhIyVr73U7dl-41z5wSRw=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:10:46 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkJxTw_RTNh5_lD2cHQ_-GpWewvm7mfXew=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:10:46 PM]step1
+[6/5/2019 4:11:05 PM]tmpMenuCode steps
+[6/5/2019 4:11:06 PM]baseindex jWMm
+[6/5/2019 4:11:06 PM]tmpMenuCode step1
+[6/5/2019 4:11:06 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmRsMgoOY1ADr_8iXTs8eXFMEOfo91Z6lM=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:11:06 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmRsMgoOY1ADs5d920ceE83P5NgEd_iYRM=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:11:06 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmRsMgoOY1ADvviUlE119mTDnLrslD5M5A=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:11:06 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmRsMgoOY1ADshE7alRI7K7uBq7XarvVaQ=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:11:06 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbmRsMgoOY1ADsN1hNTr9m2a1HHoE491rEQ=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:11:06 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbmRsMgoOY1ADoNtEp8dENdTpoLjEfzZpXQ=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:11:06 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmRsMgoOY1ADjFmj8EV8wSTV7PmtOktLHI=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:11:06 PM]step1
+[6/5/2019 4:11:08 PM]tmpMenuCode steps
+[6/5/2019 4:11:08 PM]baseindex jWMm
+[6/5/2019 4:11:08 PM]tmpMenuCode step1
+[6/5/2019 4:11:08 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmQAf5yk4R_PfoTBAnfLj3_-7LhOOlpimg=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:11:08 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmQAf5yk4R_PX4jjvssnxQYdf-e1Sy-znQ=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:11:08 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmQAf5yk4R_Pfq9GPoxyksXh1juVdlikcA=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:11:08 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmQAf5yk4R_PUqp0AmTjTgKP8LWb6Qxd8o=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:11:08 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbmQAf5yk4R_PYDfQ5Py8qIu16PewD2Mp4g=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:11:08 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbmQAf5yk4R_PTsBHncem5aDtXKKhAYedec=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:11:08 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmQAf5yk4R_Pd27D77K1QQMZv4TpVrC3II=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:11:08 PM]step1
+[6/5/2019 4:11:41 PM]tmpMenuCode steps
+[6/5/2019 4:11:42 PM]baseindex jWMm
+[6/5/2019 4:11:42 PM]tmpMenuCode step1
+[6/5/2019 4:11:42 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkqj-YwDgQVoqu2NJWCE-ZyIQuiOXjdVrc=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:11:42 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkqj-YwDgQVopjP96P59ML8IWzMtRyWTqI=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:11:42 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkqj-YwDgQVoquuYEIk1oIzNigV_N5_ovo=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:11:42 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkqj-YwDgQVopFlDqHuX4pSPyyNp3WcfhA=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:11:42 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbkqj-YwDgQVooFFwdNv8Ruo1zxUVeDoagc=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:11:42 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbkqj-YwDgQVoiL7q_ghudmIJXmvZB5lpJU=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:11:42 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkqj-YwDgQVojxlezhybQSZs_dXrFLpB0c=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:11:42 PM]step1
+[6/5/2019 4:11:45 PM]tmpMenuCode steps
+[6/5/2019 4:11:45 PM]baseindex jWMm
+[6/5/2019 4:11:45 PM]tmpMenuCode step1
+[6/5/2019 4:11:45 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMblCjIQkhWLIhRz0OPBOXhQQyT1q8OzTa38=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:11:45 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMblCjIQkhWLIhS5nO_cBtRwxpFNuVHTj-yM=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:11:46 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbl5TTdi5ixz5y0NOJZ2J8jQP3A7LM6EU50=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:11:46 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbl5TTdi5ixz58FBCQIpfr7VWdjbTZHVroM=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:11:46 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbl5TTdi5ixz5yEx44uMjmsZ5CDV4PxtA6g=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:11:46 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbl5TTdi5ixz55pgkPWzFZPKnCtH6qtmGpI=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:11:46 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbl5TTdi5ixz5wW9YdwsR_759Xon7Bg4NMc=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:11:46 PM]step1
+[6/5/2019 4:11:53 PM]tmpMenuCode steps
+[6/5/2019 4:11:53 PM]baseindex jWMm
+[6/5/2019 4:11:53 PM]tmpMenuCode step1
+[6/5/2019 4:11:53 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmuYkftLglgLEXl13z0IZO2rBRLIlLdAuk=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:11:53 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmuYkftLglgLNOq882F7-kbDs2iIS7rM-c=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:11:53 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmuYkftLglgLFJ0nyNnEqcD3XVtrTbHARg=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:11:53 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmuYkftLglgLDVNfXKvvQANU8cEGVUe5G0=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:11:53 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbmuYkftLglgLOz3XK30msGO2qbncbEyZzU=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:11:53 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbmuYkftLglgLBmtfO4xBqUkSf-Tt253ta8=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:11:53 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmuYkftLglgLOTKYNLZxfWs8wbH6cKem50=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:11:53 PM]step1
+[6/5/2019 4:11:55 PM]tmpMenuCode steps
+[6/5/2019 4:11:55 PM]baseindex jWMm
+[6/5/2019 4:11:55 PM]tmpMenuCode step1
+[6/5/2019 4:11:55 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmk2jqcKJa_WjJkLJNGXuogw80sLfiiGQM=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:11:55 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmk2jqcKJa_WoLqAYDMexCflyz6PQsZFag=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:11:55 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmk2jqcKJa_WhcvgCu0fpbOPFsP7bHJg2E=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:11:55 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmk2jqcKJa_Wq5IIx1wHMnFCs002yv9APA=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:11:55 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbmk2jqcKJa_Wj_Z8tGkd_2mNwZOp3e0NVs=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:11:55 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbmk2jqcKJa_Wj1XQVoq98SxTVaaRVO0BLI=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:11:55 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmk2jqcKJa_Wm6qubtNk2OchGmMnB8x-38=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:11:55 PM]step1
+[6/5/2019 4:12:01 PM]tmpMenuCode steps
+[6/5/2019 4:12:06 PM]baseindex jWMm
+[6/5/2019 4:12:06 PM]tmpMenuCode step1
+[6/5/2019 4:12:06 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbko2_461Id9pl6cu3A-AOvf4mBmKcSOOJw=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:12:06 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbko2_461Id9pmj5ZMK_yiUj7B1swrAgGj4=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:12:06 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbko2_461Id9ppLqKrVS9MDLDmMl8WNHsNM=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:12:06 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbko2_461Id9pt5XtxNFAmQfJKMpd1-_AnQ=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:12:06 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbko2_461Id9pnxFxiVh48Jm5EEOhMw-P8I=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:12:06 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbko2_461Id9pp_LRExQMxdw5hFyG7dxWPo=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:12:06 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbko2_461Id9ph3QsZu4hoY8dxJ1wjQ0vYc=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:12:06 PM]step1
+[6/5/2019 4:13:25 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:13:29 PM]tmpMenuCode steps
+[6/5/2019 4:13:32 PM]baseindex jWMm
+[6/5/2019 4:13:32 PM]tmpMenuCode steps
+[6/5/2019 4:13:32 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbm7uwsiXQgoFcGAdJTfvZDGHXnfpK4UFlY=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:13:32 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbm7uwsiXQgoFf7YmbuugQPdFeqFhEppK3c=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:13:32 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbm7uwsiXQgoFerz0IFdtkTTRagftgEdbQk=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:13:32 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbm7uwsiXQgoFY5qcmyRvkzbx8gLb-6kJzY=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:13:32 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbm7uwsiXQgoFSyC3dKK-srP691VsbqsmII=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:13:32 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbm7uwsiXQgoFXiLH9nwd3AVdt5JZC6MgxQ=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:13:32 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbm7uwsiXQgoFcDdjCs9hbIRsCP2vilE1as=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:13:33 PM]steps
+[6/5/2019 4:15:05 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:15:10 PM]tmpMenuCode steps
+[6/5/2019 4:15:19 PM]baseindex jWMm
+[6/5/2019 4:15:19 PM]tmpMenuCode steps
+[6/5/2019 4:15:19 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbl0XBFuXNtmEslvzpzr-IYZH0P0s5Gjlts=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:15:19 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbl0XBFuXNtmEgQ33nfSVs7b6IiGXUSPmRU=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:15:19 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbl0XBFuXNtmEuBIPkTcbhth122GawkTSCY=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:15:19 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbl0XBFuXNtmEgcP6cbbnN7HyBgTu1voZIk=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:15:19 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbl0XBFuXNtmEnG1YZVw2rvq7EoDk-DMxEA=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:15:19 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbl0XBFuXNtmEkr38YV3uJ7Ja8Zgx2Opk18=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:15:19 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbl0XBFuXNtmEpP426PHRfeitJPM34sLSSU=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:15:19 PM]steps
+[6/5/2019 4:15:58 PM]tmpMenuCode steps
+[6/5/2019 4:15:58 PM]baseindex jWMm
+[6/5/2019 4:15:58 PM]tmpMenuCode steps
+[6/5/2019 4:15:58 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMblrdN4G-Eof9UgrEtpNeGjq796HvCQ5MDM=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:15:58 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMblrdN4G-Eof9YBPsYO-h2Surp_dqfaSXLA=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:15:58 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMblrdN4G-Eof9WNHXlP9hhUFtO77ZWAmk3A=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:15:58 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMblrdN4G-Eof9TffIkrdaXofuecREcrGA_Y=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:15:58 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMblrdN4G-Eof9Qz3219smJFQIRStrDf7MeI=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:15:58 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMblrdN4G-Eof9Vy9yU6CE448ZaWN5Tw0LL8=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:15:58 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMblrdN4G-Eof9UOkCdjp0230RTBLWLvzXoA=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:15:59 PM]steps
+[6/5/2019 4:16:01 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:16:01 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:16:05 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:16:15 PM]tmpMenuCode steps
+[6/5/2019 4:16:15 PM]baseindex jWMm
+[6/5/2019 4:16:15 PM]tmpMenuCode steps
+[6/5/2019 4:16:15 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=8M_AoNlmdp6pRTvviWe5TA3qHkj3zmTimqfETWgL4SY=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:16:15 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=8M_AoNlmdp6pRTvviWe5TOEYHTX_e_USipoTLwVB_Bg=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:16:15 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=8M_AoNlmdp6pRTvviWe5THMfTTea1zzPZ2fiX4R0j5k=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:16:15 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=8M_AoNlmdp6pRTvviWe5TMWcpRuwX-obtEZYe5W6mD8=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:16:15 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=8M_AoNlmdp6pRTvviWe5TElw3mJhgCd-3Hnuxq37lTs=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:16:15 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=8M_AoNlmdp6pRTvviWe5TEdKRp6zNlfhvffwl3T5OUY=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:16:15 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=8M_AoNlmdp6pRTvviWe5THjadDdxr5xvEOaSsJGtj0k=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:16:15 PM]steps
+[6/5/2019 4:18:13 PM]tmpMenuCode steps
+[6/5/2019 4:18:14 PM]baseindex jWMm
+[6/5/2019 4:18:14 PM]tmpMenuCode steps
+[6/5/2019 4:18:14 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=8M_AoNlmdp4d_pSFbpVrSLVAFNfX5M_Ypl8YaZ6jsSQ=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:18:14 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=8M_AoNlmdp4d_pSFbpVrSEFcx2TiiraEjZcEfBJkApk=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:18:14 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=8M_AoNlmdp4d_pSFbpVrSNIKVsTgSsSOf43eIZtetAM=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:18:14 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=8M_AoNlmdp4d_pSFbpVrSAhJSxsVkg2M1jGQza6AekE=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:18:14 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=8M_AoNlmdp4d_pSFbpVrSF_TZZocwzCX_r88GLarh8U=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:18:14 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=8M_AoNlmdp4d_pSFbpVrSIzmQqZ_jpRLqUBzXUWg7us=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:18:14 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=8M_AoNlmdp4d_pSFbpVrSPiJKR_qpyoRCInCjoaKDcY=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:18:14 PM]steps
+[6/5/2019 4:21:34 PM]tmpMenuCode steps
+[6/5/2019 4:21:35 PM]baseindex jWMm
+[6/5/2019 4:21:35 PM]tmpMenuCode steps
+[6/5/2019 4:21:35 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=8M_AoNlmdp4PDl_K0q6bkwx234ogP4yRwfi_TcZ2pfk=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:21:35 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=8M_AoNlmdp4PDl_K0q6bk8-EW0pUGoMTx4CSrEI265I=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:21:35 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=8M_AoNlmdp4PDl_K0q6bk4w19DEU9BlvehjMCopdxSc=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:21:35 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=8M_AoNlmdp4PDl_K0q6bk6zl5iR_sgw8rxLbxu6HzUA=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:21:35 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=8M_AoNlmdp4PDl_K0q6bk8OIjOYpJqmgjcp0CuLKQAs=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:21:35 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=8M_AoNlmdp4PDl_K0q6bk_Yqu2gu0kEiWHpRK1L4WN4=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:21:35 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=8M_AoNlmdp4PDl_K0q6bk-7MQp1LX_R-S4WvgUGmiUw=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:21:35 PM]steps
+[6/5/2019 4:22:00 PM]tmpMenuCode steps
+[6/5/2019 4:22:01 PM]baseindex jWMm
+[6/5/2019 4:22:01 PM]tmpMenuCode steps
+[6/5/2019 4:22:01 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=8M_AoNlmdp7NsaD8MNGkWYYHbHu3ENYEB4X2vMuKOVI=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:22:01 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=8M_AoNlmdp7NsaD8MNGkWeixZ5w2tfjXdJLKGJ20yic=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:22:01 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=8M_AoNlmdp7NsaD8MNGkWXjjIyZQzNdkScQ2BB2pjf8=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:22:01 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=8M_AoNlmdp7NsaD8MNGkWVH7ZdkGGkNXP2x0XWn6WGI=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:22:01 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=8M_AoNlmdp7NsaD8MNGkWf1vPvgCop9kIawU_UbpsAY=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:22:01 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=8M_AoNlmdp7NsaD8MNGkWcF2CBSO2ylrMP36D8z2IXI=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:22:01 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=8M_AoNlmdp7NsaD8MNGkWUTwKlWR-awy5kSzl_4iWOA=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:22:01 PM]steps
+[6/5/2019 4:23:18 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:23:19 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:23:21 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:23:33 PM]tmpMenuCode steps
+[6/5/2019 4:24:54 PM]tmpMenuCode steps
+[6/5/2019 4:46:22 PM]tmpMenuCode steps
+[6/5/2019 4:46:23 PM]baseindex jWMm
+[6/5/2019 4:46:23 PM]tmpMenuCode steps
+[6/5/2019 4:46:23 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmE7P1CKDiFQ3-2bNyzdnMYDA6dvTxwXFg=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:46:23 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmE7P1CKDiFQ6XIP6bLbnnCD_gjvRJBWkg=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:46:23 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmE7P1CKDiFQ9h46GYz8WANDqHM-0i7rbs=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:46:23 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmE7P1CKDiFQ7eWSPmw6rRMXKVuEAirjOU=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:46:23 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbmE7P1CKDiFQ9ckR5Qn_dj3wOJtjHVtydA=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:46:23 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbmE7P1CKDiFQx2EFre4O7uvli1o9T6YCLU=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:46:23 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmE7P1CKDiFQ_O-XH9BLDxNRrYFKkDZdBY=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:46:23 PM]steps
+[6/5/2019 4:46:29 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:46:30 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:46:32 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:46:38 PM]tmpMenuCode steps
+[6/5/2019 4:46:45 PM]tmpMenuCode steps
+[6/5/2019 4:47:14 PM]baseindex jWMm
+[6/5/2019 4:47:14 PM]tmpMenuCode steps
+[6/5/2019 4:47:14 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbk9uXvVLtqgwVFhfkV1jjvAcCFk8tmaOL8=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:47:14 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbk9uXvVLtqgwd4FLEfBZV2vid2BFXzk36w=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:47:14 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbk9uXvVLtqgwfIfC3u2BvaDJq5gikPfKrc=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:47:15 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbnppCBI28bi9o-m-SH-pks2O6qvi9wKvpU=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:47:15 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbnppCBI28bi9pGAOcJ4DEB7p7KrJiTea9g=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:47:15 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbnppCBI28bi9hazvr03p5KwM8ZPLN1ffws=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:47:15 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbnppCBI28bi9oVNG26wVi--hfyoneseLvY=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:47:15 PM]steps
+[6/5/2019 4:49:13 PM]tmpMenuCode steps
+[6/5/2019 4:49:13 PM]baseindex jWMm
+[6/5/2019 4:49:13 PM]tmpMenuCode steps
+[6/5/2019 4:49:14 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbm9NHTAdw6JGTstxhU8M8Vx5Rswti3sxzQ=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:49:14 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbm9NHTAdw6JGcOjlBjrSXI0gvYjRTHdNNA=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:49:14 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbm9NHTAdw6JGVR3owedS5dmI-OnefBtnIs=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:49:14 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbm9NHTAdw6JGdUleBR9p9DwHgqFT71S9f4=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:49:14 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbm9NHTAdw6JGQpjm_P2p2Lm-Qd6xsmDdu8=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:49:14 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbm9NHTAdw6JGZ_h_dCFhJh9GzAsHGuzpLE=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:49:14 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbm9NHTAdw6JGZT_UOutg_UIz_PPg8brUlE=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:49:14 PM]steps
+[6/5/2019 4:49:44 PM]tmpMenuCode index_lan@en
+[6/5/2019 4:49:46 PM]tmpMenuCode steps
+[6/5/2019 4:49:52 PM]baseindex jWMm
+[6/5/2019 4:49:52 PM]tmpMenuCode steps
+[6/5/2019 4:49:52 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkpaeit7W-LzB74UL0YZ_7WOoCQ4xaKVFw=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:49:52 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkpaeit7W-LzMjanXzGm5LZU5g_6S_EgvI=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:49:52 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkpaeit7W-LzAia2IhddsrXvNp-Y320GDU=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:49:52 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbkpaeit7W-LzDYWKjbEzUipoAYRX0QqLIc=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:49:53 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbmrEhszpua8hXNRCGrVh3x9q6WQnR754Rk=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:49:53 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbmrEhszpua8hbKXqYCYMtoI6DW41U9YUiI=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:49:53 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbmrEhszpua8hR0yWjNhpqOFgwgmsy87uFk=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:49:53 PM]steps
+[6/5/2019 4:51:35 PM]tmpMenuCode steps
+[6/5/2019 4:51:36 PM]baseindex jWMm
+[6/5/2019 4:51:36 PM]tmpMenuCode steps
+[6/5/2019 4:51:36 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbnjDwjVSoDiIohdPQ6nWagya8U9_7xacWs=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:51:36 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbnjDwjVSoDiIurKXyybnBhTNZu5J8OfHMQ=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:51:36 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbnjDwjVSoDiIi5ailL0i0ycWLlW_BnFhvw=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:51:36 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbnjDwjVSoDiIrTIphC7i9U3t_I1f9rwwUQ=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:51:36 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbnjDwjVSoDiInaFY8PtkNelorgu79CTPFk=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:51:36 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbnjDwjVSoDiIlLxrQLSRfnPx4sSltYdqzM=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:51:36 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbnjDwjVSoDiIpsRgYXlXP-2Mds0C5EYvrk=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:51:37 PM]steps
+[6/5/2019 4:54:18 PM]tmpMenuCode steps
+[6/5/2019 4:54:18 PM]baseindex jWMm
+[6/5/2019 4:54:18 PM]tmpMenuCode steps
+[6/5/2019 4:54:18 PM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbluyowDeUqPBFHXnKdffLPXfwuAMbLSbio=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/5/2019 4:54:18 PM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbluyowDeUqPBDz_RwpWFXENJnkYFGhbFsQ=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/5/2019 4:54:18 PM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbluyowDeUqPBGtzByh9IjrhwenGhN43tFI=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/5/2019 4:54:18 PM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=3FXcQvSHMbluyowDeUqPBObjaCGzxJmWHkGPJnIRIzQ=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/5/2019 4:54:18 PM]BaseIndex (steps_delete):runproc--ProcedureName:usp_steps_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbluyowDeUqPBM1cREs3nhUeaH40O3uW55M=&b=O-bJu2DgNaktDWrbDOr_Xg==
+[6/5/2019 4:54:18 PM]BaseIndex (steps_edit):runproc--ProcedureName:usp_steps_edit SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=3FXcQvSHMbluyowDeUqPBB9EuWtybhkl-AiFI_MWxPM=&b=lWfOq7lakUFLXSm5DGg1Vg==
+[6/5/2019 4:54:18 PM]BaseIndex (steps_detail):listdt--ProcedureName:usp_steps_detail SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=3FXcQvSHMbluyowDeUqPBPkAFN5An1mqi7C70WVtW2A=&b=JEIsGfj-vwnDrlVjiX1Y-A==
+[6/5/2019 4:54:19 PM]steps
