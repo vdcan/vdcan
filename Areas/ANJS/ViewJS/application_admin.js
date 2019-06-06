@@ -11,30 +11,30 @@
  Description Applications(application_admin)  js File 
 */
 // Current page object 
-var km = {}; 
+var km = {};
 km.init = function () {
 }
- 
 
-   
- 
+
+
+
 //------------------------------------------------------------------------------ 
 //        Date  2019-06-06
 //        Author  蔡捷   
 //			   
 //------------------------------------------------------------------------------  
- 
+
 app.controller('ApplicationsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$modal', '$http', function ($scope, $rootScope, $stateParams, $modal, $http) {
     /*  var id = $stateParams.id;
       var number = $stateParams.number;
       console.log(id);
       console.log(number);
       */
-      
-    $scope.loader = function (param) { 
-        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
+
+    $scope.loader = function (param) {
+        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
     };
-    $scope.DDLData  = {};
+    $scope.DDLData = km.ddls;
     $scope.getDDL = function (param) {
         console.log(param);
         if (typeof $scope.DDLData == "undefined")
@@ -48,14 +48,14 @@ app.controller('ApplicationsDetailCtrl', ['$scope', '$rootScope', '$stateParams'
         }).then(function successCallback(response) {
             //console.log(response.data);
             $scope.DDLData[param] = response.data;
-        console.log($scope.DDLData);
+            console.log($scope.DDLData);
             return $scope.DDLData[param];
             // this callback will be called asynchronously
             // when the response is available
         }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
-            }); 
+        });
     };
     $scope.row = {};// = {id:43124};
     $scope.row_old = {};// = {id:43124};
@@ -64,42 +64,42 @@ app.controller('ApplicationsDetailCtrl', ['$scope', '$rootScope', '$stateParams'
         $scope.row = Object.assign({}, row);
         $scope.row_old = row;
         $(".tmpHide").removeClass("tmpHide");
-    });    
+    });
     $rootScope.$on("ApplicationsEditSide", function (event, row) {
         $scope.row = Object.assign({}, row);
         $(".ApplicationsDetailButtons").show();
-    }); 
+    });
     $scope.save = function () {
-        $rootScope.$broadcast("Applications"+$scope.row.EditType, $scope.row);
-        $(".MyLogDetailButtons").hide(); 
+        $rootScope.$broadcast("Applications" + $scope.row.EditType, $scope.row);
+        $(".MyLogDetailButtons").hide();
         $scope.row.editrow = false;
     }
-    $scope.cancel = function () { 
-    	
+    $scope.cancel = function () {
+
         $rootScope.$broadcast("ApplicationsCancel", $scope.row);
         $(".MyLogDetailButtons").hide();
         $scope.row = Object.assign({}, $scope.row_old);
         $scope.row.editrow = false;
     }
-    
-}]);  
 
- 
+}]);
+
+
 //------------------------------------------------------------------------------ 
 //        Date  2019-06-06
 //        Author  蔡捷   
 //			   
 //------------------------------------------------------------------------------  
- 
- 
-function  Applications_8_Init(){ 
-	
+
+
+function Applications_8_Init() {
+
 }
 
 
- 
- 
- 
+
+
+
 
 /*
 //for other controllers to listen the selected row changed. 
@@ -140,47 +140,47 @@ app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
 });
 */
 
-       
- 
+
+
 app.controller('ApplicationsCtrl', [
-    '$scope', '$rootScope', '$http', '$modal','$q', function ($scope, $rootScope, $http, $modal,$q) {
+    '$scope', '$rootScope', '$http', '$modal', '$q', function ($scope, $rootScope, $http, $modal, $q) {
         $scope.SelectedRow = {};//for getting row detail
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
-        
-        
-	    $scope.loader = function (param) { 
-	        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
-	    };
-	    
-   
-    $scope.DDLData = km.ddls;
-    $scope.getDDL = function (param) {
-       // console.log(param);
-        if (typeof $scope.DDLData == "undefined")
-            $scope.DDLData = new Object();
-        if ($scope.DDLData.hasOwnProperty(param))
-            return $scope.DDLData[param];
 
-        $http({
-            method: 'GET',
-            url: km.model.urls["ddler"] + "&ddl=" + param
-        }).then(function successCallback(response) {
-            //console.log(response.data);
-            $scope.DDLData[param] = response.data;
-        console.log($scope.DDLData);
-            return $scope.DDLData[param];
-            // this callback will be called asynchronously
-            // when the response is available
-        }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-            }); 
-    	};
-        
 
-       
+        $scope.loader = function (param) {
+            return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
+        };
+
+
+        $scope.DDLData = km.ddls;
+        $scope.getDDL = function (param) {
+            // console.log(param);
+            if (typeof $scope.DDLData == "undefined")
+                $scope.DDLData = new Object();
+            if ($scope.DDLData.hasOwnProperty(param))
+                return $scope.DDLData[param];
+
+            $http({
+                method: 'GET',
+                url: km.model.urls["ddler"] + "&ddl=" + param
+            }).then(function successCallback(response) {
+                //console.log(response.data);
+                $scope.DDLData[param] = response.data;
+                console.log($scope.DDLData);
+                return $scope.DDLData[param];
+                // this callback will be called asynchronously
+                // when the response is available
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        };
+
+
+
         $scope.editType = "";
         /*$scope.$on('$destroy', function () {
             console.log('Child1 is no longer necessary');
@@ -197,11 +197,11 @@ app.controller('ApplicationsCtrl', [
             row.editrow = true;
             $scope.ApplicationsgridOptions.data.unshift(row);
             $scope.gridApi.grid.modifyRows($scope.ApplicationsgridOptions.data);
-             $scope.gridApi.selection.selectRow($scope.ApplicationsgridOptions.data[0]);
+            $scope.gridApi.selection.selectRow($scope.ApplicationsgridOptions.data[0]);
             $scope.gridApi.core.refresh();
             $scope.GetIDS();
         }
-         $scope.InsertRowInline = function () { 
+        $scope.InsertRowInline = function () {
             $scope.editType = "i";
             var row = $scope.copyEmptyObject($scope.row);
             row.editrow = true;
@@ -209,24 +209,24 @@ app.controller('ApplicationsCtrl', [
             $scope.gridApi.grid.modifyRows($scope.ApplicationsgridOptions.data);
             $scope.gridApi.selection.selectRow($scope.ApplicationsgridOptions.data[0]);
             $scope.gridApi.core.refresh();
-           $scope.gridApi.grid.rows[0].inlineEdit.enterEditMode(); 
+            $scope.gridApi.grid.rows[0].inlineEdit.enterEditMode();
         }
-        
+
         $scope.editRow = function (row) {
             $scope.editType = "u";
             var index = $scope.ApplicationsgridOptions.data.indexOf(row);
-            $scope.row = Object.assign({}, row); 
+            $scope.row = Object.assign({}, row);
             //Use that to set the editrow attrbute value for seleted rows
-            $scope.ApplicationsgridOptions.data[index].editrow = !$scope.ApplicationsgridOptions.data[index].editrow; 
+            $scope.ApplicationsgridOptions.data[index].editrow = !$scope.ApplicationsgridOptions.data[index].editrow;
         };
-        $scope.saveRow = function (row) { 
+        $scope.saveRow = function (row) {
             var index = $scope.ApplicationsgridOptions.data.indexOf(row);
             //Use that to set the editrow attrbute value for seleted rows
-            $scope.ApplicationsgridOptions.data[index].editrow = !$scope.ApplicationsgridOptions.data[index].editrow; 
-         
-            if ($scope.editType == "i"){
+            $scope.ApplicationsgridOptions.data[index].editrow = !$scope.ApplicationsgridOptions.data[index].editrow;
+
+            if ($scope.editType == "i") {
                 $scope.insertData(row);
-            }else
+            } else
                 $scope.updateData(row);
         };
         //Method to cancel the edit mode in UIGrid
@@ -236,25 +236,25 @@ app.controller('ApplicationsCtrl', [
 
             if ($scope.editType == "i") {
                 $scope.ApplicationsridOptions.data.splice(0, 1);
-            }else {
-            
+            } else {
+
                 if (index > 0) {
-	                if (row != null) {
-	                    //  $scope.ApplicationsgridOptions.data.splice(0, 1);
-	                    var keys = Object.keys($scope.row);
-	                    keys.forEach(function (k) {
-	                        $scope.ApplicationsgridOptions.data[index][k] = $scope.row[k];
-	                    });
-	                    //Use that to set the editrow attrbute value to false
-	                    $scope.ApplicationsgridOptions.data[index].editrow = false;
-	                }
+                    if (row != null) {
+                        //  $scope.ApplicationsgridOptions.data.splice(0, 1);
+                        var keys = Object.keys($scope.row);
+                        keys.forEach(function (k) {
+                            $scope.ApplicationsgridOptions.data[index][k] = $scope.row[k];
+                        });
+                        //Use that to set the editrow attrbute value to false
+                        $scope.ApplicationsgridOptions.data[index].editrow = false;
+                    }
                 }
             }
             $scope.editType = "";
             $scope.SelectedRow.entity.editrow = false;
             $rootScope.$broadcast("SysToaster", 'info', "", "Row editing cancelled");
         };
-         
+
         $scope.$on("ApplicationsUpdate", function (event, row) {
             $scope.updateData(row)
         });
@@ -265,7 +265,7 @@ app.controller('ApplicationsCtrl', [
             $scope.deleteIt(id, text)
         });
 
-        $scope.$on("ApplicationsCancel", function (event, row) { 
+        $scope.$on("ApplicationsCancel", function (event, row) {
             $scope.cancelEdit(row)
         });
         $scope.insert = function () {
@@ -275,7 +275,7 @@ app.controller('ApplicationsCtrl', [
             $scope.deleteIt($scope.row.id, $scope.row.id);
         };
         $scope.deleteInline = function (inline) {
-             
+
             $scope.deleteIt(inline.id.value, inline.id.value);
         };
         $scope.update = function () {
@@ -293,7 +293,7 @@ app.controller('ApplicationsCtrl', [
                 type: 'POST', url: km.model.urls["Applications_insert"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
-                        
+
                         r.editrow = false;
                         $scope.afterInsert(r);
                     }
@@ -360,7 +360,7 @@ app.controller('ApplicationsCtrl', [
                 type: 'POST', url: km.model.urls["Applications_update"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
-                        
+
                         r.editrow = false;
                         var iterator = Object.keys(r);
                         for (let key of iterator) {
@@ -379,69 +379,69 @@ app.controller('ApplicationsCtrl', [
             $scope.editType = "";
             $scope.gridApi.core.refresh();
         }
-        
+
         $scope.sync = function () {
-            $rootScope.$broadcast("ApplicationsSelectedRowChanged", $scope.row );
+            $rootScope.$broadcast("ApplicationsSelectedRowChanged", $scope.row);
         };
         $scope.EditSide = function (row) {
-        		row.EditType ="Update";
-        		
+            row.EditType = "Update";
+
             row.editrow = true;
             $scope.SelectedRow = row;
             row.editrow = true;
-            $rootScope.$broadcast("ApplicationsEditSide", row );
+            $rootScope.$broadcast("ApplicationsEditSide", row);
         };
-        $scope.InsertSide = function ( ) {
-        		
+        $scope.InsertSide = function () {
+
             var row = $scope.copyEmptyObject($scope.row);
-        		row.EditType ="Insert";
-        		
+            row.EditType = "Insert";
+
             row.editrow = true;
-            $rootScope.$broadcast("ApplicationsEditSide", row );
+            $rootScope.$broadcast("ApplicationsEditSide", row);
         };
         var paginationOptions = {
             pageNumber: 1,
-            pageSize: 10,
+            pageSize: 30,
             order: "desc",
             sort: "id",
         };
-         $scope.TranslateToText = function (data, value) {
+        $scope.TranslateToText = function (data, value) {
 
-            var result=value;
+            var result = value;
             if (Array.isArray(data)) {
                 data.forEach(function (d) {
-                    if (d.id ==  value) {
+                    if (d.id == value) {
 
                         result = d.text;
-                    return;
+                        return;
                     }
                 })
             } else {
-            // console.log(data);
-            var a = data.split(" ");
-            for (var i = 0; i < a.length; i++) {
+                // console.log(data);
+                var a = data.split(" ");
+                for (var i = 0; i < a.length; i++) {
 
-                var v = a[i].split("=")[0];
-                var t = a[i].split("=")[1];
+                    var v = a[i].split("=")[0];
+                    var t = a[i].split("=")[1];
 
-                if (value == v)
-                    return t;
-            }
+                    if (value == v)
+                        return t;
+                }
 
             }
             return result;
         }
-        $scope.Translate = function (data, value,valcol, textcol) {
-				     var d= 	$scope.getDDL(data); 
-				     var r ="";
-        		d.forEach(function (t) {
-                    if (t[valcol] == value)
-                        r= t[textcol];
-                });
-                return r;
+        $scope.Translate = function (data, value, valcol, textcol) {
+            var d = $scope.getDDL(data);
+            var r = "";
+            d.forEach(function (t) {
+                if (t[valcol] == value)
+                    r = t[textcol];
+            });
+            return r;
         };
-        
-        
+
+
         $scope.ApplicationsgridOptions = {
             paginationPageSizes: [10, 15, 25, 50, 75],
             paginationPageSize: paginationOptions.pageSize,
@@ -450,67 +450,95 @@ app.controller('ApplicationsCtrl', [
             useExternalSorting: true,
             multiSelect: false,
             enableRowHeaderSelection: false,
-            columnDefs: 
-                [ 
-                 { field: 'add_by', displayName: 'Add By', width: 80, align: 'center',
-    },
-  { field: 'add_on', displayName: 'Add On', width: 80, align: 'center',
-    },
-  { field: 'city', displayName: 'City', width: 80, align: 'center',
-    },
-  { field: 'country', displayName: 'Country', width: 80, align: 'center',
-    },
-  { field: 'education', displayName: 'Education', width: 80, align: 'center',
-    },
-  { field: 'experience', displayName: 'Experience', width: 80, align: 'center',
-    },
-  { field: 'first_name', displayName: 'First Name', width: 80, align: 'center',
-    },
-  { field: 'gender', displayName: 'Gender', width: 80, align: 'center',
-    },
-  { field: 'id', displayName: 'Id', width: 80, align: 'center',
-    },
-  { field: 'ip', displayName: 'Ip', width: 80, align: 'center',
-    },
-  { field: 'languages', displayName: 'Languages', width: 80, align: 'center',
-    },
-  { field: 'last_name', displayName: 'Last Name', width: 80, align: 'center',
-    },
-  { field: 'middle_name', displayName: 'Middle Name', width: 80, align: 'center',
-    },
-  { field: 'phone', displayName: 'Phone', width: 80, align: 'center',
-    },
-  { field: 'state', displayName: 'State', width: 80, align: 'center',
-    },
-  { field: 'teaching_years', displayName: 'Teaching Years', width: 80, align: 'center',
-    },
-  { field: 'time_zone', displayName: 'Time Zone', width: 80, align: 'center',
-    },
-  { field: 'time_zone_offset', displayName: 'Time Zone Offset', width: 80, align: 'center',
-    },
-  { field: 'timezone_ip', displayName: 'Timezone Ip', width: 80, align: 'center',
-    },
-  { field: 'user_id', displayName: 'User Id', width: 80, align: 'center',
-    },
-  { field: 'where_info', displayName: 'Where Info', width: 80, align: 'center',
-    },
-  { field: 'zip_ip', displayName: 'Zip Ip', width: 80, align: 'center',
-    },
-  { field: 'approve_flag', displayName: 'Approve Flag', width: 80, align: 'center',
-    },
-  { field: 'comments', displayName: 'Comments', width: 80, align: 'center',
-    },
- {
+            columnDefs:
+                [
+                    {
+                        field: 'real_name', displayName: 'User', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'add_on', displayName: 'Add On', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'first_name', displayName: 'First Name', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'last_name', displayName: 'Last Name', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'city', displayName: 'City', width: "*", align: 'center',
+                    },
+                    {
+                        field: 'country', displayName: 'Country', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'gender', displayName: 'Gender', width: 80, align: 'center',
+                        cellTemplate: "<div>{{grid.appScope.TranslateToText('m=Male f=Famle',row.entity.gender)}}</div>"
+                    },
+                    //{
+                    //    field: 'education', displayName: 'Education', width: 80, align: 'center',
+                    //    cellTemplate: "<div>{{grid.appScope.TranslateToText(grid.appScope.DDLData['education'],row.entity.education)}}</div>"
+                  //  },
+                    //{
+                    //    field: 'experience', displayName: 'Experience', width: "*", align: 'center',
+                    //},
+                    //{
+                    //    field: 'id', displayName: 'Id', width: 80, align: 'center',
+                    //},
+                    //{
+                    //    field: 'ip', displayName: 'Ip', width: 80, align: 'center',
+                    //},
+                    //{
+                    //    field: 'languages', displayName: 'Languages', width: 80, align: 'center',
+                    //    cellTemplate: "<div>{{grid.appScope.TranslateToText(grid.appScope.DDLData['languages'],row.entity.languages)}}</div>"
+                    //},
+                    //{
+                    //    field: 'middle_name', displayName: 'Middle Name', width: 80, align: 'center',
+                    //},
+                    //{
+                    //    field: 'phone', displayName: 'Phone', width: 80, align: 'center',
+                    //},
+                    //{
+                    //    field: 'state', displayName: 'State', width: 80, align: 'center',
+                    //},
+                    //{
+                    //    field: 'teaching_years', displayName: 'Teaching Years', width: 80, align: 'center',
+                    //},
+                    //{
+                    //    field: 'time_zone', displayName: 'Time Zone', width: 80, align: 'center',
+                    //},
+                    //{
+                    //    field: 'time_zone_offset', displayName: 'Time Zone Offset', width: 80, align: 'center',
+                    //},
+                    //{
+                    //    field: 'timezone_ip', displayName: 'Timezone Ip', width: 80, align: 'center',
+                    //},
+                    //{
+                    //    field: 'user_id', displayName: 'User Id', width: 80, align: 'center',
+                    //},
+                    //{
+                    //    field: 'where_info', displayName: 'Where Info', width: 80, align: 'center',
+                    //},
+                    //{
+                    //    field: 'zip_ip', displayName: 'Zip Ip', width: 80, align: 'center',
+                    //},
+                    {
+                        field: 'approve_flag', displayName: 'Approve Flag', width: 80, align: 'center',
+                        cellTemplate: "<label class='i-switch m-t-xs m-r'> <input type='checkbox'   ng-disabled='true'  ng-model='row.entity.approve_flag' checked>  <i></i> </label>",
+                    },
+                    //{
+                    //    field: 'comments', displayName: 'Comments', width: 80, align: 'center',
+                    //},
+                    {
                         name: 'sActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
                         cellTemplate: '<div><button  ng-show="!row.entity.editrow"   class="btn primary" ng-click="grid.appScope.EditSide(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
                             '<button  ng-show="!row.entity.editrow" class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
-                                   '</div>', width: 80
+                            '</div>', width: 80
                     }
-  
+
                 ],
-                 
+
             onRegisterApi: function (gridApi) {
-             $scope.getPage();
+                $scope.getPage();
                 $scope.gridApi = gridApi;
                 $scope.gridApi.core.on.sortChanged($scope, function (grid, sortColumns) {
                     if (sortColumns.length == 0) {
@@ -535,32 +563,32 @@ app.controller('ApplicationsCtrl', [
                 });
                 gridApi.selection.on.rowSelectionChangedBatch($scope, function (rows) {
                 });
-              }
+            }
         };
-       
+
         $scope.getPage = function () {
             $http.get(km.model.urls["Applications_pager"] + "&page=" + paginationOptions.pageNumber
                 + "&rows=" + paginationOptions.pageSize + "&sort=" + paginationOptions.sort + "&order=" +
-                paginationOptions.order +  "&approve_flag="+''+ "&_t="+com.settings.timestamp()).success(function (result) {
-   
-      if (Array.isArray(result.rows)) {
-   	 								result.rows.forEach(function (d) {
-                                                    d.editrow = false; 
-                        });
-                    $scope.ApplicationsgridOptions.data = result.rows;
-                    $scope.GetIDS();
+                paginationOptions.order + "&approve_flag=" + '' + "&_t=" + com.settings.timestamp()).success(function (result) {
 
-                    }else
-                     
-                    $scope.ApplicationsgridOptions.totalItems  = result.total; 
-                    
+                    if (Array.isArray(result.rows)) {
+                        result.rows.forEach(function (d) {
+                            d.editrow = false;
+                        });
+                        $scope.ApplicationsgridOptions.data = result.rows;
+                        $scope.GetIDS();
+
+                    } else
+
+                        $scope.ApplicationsgridOptions.totalItems = result.total;
+
                     $scope.gridApi.grid.modifyRows($scope.ApplicationsgridOptions.data);
 
-                    if ($scope.ApplicationsgridOptions.data.length >0)
+                    if ($scope.ApplicationsgridOptions.data.length > 0)
                         $scope.gridApi.selection.selectRow($scope.ApplicationsgridOptions.data[0]);
                 });
         }
-        $scope.copyEmptyObject =function(source, isArray) {
+        $scope.copyEmptyObject = function (source, isArray) {
             var o = Array.isArray(source) ? [] : {};
             for (var key in source) {
                 if (source.hasOwnProperty(key)) {
@@ -582,7 +610,7 @@ app.controller('ApplicationsCtrl', [
             else
                 $scope.ids = names.join(",");
         }
-      //  $scope.getPage();
+        //  $scope.getPage();
     }
 ]);
- 
+

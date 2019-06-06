@@ -1,0 +1,45 @@
+[6/6/2019 5:47:27 AM] GetSysText : 过程或函数 'usp_Applications_update' 需要参数 '@ip'，但未提供该参数。
+ExecptionMessage：Syntax error: Missing operand after 'usp_Applications_update' operator.
+ex.Source：System.Data
+ex.StackTrace：   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+All：System.Data.SyntaxErrorException: Syntax error: Missing operand after 'usp_Applications_update' operator.
+   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+
+[6/6/2019 5:47:51 AM] GetSysText : 过程或函数 'usp_Applications_update' 需要参数 '@ip'，但未提供该参数。
+ExecptionMessage：Syntax error: Missing operand after 'usp_Applications_update' operator.
+ex.Source：System.Data
+ex.StackTrace：   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+All：System.Data.SyntaxErrorException: Syntax error: Missing operand after 'usp_Applications_update' operator.
+   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+
+[6/6/2019 5:51:48 AM] GetSysText : 过程或函数 'usp_Applications_update' 需要参数 '@timezone_ip'，但未提供该参数。
+ExecptionMessage：Syntax error: Missing operand after 'usp_Applications_update' operator.
+ex.Source：System.Data
+ex.StackTrace：   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+All：System.Data.SyntaxErrorException: Syntax error: Missing operand after 'usp_Applications_update' operator.
+   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+

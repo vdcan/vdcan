@@ -138,6 +138,8 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
             document.location = "/home?mc=steps#/access/" + data["mystatus"];
             return;
         }
+        if (gIP == "::1")
+            gIP = "104.255.209.14";
         $http.post('http://ip-api.com/json/' + gIP)
             .then(function (response) {
 
