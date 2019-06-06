@@ -6,19 +6,23 @@
       <strong>Sign in to get in touch</strong>
     </div>-->
       <form name="form" class="form-validation">
-          <div class="text-danger wrapper text-center" ng-show="authError">
-              {{authError}}
-          </div>
-          <div class="list-group list-group-sm">
-              <div class="list-group-item">
-                  <input placeholder="Account" class="form-control no-border" ng-model="user.email" required>
-              </div>
-              <div class="list-group-item">
-                  <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" required>
-              </div>
-          </div>
-          <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="login()" ng-disabled='form.$invalid'>Log in</button>
 
+          Please waite, our staff will review your information.
+          <!--<div class="text-danger wrapper text-center" ng-show="authError">
+        {{authError}}
+    </div>
+    <div class="list-group list-group-sm">
+        <div class="list-group-item">
+            <input placeholder="Account" class="form-control no-border" ng-model="user.email" required>
+        </div>
+        <div class="list-group-item">
+            <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" required>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="login()" ng-disabled='form.$invalid'>Log in</button>-->
+          <br />
+          <br />
+          <br />
 
           <a ng-click="LogOut()" class="btn btn-lg btn-default btn-block">Log Out</a>
 
@@ -29,9 +33,9 @@
 
     $(function () {
 
-        $("is-active").removeClass("is-active");
+        $(".is-active").removeClass("is-active");
         $(".st2").addClass("is-active");
     })
-    $("is-active").removeClass("is-active");
+    $(".is-active").removeClass("is-active");
     $(".st2").addClass("is-active");
 </script>

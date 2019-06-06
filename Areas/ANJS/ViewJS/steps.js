@@ -83,7 +83,10 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
             data: $scope.row
           }).then(function successCallback(response) {
 
-               
+
+
+              $(".is-active").removeClass("is-active");
+              $(".st2").addClass("is-active");
               document.location = "/home?mc=steps#/access/" + response.data.dt[0]["mystatus"]; 
 
             $scope.showResult(response.data, "Save");
