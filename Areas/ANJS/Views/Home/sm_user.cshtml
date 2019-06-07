@@ -38,7 +38,7 @@
 
 
 
-<div class="row " style="height: 100%;" ng-controller="UserInfoCtrl">
+<div class="row " style="height: 100%;padding-top: 15px;" ng-controller="UserInfoCtrl"   >
     <div class="col-sm-8">
 
         <div>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="   col-sm-12" style=" padding-top : 10px;">
                     <div class="form-group  col-sm-12">
-                        <label>用户代码</label>
+                        <label>User Code</label>
                         <p>
                             <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.user_code">
                         </p>
@@ -87,7 +87,7 @@
                         </p>
                     </div>
                     <div class="form-group  col-sm-6">
-                        <label>电子邮件</label>
+                        <label>Email</label>
                         <p>
                             <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.email">
                         </p>
@@ -99,13 +99,13 @@
                             </p>
                         </div>*@
                     <div class="form-group  col-sm-6">
-                        <label>电话</label>
+                        <label>Phone</label>
                         <p>
                             <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.phone">
                         </p>
                     </div>
                     <div class="form-group  col-sm-6">
-                        <label>姓名</label>
+                        <label>Name</label>
                         <p>
                             <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.real_name">
                         </p>
@@ -116,7 +116,7 @@
                             </p>*@
                     </div>
                     <div class="form-group  col-sm-6">
-                        <label>性别</label>
+                        <label>Gender</label>
                         <p>
                             <select name="sex" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.sex"><option value="m">Male</option><option value="f">Famle</option></select>
                         </p>
@@ -150,12 +150,12 @@
     </div>
     <div class="col-sm-4 d-none d-lg-block">
 
-        <tabset justified="false" class="tab-container">
+        <tabset justified="false" class="tab-container" >
 
             <tab heading="User Info" id="tab_a1">
 
                 <div class="form-group  ">
-                    <label>用户代码</label>
+                    <label>User Code</label>
                     <p>
                         {{row.user_code}}
                     </p>
@@ -169,14 +169,14 @@
                         </select>
                     </p>
                 </div>
-                <div class="form-group  ">
+                @*<div class="form-group  ">
                     <label>创建人</label>
                     <p>
                         {{row.add_by}}
                     </p>
-                </div>
+                </div>*@
                 <div class="form-group  col-sm-12">
-                    <label>创建日期</label>
+                    <label>Add On</label>
                     <p>
 
                         {{row.add_no}}
@@ -188,15 +188,15 @@
                             <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.department_id">
                         </p>
                     </div>*@
-                <div class="form-group ">
+                @*<div class="form-group ">
                     <label>Language</label>
                     <p>
 
                         {{row.language}}
                     </p>
-                </div>
+                </div>*@
                 <div class="form-group ">
-                    <label>电子邮件</label>
+                    <label>Email</label>
                     <p>
                         {{row.email}}
                     </p>
@@ -208,19 +208,19 @@
                         </p>
                     </div>*@
                 <div class="form-group  ">
-                    <label>电话</label>
+                    <label>Phone</label>
                     <p>
                         {{row.phone}}
                     </p>
                 </div>
                 <div class="form-group  ">
-                    <label>姓名</label>
+                    <label>Name</label>
                     <p>
                         {{row.real_name}}
                     </p>
                 </div>
                 <div class="form-group  ">
-                    <label>性别</label>
+                    <label>Gender</label>
                     <p>
                         <select name="sex" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.sex"><option value="m">Male</option><option value="f">Famle</option></select>
                     </p>
