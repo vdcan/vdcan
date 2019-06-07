@@ -600,21 +600,21 @@ app.controller('contextCtrl', [
             enableRowHeaderSelection: false,
             columnDefs: 
                 [ 
-  { field: 'id', displayName: '编号', width: 80, align: 'center',
+  { field: 'id', displayName: 'ID', width: 80, align: 'center',
     },
-  { field: 'title', displayName: '标题', width: "*", align: 'center',
+  { field: 'title', displayName: 'Title', width: "*", align: 'center',
     },
-  { field: 'type', displayName: '类型', width: 80, align: 'center',
+  { field: 'type', displayName: 'Type', width: 80, align: 'center',
   cellTemplate:"<div>{{grid.appScope.TranslateToText(grid.appScope.DDLData['context_type'],row.entity.type)}}</div>"  },
-                 { field: 'active_flag', displayName: '启用标记', width: 80, align: 'center',
+                 { field: 'active_flag', displayName: 'Active', width: 80, align: 'center',
   cellTemplate:"<div>{{grid.appScope.TranslateToText('1=Active 0=Inactive',row.entity.active_flag)}}</div>"  },
-  { field: 'add_by', displayName: '创建人', width: 80, align: 'center',
+  { field: 'add_by', displayName: 'Add By', width: 80, align: 'center',
     },
-  { field: 'add_on', displayName: '创建日期', width: 80, align: 'center',
+  { field: 'add_on', displayName: 'Add On', width: 80, align: 'center',
                     },
 
  {
-                        name: 'sActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
+                        name: 'Actions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
                         cellTemplate: '<div><button  ng-show="!row.entity.editrow"   class="btn primary" ng-click="grid.appScope.EditSide(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
                             '<button  ng-show="!row.entity.editrow" class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
                                    '</div>', width: 80

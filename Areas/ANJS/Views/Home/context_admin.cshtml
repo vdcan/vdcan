@@ -116,12 +116,9 @@
     </div>
     <div class="col-sm-6">
 
-        <div ng-controller="contextDetailCtrl">
-            <div class="modal-header">
-                context
-            </div>
+        <div ng-controller="contextDetailCtrl" style="padding-top: 15px;"> 
 
-            <div class="modal-footer">
+            <div class="modal-footer2">
                 <div class=" contextDetailButtons" style="display:none;">
                     <button ng-click="save()" class="btn btn-primary">Save</button>
                     <button ng-click="cancel()" class="btn">Cancel</button>
@@ -131,7 +128,7 @@
             <div class="col-sm-12">
 
                 <div class="form-group">
-                    <label>标题</label>
+                    <label>Title</label>
                     <p>
                         <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.title">
 
@@ -140,19 +137,19 @@
                     </p>
                 </div>
                 <div class="form-group">
-                    <label>类型</label>
+                    <label>Type</label>
                     <p>
                         <select ui-select ng-disabled="!row.editrow" ng-init="getDDL('context_type')" class="form-control m-b" ng-model="row.type"><option data-ng-repeat="d in DDLData['context_type']" value="{{d.id}}">{{ d.text }}</ option ></select>
                     </p>
                 </div>
                 <div class="form-group">
-                    <label>排序</label>
+                    <label>Order</label>
                     <p>
                         <input type="number" class="form-control" ng-disabled="!row.editrow" ng-model="row.order_num">
                     </p>
                 </div>
                 <div class="form-group">
-                    <label>内容</label>
+                    <label>Context</label>
                     <p>
 
 
@@ -178,19 +175,19 @@
 
                             </span>
 
-                          <a ng-click="color('fdsaf')">insert</a> 
+                          @*<a ng-click="color('fdsaf')">insert</a>*@ 
                             <div id="item_bodyHTML" name="item_bodyHTML" ta-disabled="!row.editrow" text-angular ng-model="row.context" class="btn-groups" style="height:300px;"></div>
                         </div>
 
                     </p>
                 </div><div class="form-group">
-                    <label>启用标记</label>
+                    <label>Active Flag</label>
                     <p>
                         <select name="active_flag" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.active_flag"><option value="1">Active</option><option value="0">Inactive</option></select>
                     </p>
                 </div>
-                <div class="form-group">
-                    <label>创建人</label>
+                @*<div class="form-group">
+                    <label>Add By</label>
                     <p>
                         <input type="text" class="form-control" ng-disabled="true" ng-model="row.add_by">
                     </p>
@@ -200,7 +197,7 @@
                     <p>
                         <input type="text" class="form-control" ng-disabled="true" ng-model="row.add_on">
                     </p>
-                </div>
+                </div>*@
 
             </div>
         </div>
