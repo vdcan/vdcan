@@ -61,6 +61,9 @@ app.controller('ScheduleDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$
     $scope.row_old = {};// = {id:43124};
     //$scope.row_original = {};// = {id:43124};
     $rootScope.$on("ScheduleSelectedRowChanged", function (event, row, ids, paginationOptions) {
+
+        row.date = row.scheduled_dt.split(" ")[0];
+      row.time =new Date(  row.scheduled_dt );
         $scope.row = Object.assign({}, row);
         $scope.row_old = row;
         $(".tmpHide").removeClass("tmpHide");
@@ -69,7 +72,25 @@ app.controller('ScheduleDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$
         $scope.row = Object.assign({}, row);
         $(".ScheduleDetailButtons").show();
     }); 
-    $scope.save = function () {
+
+    function formatTime(date) {
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        return  strTime;
+    }
+
+    function formatDate(date) {
+       
+        return date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear()  ;
+    }
+    $scope.save = function () { 
+        $scope.row.scheduled_dt = formatDate( $scope.row.date) + " " + formatTime($scope.row.time);
+        console.log($scope.row.scheduled_dt );
         $rootScope.$broadcast("Schedule"+$scope.row.EditType, $scope.row);
         $(".ScheduleDetailButtons").hide(); 
         $scope.row.editrow = false;
@@ -81,6 +102,80 @@ app.controller('ScheduleDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$
         $scope.row = Object.assign({}, $scope.row_old);
         $scope.row.editrow = false;
     }
+
+    $scope.minDate = function () {
+        $scope.dt = new Date();
+    };
+
+    $scope.today = function () {
+        $scope.dt = new Date();
+    };
+    $scope.today();
+
+    $scope.clear = function () {
+        $scope.dt = null;
+    };
+
+    // Disable weekend selection
+    //$scope.disabled = function (date, mode) {
+    //    return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
+    //};
+
+    $scope.toggleMin = function () {
+        $scope.minDate = $scope.minDate ? null : new Date();
+    };
+    $scope.toggleMin();
+
+    $scope.open = function ($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+
+        $scope.opened = true;
+    };
+
+    $scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1,
+        class: 'datepicker'
+    };
+
+    $scope.initDate = new Date('2016-15-20');
+    $scope.formats = ['yyyy-MM-dd', 'yyyy/MM/dd', 'dd.MMMM.yyyy', 'shortDate'];
+    $scope.format = $scope.formats[0]; 
+
+
+    $scope.mytime = new Date();
+
+    $scope.hstep = 1;
+    $scope.mstep = 15;
+
+    $scope.options = {
+        hstep: [1, 2, 3],
+        mstep: [1, 5, 10, 15, 25, 30]
+    };
+
+    $scope.ismeridian = true;
+    $scope.toggleMode = function () {
+        $scope.ismeridian = !$scope.ismeridian;
+    };
+
+    $scope.update = function () {
+        var d = new Date();
+        d.setHours(14);
+        d.setMinutes(0);
+        $scope.mytime = d;
+    };
+
+    $scope.changed = function () {
+        //console.log('Time changed to: ' + $scope.mytime);
+    };
+
+    $scope.clear = function () {
+        $scope.mytime = null;
+    };
+
+
+
     
 }]);  
 
@@ -401,7 +496,7 @@ app.controller('ScheduleCtrl', [
         };
         var paginationOptions = {
             pageNumber: 1,
-            pageSize: 10,
+            pageSize: 30,
             order: "desc",
             sort: "id",
         };
@@ -452,25 +547,25 @@ app.controller('ScheduleCtrl', [
             enableRowHeaderSelection: false,
             columnDefs: 
                 [ 
+  { field: 'title', displayName: 'Title', width: "*", align: 'center',
+    },
                  { field: 'active_flag', displayName: 'Active Flag', width: 80, align: 'center',
   cellTemplate:"<label class='i-switch m-t-xs m-r'> <input type='checkbox'   ng-disabled='true'  ng-model='row.entity.active_flag' checked>  <i></i> </label>",  },
   { field: 'add_by', displayName: 'Add By', width: 80, align: 'center',
     },
   { field: 'add_on', displayName: 'Add On', width: 80, align: 'center',
     },
-  { field: 'comments', displayName: 'Comments', width: 80, align: 'center',
-    },
-  { field: 'CONTEXT', displayName: 'Context', width: 80, align: 'center',
-    },
-  { field: 'id', displayName: 'Id', width: 80, align: 'center',
-    },
+  //{ field: 'comments', displayName: 'Comments', width: 80, align: 'center',
+  //  },
+  //{ field: 'CONTEXT', displayName: 'Context', width: 80, align: 'center',
+  //  },
+  //{ field: 'id', displayName: 'Id', width: 80, align: 'center',
+  //  },
   { field: 'method', displayName: 'Method', width: 80, align: 'center',
   cellTemplate:"<div>{{grid.appScope.TranslateToText('phone=phone wechat=wechat netmeeting=netmeeting',row.entity.method)}}</div>"  },
-  { field: 'schedule_type', displayName: 'Schedule Type', width: 80, align: 'center',
-  cellTemplate:"<div>{{grid.appScope.TranslateToText('interview=interview class=class meeting=meeting',row.entity.schedule_type)}}</div>"  },
+  //{ field: 'schedule_type', displayName: 'Schedule Type', width: 80, align: 'center',
+  //cellTemplate:"<div>{{grid.appScope.TranslateToText('interview=interview class=class meeting=meeting',row.entity.schedule_type)}}</div>"  },
   { field: 'scheduled_dt', displayName: 'Scheduled Dt', width: 80, align: 'center',
-    },
-  { field: 'title', displayName: 'Title', width: 80, align: 'center',
     },
  {
                         name: 'sActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,

@@ -1,116 +1,142 @@
 ﻿
-@{ 
-//------------------------------------------------------------------------------ 
-//        Date  2019-06-07
-//        Author  蔡捷   
-//			 				Schedule Admin 
-//        File  schedule_admin.cshtml  Page file 
-//------------------------------------------------------------------------------
- 
+@{
+    //------------------------------------------------------------------------------
+    //        Date  2019-06-07
+    //        Author  蔡捷
+    //			 				Schedule Admin
+    //        File  schedule_admin.cshtml  Page file
+    //------------------------------------------------------------------------------
+
     ViewBag.Title = "Schedule Admin";
     Layout = null;
 }
 
 @section head{
-  <style type="text/css">
-       
+    <style type="text/css">
     </style>
 }
- 
-    <script type="text/javascript">
+
+<script type="text/javascript">
      var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
-       km.model = JSON.parse(model_string); 
+       km.model = JSON.parse(model_string);
      var ddls_string = '@Html.Raw(ViewData["DLLS"].ToString().Replace("\r\n",""))';
     km.ddls = JSON.parse(ddls_string);
-    </script>
+</script>
 
- 
- 
-<div class="row">
- <div class="col-sm-6">
-    	
 
-<div   ng-controller="ScheduleCtrl">
-	 
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-	      Schedule     
-	      <div style="float:right;">
-    			<button  class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
-        </div> 
-		</div>  
-	  <div class="table-responsive"  >
-	      <div ui-grid="SchedulegridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
-	  </div>
-	</div>
-	
-</div>
-    	
+
+<div class="row" style="padding-top: 5px">
+    <div class="col-sm-6">
+
+
+        <div ng-controller="ScheduleCtrl">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Schedule
+                    <div style="float:right;">
+                        <button class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <div ui-grid="SchedulegridOptions" ui-grid-pagination ui-grid-selection style="min-height:800px;"></div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
- <div class="col-sm-6">
-    	 
-<div  ng-controller="ScheduleDetailCtrl"> 
-      <div class="modal-header">
-        Schedule
-      </div>       
-<div class="col-sm-12">       			<div class="form-group">
-              <label>Active Flag</label>
-              <p>  <label class="i-switch m-t-xs m-r"> <input type="checkbox"  ng-disabled="!row.editrow"  ng-model="row.active_flag" checked>  <i></i> </label>
-           </p>
-          </div>
-                			<div class="form-group">
-              <label>Add By</label>
-              <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.add_by" >
-           </p>
-          </div>
-                			<div class="form-group">
-              <label>Add On</label>
-              <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.add_on" >
-           </p>
-          </div>
-                			<div class="form-group">
-              <label>Comments</label>
-              <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.comments" >
-           </p>
-          </div>
-                			<div class="form-group">
-              <label>Context</label>
-              <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.CONTEXT" >
-           </p>
-          </div>
-                			<div class="form-group">
-              <label>Method</label>
-              <p>   <select name="method"  ng-disabled="!row.editrow"  class="form-control m-b" ng-model="row.method" ><option value="phone">phone</option><option value="wechat">wechat</option><option value="netmeeting">netmeeting</option></select>
-           </p>
-          </div>
-                			<div class="form-group">
-              <label>Schedule Type</label>
-              <p>   <select name="schedule_type"  ng-disabled="!row.editrow"  class="form-control m-b" ng-model="row.schedule_type" ><option value="interview">interview</option><option value="class">class</option><option value="meeting">meeting</option></select>
-           </p>
-          </div>
-                			<div class="form-group">
-              <label>Scheduled Dt</label>
-              <p>  <div   ng-controller="DatepickerDemoCtrl"   > <div class="input-group w-md"> <input type="text" class="form-control" datepicker-popup="{format}"  ng-disabled="!row.editrow" ng-model="row.scheduled_dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" /> <span class="input-group-btn"> <button type="button"  ng-disabled="!row.editrow" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button> </span> </div> </div>
-           </p>
-          </div>
-                			<div class="form-group">
-              <label>Title</label>
-              <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.title" >
-           </p>
-          </div>
-                        
-      </div>  
-      <div class="modal-footer">
-          <div class=" ScheduleDetailButtons" style="display:none;">
-              <button ng-click="save()" class="btn btn-primary">Save</button>
-              <button ng-click="cancel()" class="btn">Cancel</button>
+    <div class="col-sm-6">
 
-          </div>
-      </div>
-	</div> 
+        <div ng-controller="ScheduleDetailCtrl">
+            <div class="modal-header">
+                Schedule
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>Active Flag</label>
+                    <p>
+                        <label class="i-switch m-t-xs m-r"> <input type="checkbox" ng-disabled="!row.editrow" ng-model="row.active_flag" checked>  <i></i> </label>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Add By</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Add On</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Comments</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.comments">
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Context</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.CONTEXT">
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Method</label>
+                    <p>
+                        <select name="method" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.method"><option value="phone">phone</option><option value="wechat">wechat</option><option value="netmeeting">netmeeting</option></select>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Schedule Type</label>
+                    <p>
+                        <select name="schedule_type" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.schedule_type"><option value="interview">interview</option><option value="class">class</option><option value="meeting">meeting</option></select>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Scheduled Dt{{row.date}}</label>
+                    <p>
+                        <div class="input-group w-md">
+
+                            <input type="text" class="form-control"  ng-disabled="!row.editrow"  datepicker-popup="{{format}}" ng-model="row.date" is-open="opened" min-date="minDate"  datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default"  ng-disabled="!row.editrow"   ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+
+</div>
+
+                       
+
+                        <div class="input-group w-md">
+                            <timepicker ng-model="row.time"  ng-disabled="!row.editrow"   hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+
+                        </div>
+
+
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Title</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.title">
+                    </p>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class=" ScheduleDetailButtons" style="display:none;">
+                    <button ng-click="save()" class="btn btn-primary">Save</button>
+                    <button ng-click="cancel()" class="btn">Cancel</button>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div style='display:none'>
-	
+
 </div>
- 
+
