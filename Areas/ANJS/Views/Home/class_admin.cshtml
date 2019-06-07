@@ -1,0 +1,72 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//        Date  2019-06-07
+//        Author  蔡捷   
+//			 				Class Admin 
+//        File  class_admin.cshtml  Page file 
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "Class Admin";
+    Layout = null;
+}
+
+@section head{
+  <style type="text/css">
+       
+    </style>
+}
+ 
+    <script type="text/javascript">
+     var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+       km.model = JSON.parse(model_string); 
+     var ddls_string = '@Html.Raw(ViewData["DLLS"].ToString().Replace("\r\n",""))';
+    km.ddls = JSON.parse(ddls_string);
+    </script>
+
+ 
+ 
+<div class="row">
+ <div class="col-sm-6">
+    	
+<table id="ClassAdmin"></table>
+    	
+    </div>
+ <div class="col-sm-6">
+    	
+ 
+ 
+
+   <form id="ClassAdmin_content" class="form_content" method="post">
+            <table class="table_content"  cellpadding="3" cellspacing="0" border="0">
+                                                         <tr><td  class="td_title">Active Flag </td> <td> 
+                             <input  id='TPL_active_flag' name='active_flag' type='text' class='easyui-datebox' data-options=""  style='width:10px'  /></td></tr>
+                             
+                            <tr><td   class="td_title" >Add By</td> <td>  <input      id='TPL_add_by' data-options=""  name='add_by' type='text' class='easyui-textbox'  style='width:100px'  /></td></tr>
+                             
+                            <tr><td   class="td_title" >Add On</td> <td>  <input      id='TPL_add_on' data-options=""  name='add_on' type='text' class='easyui-textbox'  style='width:230px'  /></td></tr>
+                             
+                            <tr><td   class="td_title" >Class Title</td> <td>  <input      id='TPL_class_title' data-options=""  name='class_title' type='text' class='easyui-textbox'  style='width:500px'  /></td></tr>
+                             <tr><td class="td_title" >Class Type </td> <td>                                  <select id='TPL_class_type' name='class_type' class="easyui-combobox"   data-options="editable:false,hasDownArrow:false,panelHeight:90"  style="width:500px;"> <option value='english'>english</option>
+                                     <option value='chinese'>chinese</option>
+                                                                    </select></td></tr>
+                                 
+                            <tr><td   class="td_title" >Comments</td> <td>  <input      id='TPL_comments' data-options=""  name='comments' type='text' class='easyui-textbox'  style='width:500px'  /></td></tr>
+                             
+                            <tr><td   class="td_title" >Context</td> <td>  <input      id='TPL_CONTEXT' data-options=""  name='CONTEXT' type='text' class='easyui-textbox'  style='width:-10px'  /></td></tr>
+                                                    <input  id='TPL_id' name='id'  type='hidden' value='0'  />
+                         <tr><td class="td_title" >Method </td> <td>                                  <select id='TPL_method' name='method' class="easyui-combobox"   data-options="editable:false,hasDownArrow:false,panelHeight:90"  style="width:500px;"> <option value='web'>web</option>
+                                     <option value='wechat'>wechat</option>
+                                                                    </select></td></tr>
+                                            </table>
+        </form> 
+        
+        
+ 
+
+    </div>
+</div>
+<div style='display:none'>
+	
+</div>
+ 
