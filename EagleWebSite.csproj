@@ -177,6 +177,7 @@
     <Content Include="Areas\ANJS\ViewJS\application_admin.js" />
     <Content Include="Areas\ANJS\ViewJS\context_admin.js" />
     <Content Include="Areas\ANJS\ViewJS\my_profile.js" />
+    <Content Include="Areas\ANJS\ViewJS\schedule_admin.js" />
     <Content Include="Areas\ANJS\ViewJS\sm_user.js" />
     <Content Include="Areas\ANJS\ViewJS\steps.js" />
     <Content Include="Areas\dev\ViewJS\m_test2.js" />
@@ -732,6 +733,7 @@
     <Content Include="Javascripts\vendor\modules\textAngular\textAngular-sanitize.min.js" />
     <Content Include="Areas\ANJS\Views\Home\steps.cshtml" />
     <Content Include="Areas\ANJS\Views\Home\application_admin.cshtml" />
+    <Content Include="Areas\ANJS\Views\Home\schedule_admin.cshtml" />
     <None Include="Javascripts\vendor\modules\textAngular\textAngular.min._oldjs" />
     <Content Include="Javascripts\vendor\modules\textAngular\uploader.js" />
     <Content Include="Javascripts\vendor\modules\textAngular\textAngular.min.js" />
