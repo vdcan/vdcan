@@ -49,80 +49,80 @@
     <div class="col-sm-6">
 
         <div ng-controller="ScheduleDetailCtrl">
-            <div class="modal-header">
-                Schedule
-            </div>
-            <div class="col-sm-12">
+           
+            <div >
+                <div class="form-group col-sm-6 "  style="text-align:left;">
+                    <label class="col-sm-4 control-label" style="padding-left:0px;">Add By</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" ng-disabled="true" ng-model="row.add_by">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="col-sm-4 control-label">Add On</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" ng-disabled="true" ng-model="row.add_on">
+                    </div>
+                </div>
+
                 <div class="form-group">
-                    <label>Active Flag</label>
-                    <p>
+                    <label class="col-sm-2 control-label">Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.title">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Active Flag</label>
+                    <div class="col-sm-10">
                         <label class="i-switch m-t-xs m-r"> <input type="checkbox" ng-disabled="!row.editrow" ng-model="row.active_flag" checked>  <i></i> </label>
-                    </p>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label>Add By</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Add On</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Comments</label>
-                    <p>
+                    <label class="col-sm-2 control-label">Comments</label>
+                    <div class="col-sm-10">
                         <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.comments">
-                    </p>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label>Context</label>
-                    <p>
+                    <label class="col-sm-2 control-label">Context</label>
+                    <div class="col-sm-10">
                         <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.CONTEXT">
-                    </p>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label>Method</label>
-                    <p>
+                    <label class="col-sm-2 control-label">Method</label>
+                    <div class="col-sm-10">
                         <select name="method" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.method"><option value="phone">phone</option><option value="wechat">wechat</option><option value="netmeeting">netmeeting</option></select>
-                    </p>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label>Schedule Type</label>
-                    <p>
+                    <label class="col-sm-2 control-label">Schedule Type</label>
+                    <div class="col-sm-10">
                         <select name="schedule_type" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.schedule_type"><option value="interview">interview</option><option value="class">class</option><option value="meeting">meeting</option></select>
-                    </p>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label>
-                        Scheduled Dt{{row.date}}</label>
-                    <p>
+                    <label class="col-sm-2 control-label">
+                        Scheduled Dt
+                    </label>
+                    <div class="col-sm-10">
                         <div class="input-group w-md">
 
-                            <input type="text" class="form-control"  ng-disabled="!row.editrow"  datepicker-popup="{{format}}" ng-model="row.date" is-open="opened" min-date="minDate"  datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default"  ng-disabled="!row.editrow"   ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-
-</div>
-
-                       
-
-                        <div class="input-group w-md">
-                            <timepicker ng-model="row.time"  ng-disabled="!row.editrow"   hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" datepicker-popup="{{format}}" ng-model="row.date" is-open="opened" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-disabled="!row.editrow" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
 
                         </div>
 
 
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label>Title</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.title">
-                    </p>
+
+                        <div class="input-group w-md">
+                            <timepicker ng-model="row.time" ng-disabled="!row.editrow" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+
+                        </div>
+
+
+                    </div>
                 </div>
 
             </div>
