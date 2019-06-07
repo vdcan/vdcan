@@ -93,8 +93,8 @@
 
 
 
-<div class="row"  ng-controller="ProfileCtrl" >
-    <div class="col-sm-6"style="display:none;">
+<div class="row" ng-controller="ProfileCtrl">
+    <div class="col-sm-6" style="display:none;">
 
 
         <div ng-controller="ProfileCtrl">
@@ -117,10 +117,18 @@
     <div class="col-sm-12" ng-controller="ProfileDetailCtrl as vm">
 
         <div class="modal-header">
-            Profile  <div style="float:right;"> 
-                @*<button class="btn primary" ng-click="InsertSide()" style="padding:0px;" ng-hide="!showInsert"><i class="fa fa-plus-circle">Edit&nbsp;&nbsp;</i></button>*@
-                <button class="btn primary" ng-click="EditSide(row)" style="padding:0px;"  ><i class="fa fa-plus-circle">Edit&nbsp;&nbsp;</i></button>
-            </div>
+            Profile  <div style="float:right;">
+    @*<button class="btn primary" ng-click="InsertSide()" style="padding:0px;" ng-hide="!showInsert"><i class="fa fa-plus-circle">Edit&nbsp;&nbsp;</i></button>*@
+    <div class=" ProfileEdit">
+        <button class="btn" ng-click="EditSide(row)" style="padding:0px;"> Edit&nbsp;&nbsp; </button>
+    </div>
+    <div class=" ProfileDetailButtons" style="display:none;">
+        <button ng-click="save()" class="btn btn-primary">Save</button>
+        <button ng-click="cancel()" class="btn">Cancel</button>
+
+    </div>
+
+</div>
         </div>
         <div>
             <div class="col-sm-6" style="padding-top: 10px;">
@@ -142,12 +150,12 @@
                     </span>
 
                 </div>
-                <div class="form-group">
-                    <label>Add By</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="true" ng-model="row.add_by">
-                    </p>
-                </div>
+                @*<div class="form-group">
+                        <label>Add By</label>
+                        <p>
+                            <input type="text" class="form-control" ng-disabled="true" ng-model="row.add_by">
+                        </p>
+                    </div>*@
                 <div class="form-group">
                     <label>Add On</label>
                     <p>
@@ -176,13 +184,94 @@
                         <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.title">
                     </p>
                 </div>
-                <div class="form-group">
-                    <label>User Id</label>
+                @*<div class="form-group">
+                        <label>User Id</label>
+                        <p>
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.user_id">
+                        </p>
+                    </div>*@
+
+
+                <div class="form-group  ">
+                    <label>Login ID</label>
                     <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.user_id">
+                        <input type="text" class="form-control" ng-disabled="true" ng-model="row.user_code">
                     </p>
                 </div>
+                <div class="form-group  ">
+                    <label>Email</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.email">
+                    </p>
+                </div>
+            </div>
 
+
+
+            <div class="   col-sm-6" style="padding-top: 10px;">
+                @*<div class="form-group  ">
+                        <label>Active</label>
+                        <p>
+                            <select name="active" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.active">
+                                <option value="0">Inactive</option>
+                                <option value="1">Active</option>
+                            </select>
+                        </p>
+                    </div>*@
+                @*<div class="form-group  col-sm-6">
+                        <label>创建人</label>
+                        <p>
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
+                        </p>
+                    </div>
+                    <div class="form-group  col-sm-6">
+                        <label>创建日期</label>
+                        <p>
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
+                        </p>
+                    </div>*@
+                @*<div class="form-group">
+                        <label>部门编号</label>
+                        <p>
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.department_id">
+                        </p>
+                    </div>*@
+                @*<div class="form-group  ">
+                        <label>Language</label>
+                        <p>
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.language">
+                        </p>
+                    </div>*@
+
+                @*<div class="form-group">
+                        <label>口令</label>
+                        <p>
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.password">
+                        </p>
+                    </div>*@
+                <div class="form-group  ">
+                    <label>Phone</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.phone">
+                    </p>
+                </div>
+                <div class="form-group  2">
+                    <label>Full Name</label>
+                    <p>
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.real_name">
+                    </p>
+                    @*</div>
+                                         <div class="form-group">
+                           <label>Secretkey</label>
+                           <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.secretkey" >
+                        </p>*@
+                </div>
+                <div class="form-group  ">
+                    <label>Gender</label>
+                    <p>
+                        <select name="sex" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.sex"><option value="m">Male</option><option value="f">Famle</option></select>
+                    </p>
+                </div>
 
                 <div class="form-group">
                     <label>Context</label>
@@ -201,99 +290,20 @@
                     </p>
                 </div>
 
+                @*<div class="form-group">
+                        <label>拼写</label>
+                        <p>
+                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.spell">
+                        </p>
+                    </div>*@
             </div>
+            @*<div class="modal-footer">
+                    <div class=" ProfileDetailButtons" style="display:none;">
+                        <button ng-click="save()" class="btn btn-primary">Save</button>
+                        <button ng-click="cancel()" class="btn">Cancel</button>
 
-
-
-        <div class="   col-sm-6" style="padding-top: 10px;">
-            <div class="form-group  ">
-                <label>用户代码</label>
-                <p>
-                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.user_code">
-                </p>
-            </div>
-            <div class="form-group  ">
-                <label>Active</label>
-                <p>
-                    <select name="active" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.active">
-                        <option value="0">Inactive</option>
-                        <option value="1">Active</option>
-                    </select>
-                </p>
-            </div>
-            @*<div class="form-group  col-sm-6">
-                    <label>创建人</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
-                    </p>
-                </div>
-                <div class="form-group  col-sm-6">
-                    <label>创建日期</label>
-                    <p>
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
-                    </p>
+                    </div>
                 </div>*@
-                    @*<div class="form-group">
-            <label>部门编号</label>
-            <p>
-                <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.department_id">
-            </p>
-        </div>*@
-                    <div class="form-group  ">
-                        <label>Language</label>
-                        <p>
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.language">
-                        </p>
-                    </div>
-                    <div class="form-group  ">
-                        <label>电子邮件</label>
-                        <p>
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.email">
-                        </p>
-                    </div>
-                    @*<div class="form-group">
-            <label>口令</label>
-            <p>
-                <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.password">
-            </p>
-        </div>*@
-                    <div class="form-group  ">
-                        <label>电话</label>
-                        <p>
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.phone">
-                        </p>
-                    </div>
-                    <div class="form-group  2">
-                        <label>姓名</label>
-                        <p>
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.real_name">
-                        </p>
-                        @*</div>
-                             <div class="form-group">
-               <label>Secretkey</label>
-               <p>  <input type="text" class="form-control"  ng-disabled="!row.editrow"  ng-model="row.secretkey" >
-            </p>*@
-                    </div>
-                    <div class="form-group  ">
-                        <label>性别</label>
-                        <p>
-                            <select name="sex" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.sex"><option value="m">Male</option><option value="f">Famle</option></select>
-                        </p>
-                    </div>
-                    @*<div class="form-group">
-            <label>拼写</label>
-            <p>
-                <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.spell">
-            </p>
-        </div>*@
-                </div>
-            <div class="modal-footer">
-                <div class=" ProfileDetailButtons" style="display:none;">
-                    <button ng-click="save()" class="btn btn-primary">Save</button>
-                    <button ng-click="cancel()" class="btn">Cancel</button>
-
-                </div>
-            </div>
         </div>
     </div>
 </div>

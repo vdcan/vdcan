@@ -141,16 +141,20 @@ app.controller('ProfileDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$m
     $rootScope.$on("ProfileEditSide", function (event, row) {
         $scope.row = Object.assign({}, row);
         $(".ProfileDetailButtons").show();
+        $(".ProfileEdit").hide();
     });
     $scope.save = function () {
         $rootScope.$broadcast("Profile" + $scope.row.EditType, $scope.row);
-        $(".MyLogDetailButtons").hide();
+        $(".ProfileDetailButtons").hide();
+        $(".ProfileEdit").show();
+
         $scope.row.editrow = false;
     }
     $scope.cancel = function () {
 
         $rootScope.$broadcast("ProfileCancel", $scope.row);
-        $(".MyLogDetailButtons").hide();
+        $(".ProfileDetailButtons").hide();
+        $(".ProfileEdit").show();
         $scope.row = Object.assign({}, $scope.row_old);
         $scope.row.editrow = false;
     }
@@ -277,9 +281,9 @@ app.controller('ProfileCtrl', [
             $scope.editType = "i";
             var row = $scope.copyEmptyObject($scope.row);
             row.editrow = true;
-            $scope.MyLoggridOptions.data.unshift(row);
-            $scope.gridApi.grid.modifyRows($scope.MyLoggridOptions.data);
-            $scope.gridApi.selection.selectRow($scope.MyLoggridOptions.data[0]);
+            $scope.ProfilegridOptions.data.unshift(row);
+            $scope.gridApi.grid.modifyRows($scope.ProfilegridOptions.data);
+            $scope.gridApi.selection.selectRow($scope.ProfilegridOptions.data[0]);
             $scope.gridApi.core.refresh();
             $scope.gridApi.grid.rows[0].inlineEdit.enterEditMode();
         }
@@ -304,27 +308,27 @@ app.controller('ProfileCtrl', [
         //Method to cancel the edit mode in UIGrid
         $scope.cancelEdit = function (row) {
             //Get the index of selected row from row object
-            var index = $scope.MyLoggridOptions.data.indexOf(row);
+            //var index = $scope.ProfilegridOptions.data.indexOf(row);
 
-            if ($scope.editType == "i") {
-                $scope.MyLoggridOptions.data.splice(0, 1);
-            } else {
+            //if ($scope.editType == "i") {
+            //    $scope.ProfilegridOptions.data.splice(0, 1);
+            //} else {
 
-                if (index > 0) {
-                    if (row != null) {
-                        //  $scope.MyLoggridOptions.data.splice(0, 1);
-                        var keys = Object.keys($scope.row);
-                        keys.forEach(function (k) {
-                            $scope.MyLoggridOptions.data[index][k] = $scope.row[k];
-                        });
-                        //Use that to set the editrow attrbute value to false
-                        $scope.MyLoggridOptions.data[index].editrow = false;
-                    }
-                }
-            }
-            $scope.editType = "";
-            $scope.SelectedRow.entity.editrow = false;
-            $rootScope.$broadcast("SysToaster", 'info', "", "Row editing cancelled");
+            //    if (index > 0) {
+            //        if (row != null) {
+            //            //  $scope.MyLoggridOptions.data.splice(0, 1);
+            //            var keys = Object.keys($scope.row);
+            //            keys.forEach(function (k) {
+            //                $scope.ProfilegridOptions.data[index][k] = $scope.row[k];
+            //            });
+            //            //Use that to set the editrow attrbute value to false
+            //            $scope.ProfilegridOptions.data[index].editrow = false;
+            //        }
+            //    }
+            //}
+            //$scope.editType = "";
+            //$scope.SelectedRow.entity.editrow = false;
+            //$rootScope.$broadcast("SysToaster", 'info', "", "Row editing cancelled");
         };
 
 
