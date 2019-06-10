@@ -1,0 +1,46 @@
+[6/7/2019 8:57:45 PM] GetSysText : An error occurred in the Microsoft .NET Framework while trying to load assembly id 65548. The server may be running out of resources, or the assembly may not be trusted with PERMISSION_SET = EXTERNAL_ACCESS or UNSAFE. Run the query again, or check documentation to see how to solve the assembly trust issues. For more information about this error: 
+System.IO.FileLoadException: Could not load file or assembly 'sqlencryption, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. Exception from HRESULT: 0x80FC80F1
+System.IO.FileLoadException: 
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   at System.Reflection.Assembly.Load(String assemblyString)
+
+ExecptionMessage£ºSyntax error: Missing operand after 'sqlencryption' operator.
+ex.Source£ºSystem.Data
+ex.StackTrace£º   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1491
+All£ºSystem.Data.SyntaxErrorException: Syntax error: Missing operand after 'sqlencryption' operator.
+   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1491
+
+[6/7/2019 8:59:18 PM] GetSysText : An error occurred in the Microsoft .NET Framework while trying to load assembly id 65548. The server may be running out of resources, or the assembly may not be trusted with PERMISSION_SET = EXTERNAL_ACCESS or UNSAFE. Run the query again, or check documentation to see how to solve the assembly trust issues. For more information about this error: 
+System.IO.FileLoadException: Could not load file or assembly 'sqlencryption, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. Exception from HRESULT: 0x80FC80F1
+System.IO.FileLoadException: 
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   at System.Reflection.Assembly.Load(String assemblyString)
+
+ExecptionMessage£ºSyntax error: Missing operand after 'sqlencryption' operator.
+ex.Source£ºSystem.Data
+ex.StackTrace£º   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+All£ºSystem.Data.SyntaxErrorException: Syntax error: Missing operand after 'sqlencryption' operator.
+   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+

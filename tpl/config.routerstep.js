@@ -22,8 +22,8 @@ angular.module('app')
               .otherwise('/access');
                 $stateProvider
                 ###DETAIL###   
-              .state('access.steps33', {
-                  url: '/steps',
+              .state('access.steps2', {
+                  url: '/steps2',
                   templateUrl: '/anjs/home?menucode=jWMm',
                   resolve:
                   //{

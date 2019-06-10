@@ -62,6 +62,8 @@ app.controller('ScheduleDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$
     //$scope.row_original = {};// = {id:43124};
     $rootScope.$on("ScheduleSelectedRowChanged", function (event, row, ids, paginationOptions) {
 
+        row.CONTEXT = row.CONTEXT.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+
         row.date = row.scheduled_dt.split(" ")[0];
       row.time =new Date(  row.scheduled_dt );
         $scope.row = Object.assign({}, row);
@@ -84,12 +86,11 @@ app.controller('ScheduleDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$
         return  strTime;
     }
 
-    function formatDate(date) {
-       
+    function formatDate(date) { 
         return date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear()  ;
     }
     $scope.save = function () { 
-        $scope.row.scheduled_dt = formatDate( $scope.row.date) + " " + formatTime($scope.row.time);
+        $scope.row.scheduled_dt = formatDate( new Date( $scope.row.date)) + " " + formatTime( new Date($scope.row.time));
         console.log($scope.row.scheduled_dt );
         $rootScope.$broadcast("Schedule"+$scope.row.EditType, $scope.row);
         $(".ScheduleDetailButtons").hide(); 
@@ -613,6 +614,8 @@ app.controller('ScheduleCtrl', [
       if (Array.isArray(result.rows)) {
    	 								result.rows.forEach(function (d) {
                                                     d.editrow = false; 
+
+                                                    d.CONTEXT = d.CONTEXT.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
                         });
                     $scope.SchedulegridOptions.data = result.rows;
                     $scope.GetIDS();

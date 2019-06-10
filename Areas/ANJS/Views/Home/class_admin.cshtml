@@ -1,72 +1,146 @@
 ﻿
-@{ 
-//------------------------------------------------------------------------------ 
-//        Date  2019-06-07
-//        Author  蔡捷   
-//			 				Class Admin 
-//        File  class_admin.cshtml  Page file 
-//------------------------------------------------------------------------------
- 
+@{
+    //------------------------------------------------------------------------------
+    //        Date  2019-06-07
+    //        Author  蔡捷
+    //			 				Class Admin
+    //        File  class_admin.cshtml  Page file
+    //------------------------------------------------------------------------------
+
     ViewBag.Title = "Class Admin";
     Layout = null;
 }
 
 @section head{
-  <style type="text/css">
-       
+    <style type="text/css">
     </style>
 }
- 
-    <script type="text/javascript">
+
+<script type="text/javascript">
      var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
-       km.model = JSON.parse(model_string); 
+       km.model = JSON.parse(model_string);
      var ddls_string = '@Html.Raw(ViewData["DLLS"].ToString().Replace("\r\n",""))';
     km.ddls = JSON.parse(ddls_string);
-    </script>
+</script>
 
- 
- 
-<div class="row">
- <div class="col-sm-6">
-    	
-<table id="ClassAdmin"></table>
-    	
+
+
+<div class="row" style="padding-top: 15px;">
+    <div class="col-sm-6">
+
+
+        <div ng-controller="ClassAdminCtrl">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    ClassAdmin
+                    <div style="float:right;">
+                        <button class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <div ui-grid="ClassAdmingridOptions" ui-grid-pagination ui-grid-selection style="min-height:800px;"></div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
- <div class="col-sm-6">
-    	
- 
- 
+    <div class="col-sm-6">
 
-   <form id="ClassAdmin_content" class="form_content" method="post">
-            <table class="table_content"  cellpadding="3" cellspacing="0" border="0">
-                                                         <tr><td  class="td_title">Active Flag </td> <td> 
-                             <input  id='TPL_active_flag' name='active_flag' type='text' class='easyui-datebox' data-options=""  style='width:10px'  /></td></tr>
-                             
-                            <tr><td   class="td_title" >Add By</td> <td>  <input      id='TPL_add_by' data-options=""  name='add_by' type='text' class='easyui-textbox'  style='width:100px'  /></td></tr>
-                             
-                            <tr><td   class="td_title" >Add On</td> <td>  <input      id='TPL_add_on' data-options=""  name='add_on' type='text' class='easyui-textbox'  style='width:230px'  /></td></tr>
-                             
-                            <tr><td   class="td_title" >Class Title</td> <td>  <input      id='TPL_class_title' data-options=""  name='class_title' type='text' class='easyui-textbox'  style='width:500px'  /></td></tr>
-                             <tr><td class="td_title" >Class Type </td> <td>                                  <select id='TPL_class_type' name='class_type' class="easyui-combobox"   data-options="editable:false,hasDownArrow:false,panelHeight:90"  style="width:500px;"> <option value='english'>english</option>
-                                     <option value='chinese'>chinese</option>
-                                                                    </select></td></tr>
-                                 
-                            <tr><td   class="td_title" >Comments</td> <td>  <input      id='TPL_comments' data-options=""  name='comments' type='text' class='easyui-textbox'  style='width:500px'  /></td></tr>
-                             
-                            <tr><td   class="td_title" >Context</td> <td>  <input      id='TPL_CONTEXT' data-options=""  name='CONTEXT' type='text' class='easyui-textbox'  style='width:-10px'  /></td></tr>
-                                                    <input  id='TPL_id' name='id'  type='hidden' value='0'  />
-                         <tr><td class="td_title" >Method </td> <td>                                  <select id='TPL_method' name='method' class="easyui-combobox"   data-options="editable:false,hasDownArrow:false,panelHeight:90"  style="width:500px;"> <option value='web'>web</option>
-                                     <option value='wechat'>wechat</option>
-                                                                    </select></td></tr>
-                                            </table>
-        </form> 
-        
-        
- 
+        <div ng-controller="ClassAdminDetailCtrl">
 
+            <div class="col-sm-12">
+                <div class="modal-footer">
+                    <div class=" ClassAdminDetailButtons" style="display:none;">
+                        <button ng-click="save()" class="btn btn-primary">Save</button>
+                        <button ng-click="cancel()" class="btn">Cancel</button>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Active Flag
+                    </label>
+                    <div class="col-sm-10">
+                        <label class="i-switch m-t-xs m-r"> <input type="checkbox" ng-disabled="!row.editrow" ng-model="row.active_flag" checked>  <i></i> </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Add By
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Add On
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Class Title
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.class_title">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Class Type
+                    </label>
+                    <div class="col-sm-10">
+                        <select name="class_type" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.class_type"><option value="english">english</option><option value="chinese">chinese</option></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Comments
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.comments">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Method
+                    </label>
+                    <div class="col-sm-10">
+                        <select name="method" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.method"><option value="web">web</option><option value="wechat">wechat</option></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class=" control-label">
+                        Context
+                    </label>
+                    <div>
+
+
+                        <div id="item_bodyHTML" name="item_bodyHTML" ta-toolbar="[['h1','h2','h3'],['bold','italics'],['undo',
+                    'redo',
+                    'clear'],['justifyLeft',
+                    'justifyCenter',
+                    'justifyRight',
+                    'indent',
+                    'outdent'],['ul','ol']]" ta-disabled="!row.editrow" text-angular ng-model="row.CONTEXT" class="btn-groups" style="height:300px;"></div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
 </div>
 <div style='display:none'>
-	
+
 </div>
- 
+

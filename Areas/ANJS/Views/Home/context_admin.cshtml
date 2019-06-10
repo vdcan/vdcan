@@ -147,7 +147,12 @@
                     <p>
                         <input type="number" class="form-control" ng-disabled="!row.editrow" ng-model="row.order_num">
                     </p>
-                </div>
+                </div><div class="form-group">
+    <label>Active Flag</label>
+    <p>
+        <select name="active_flag" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.active_flag"><option value="1">Active</option><option value="0">Inactive</option></select>
+    </p>
+</div>
                 <div class="form-group">
                     <label>Context</label>
                     <p>
@@ -179,11 +184,6 @@
                             <div id="item_bodyHTML" name="item_bodyHTML" ta-disabled="!row.editrow" text-angular ng-model="row.context" class="btn-groups" style="height:300px;"></div>
                         </div>
 
-                    </p>
-                </div><div class="form-group">
-                    <label>Active Flag</label>
-                    <p>
-                        <select name="active_flag" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.active_flag"><option value="1">Active</option><option value="0">Inactive</option></select>
                     </p>
                 </div>
                 @*<div class="form-group">
