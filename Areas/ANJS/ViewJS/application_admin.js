@@ -23,6 +23,7 @@ app.controller('UserInfoModalInstanceControl', ['$scope', '$modalInstance', '$ht
         return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
     };
     $scope.row = row;
+    console.log($scope.row);
     $scope.ok = function () {
         $modalInstance.close($scope.row);
     };
@@ -249,10 +250,13 @@ app.controller('ApplicationsDetailCtrl', ['$scope', '$rootScope', '$stateParams'
     $rootScope.$on("ApplicationsSelectedRowChanged", function (event, row, ids, paginationOptions) {
         $scope.row = Object.assign({}, row);
         $scope.row_old = row;
+
+        console.log($scope.row);
         $(".tmpHide").removeClass("tmpHide");
     });
     $rootScope.$on("ApplicationsEditSide", function (event, row) {
         $scope.row = Object.assign({}, row);
+        console.log($scope.row );
         $(".ApplicationsDetailButtons").show();
     });
     $scope.save = function () {
@@ -291,6 +295,8 @@ app.controller('ApplicationsDetailCtrl', ['$scope', '$rootScope', '$stateParams'
                 row: function () {
                     $scope.row.EditType = EditType;
                     $scope.row.ddldata = $scope.DDLData
+
+                    console.log($scope.row);
                     return $scope.row;
                 }
             }
@@ -309,8 +315,8 @@ app.controller('ApplicationsDetailCtrl', ['$scope', '$rootScope', '$stateParams'
     };
     $scope.InsertPopup = function () {
 
-        var row = {};// $scope.copyEmptyObject($scope.row);
-        $scope.row = row;
+     //   var row = {};// $scope.copyEmptyObject($scope.row);
+       // $scope.row = row;
 
         $scope.row.editrow = true;
         $scope.open('lg', 'Insert');
