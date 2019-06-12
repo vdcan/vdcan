@@ -206,6 +206,22 @@
                 </div>
             </div>
 
+
+
+            <div class="col-sm-10">
+                <div class="input-group w-md  col-sm-6">
+
+                    <input type="text" class="form-control"    ng-change="changed()"  datepicker-popup="{{format}}" ng-model="mydate" is-open="opened" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default"   ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+                <div class="input-group w-md  col-sm-6">
+                    <timepicker ng-model="mytime"   hour-step="hstep" minute-step="mstep"  ng-change="changed()" show-meridian="ismeridian"></timepicker>
+                </div>
+            </div>
+
+
         </div>
 
     </div>
