@@ -66,7 +66,7 @@ app.controller('ContactCtrl', ['$scope', '$http', '$filter', function($scope, $h
   $scope.createItem = function(){
     var item = {
       group: 'Friends',
-      avatar:'img/a0.jpg'
+      avatar:'/img/a0.jpg'
     };
     $scope.items.push(item);
     $scope.selectItem(item);

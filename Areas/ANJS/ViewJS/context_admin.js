@@ -11,7 +11,7 @@
  Description Context Admin(context_admin)  js File 
 */
 // Current page object 
-var km = {}; 
+var km = {};
 km.init = function () {
 }
 
@@ -67,25 +67,25 @@ km.init = function () {
 //    }
 //]);
 
-   
- 
+
+
 //------------------------------------------------------------------------------ 
 //        Date  2019-05-22
 //        Author  蔡捷   
 //			   
 //------------------------------------------------------------------------------  
- 
+
 app.controller('contextDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$modal', '$http', function ($scope, $rootScope, $stateParams, $modal, $http) {
     /*  var id = $stateParams.id;
       var number = $stateParams.number;
       console.log(id);
       console.log(number);
       */
-      
-    $scope.loader = function (param) { 
-        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
+
+    $scope.loader = function (param) {
+        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
     };
-    $scope.DDLData = km.ddls ;
+    $scope.DDLData = km.ddls;
     $scope.getDDL = function (param) {
         console.log(param);
         if (typeof $scope.DDLData == "undefined")
@@ -99,14 +99,14 @@ app.controller('contextDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$m
         }).then(function successCallback(response) {
             //console.log(response.data);
             $scope.DDLData[param] = response.data;
-        console.log($scope.DDLData);
+            console.log($scope.DDLData);
             return $scope.DDLData[param];
             // this callback will be called asynchronously
             // when the response is available
         }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
-            }); 
+        });
     };
     $scope.row = {};// = {id:43124};
     $scope.row_old = {};// = {id:43124};
@@ -115,42 +115,42 @@ app.controller('contextDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$m
         $scope.row = Object.assign({}, row);
         $scope.row_old = row;
         $(".tmpHide").removeClass("tmpHide");
-    });    
+    });
     $rootScope.$on("contextEditSide", function (event, row) {
         $scope.row = Object.assign({}, row);
         $(".contextDetailButtons").show();
-    }); 
+    });
     $scope.save = function () {
-        $rootScope.$broadcast("context"+$scope.row.EditType, $scope.row);
-        $(".contextDetailButtons").hide(); 
+        $rootScope.$broadcast("context" + $scope.row.EditType, $scope.row);
+        $(".contextDetailButtons").hide();
         $scope.row.editrow = false;
     }
-    $scope.cancel = function () { 
-    	
+    $scope.cancel = function () {
+
         $rootScope.$broadcast("contextCancel", $scope.row);
         $(".contextDetailButtons").hide();
         $scope.row = Object.assign({}, $scope.row_old);
         $scope.row.editrow = false;
     }
-    
-}]);  
 
- 
+}]);
+
+
 //------------------------------------------------------------------------------ 
 //        Date  2019-05-22
 //        Author  蔡捷   
 //			   
 //------------------------------------------------------------------------------  
- 
- 
-function  context_8_Init(){ 
-	
+
+
+function context_8_Init() {
+
 }
 
 
- 
- 
- 
+
+
+
 
 /*
 //for other controllers to listen the selected row changed. 
@@ -196,13 +196,13 @@ app.controller('editorCtrl', ['$scope', 'textAngularManager', '$timeout', '$http
     $scope.timesSubmitted = 0;
     $scope.canEdit = false;
     $scope.testFrm = {};
-          $scope.formatDoc = function (command ) {
-              console.log(command);
-              console.log($scope.color);
+    $scope.formatDoc = function (command) {
+        console.log(command);
+        console.log($scope.color);
         //var editor = textAngularManager.retrieveEditor('item_bodyHTML').scope;
         //editor.displayElements.text.trigger('focus');
         //      editor.wrapSelection('forecolor', $scope.color, true);
-          };
+    };
     $scope.test = function () {
         $scope.timesSubmitted++;
     };
@@ -218,7 +218,7 @@ app.controller('editorCtrl', ['$scope', 'textAngularManager', '$timeout', '$http
         }).success(function (r) {
             console.log(r);
             var img = r.replaceAll(";", "").replaceAll(",", "")
-            $scope.insertToHtml("<img src='/upload/" + img+"'/>");
+            $scope.insertToHtml("<img src='/upload/" + img + "'/>");
         }
         );
 
@@ -249,7 +249,7 @@ app.controller('editorCtrl', ['$scope', 'textAngularManager', '$timeout', '$http
     }
     $scope.insertToHtml = function (newText) {
         var editor = textAngularManager.retrieveEditor('item_bodyHTML').scope;
-       
+
 
         $timeout(function () {
             editor.displayElements.text.trigger('focus');
@@ -263,9 +263,9 @@ app.controller('editorCtrl', ['$scope', 'textAngularManager', '$timeout', '$http
 
         $timeout(function () {
             editor.displayElements.text.trigger('focus');
-            editor.wrapSelection('insertHTML',"<span style='color:red'>"+ newText+"</span>", true);
+            editor.wrapSelection('insertHTML', "<span style='color:red'>" + newText + "</span>", true);
         });
-       // editor.wrapSelection('foreColor', "red");
+        // editor.wrapSelection('foreColor', "red");
 
 
     }
@@ -281,47 +281,47 @@ app.controller('editorCtrl', ['$scope', 'textAngularManager', '$timeout', '$http
         alert("Form Invalid: " + $scope.testFrm.$invalid);
     }
 
-}]); 
- 
+}]);
+
 app.controller('contextCtrl', [
-    '$scope', '$rootScope', '$http', '$modal', '$q','textAngularManager', function ($scope, $rootScope, $http, $modal, $q, textAngularManager) {
+    '$scope', '$rootScope', '$http', '$modal', '$q', 'textAngularManager', function ($scope, $rootScope, $http, $modal, $q, textAngularManager) {
         $scope.SelectedRow = {};//for getting row detail
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
         console.log(textAngularManager);
-        
-	    $scope.loader = function (param) { 
-	        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
-	    };
-	    
-   
-    $scope.DDLData = km.ddls;
-    $scope.getDDL = function (param) {
-       // console.log(param);
-        if (typeof $scope.DDLData == "undefined")
-            $scope.DDLData = new Object();
-        if ($scope.DDLData.hasOwnProperty(param))
-            return $scope.DDLData[param];
 
-        $http({
-            method: 'GET',
-            url: km.model.urls["ddler"] + "&ddl=" + param
-        }).then(function successCallback(response) {
-            //console.log(response.data);
-            $scope.DDLData[param] = response.data;
-        console.log($scope.DDLData);
-            return $scope.DDLData[param];
-            // this callback will be called asynchronously
-            // when the response is available
-        }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-            }); 
-    	};
-        
+        $scope.loader = function (param) {
+            return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
+        };
 
-       
+
+        $scope.DDLData = km.ddls;
+        $scope.getDDL = function (param) {
+            // console.log(param);
+            if (typeof $scope.DDLData == "undefined")
+                $scope.DDLData = new Object();
+            if ($scope.DDLData.hasOwnProperty(param))
+                return $scope.DDLData[param];
+
+            $http({
+                method: 'GET',
+                url: km.model.urls["ddler"] + "&ddl=" + param
+            }).then(function successCallback(response) {
+                //console.log(response.data);
+                $scope.DDLData[param] = response.data;
+                console.log($scope.DDLData);
+                return $scope.DDLData[param];
+                // this callback will be called asynchronously
+                // when the response is available
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        };
+
+
+
         $scope.editType = "";
         /*$scope.$on('$destroy', function () {
             console.log('Child1 is no longer necessary');
@@ -338,11 +338,11 @@ app.controller('contextCtrl', [
             row.editrow = true;
             $scope.contextgridOptions.data.unshift(row);
             $scope.gridApi.grid.modifyRows($scope.contextgridOptions.data);
-             $scope.gridApi.selection.selectRow($scope.contextgridOptions.data[0]);
+            $scope.gridApi.selection.selectRow($scope.contextgridOptions.data[0]);
             $scope.gridApi.core.refresh();
             $scope.GetIDS();
         }
-         $scope.InsertRowInline = function () { 
+        $scope.InsertRowInline = function () {
             $scope.editType = "i";
             var row = $scope.copyEmptyObject($scope.row);
             row.editrow = true;
@@ -350,24 +350,24 @@ app.controller('contextCtrl', [
             $scope.gridApi.grid.modifyRows($scope.contextgridOptions.data);
             $scope.gridApi.selection.selectRow($scope.contextgridOptions.data[0]);
             $scope.gridApi.core.refresh();
-           $scope.gridApi.grid.rows[0].inlineEdit.enterEditMode(); 
+            $scope.gridApi.grid.rows[0].inlineEdit.enterEditMode();
         }
-        
+
         $scope.editRow = function (row) {
             $scope.editType = "u";
             var index = $scope.contextgridOptions.data.indexOf(row);
-            $scope.row = Object.assign({}, row); 
+            $scope.row = Object.assign({}, row);
             //Use that to set the editrow attrbute value for seleted rows
-            $scope.contextgridOptions.data[index].editrow = !$scope.contextgridOptions.data[index].editrow; 
+            $scope.contextgridOptions.data[index].editrow = !$scope.contextgridOptions.data[index].editrow;
         };
-        $scope.saveRow = function (row) { 
+        $scope.saveRow = function (row) {
             var index = $scope.contextgridOptions.data.indexOf(row);
             //Use that to set the editrow attrbute value for seleted rows
-            $scope.contextgridOptions.data[index].editrow = !$scope.contextgridOptions.data[index].editrow; 
-         
-            if ($scope.editType == "i"){
+            $scope.contextgridOptions.data[index].editrow = !$scope.contextgridOptions.data[index].editrow;
+
+            if ($scope.editType == "i") {
                 $scope.insertData(row);
-            }else
+            } else
                 $scope.updateData(row);
         };
         //Method to cancel the edit mode in UIGrid
@@ -377,25 +377,25 @@ app.controller('contextCtrl', [
 
             if ($scope.editType == "i") {
                 $scope.contextgridOptions.data.splice(0, 1);
-            }else {
-            
+            } else {
+
                 if (index > 0) {
-	                if (row != null) {
-	                    //  $scope.contextgridOptions.data.splice(0, 1);
-	                    var keys = Object.keys($scope.row);
-	                    keys.forEach(function (k) {
-	                        $scope.contextgridOptions.data[index][k] = $scope.row[k];
-	                    });
-	                    //Use that to set the editrow attrbute value to false
-	                    $scope.contextgridOptions.data[index].editrow = false;
-	                }
+                    if (row != null) {
+                        //  $scope.contextgridOptions.data.splice(0, 1);
+                        var keys = Object.keys($scope.row);
+                        keys.forEach(function (k) {
+                            $scope.contextgridOptions.data[index][k] = $scope.row[k];
+                        });
+                        //Use that to set the editrow attrbute value to false
+                        $scope.contextgridOptions.data[index].editrow = false;
+                    }
                 }
             }
             $scope.editType = "";
             $scope.SelectedRow.entity.editrow = false;
             $rootScope.$broadcast("SysToaster", 'info', "", "Row editing cancelled");
         };
-         
+
         $scope.$on("contextUpdate", function (event, row) {
             $scope.updateData(row)
         });
@@ -406,7 +406,7 @@ app.controller('contextCtrl', [
             $scope.deleteIt(id, text)
         });
 
-        $scope.$on("contextCancel", function (event, row) { 
+        $scope.$on("contextCancel", function (event, row) {
             $scope.cancelEdit(row)
         });
         $scope.insert = function () {
@@ -416,7 +416,7 @@ app.controller('contextCtrl', [
             $scope.deleteIt($scope.row.id, $scope.row.id);
         };
         $scope.deleteInline = function (inline) {
-             
+
             $scope.deleteIt(inline.id.value, inline.id.value);
         };
         $scope.update = function () {
@@ -431,12 +431,12 @@ app.controller('contextCtrl', [
         }
         $scope.insertData = function (row) {
             row.category = "";
-          //  row.context = $("#input_context").html();
+            //  row.context = $("#input_context").html();
             com.ajax({
                 type: 'POST', url: km.model.urls["context_insert"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
-                        
+
                         r.editrow = false;
                         r.context = r.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
 
@@ -502,12 +502,12 @@ app.controller('contextCtrl', [
         }
         $scope.updateData = function (row) {
             row.category = "";
-           // row.context = $("#input_context").html();
+            // row.context = $("#input_context").html();
             com.ajax({
                 type: 'POST', url: km.model.urls["context_update"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
-                        
+
                         r.editrow = false;
                         var iterator = Object.keys(r);
                         for (let key of iterator) {
@@ -527,25 +527,25 @@ app.controller('contextCtrl', [
             $scope.editType = "";
             $scope.gridApi.core.refresh();
         }
-        
+
         $scope.sync = function () {
-            $rootScope.$broadcast("contextSelectedRowChanged", $scope.row );
+            $rootScope.$broadcast("contextSelectedRowChanged", $scope.row);
         };
         $scope.EditSide = function (row) {
-        		row.EditType ="Update";
-        		
+            row.EditType = "Update";
+
             row.editrow = true;
             $scope.SelectedRow = row;
             row.editrow = true;
-            $rootScope.$broadcast("contextEditSide", row );
+            $rootScope.$broadcast("contextEditSide", row);
         };
-        $scope.InsertSide = function ( ) {
-        		
+        $scope.InsertSide = function () {
+
             var row = $scope.copyEmptyObject($scope.row);
-        		row.EditType ="Insert";
-        		
+            row.EditType = "Insert";
+
             row.editrow = true;
-            $rootScope.$broadcast("contextEditSide", row );
+            $rootScope.$broadcast("contextEditSide", row);
         };
         var paginationOptions = {
             pageNumber: 1,
@@ -553,43 +553,43 @@ app.controller('contextCtrl', [
             order: "desc",
             sort: "id",
         };
-         $scope.TranslateToText = function (data, value) {
+        $scope.TranslateToText = function (data, value) {
 
-            var result=value;
+            var result = value;
             if (Array.isArray(data)) {
                 data.forEach(function (d) {
-                    if (d.id ==  value) {
+                    if (d.id == value) {
 
                         result = d.text;
-                    return;
+                        return;
                     }
                 })
             } else {
-            // console.log(data);
-            var a = data.split(" ");
-            for (var i = 0; i < a.length; i++) {
+                // console.log(data);
+                var a = data.split(" ");
+                for (var i = 0; i < a.length; i++) {
 
-                var v = a[i].split("=")[0];
-                var t = a[i].split("=")[1];
+                    var v = a[i].split("=")[0];
+                    var t = a[i].split("=")[1];
 
-                if (value == v)
-                    return t;
-            }
+                    if (value == v)
+                        return t;
+                }
 
             }
             return result;
         }
-        $scope.Translate = function (data, value,valcol, textcol) {
-				     var d= 	$scope.getDDL(data); 
-				     var r ="";
-        		d.forEach(function (t) {
-                    if (t[valcol] == value)
-                        r= t[textcol];
-                });
-                return r;
+        $scope.Translate = function (data, value, valcol, textcol) {
+            var d = $scope.getDDL(data);
+            var r = "";
+            d.forEach(function (t) {
+                if (t[valcol] == value)
+                    r = t[textcol];
+            });
+            return r;
         };
-        
-        
+
+
         $scope.contextgridOptions = {
             paginationPageSizes: [10, 15, 25, 50, 75],
             paginationPageSize: paginationOptions.pageSize,
@@ -598,32 +598,40 @@ app.controller('contextCtrl', [
             useExternalSorting: true,
             multiSelect: false,
             enableRowHeaderSelection: false,
-            columnDefs: 
-                [ 
-  { field: 'id', displayName: 'ID', width: 80, align: 'center',
-    },
-  { field: 'title', displayName: 'Title', width: "*", align: 'center',
-    },
-  { field: 'type', displayName: 'Type', width: 80, align: 'center',
-  cellTemplate:"<div>{{grid.appScope.TranslateToText(grid.appScope.DDLData['context_type'],row.entity.type)}}</div>"  },
-                 { field: 'active_flag', displayName: 'Active', width: 80, align: 'center',
-  cellTemplate:"<div>{{grid.appScope.TranslateToText('1=Active 0=Inactive',row.entity.active_flag)}}</div>"  },
-  { field: 'add_by', displayName: 'Add By', width: 80, align: 'center',
-    },
-  { field: 'add_on', displayName: 'Add On', width: 80, align: 'center',
+            columnDefs:
+                [
+                    {
+                        field: 'id', displayName: 'ID', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'title', displayName: 'Title', width: "*", align: 'center',
+                    },
+                    {
+                        field: 'type', displayName: 'Type', width: 80, align: 'center',
+                        cellTemplate: "<div>{{grid.appScope.TranslateToText(grid.appScope.DDLData['context_type'],row.entity.type)}}</div>"
+                    },
+                    {
+                        field: 'active_flag', displayName: 'Active', width: 80, align: 'center',
+                        cellTemplate: "<div>{{grid.appScope.TranslateToText('1=Active 0=Inactive',row.entity.active_flag)}}</div>"
+                    },
+                    {
+                        field: 'add_by', displayName: 'Add By', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'add_on', displayName: 'Add On', width: 80, align: 'center',
                     },
 
- {
+                    {
                         name: 'Actions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
                         cellTemplate: '<div><button  ng-show="!row.entity.editrow"   class="btn primary" ng-click="grid.appScope.EditSide(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
                             '<button  ng-show="!row.entity.editrow" class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
-                                   '</div>', width: 80
+                            '</div>', width: 80
                     }
-  
+
                 ],
-                 
+
             onRegisterApi: function (gridApi) {
-             $scope.getPage();
+                $scope.getPage();
                 $scope.gridApi = gridApi;
                 $scope.gridApi.core.on.sortChanged($scope, function (grid, sortColumns) {
                     if (sortColumns.length == 0) {
@@ -642,43 +650,43 @@ app.controller('contextCtrl', [
                 gridApi.selection.on.rowSelectionChanged($scope, function (row) {
                     // var msg = 'row selected ' + row.;
                     $scope.SelectedRow = row;
-                  //  $("#input_context").html(row.entity.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">"));
+                    //  $("#input_context").html(row.entity.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">"));
                     //var oDoc = document.getElementById("input_context");
-                  //  oDoc.innerHTML = row.entity.context;
+                    //  oDoc.innerHTML = row.entity.context;
                     $scope.row = Object.assign({}, row.entity);
                     $scope.selectedRowIndex = $scope.contextgridOptions.data.indexOf(row.entity);
                     $scope.sync();
                 });
                 gridApi.selection.on.rowSelectionChangedBatch($scope, function (rows) {
                 });
-              }
+            }
         };
-       
+
         $scope.getPage = function () {
             var type = 0;
             $http.get(km.model.urls["context_pager"] + "&page=" + paginationOptions.pageNumber
                 + "&rows=" + paginationOptions.pageSize + "&sort=" + paginationOptions.sort + "&order=" +
-                paginationOptions.order + "&type=" + type+  "&_t="+com.settings.timestamp()).success(function (result) {
-   
-      if (Array.isArray(result.rows)) {
-   	 								result.rows.forEach(function (d) {
-                                                    d.editrow = false; 
-                                                    d.context = d.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
-                        });
-          $scope.contextgridOptions.data = result.rows;
-                    $scope.GetIDS();
+                paginationOptions.order + "&type=" + type + "&_t=" + com.settings.timestamp()).success(function (result) {
 
-                    }else
-                     
-                    $scope.contextgridOptions.totalItems  = result.total; 
-                    
+                    if (Array.isArray(result.rows)) {
+                        result.rows.forEach(function (d) {
+                            d.editrow = false;
+                            d.context = d.context.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+                        });
+                        $scope.contextgridOptions.data = result.rows;
+                        $scope.GetIDS();
+
+                    } else
+
+                        $scope.contextgridOptions.totalItems = result.total;
+
                     $scope.gridApi.grid.modifyRows($scope.contextgridOptions.data);
 
-                    if ($scope.contextgridOptions.data.length >0)
+                    if ($scope.contextgridOptions.data.length > 0)
                         $scope.gridApi.selection.selectRow($scope.contextgridOptions.data[0]);
                 });
         }
-        $scope.copyEmptyObject =function(source, isArray) {
+        $scope.copyEmptyObject = function (source, isArray) {
             var o = Array.isArray(source) ? [] : {};
             for (var key in source) {
                 if (source.hasOwnProperty(key)) {
@@ -700,7 +708,7 @@ app.controller('contextCtrl', [
             else
                 $scope.ids = names.join(",");
         }
-      //  $scope.getPage();
+        //  $scope.getPage();
     }
 ]);
- 
+

@@ -31,6 +31,27 @@ app.controller('ApplicationsDetailCtrl', ['$scope', '$rootScope', '$stateParams'
       console.log(number);
       */
 
+
+    $scope.openIframe = function (size, EditType) {
+        var modalInstance = $modal.open({
+            templateUrl: 'IframeDialog',
+            controller: 'IframePopup',
+            size: size,
+            windowClass: 'my-modal',
+            resolve: {
+                parm: function () {
+                    var r = { Title: "User Info", hight: 600, OkText: "Save", URL: "/home/admin?mc=admin&name=popup#/app/sm_user", HideOk: true }
+                    return r;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (row) {
+            console.log(row);
+        }, function () {
+            console.log('Modal dismissed at: ' + new Date());
+        });
+    };
     $scope.loader = function (param) {
         return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
     };
@@ -148,6 +169,8 @@ app.controller('ApplicationsCtrl', [
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
+
+
 
 
         $scope.loader = function (param) {

@@ -101,3 +101,17 @@
 [6/10/2019 8:03:47 AM]BaseIndex (context_pager):pager--ProcedureName:usp_context_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=VJMEnVfaayC9nHfJtQJPic0Kd9s6LztsacDAXulWU2k=&b=JEIsGfj-vwnf7Todl9g7Qg==
 [6/10/2019 8:03:47 AM]context_admin
 [6/10/2019 8:03:47 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[6/10/2019 8:08:00 AM]baseindex jWMmpw
+[6/10/2019 8:08:00 AM]tmpMenuCode context_admin
+[6/10/2019 8:08:00 AM]BaseIndex (loader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=VJMEnVfaayBzbJTnO0KxpGSNmVXkaNl5Qqw85kk6EYI=&b=JEIsGfj-vwm7dSnwSB8SoA==
+[6/10/2019 8:08:00 AM]BaseIndex (ddler):listdt--ProcedureName:usp_ddl SQL: Type:proc ConnStr:app ActionType:--/anjs/home/listdt?token=VJMEnVfaayBzbJTnO0KxpBMNHFU2i5gn9Kye63tScxY=&b=JEIsGfj-vwmcs228uo_YyQ==
+[6/10/2019 8:08:00 AM]BaseIndex (sddler):listdt--ProcedureName:vdp_ddl SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=VJMEnVfaayBzbJTnO0KxpG0afx3z5oEXUr7aG91cfRI=&b=JEIsGfj-vwmSa5aXl7yGkQ==
+[6/10/2019 8:08:00 AM]BaseIndex (sloader):listdt--ProcedureName:usp_loader SQL: Type:proc ConnStr:sys ActionType:--/anjs/home/listdt?token=VJMEnVfaayBzbJTnO0KxpBYUqKnKVwzphGm8k3h_m3Q=&b=JEIsGfj-vwkyMfmYzBNp1A==
+[6/10/2019 8:08:00 AM]BaseIndex (context_insert):runproc--ProcedureName:usp_context_insert SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=VJMEnVfaayBzbJTnO0KxpLEQYAZ0FxIOhqOsDXI0m6k=&b=4GRHIgXeC-mJ8NkqxzQK3A==
+[6/10/2019 8:08:00 AM]BaseIndex (context_update):runproc--ProcedureName:usp_context_update SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=VJMEnVfaayDLSK3WIQbOurQTK-VqpBQvt7oKT98muZ0=&b=AT1uvy5s0sAyVJm5FMxyKA==
+[6/10/2019 8:08:00 AM]BaseIndex (context_delete):runproc--ProcedureName:usp_context_delete SQL: Type:proc ConnStr:app ActionType:--/anjs/home/runProc?token=VJMEnVfaayDLSK3WIQbOup5VJn4QlEiB6-2-x7M2pGQ=&b=O-bJu2DgNamHggS5AOV75g==
+[6/10/2019 8:08:00 AM]BaseIndex (context_pager):pager--ProcedureName:usp_context_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=VJMEnVfaayDLSK3WIQbOutzYS4LVhbfkdDWVZpDQTV8=&b=JEIsGfj-vwnf7Todl9g7Qg==
+[6/10/2019 8:08:00 AM]context_admin
+[6/10/2019 8:08:04 AM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[6/10/2019 9:36:15 AM]tmpMenuCode index_lan@en
+[6/10/2019 9:36:17 AM]tmpMenuCode index_lan@en
