@@ -38,10 +38,10 @@
 
 
 
-<div class="row " style="height: 100%;padding-top: 15px;" ng-controller="UserInfoCtrl"   >
-    <div class="col-sm-8">
+<div class="row fill" style="height: 100%;padding-top: 15px;" ng-controller="UserInfoCtrl"   >
+    <div class="col-sm-8 fill">
 
-        <div>
+        <div  class="  fill">
             <script type="text/ng-template" id="UserInfoDetail">
                 <div class="modal-header    col-sm-12">
                     {{row.EditType}} User Info
@@ -148,11 +148,11 @@
         </div>
 
     </div>
-    <div class="col-sm-4 d-none d-lg-block">
+    <div class="col-sm-4  fill">
 
-        <tabset justified="false" class="tab-container" >
+        <tabset justified="false" class="tab-container fill" style="height: 811px; overflow:auto;">
 
-            <tab heading="User Info" id="tab_a1">
+            <tab heading="User Info" id="tab_a1" class="align-self-stretch">
 
                 <div class="form-group  ">
                     <label>User Code</label>
@@ -229,7 +229,7 @@
 
             </tab>
 
-            <tab heading="Profile" id="tab_a2">
+            <tab heading="Profile" id="tab_a2"  class="fill">
 
 
 
@@ -289,7 +289,7 @@
                     <p>
 
 
-                    <p ng-bind-html="row.context"></p>
+                    <p ng-bind-html="row.context" style="height:200px; overflow:scroll"></p>
                     @*<div ng-bind-html-unsafe="html">{{row.context}}</div>*@
                     @*<input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.context">*@
                     </p>

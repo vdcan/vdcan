@@ -1,0 +1,45 @@
+[6/12/2019 1:35:28 PM] GetSysText : 过程或函数 'usp_schedule_user_check' 需要参数 '@user_id'，但未提供该参数。
+ExecptionMessage：Syntax error: Missing operand after 'usp_schedule_user_check' operator.
+ex.Source：System.Data
+ex.StackTrace：   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1491
+All：System.Data.SyntaxErrorException: Syntax error: Missing operand after 'usp_schedule_user_check' operator.
+   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1491
+
+[6/12/2019 1:35:29 PM] GetSysText : 过程或函数 'usp_schedule_user_check' 需要参数 '@user_id'，但未提供该参数。
+ExecptionMessage：Syntax error: Missing operand after 'usp_schedule_user_check' operator.
+ex.Source：System.Data
+ex.StackTrace：   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+All：System.Data.SyntaxErrorException: Syntax error: Missing operand after 'usp_schedule_user_check' operator.
+   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+
+[6/12/2019 1:36:11 PM] GetSysText : 过程或函数 'usp_schedule_user_check' 需要参数 '@user_id'，但未提供该参数。
+ExecptionMessage：Syntax error: Missing operand after 'usp_schedule_user_check' operator.
+ex.Source：System.Data
+ex.StackTrace：   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+All：System.Data.SyntaxErrorException: Syntax error: Missing operand after 'usp_schedule_user_check' operator.
+   at System.Data.ExpressionParser.Parse()
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.DataTable.Select(String filterExpression)
+   at JSBase.JBaseController.findText(DataTable dt, String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1465
+   at JSBase.JBaseController.GetSysText(String name) in F:\PollTekProjects\JSSQLEnterprise\JSBaseV3\JBaseController.cs:line 1481
+

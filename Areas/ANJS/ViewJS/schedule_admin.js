@@ -16,6 +16,238 @@ km.init = function () {
 }
  
 
+app.controller('user_listCtrl', [
+    '$scope', '$rootScope', '$http', '$modal', '$q', function ($scope, $rootScope, $http, $modal, $q) {
+        $scope.SelectedRow = {};//for getting row detail
+        $scope.row = {};// for updating inserting
+        $scope.ids = "";//for deleting
+        $scope.selectedRowIndex = 0;
+        $scope.sid = 0;
+
+        $rootScope.$on("ScheduleSelectedRowChanged", function (event, row, ids, paginationOptions) {
+            //$scope.row = Object.assign({}, row);
+            //$scope.row_old = row;
+            //$(".tmpHide").removeClass("tmpHide");
+            console.log(km.model.urls["user_list_pager"]);
+            $scope.sid = row.id;
+            $scope.getPage();
+            console.log($scope.sid);
+        });
+
+
+        $scope.loader = function (param) {
+            return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
+        };
+
+
+        $scope.DDLData = km.ddls;
+        $scope.getDDL = function (param) {
+            // console.log(param);
+            if (typeof $scope.DDLData == "undefined")
+                $scope.DDLData = new Object();
+            if ($scope.DDLData.hasOwnProperty(param))
+                return $scope.DDLData[param];
+
+            $http({
+                method: 'GET',
+                url: km.model.urls["ddler"] + "&ddl=" + param
+            }).then(function successCallback(response) {
+                //console.log(response.data);
+                $scope.DDLData[param] = response.data;
+                console.log($scope.DDLData);
+                return $scope.DDLData[param];
+                // this callback will be called asynchronously
+                // when the response is available
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        };
+
+
+
+        $scope.sync = function () {
+            $rootScope.$broadcast("user_listSelectedRowChanged", $scope.row);
+        };
+        $scope.EditSide = function (row) {
+            row.EditType = "Update";
+
+            row.editrow = true;
+            $scope.SelectedRow = row;
+            row.editrow = true;
+            $rootScope.$broadcast("user_listEditSide", row);
+        };
+        $scope.InsertSide = function () {
+
+            var row = $scope.copyEmptyObject($scope.row);
+            row.EditType = "Insert";
+
+            row.editrow = true;
+            $rootScope.$broadcast("user_listEditSide", row);
+        };
+        var paginationOptions = {
+            pageNumber: 1,
+            pageSize: 25,
+            order: "desc",
+            sort: "id",
+        };
+        $scope.TranslateToText = function (data, value) {
+
+            var result = value;
+            if (Array.isArray(data)) {
+                data.forEach(function (d) {
+                    if (d.id == value) {
+
+                        result = d.text;
+                        return;
+                    }
+                })
+            } else {
+                // console.log(data);
+                var a = data.split(" ");
+                for (var i = 0; i < a.length; i++) {
+
+                    var v = a[i].split("=")[0];
+                    var t = a[i].split("=")[1];
+
+                    if (value == v)
+                        return t;
+                }
+
+            }
+            return result;
+        }
+        $scope.Translate = function (data, value, valcol, textcol) {
+            var d = $scope.getDDL(data);
+            var r = "";
+            d.forEach(function (t) {
+                if (t[valcol] == value)
+                    r = t[textcol];
+            });
+            return r;
+        };
+        $scope.Check = function (row) {
+            console.log("check");
+            $scope.row = row
+            com.ajax({
+                type: 'POST', url: km.model.urls["check"], data: { sid: $scope.sid, user_id: row.user_id }, success: function (result) {
+                    row.add_by = result.dt[0].add_by;
+                    row.add_on = result.dt[0].add_on;
+                    row.id = result.dt[0].id;
+                   // $scope.showResult(result, "Checked");
+                }
+            });
+        } 
+
+        $scope.user_listgridOptions = {
+            paginationPageSizes: [10, 15, 25, 50, 75],
+            paginationPageSize: paginationOptions.pageSize,
+            enableRowSelection: true,
+            useExternalPagination: true,
+            useExternalSorting: true,
+            multiSelect: false,
+            enableRowHeaderSelection: false,
+            columnDefs:
+                [
+                    {
+                        field: 'checked', displayName: '', width: 80, align: 'center',
+                        cellTemplate: "<label class='i-switch m-t-xs m-r'> <input type='checkbox'  ng-click='grid.appScope.Check(row.entity)'    ng-model='row.entity.checked' checked>  <i></i> </label>",
+                    },
+
+                    {
+                        field: 'real_name', displayName: 'User', width: 80, align: 'left',
+                    },
+                    {
+                        field: 'add_by', displayName: 'Add By', width: "*", align: 'left',
+                    },
+                    {
+                        field: 'add_on', displayName: 'Add On', width: "*", align: 'center',
+                    },
+                    {
+                        field: 'id', displayName: 'Id', width: 80, align: 'center',
+                    },
+                    //{
+                    //    field: 'schedule_id', displayName: 'Schedule Id', width: 80, align: 'center',
+                    //},
+
+                ],
+
+            onRegisterApi: function (gridApi) {
+                $scope.getPage();
+                $scope.gridApi = gridApi;
+                $scope.gridApi.core.on.sortChanged($scope, function (grid, sortColumns) {
+                    if (sortColumns.length == 0) {
+                        paginationOptions.sort = "";
+                    } else {
+                        paginationOptions.order = sortColumns[0].sort.direction;
+                        paginationOptions.sort = sortColumns[0].field;
+                    }
+                    $scope.getPage();
+                });
+                gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
+                    paginationOptions.pageNumber = newPage;
+                    paginationOptions.pageSize = pageSize;
+                    $scope.getPage();
+                });
+                gridApi.selection.on.rowSelectionChanged($scope, function (row) {
+                    // var msg = 'row selected ' + row.;
+                    $scope.SelectedRow = row;
+                    $scope.row = Object.assign({}, row.entity);
+                    $scope.selectedRowIndex = $scope.user_listgridOptions.data.indexOf(row.entity);
+                    $scope.sync();
+                });
+                gridApi.selection.on.rowSelectionChangedBatch($scope, function (rows) {
+                });
+            }
+        };
+
+        $scope.getPage = function () {
+            $http.get(km.model.urls["user_list_pager"] + "&page=" + paginationOptions.pageNumber
+                + "&rows=" + paginationOptions.pageSize + "&sort=" + paginationOptions.sort + "&order=" +
+                paginationOptions.order + "&schedule_id=" + $scope.sid + "&_t=" + com.settings.timestamp()).success(function (result) {
+
+                    if (Array.isArray(result.rows)) {
+                        result.rows.forEach(function (d) {
+                            d.editrow = false;
+                        });
+                        $scope.user_listgridOptions.data = result.rows;
+                        $scope.GetIDS();
+
+                    }//else
+
+                    $scope.user_listgridOptions.totalItems = result.total;
+
+                    $scope.gridApi.grid.modifyRows($scope.user_listgridOptions.data);
+
+                    if ($scope.user_listgridOptions.data.length > 0)
+                        $scope.gridApi.selection.selectRow($scope.user_listgridOptions.data[0]);
+                });
+        }
+        $scope.copyEmptyObject = function (source, isArray) {
+            var o = Array.isArray(source) ? [] : {};
+            for (var key in source) {
+                if (source.hasOwnProperty(key)) {
+                    var t = typeof source[key];
+                    o[key] = t == 'object' ? $scope.copyEmptyObject(source[key]) : { string: '', number: 0, boolean: false }[t];
+                }
+            }
+            return o;
+        }
+        $scope.GetIDS = function () {
+            var names = [];
+
+            $.each($scope.user_listgridOptions.data, function (index, item) {
+                names.push(item.id);
+            });
+
+            if (names.length == 0)
+                $scope.ids = "0"
+            else
+                $scope.ids = names.join(",");
+        }
+        //  $scope.getPage();
+    }
+]);
    
  
 //------------------------------------------------------------------------------ 
