@@ -16,6 +16,145 @@ km.init = function () {
 }
 
 
+app.controller('UserInfoModalInstanceControl', ['$scope', '$modalInstance', '$http', 'row', function ($scope, $modalInstance, $http, row) {
+
+    $scope.DDLData = row.ddldata;
+    $scope.loader = function (param) {
+        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
+    };
+    $scope.row = row;
+    $scope.ok = function () {
+        $modalInstance.close($scope.row);
+    };
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+
+
+
+    function formatTime2(date) {
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        var strTime = hours + ':' + minutes + ':00 ' + ampm;
+        return strTime;
+    }
+
+    function formatDate(date) {
+        return date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
+    }
+    //$scope.save = function () {
+    //    $scope.row.scheduled_dt = formatDate(new Date($scope.row.date)) + " " + formatTime(new Date($scope.row.time));
+    //    console.log($scope.row.scheduled_dt);
+    //    $rootScope.$broadcast("Schedule" + $scope.row.EditType, $scope.row);
+    //    $(".ScheduleDetailButtons").hide();
+    //    $scope.row.editrow = false;
+    //}
+    //$scope.cancel = function () {
+
+    //    $rootScope.$broadcast("ScheduleCancel", $scope.row);
+    //    $(".ScheduleDetailButtons").hide();
+    //    $scope.row = Object.assign({}, $scope.row_old);
+    //    $scope.row.editrow = false;
+    //}
+
+    $scope.minDate = function () {
+        $scope.dt = new Date();
+    };
+
+    $scope.today = function () {
+        $scope.mydate = new Date();
+    };
+    $scope.today();
+
+    $scope.clear = function () {
+        $scope.mydate = null;
+    };
+
+    // Disable weekend selection
+    //$scope.disabled = function (date, mode) {
+    //    return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
+    //};
+
+    $scope.toggleMin = function () {
+        $scope.minDate = $scope.minDate ? null : new Date();
+    };
+    $scope.toggleMin();
+
+    $scope.open = function ($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+
+        $scope.opened = true;
+    };
+
+    $scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1,
+        class: 'datepicker'
+    };
+
+    $scope.initDate = new Date('2016-15-20');
+    $scope.formats = ['yyyy-MM-dd', 'yyyy/MM/dd', 'dd.MMMM.yyyy', 'shortDate'];
+    $scope.format = $scope.formats[0];
+
+
+    $scope.mytime = new Date();
+
+    $scope.mydate = formatDate(new Date());
+    $scope.hstep = 1;
+    $scope.mstep = 15;
+
+    $scope.options = {
+        hstep: [1, 2, 3],
+        mstep: [1, 5, 10, 15, 25, 30]
+    };
+
+    $scope.ismeridian = true;
+    $scope.toggleMode = function () {
+        $scope.ismeridian = !$scope.ismeridian;
+    };
+
+    $scope.update = function () {
+        var d = new Date();
+        d.setHours(14);
+        d.setMinutes(0);
+        $scope.mytime = d;
+    };
+
+    $scope.changed = function () {
+        //console.log('Time changed to: ' + $scope.mytime);
+
+        var dt = formatDate(new Date($scope.mydate)) + " " + formatTime2(new Date($scope.mytime));
+        console.log(dt);
+
+        console.log($scope.calcTime2(dt));
+    };
+
+
+    $scope.calcTime2 = function (dt) {
+        var offset = $scope.row.time_zone_offset
+        if (offset == undefined)
+            return "";
+        var d = new Date(dt);
+        console.log(d);
+        var utc = d.getTime() - (3600000 * offset);
+
+        var nd = new Date(utc - (d.getTimezoneOffset() * 60000));
+        console.log(nd);
+        return nd.toLocaleString();
+
+    }
+
+
+
+    $scope.clear = function () {
+        $scope.mytime = null;
+    };
+}])
 
 
 
@@ -140,128 +279,43 @@ app.controller('ApplicationsDetailCtrl', ['$scope', '$rootScope', '$stateParams'
         var strTime = hours + ':' + minutes + ' ' + ampm;
         return strTime;
     }
-    function formatTime2(date) {
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var ampm = hours >= 12 ? 'pm' : 'am';
-        hours = hours % 12;
-        hours = hours ? hours : 12; // the hour '0' should be '12'
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        var strTime = hours + ':' + minutes + ':00 ' + ampm;
-        return strTime;
+
+
+
+    $scope.open = function (size, EditType) {
+        var modalInstance = $modal.open({
+            templateUrl: 'ScheduleDetail',
+            controller: 'UserInfoModalInstanceControl',
+            size: size,
+            resolve: {
+                row: function () {
+                    $scope.row.EditType = EditType;
+                    $scope.row.ddldata = $scope.DDLData
+                    return $scope.row;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (row) {
+            if (row.EditType == "Edit") {
+                $scope.updateData(row)
+            }
+            if (row.EditType == "Insert") {
+                $scope.insertData(row)
+            }
+        }, function () {
+            console.log('Modal dismissed at: ' + new Date());
+        });
+    };
+    $scope.InsertPopup = function () {
+
+        var row = {};// $scope.copyEmptyObject($scope.row);
+        $scope.row = row;
+
+        $scope.row.editrow = true;
+        $scope.open('lg', 'Insert');
+
     }
-
-    function formatDate(date) {
-        return date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
-    }
-    //$scope.save = function () {
-    //    $scope.row.scheduled_dt = formatDate(new Date($scope.row.date)) + " " + formatTime(new Date($scope.row.time));
-    //    console.log($scope.row.scheduled_dt);
-    //    $rootScope.$broadcast("Schedule" + $scope.row.EditType, $scope.row);
-    //    $(".ScheduleDetailButtons").hide();
-    //    $scope.row.editrow = false;
-    //}
-    //$scope.cancel = function () {
-
-    //    $rootScope.$broadcast("ScheduleCancel", $scope.row);
-    //    $(".ScheduleDetailButtons").hide();
-    //    $scope.row = Object.assign({}, $scope.row_old);
-    //    $scope.row.editrow = false;
-    //}
-
-    $scope.minDate = function () {
-        $scope.dt = new Date();
-    };
-
-    $scope.today = function () {
-        $scope.mydate = new Date();
-    };
-    $scope.today();
-
-    $scope.clear = function () {
-        $scope.mydate = null;
-    };
-
-    // Disable weekend selection
-    //$scope.disabled = function (date, mode) {
-    //    return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
-    //};
-
-    $scope.toggleMin = function () {
-        $scope.minDate = $scope.minDate ? null : new Date();
-    };
-    $scope.toggleMin();
-
-    $scope.open = function ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-
-        $scope.opened = true;
-    };
-
-    $scope.dateOptions = {
-        formatYear: 'yy',
-        startingDay: 1,
-        class: 'datepicker'
-    };
-
-    $scope.initDate = new Date('2016-15-20');
-    $scope.formats = ['yyyy-MM-dd', 'yyyy/MM/dd', 'dd.MMMM.yyyy', 'shortDate'];
-    $scope.format = $scope.formats[0];
-
-
-    $scope.mytime = new Date();
-
-    $scope.mydate = formatDate( new Date());
-    $scope.hstep = 1;
-    $scope.mstep = 15;
-
-    $scope.options = {
-        hstep: [1, 2, 3],
-        mstep: [1, 5, 10, 15, 25, 30]
-    };
-
-    $scope.ismeridian = true;
-    $scope.toggleMode = function () {
-        $scope.ismeridian = !$scope.ismeridian;
-    };
-
-    $scope.update = function () {
-        var d = new Date();
-        d.setHours(14);
-        d.setMinutes(0);
-        $scope.mytime = d;
-    };
-
-    $scope.changed = function () {
-        //console.log('Time changed to: ' + $scope.mytime);
-
-        var dt = formatDate(new Date($scope.mydate)) + " " + formatTime2(new Date($scope.mytime));
-        console.log(dt);
-
-        console.log($scope.calcTime2(dt));
-    };
-
-
-    $scope.calcTime2 = function (dt) {
-        var offset = $scope.row.time_zone_offset
-        if (offset == undefined)
-            return "";
-        var d = new Date(dt);
-        console.log(d);
-        var utc = d.getTime()-(3600000 * offset );
-
-        var nd = new Date(utc- (d.getTimezoneOffset() * 60000) );
-        console.log(nd);
-        return nd.toLocaleString();
-
-    }  
-
-    
-
-    $scope.clear = function () {
-        $scope.mytime = null;
-    };
 
 
 }]);
@@ -323,6 +377,9 @@ app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
 */
 
 
+
+
+ 
 
 app.controller('ApplicationsCtrl', [
     '$scope', '$rootScope', '$http', '$modal', '$q', function ($scope, $rootScope, $http, $modal, $q) {
