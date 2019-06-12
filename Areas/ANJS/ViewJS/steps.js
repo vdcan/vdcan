@@ -144,7 +144,7 @@ app.controller('stepsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$mod
             .then(function (response) {
 
                 var d = new Date();
-                var n = d.getTimezoneOffset();
+                var n = d.getTimezoneOffset()/-60;
                 var n2 = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 

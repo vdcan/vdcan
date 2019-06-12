@@ -28,7 +28,7 @@ app.controller('user_listCtrl', [
             //$scope.row = Object.assign({}, row);
             //$scope.row_old = row;
             //$(".tmpHide").removeClass("tmpHide");
-            console.log(km.model.urls["user_list_pager"]);
+           
             $scope.sid = row.id;
             $scope.getPage();
             console.log($scope.sid);
@@ -127,7 +127,7 @@ app.controller('user_listCtrl', [
             return r;
         };
         $scope.Check = function (row) {
-            console.log("check");
+
             $scope.row = row
             com.ajax({
                 type: 'POST', url: km.model.urls["check"], data: { sid: $scope.sid, user_id: row.user_id }, success: function (result) {

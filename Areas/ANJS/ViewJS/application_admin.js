@@ -25,8 +25,33 @@ km.init = function () {
 //			   
 //------------------------------------------------------------------------------  
 
-app.controller('ApplicationsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$modal', '$http', function ($scope, $rootScope, $stateParams, $modal, $http) {
+app.controller('ApplicationsDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$modal', '$http', '$interval', function ($scope, $rootScope, $stateParams, $modal, $http, $interval) {
     /*  var id = $stateParams.id;
+      var number = $stateParams.number;
+      console.log(id);
+      console.log(number);
+      */
+
+    $scope.LocalTime = "";
+
+    $interval(function () {
+        $scope.LocalTime =  $scope.calcTime( );
+         //   console.log($scope.row.time_zone_offset);
+    }, 1000);
+
+    $scope.calcTime = function ( ) {
+        var offset = $scope.row.time_zone_offset
+        if (offset == undefined)
+            return "";
+        var d = new Date();
+
+        var  utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+
+       var nd = new Date(utc + (3600000 * offset));
+
+        return nd.toLocaleString();
+
+    }    /*  var id = $stateParams.id;
       var number = $stateParams.number;
       console.log(id);
       console.log(number);
