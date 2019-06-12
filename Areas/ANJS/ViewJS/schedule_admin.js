@@ -617,6 +617,7 @@ app.controller('ScheduleCtrl', [
             }
         }
         $scope.insertData = function (row) {
+            row.user_id = 0;
             com.ajax({
                 type: 'POST', url: km.model.urls["Schedule_insert"], data: row, success: function (result) {
                     if (result.s) {
@@ -684,6 +685,8 @@ app.controller('ScheduleCtrl', [
             $scope.GetIDS();
         }
         $scope.updateData = function (row) {
+
+            row.user_id = 0;
             com.ajax({
                 type: 'POST', url: km.model.urls["Schedule_update"], data: row, success: function (result) {
                     if (result.s) {
