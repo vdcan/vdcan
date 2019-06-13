@@ -2651,3 +2651,5 @@
 [6/12/2019 5:55:25 PM]BaseIndex (Applications_pager):pager--ProcedureName:usp_Applications_pager SQL: Type:proc ConnStr:app ActionType:--/anjs/home/pager?token=VJMEnVfaayAUacVwiHFKLC8b9bZ-yVksM3H_TxnpADs=&b=JEIsGfj-vwnXQbTnU5g-vQ==
 [6/12/2019 5:55:26 PM]application_admin
 [6/12/2019 5:55:26 PM]pager:System.Collections.Generic.Dictionary`2[System.String,System.String]
+[6/12/2019 9:47:44 PM]tmpMenuCode index_lan@en
+[6/12/2019 9:47:48 PM]tmpMenuCode index_lan@en

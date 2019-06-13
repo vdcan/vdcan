@@ -161,10 +161,13 @@ app.controller('user_listCtrl', [
                         field: 'add_by', displayName: 'Add By', width: "*", align: 'left',
                     },
                     {
-                        field: 'add_on', displayName: 'Add On', width: "*", align: 'center',
+                        field: 'add_on', displayName: 'Add On', width: "180", align: 'center',
                     },
                     {
                         field: 'id', displayName: 'Id', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'local_time', displayName: 'local_time', width: "*", align: 'center',
                     },
                     //{
                     //    field: 'schedule_id', displayName: 'Schedule Id', width: 80, align: 'center',
@@ -292,6 +295,8 @@ app.controller('ScheduleDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$
     $scope.row = {};// = {id:43124};
     $scope.row_old = {};// = {id:43124};
     //$scope.row_original = {};// = {id:43124};
+    $scope.row.time = new Date();
+    $scope.row.date = new Date();
     $rootScope.$on("ScheduleSelectedRowChanged", function (event, row, ids, paginationOptions) {
 
         row.CONTEXT = row.CONTEXT.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
@@ -310,6 +315,7 @@ app.controller('ScheduleDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$
     function formatTime(date) {
         var hours = date.getHours();
         var minutes = date.getMinutes();
+        console.log(minutes);
         var ampm = hours >= 12 ? 'pm' : 'am';
         hours = hours % 12;
         hours = hours ? hours : 12; // the hour '0' should be '12'
@@ -322,7 +328,13 @@ app.controller('ScheduleDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$
         return date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear()  ;
     }
     $scope.save = function () { 
-        $scope.row.scheduled_dt = formatDate( new Date( $scope.row.date)) + " " + formatTime( new Date($scope.row.time));
+        var d2 = $scope.row.time;
+        try {
+            d2 = formatTime(new Date($scope.row.time));
+        } catch (e) {
+
+        }
+        $scope.row.scheduled_dt = formatDate( new Date( $scope.row.date)) + " " + d2;
         console.log($scope.row.scheduled_dt );
         $rootScope.$broadcast("Schedule"+$scope.row.EditType, $scope.row);
         $(".ScheduleDetailButtons").hide(); 
@@ -618,6 +630,7 @@ app.controller('ScheduleCtrl', [
         }
         $scope.insertData = function (row) {
             row.user_id = 0;
+            row.data_id = 0;
             com.ajax({
                 type: 'POST', url: km.model.urls["Schedule_insert"], data: row, success: function (result) {
                     if (result.s) {
@@ -687,6 +700,7 @@ app.controller('ScheduleCtrl', [
         $scope.updateData = function (row) {
 
             row.user_id = 0;
+            row.data_id = 0;
             com.ajax({
                 type: 'POST', url: km.model.urls["Schedule_update"], data: row, success: function (result) {
                     if (result.s) {

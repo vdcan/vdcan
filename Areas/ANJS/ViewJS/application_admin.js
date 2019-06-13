@@ -61,7 +61,7 @@ app.controller('UserInfoModalInstanceControl', ['$scope', '$modalInstance', '$ht
     //    $scope.row = Object.assign({}, $scope.row_old);
     //    $scope.row.editrow = false;
     //}
-
+    $scope.LocalTime = "";
     $scope.minDate = function () {
         $scope.dt = new Date();
     };
@@ -98,12 +98,12 @@ app.controller('UserInfoModalInstanceControl', ['$scope', '$modalInstance', '$ht
         class: 'datepicker'
     };
 
-    $scope.initDate = new Date('2016-15-20');
-    $scope.formats = ['yyyy-MM-dd', 'yyyy/MM/dd', 'dd.MMMM.yyyy', 'shortDate'];
+    $scope.initDate = new Date( );
+    $scope.formats = ['MM/dd/yyyy','yyyy-MM-dd', 'yyyy/MM/dd', 'dd.MMMM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
 
 
-    $scope.mytime = new Date();
+    $scope.mytime = new Date('05/01/2019 6:00:00 am');
 
     $scope.mydate = formatDate(new Date());
     $scope.hstep = 1;
@@ -130,9 +130,9 @@ app.controller('UserInfoModalInstanceControl', ['$scope', '$modalInstance', '$ht
         //console.log('Time changed to: ' + $scope.mytime);
 
         var dt = formatDate(new Date($scope.mydate)) + " " + formatTime2(new Date($scope.mytime));
-        console.log(dt);
+       // console.log(dt);
 
-        console.log($scope.calcTime2(dt));
+        $scope.LocalTime  =$scope.calcTime2(dt);
     };
 
 
@@ -141,11 +141,11 @@ app.controller('UserInfoModalInstanceControl', ['$scope', '$modalInstance', '$ht
         if (offset == undefined)
             return "";
         var d = new Date(dt);
-        console.log(d);
+       // console.log(d);
         var utc = d.getTime() - (3600000 * offset);
 
         var nd = new Date(utc - (d.getTimezoneOffset() * 60000));
-        console.log(nd);
+       // console.log(nd);
         return nd.toLocaleString();
 
     }
