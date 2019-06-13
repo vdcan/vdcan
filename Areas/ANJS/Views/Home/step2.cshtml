@@ -1,39 +1,65 @@
 ﻿
-@{ 
-//------------------------------------------------------------------------------ 
-//        Date  2019-06-13
-//        Author  蔡捷   
-//			 				step2 
-//        File  step2.cshtml  Page file 
-//------------------------------------------------------------------------------
- 
+@{
+    //------------------------------------------------------------------------------
+    //        Date  2019-06-13
+    //        Author  蔡捷
+    //			 				step2
+    //        File  step2.cshtml  Page file
+    //------------------------------------------------------------------------------
+
     ViewBag.Title = "step2";
     Layout = null;
 }
 
 @section head{
-  <style type="text/css">
-       
+    <style type="text/css">
     </style>
 }
- 
 
-    <script type="text/javascript">
+
+<script type="text/javascript">
         var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
-       km.model = JSON.parse(model_string); 
+       km.model = JSON.parse(model_string);
      var ddls_string = '@Html.Raw(ViewData["DLLS"].ToString().Replace("\r\n",""))';
     km.ddls = JSON.parse(ddls_string);
-    
+
+</script>
+<h1>Step2</h1>
+<div class="container w-xxl w-auto-xs"  >
+    <div class="row" ng-controller="ScheduleDetailCtrl">
+        <div class="col-sm-12">
+
+
+            <div>
+                <ul class="example-animate-container">
+                    <li class="animate-repeat" ng-repeat="d in Data  ">
+                        {{d.title}} at system time:  {{d.scheduled_dt}} and local time {{d.local_time}}.
+
+                        <span ng-bind-html="d.CONTEXT"></span>
+                    </li>
+                    <li class="animate-repeat" ng-if="Data.length === 0">
+                        <strong> Please waite, our staff will review your information.</strong>
+                    </li>
+                </ul>
+            </div>
+
+
+            <a ng-click="LogOut()" class="btn btn-lg btn-default btn-block">Log Out</a>
+
+        </div>
+    </div>
+    <script>
+
+        $(function () {
+
+            $(".is-active").removeClass("is-active");
+            $(".st2").addClass("is-active");
+        })
+        $(".is-active").removeClass("is-active");
+        $(".st2").addClass("is-active");
     </script>
- 
-<div class="row">
- <div class="col-sm-12">
- 
-        
-    	    	
-    </div> 
+    <div style='display:none'>
+
+    </div>
+
 </div>
-<div style='display:none'>
-	
-</div>
- 

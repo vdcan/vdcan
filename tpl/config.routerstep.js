@@ -46,8 +46,8 @@ angular.module('app')
                     }
                 })
 
-                    .state('access.step2', {
-                        url: '/step2',
+                    .state('access.step21', {
+                        url: '/step21',
                         templateUrl: '/tpl/page_step2.html',
                         resolve: {
                             deps: ['uiLoad',
