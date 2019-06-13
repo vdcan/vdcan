@@ -340,6 +340,13 @@ app.controller('ApplicationsDetailCtrl', ['$scope', '$rootScope', '$stateParams'
     $scope.ListSchedule = function () {
         com.ajax({
             type: 'POST', url: km.model.urls["schedule_application_list"], data: { application_id: $scope.row.id, user_id: $scope.row.user_id, schedule_type:"application" }, success: function (result) {
+               // result.d.CONTEXT.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+
+
+                result.forEach(function (d) { 
+                    d.CONTEXT = d.CONTEXT.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+                });
+
                 $scope.Data = result;
             }
         });

@@ -220,7 +220,9 @@
                 <div  >  
                     <ul class="example-animate-container">
                         <li class="animate-repeat" ng-repeat="d in Data  ">
-                            {{d.title}} at system time:  {{d.scheduled_dt}} and local time {{d.local_time}}
+                            {{d.title}} at system time:  {{d.scheduled_dt}} and local time {{d.local_time}}.
+                             
+                            <span ng-bind-html="d.CONTEXT" ></span>
                         </li>
                         <li class="animate-repeat" ng-if="Data.length === 0">
                             <strong>No results found...</strong>
