@@ -180,6 +180,7 @@
     <Content Include="Areas\ANJS\ViewJS\my_profile.js" />
     <Content Include="Areas\ANJS\ViewJS\schedule_admin.js" />
     <Content Include="Areas\ANJS\ViewJS\sm_user.js" />
+    <Content Include="Areas\ANJS\ViewJS\step2.js" />
     <Content Include="Areas\ANJS\ViewJS\steps.js" />
     <Content Include="Areas\dev\ViewJS\m_test2.js" />
     <Content Include="Areas\dev\ViewJS\m_test1.js" />
@@ -537,6 +538,7 @@
     <Content Include="css\pqgrid.css" />
     <Content Include="css\pqgrid.min.css" />
     <Content Include="css\simple-line-icons.css" />
+    <Content Include="css\ui-grid-custom.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\Simple-Line-Icons.svg" />
@@ -736,6 +738,7 @@
     <Content Include="Areas\ANJS\Views\Home\application_admin.cshtml" />
     <Content Include="Areas\ANJS\Views\Home\schedule_admin.cshtml" />
     <Content Include="Areas\ANJS\Views\Home\class_admin.cshtml" />
+    <Content Include="Areas\ANJS\Views\Home\step2.cshtml" />
     <None Include="Javascripts\vendor\modules\textAngular\textAngular.min._oldjs" />
     <Content Include="Javascripts\vendor\modules\textAngular\uploader.js" />
     <Content Include="Javascripts\vendor\modules\textAngular\textAngular.min.js" />
@@ -755,10 +758,12 @@
     <Content Include="Javascripts\vendor\modules\ui-grid\less\tree-base\tree-base.css" />
     <Content Include="Javascripts\vendor\modules\ui-grid\less\tree-view\tree-view.css" />
     <Content Include="Javascripts\vendor\modules\ui-grid\less\validate\validate.css" />
+    <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid-custom.css" />
     <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid.bootstrap.css" />
     <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid.css" />
     <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid.js" />
     <Content Include="Javascripts\vendor\modules\ui-grid\inline.js" />
+    <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid.min-bak.css" />
     <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid.min.css" />
     <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid.min.js" />
     <Content Include="Javascripts\vendor\modules\ui-grid\ui-grid.svg" />

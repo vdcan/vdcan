@@ -1,0 +1,39 @@
+﻿
+@{ 
+//------------------------------------------------------------------------------ 
+//        Date  2019-06-13
+//        Author  蔡捷   
+//			 				step2 
+//        File  step2.cshtml  Page file 
+//------------------------------------------------------------------------------
+ 
+    ViewBag.Title = "step2";
+    Layout = null;
+}
+
+@section head{
+  <style type="text/css">
+       
+    </style>
+}
+ 
+
+    <script type="text/javascript">
+        var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+       km.model = JSON.parse(model_string); 
+     var ddls_string = '@Html.Raw(ViewData["DLLS"].ToString().Replace("\r\n",""))';
+    km.ddls = JSON.parse(ddls_string);
+    
+    </script>
+ 
+<div class="row">
+ <div class="col-sm-12">
+ 
+        
+    	    	
+    </div> 
+</div>
+<div style='display:none'>
+	
+</div>
+ 
