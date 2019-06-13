@@ -132,7 +132,11 @@ app.controller('UserInfoModalInstanceControl', ['$scope', '$modalInstance', '$ht
         var dt = formatDate(new Date($scope.mydate)) + " " + formatTime2(new Date($scope.mytime));
        // console.log(dt);
 
-        $scope.LocalTime  =$scope.calcTime2(dt);
+        var d = new Date(dt);
+        $scope.LocalTime = $scope.calcTime2(dt);
+        $scope.row.scheduled_dt = new Date( new Date($scope.LocalTime) - (d.getTimezoneOffset() * 60000));
+        console.log($scope.LocalTime );
+        console.log($scope.row.scheduled_dt);
     };
 
 
@@ -253,6 +257,8 @@ app.controller('ApplicationsDetailCtrl', ['$scope', '$rootScope', '$stateParams'
 
         console.log($scope.row);
         $(".tmpHide").removeClass("tmpHide");
+
+        $scope.ListSchedule();
     });
     $rootScope.$on("ApplicationsEditSide", function (event, row) {
         $scope.row = Object.assign({}, row);
@@ -303,21 +309,50 @@ app.controller('ApplicationsDetailCtrl', ['$scope', '$rootScope', '$stateParams'
         });
 
         modalInstance.result.then(function (row) {
-            if (row.EditType == "Edit") {
-                $scope.updateData(row)
-            }
-            if (row.EditType == "Insert") {
-                $scope.insertData(row)
-            }
+
+
+            //if (row.EditType == "Edit") {
+            //    $scope.updateData(row)
+            //}
+            //if (row.EditType == "Insert") {
+            //    $scope.insertData(row)
+            //}
+            row.data_id = row.id;
+            row.active_flag = true;
+            com.ajax({
+                type: 'POST', url: km.model.urls["Schedule_insert"], data: row, success: function (result) {
+                    if (result.s) {
+                        var r = result.dt[0];
+
+                        r.editrow = false;
+                      //  $scope.afterInsert(r);
+                    }
+                    $scope.ListSchedule();
+                //    $scope.showResult(result, "Insert");
+                }
+            });
+
         }, function () {
             console.log('Modal dismissed at: ' + new Date());
         });
     };
+    $scope.Data = [];
+    $scope.ListSchedule = function () {
+        com.ajax({
+            type: 'POST', url: km.model.urls["schedule_application_list"], data: { application_id: $scope.row.id, user_id: $scope.row.user_id, schedule_type:"application" }, success: function (result) {
+                $scope.Data = result;
+            }
+        });
+    }
     $scope.InsertPopup = function () {
 
      //   var row = {};// $scope.copyEmptyObject($scope.row);
        // $scope.row = row;
+        $scope.row.schedule_type = "Application";
 
+        $scope.row.method = "phone";
+        $scope.row.title = "Interview for application";
+        $scope.row.CONTEXT = "Dear:";
         $scope.row.editrow = true;
         $scope.open('lg', 'Insert');
 
