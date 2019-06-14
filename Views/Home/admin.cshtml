@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/css/font.css" type="text/css" />
     <link rel="stylesheet" href="/css/app.css" type="text/css" />
     @*<link href="/Javascripts/vendor/modules/ng-grid/ng-grid.min.css" rel="stylesheet" />
-    <link href="/Javascripts/vendor/modules/ui-grid/ui-grid-custom.css" rel="stylesheet" />*@
+        <link href="/Javascripts/vendor/modules/ui-grid/ui-grid-custom.css" rel="stylesheet" />*@
     <style>
 
 
@@ -64,6 +64,40 @@
             height: 100%;
         }
 
+        .ng-pageslide {
+            background: #eee;
+        }
+
+        body.ng-pageslide-body-open::before {
+            content: '.';
+            display: block;
+            position: absolute;
+            top: 0;
+            background-color: rgb(0,0,0);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            opacity: 0.5;
+            transition: opacity 1s;
+            opacity: 0.5;
+            pointer-events: all;
+        }
+
+        body.ng-pageslide-body-closed::before {
+            transition: opacity 1s;
+            content: '.';
+            display: block;
+            position: absolute;
+            top: 0;
+            background-color: rgb(0,0,0);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            opacity: 0;
+            pointer-events: none;
+        }
         /*.fill {
             min-height: 100%;
             height: 100%;
@@ -103,6 +137,7 @@
     <script src="/Javascripts/vendor/angular/angular-translate/loader-static-files.js"></script>
     <script src="/Javascripts/vendor/angular/angular-translate/storage-cookie.js"></script>
     <script src="/Javascripts/vendor/angular/angular-translate/storage-local.js"></script>
+    <script src="/Javascripts/vendor/modules/pageslde/angular-pageslide-directive.js"></script>
 
     <!-- App -->
     <script src="/Javascripts/app.js"></script>

@@ -732,6 +732,7 @@
     <Content Include="Javascripts\vendor\modules\ng-grid\theme.css" />
     <Content Include="Javascripts\vendor\modules\ngImgCrop\ng-img-crop.css" />
     <Content Include="Javascripts\vendor\modules\ngImgCrop\ng-img-crop.js" />
+    <Content Include="Javascripts\vendor\modules\pageslde\angular-pageslide-directive.js" />
     <Content Include="Javascripts\vendor\modules\textAngular\textAngular-rangy.min.js" />
     <Content Include="Javascripts\vendor\modules\textAngular\textAngular-sanitize.min.js" />
     <Content Include="Areas\ANJS\Views\Home\steps.cshtml" />

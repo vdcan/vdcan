@@ -237,7 +237,53 @@ app.controller('IframePopup', ['$scope', '$modalInstance', '$http', 'parm', func
 }])
 
 
+app.controller('pageslideCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
 
+    $scope.checked = false;
+    $scope.size = '100px';
+
+    $rootScope.$on("pageslideCtrlClose", function (event) {
+        $scope.checked = false;
+        console.log("pageslideCtrlClose");
+        console.log($scope.checked); 
+    });
+    $rootScope.$on("pageslideCtrlOpen", function (event) {
+        console.log("pageslideCtrlOpen");
+        $scope.checked = false;
+    });
+     
+    $scope.toggle = function () {
+        console.log("toggle");
+        $scope.checked = !$scope.checked
+        console.log($scope.checked); 
+        //if ($scope.checked)
+        //    $(".ng-pageslide").fadeIn();
+        //else
+        //$(".ng-pageslide").fadeOut();
+    }
+
+    $scope.openPageSlide = function () {
+        $scope.checked = true;
+        //  $(".ng-pageslide").fadeOut();
+    }
+    $scope.closePageSlide = function () {
+        $scope.checked = false;
+        //  $(".ng-pageslide").fadeOut();
+    }
+    $scope.mockRouteChange = function () {
+        $scope.$broadcast('$locationChangeStart');
+    }
+
+    $scope.onopen = function () {
+       // alert('Open');
+    }
+    $scope.close = function () {
+        $scope.checked = false;
+    }
+    $scope.onclose = function () {
+     //   alert('Close');
+    }
+}]);
 
 //app.config(['$provide', function ($provide) {
 //    $provide.delegate('$controller', ['$delegate', function ($delegate) {

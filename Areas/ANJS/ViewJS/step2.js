@@ -96,6 +96,7 @@ app.controller('ScheduleDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$
         }).then(function successCallback(response) {
 
             $scope.Data = Object.assign({}, response.data);
+            console.log($scope.Data );
             //$scope.row.editrow = true;
             //$scope.row_old = response.data;
 
@@ -106,6 +107,18 @@ app.controller('ScheduleDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$
 
     }
 
+    $scope.LogOut = function () {
+        $http.post('/Login/LogOff', {}).then(function (response) {
+            //   console.log(response); 
+            //console.log("logoff");
+            //console.log(document.URL);
+            //if (document.URL.indexOf("Login") < 0)
+            document.location = "/";
+        }, function (x) {
+            $scope.authError = 'Server Error';
+        });
+
+    }
     $scope.load();
 
     $scope.cancel = function () {

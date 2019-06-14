@@ -95,11 +95,18 @@ app.controller('UserInfoCtrl', [
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
+      //  $scope.toggle = $scope.$parent.toggle;
+
+        //$scope.toggle = $scope.$parent.toggle;
+        //$scope.closePageSlide = function () {
+            
 
 
-        $scope.loader = function (param) {
-            return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
-        };
+        //    $rootScope.$broadcast("pageslideCtrlClose" );
+        //}
+        //$scope.loader = function (param) {
+        //    return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
+        //};
 
 
         $scope.DDLData = km.ddls;
@@ -410,7 +417,7 @@ app.controller('UserInfoCtrl', [
         };
         var paginationOptions = {
             pageNumber: 1,
-            pageSize: 25,
+            pageSize: 15,
             order: "desc",
             sort: "id",
         };
@@ -450,7 +457,10 @@ app.controller('UserInfoCtrl', [
             return r;
         };
 
-
+        $scope.showDetail  = function (row) {
+            $scope.SelectedRow = row;
+            $scope.openPageSlide();
+        }
         $scope.UserInfogridOptions = {
             paginationPageSizes: [10, 15, 25, 50, 75],
             paginationPageSize: paginationOptions.pageSize,
@@ -461,6 +471,14 @@ app.controller('UserInfoCtrl', [
             enableRowHeaderSelection: false,
             columnDefs:
                 [
+                    {
+                        name: ' ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
+                        cellTemplate: '<div><button  class="btn primary" ng-click="grid.appScope.EditPopup(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
+                            '<button  class="btn primary" ng-hide="!row.entity.flag_update_to_staff" ng-click="grid.appScope.staff(row.entity.id)"><i class="fa  fa-cogs"></i></button>' +//Save Button
+                            '<button  class="btn primary"  ng-click="grid.appScope.showDetail(row.entity)"><i class="fa  fa-align-justify"></i></button>' +//Save Button
+                            '<button  class="btn primary"  ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
+                            '</div>', width: 120
+                    },
                     {
                         field: 'user_code', displayName: 'User Code', width: 80, align: 'center',
                     },
@@ -504,13 +522,7 @@ app.controller('UserInfoCtrl', [
 
                     //{ field: 'user_type', displayName: '用户类型', width: 80, align: 'center',
                     //  },
-                    {
-                        name: '1Actions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
-                        cellTemplate: '<div><button  class="btn primary" ng-click="grid.appScope.EditPopup(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
-                            '<button  class="btn primary" ng-hide="!row.entity.flag_update_to_staff" ng-click="grid.appScope.staff(row.entity.id)"><i class="fa  fa-cogs"></i></button>' +//Save Button
-                            '<button  class="btn primary"  ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
-                            '</div>', width: 120
-                    }
+                   
 
                 ],
 
@@ -535,12 +547,27 @@ app.controller('UserInfoCtrl', [
                     $scope.SelectedRow = row;
                     $scope.row = Object.assign({}, row.entity);
                     $scope.selectedRowIndex = $scope.UserInfogridOptions.data.indexOf(row.entity);
-                    $scope.sync();
+
+
+                    $scope.gridApi.grid.appScope.lastSelectedRow = row;
+
+                    $scope.sync(); 
                 });
                 gridApi.selection.on.rowSelectionChangedBatch($scope, function (rows) {
                 });
+
+
+                //gridApi.grid.element.on('click', function (ev) { 
+                       
+                //        // affect only rows (not footer or header)
+                //        //if (ev.target.className.includes('ui-grid-cell-contents')) {
+                //        //    var name = $scope.gridApi.grid.appScope.lastSelectedRow.entity.name;
+                //        //    $scope.addToQueue(name);
+                //        //} 
+                //});
+
             }
-        };
+        }; 
 
         $scope.getPage = function () {
             $http.get(km.model.urls["UserInfo_pager"] + "&page=" + paginationOptions.pageNumber

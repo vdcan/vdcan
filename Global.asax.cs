@@ -64,12 +64,15 @@ namespace JSBase
 
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    SendEmail(dr["to_email"].ToString(), dr["subject"].ToString(), dr["context"].ToString());
-                    //tmpestr += string.Format(ReplyType.Message_News_Item, dr["Title"], dr["Description"],
-                    // dr["PicUrl"],
-                    // dr["Url"]);
+                if(dr["is_html"].ToString()=="1")
+                    SendEmail(dr["to_email"].ToString(), dr["subject"].ToString(), dr["context"].ToString(), true);
+                else
+                SendEmail(dr["to_email"].ToString(), dr["subject"].ToString(), dr["context"].ToString(), false);
+                //tmpestr += string.Format(ReplyType.Message_News_Item, dr["Title"], dr["Description"],
+                // dr["PicUrl"],
+                // dr["Url"]);
 
-                }
+            }
                 //pi.ProcedureName = "vdp_get_unsent_message"; 
                 //pi.Type = "proc";
                 //pi.ConnStr = "app";
@@ -90,7 +93,7 @@ namespace JSBase
             }
 
 
-        public static void  SendEmail(string email, string subject, string context)
+        public static void  SendEmail(string email, string subject, string context, bool IsBodyHtml)
         {
             
             try
@@ -102,6 +105,7 @@ namespace JSBase
                 mail.To.Add(email);
                 mail.Subject = subject;
                 mail.Body = context;
+                mail.IsBodyHtml = IsBodyHtml;
 
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential(System.Configuration.ConfigurationManager.AppSettings["smtp_user"].ToString(), System.Configuration.ConfigurationManager.AppSettings["smtp_pwd"].ToString());

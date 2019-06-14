@@ -31,6 +31,7 @@ angular.module('app', [
     'ui.grid.infiniteScroll',
     'ui.grid.importer',
     'ui.grid.grouping',
-    'textAngular'
+    'textAngular',
+    'pageslide-directive'
    // 'ngWebsocket'
 ]);
