@@ -39,17 +39,24 @@
   background-color: transparent; }
 
 .ui-grid-top-panel-background {
-  background: white; }
+    background: #f0f3f4;
+}
 
 .ui-grid-top-panel {
-  position: relative;
-  overflow: hidden;
-  font-weight: bold;
-  background: #FEFEFE;
-  background-clip: padding-box; }
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+    background: #FEFEFE;
+    background-clip: padding-box;
+    font-weight: normal;
+}
+.ui-grid{
+    border:none;
+}
 
 .ui-grid-header {
-  border-bottom: none; }
+    border-bottom: none;
+}
 
 .ui-grid-header-cell {
   position: relative;

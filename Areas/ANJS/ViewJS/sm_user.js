@@ -473,10 +473,10 @@ app.controller('UserInfoCtrl', [
                 [
                     {
                         name: ' ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
-                        cellTemplate: '<div><button  class="btn primary" ng-click="grid.appScope.EditPopup(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
-                            '<button  class="btn primary" ng-hide="!row.entity.flag_update_to_staff" ng-click="grid.appScope.staff(row.entity.id)"><i class="fa  fa-cogs"></i></button>' +//Save Button
-                            '<button  class="btn primary"  ng-click="grid.appScope.showDetail(row.entity)"><i class="fa  fa-align-justify"></i></button>' +//Save Button
-                            '<button  class="btn primary"  ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
+                        cellTemplate: '<div><button  class="btn2  btn-primary2 " ng-click="grid.appScope.EditPopup(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
+                            '<button  class="btn2  btn-primary2" ng-hide="!row.entity.flag_update_to_staff" ng-click="grid.appScope.staff(row.entity.id)"><i class="fa  fa-cogs"></i></button>' +//Save Button
+                            '<button  class="btn2  btn-primary2 "  ng-click="grid.appScope.showDetail(row.entity)"><i class="fa  fa-align-justify"></i></button>' +//Save Button
+                            '<button  class="btn2  btn-primary2 "  ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
                             '</div>', width: 120
                     },
                     {
@@ -506,14 +506,14 @@ app.controller('UserInfoCtrl', [
                     //  },
                     //{ field: 'password', displayName: '口令', width: 80, align: 'center',
                     //  },
-                    {
-                        field: 'phone', displayName: 'Phone', width: 80, align: 'center',
-                    },
+                    //{
+                    //    field: 'phone', displayName: 'Phone', width: 80, align: 'center',
+                    //},
                     //{ field: 'secretkey', displayName: 'Secretkey', width: 80, align: 'center',
                     //  },
                     {
                         field: 'sex', displayName: 'Gender', width: 80, align: 'center',
-                        cellTemplate: "<div class='ui-grid-cell-contents'>{{grid.appScope.TranslateToText('m=Male f=Famle',row.entity.sex)}}</div>"
+                        cellTemplate: "<div class='ui-grid-cell-contents'>&nbsp;{{grid.appScope.TranslateToText('m=Male f=Famle',row.entity.sex)}}</div>"
                     },
                     //{ field: 'spell', displayName: '拼写', width: 80, align: 'center',
                     //  },

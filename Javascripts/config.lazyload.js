@@ -48,7 +48,7 @@ angular.module('app')
                 '/Javascripts/vendor/modules/ui-grid/ui-grid.js',
                // '/Javascripts/vendor/modules/ui-grid/inline.js',
                 '/Javascripts/vendor/modules/ui-grid/ui-grid.min.css',
-              //  '/Javascripts/vendor/modules/ui-grid/ui-grid-custom.css',
+                 '/Javascripts/vendor/modules/ui-grid/ui-grid-custom.css',
                 '/Javascripts/vendor/angular/angularjs-autocomplete.min.js',
             ]
         },
