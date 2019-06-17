@@ -1,7 +1,7 @@
 ﻿
 @{
     //------------------------------------------------------------------------------
-    //        Date  2019-06-07
+    //        Date  2019-06-17
     //        Author  蔡捷
     //			 				Class Admin
     //        File  class_admin.cshtml  Page file
@@ -16,128 +16,154 @@
     </style>
 }
 
+
 <script type="text/javascript">
-     var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        var model_string = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
        km.model = JSON.parse(model_string);
      var ddls_string = '@Html.Raw(ViewData["DLLS"].ToString().Replace("\r\n",""))';
     km.ddls = JSON.parse(ddls_string);
+
 </script>
 
+<div class="row">
+    <div class="col-sm-12">
 
 
-<div class="row" style="padding-top: 15px;">
-    <div class="col-sm-6">
 
+        <div ng-controller="pageslideCtrl" ng-init="size='50%'">
 
-        <div ng-controller="ClassAdminCtrl">
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    ClassAdmin
-                    <div style="float:right;">
-                        <button class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+            <div ng-controller="ClassAdminCtrl">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        ClassAdmin
+                        <div style="float:right;">
+                            <button class="btn primary" ng-click="InsertSlide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+                        </div>
                     </div>
-                </div>
-                <div class="table-responsive">
-                    <div ui-grid="ClassAdmingridOptions" ui-grid-pagination ui-grid-selection style="min-height:800px;"></div>
+                    <div class="table-responsive">
+                        <div ui-grid="ClassAdmingridOptions" ui-grid-pagination ui-grid-selection style="min-height:420px;"></div>
+                    </div>
                 </div>
             </div>
 
-        </div>
+            <div pageslide ps-open="checked" ps-click-outside="false" ps-size="{{size}}" ps-side="right" style="padding:5px;">
+                <div style="padding-top: 50px;">
+                    <button ng-click="closePageSlide()" class="btn">Close</button>
 
-    </div>
-    <div class="col-sm-6">
 
-        <div ng-controller="ClassAdminDetailCtrl">
+                </div>
+                <div id="divNew">
 
-            <div class="col-sm-12">
-                <div class="modal-footer">
-                    <div class=" ClassAdminDetailButtons" style="display:none;">
-                        <button ng-click="save()" class="btn btn-primary">Save</button>
-                        <button ng-click="cancel()" class="btn">Cancel</button>
+                    <div ng-controller="ClassAdminDetailCtrl">
+                        <div class="modal-header">
+                            ClassAdmin
+                        </div>
+                        <div class="modal-footer">
+                            <div class=" ClassAdminDetailButtons" style="display:none;">
+                                <button ng-click="save()" class="btn btn-primary">Save</button>
+                                <button ng-click="cancel()" class="btn">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Active Flag
+                                </label>
+                                <div class="col-sm-10">
+                                    <label class="i-switch m-t-xs m-r"> <input type="checkbox" ng-disabled="!row.editrow" ng-model="row.active_flag" checked>  <i></i> </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Add By
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Add On
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Class Title
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.class_title">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Class Type
+                                </label>
+                                <div class="col-sm-10">
+                                    <select name="class_type" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.class_type"><option value="english">english</option><option value="chinese">chinese</option></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Comments
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.comments">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Method
+                                </label>
+                                <div class="col-sm-10">
+                                    <select name="method" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.method"><option value="web">web</option><option value="wechat">wechat</option></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        Context
+                                    </label>
+                                    <div class="col-sm-10">
 
+
+
+                                        <div lazy-load="textAngular" ng-controller="editorCtrl as vm">
+                                            @*<select ng-change="formatDoc('forecolor');this.selectedIndex=0;" ng-model="color">
+                                <option class="heading" selected>- color -</option>
+                                <option value="red">Red</option>
+                                <option value="blue">Blue</option>
+                                <option value="green">Green</option>
+                                <option value="black">Black</option> avatarthumb-lg
+                            </select>*@
+                                            <span class="w-auto-foldedm-t-sm avatar thumb-lg">
+                                                <img src="/img/upload.png" class="img-full" alt="..." style="width: 20px; height:20px;">
+
+                                                <input type="file" id="wizard-picture" style=" cursor: pointer;
+            display: block;
+            height: 100%;
+            left: 0;
+            opacity: 0 !important;
+            position: absolute;
+            top: 0;
+            width: 100%;" onchange="angular.element(this).scope().uploadFile(this.files)">
+
+                                            </span>
+
+                                            @*<a ng-click="color('fdsaf')">insert</a>*@
+                                            <div id="item_bodyHTML" name="item_bodyHTML" ta-disabled="!row.editrow" text-angular ng-model="row.CONTEXT" class="btn-groups" style="height:600px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">
-                        Active Flag
-                    </label>
-                    <div class="col-sm-10">
-                        <label class="i-switch m-t-xs m-r"> <input type="checkbox" ng-disabled="!row.editrow" ng-model="row.active_flag" checked>  <i></i> </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">
-                        Add By
-                    </label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">
-                        Add On
-                    </label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">
-                        Class Title
-                    </label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.class_title">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">
-                        Class Type
-                    </label>
-                    <div class="col-sm-10">
-                        <select name="class_type" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.class_type"><option value="english">english</option><option value="chinese">chinese</option></select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">
-                        Comments
-                    </label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.comments">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">
-                        Method
-                    </label>
-                    <div class="col-sm-10">
-                        <select name="method" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.method"><option value="web">web</option><option value="wechat">wechat</option></select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class=" control-label">
-                        Context
-                    </label>
-                    <div>
-
-
-                        <div id="item_bodyHTML" name="item_bodyHTML" ta-toolbar="[['h1','h2','h3'],['bold','italics'],['undo',
-                    'redo',
-                    'clear'],['justifyLeft',
-                    'justifyCenter',
-                    'justifyRight',
-                    'indent',
-                    'outdent'],['ul','ol']]" ta-disabled="!row.editrow" text-angular ng-model="row.CONTEXT" class="btn-groups" style="height:300px;"></div>
-
-
-
-                    </div>
-                </div>
-
             </div>
-
         </div>
+
     </div>
 </div>
 <div style='display:none'>

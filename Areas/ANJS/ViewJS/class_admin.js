@@ -1,7 +1,7 @@
 ﻿
 /*
 //------------------------------------------------------------------------------ 
-//        Date  2019-06-07
+//        Date  2019-06-17
 //        Author  蔡捷   
 //			 				Class Admin 
 //        File  class_admin.cshtml  Page file  
@@ -11,97 +11,28 @@
  Description Class Admin(class_admin)  js File 
 */
 // Current page object 
-var km = {}; 
+var km = {};
 km.init = function () {
 }
- 
 
-   
- 
+
+
+
 //------------------------------------------------------------------------------ 
-//        Date  2019-06-07
+//        Date  2019-06-17
 //        Author  蔡捷   
 //			   
 //------------------------------------------------------------------------------  
- 
-app.controller('ClassAdminDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$modal', '$http', function ($scope, $rootScope, $stateParams, $modal, $http) {
-    /*  var id = $stateParams.id;
-      var number = $stateParams.number;
-      console.log(id);
-      console.log(number);
-      */
-      
-    $scope.loader = function (param) { 
-        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
-    };
-    $scope.DDLData  = {};
-    $scope.getDDL = function (param) {
-        console.log(param);
-        if (typeof $scope.DDLData == "undefined")
-            $scope.DDLData = new Object();
-        if ($scope.DDLData.hasOwnProperty(param))
-            return $scope.DDLData[param];
 
-        $http({
-            method: 'GET',
-            url: km.model.urls["ddler"] + "&ddl=" + param
-        }).then(function successCallback(response) {
-            //console.log(response.data);
-            $scope.DDLData[param] = response.data;
-        console.log($scope.DDLData);
-            return $scope.DDLData[param];
-            // this callback will be called asynchronously
-            // when the response is available
-        }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-            }); 
-    };
-    $scope.row = {};// = {id:43124};
-    $scope.row_old = {};// = {id:43124};
-    //$scope.row_original = {};// = {id:43124};
-    $rootScope.$on("ClassAdminSelectedRowChanged", function (event, row, ids, paginationOptions) {
 
-        row.CONTEXT = row.CONTEXT.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
-        $scope.row = Object.assign({}, row);
-        $scope.row_old = row;
-        $(".tmpHide").removeClass("tmpHide");
-    });    
-    $rootScope.$on("ClassAdminEditSide", function (event, row) {
-        $scope.row = Object.assign({}, row);
-        $(".ClassAdminDetailButtons").show();
-    }); 
-    $scope.save = function () {
-        $rootScope.$broadcast("ClassAdmin"+$scope.row.EditType, $scope.row);
-        $(".ClassAdminDetailButtons").hide(); 
-        $scope.row.editrow = false;
-    }
-    $scope.cancel = function () { 
-    	
-        $rootScope.$broadcast("ClassAdminCancel", $scope.row);
-        $(".ClassAdminDetailButtons").hide();
-        $scope.row = Object.assign({}, $scope.row_old);
-        $scope.row.editrow = false;
-    }
-    
-}]);  
+function ClassAdmin_5_Init() {
 
- 
-//------------------------------------------------------------------------------ 
-//        Date  2019-06-07
-//        Author  蔡捷   
-//			   
-//------------------------------------------------------------------------------  
- 
- 
-function  ClassAdmin_8_Init(){ 
-	
 }
 
 
- 
- 
- 
+
+
+
 
 /*
 //for other controllers to listen the selected row changed. 
@@ -142,47 +73,47 @@ app.controller('MainCtrl', function ($scope, $state, $stateParams, $rootScope) {
 });
 */
 
-       
- 
+
+
 app.controller('ClassAdminCtrl', [
-    '$scope', '$rootScope', '$http', '$modal','$q', function ($scope, $rootScope, $http, $modal,$q) {
+    '$scope', '$rootScope', '$http', '$modal', '$q', function ($scope, $rootScope, $http, $modal, $q) {
         $scope.SelectedRow = {};//for getting row detail
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
         $scope.selectedRowIndex = 0;
-        
-        
-	    $scope.loader = function (param) { 
-	        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
-	    };
-	    
-   
-    $scope.DDLData = km.ddls;
-    $scope.getDDL = function (param) {
-       // console.log(param);
-        if (typeof $scope.DDLData == "undefined")
-            $scope.DDLData = new Object();
-        if ($scope.DDLData.hasOwnProperty(param))
-            return $scope.DDLData[param];
 
-        $http({
-            method: 'GET',
-            url: km.model.urls["ddler"] + "&ddl=" + param
-        }).then(function successCallback(response) {
-            //console.log(response.data);
-            $scope.DDLData[param] = response.data;
-        console.log($scope.DDLData);
-            return $scope.DDLData[param];
-            // this callback will be called asynchronously
-            // when the response is available
-        }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-            }); 
-    	};
-        
 
-       
+        $scope.loader = function (param) {
+            return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
+        };
+
+
+        $scope.DDLData = km.ddls;
+        $scope.getDDL = function (param) {
+            // console.log(param);
+            if (typeof $scope.DDLData == "undefined")
+                $scope.DDLData = new Object();
+            if ($scope.DDLData.hasOwnProperty(param))
+                return $scope.DDLData[param];
+
+            $http({
+                method: 'GET',
+                url: km.model.urls["ddler"] + "&ddl=" + param
+            }).then(function successCallback(response) {
+                //console.log(response.data);
+                $scope.DDLData[param] = response.data;
+                console.log($scope.DDLData);
+                return $scope.DDLData[param];
+                // this callback will be called asynchronously
+                // when the response is available
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        };
+
+
+
         $scope.editType = "";
         /*$scope.$on('$destroy', function () {
             console.log('Child1 is no longer necessary');
@@ -199,36 +130,26 @@ app.controller('ClassAdminCtrl', [
             row.editrow = true;
             $scope.ClassAdmingridOptions.data.unshift(row);
             $scope.gridApi.grid.modifyRows($scope.ClassAdmingridOptions.data);
-             $scope.gridApi.selection.selectRow($scope.ClassAdmingridOptions.data[0]);
+            $scope.gridApi.selection.selectRow($scope.ClassAdmingridOptions.data[0]);
             $scope.gridApi.core.refresh();
             $scope.GetIDS();
         }
-         $scope.InsertRowInline = function () { 
-            $scope.editType = "i";
-            var row = $scope.copyEmptyObject($scope.row);
-            row.editrow = true;
-            $scope.ClassAdmingridOptions.data.unshift(row);
-            $scope.gridApi.grid.modifyRows($scope.ClassAdmingridOptions.data);
-            $scope.gridApi.selection.selectRow($scope.ClassAdmingridOptions.data[0]);
-            $scope.gridApi.core.refresh();
-           $scope.gridApi.grid.rows[0].inlineEdit.enterEditMode(); 
-        }
-        
+
         $scope.editRow = function (row) {
             $scope.editType = "u";
             var index = $scope.ClassAdmingridOptions.data.indexOf(row);
-            $scope.row = Object.assign({}, row); 
+            $scope.row = Object.assign({}, row);
             //Use that to set the editrow attrbute value for seleted rows
-            $scope.ClassAdmingridOptions.data[index].editrow = !$scope.ClassAdmingridOptions.data[index].editrow; 
+            $scope.ClassAdmingridOptions.data[index].editrow = !$scope.ClassAdmingridOptions.data[index].editrow;
         };
-        $scope.saveRow = function (row) { 
+        $scope.saveRow = function (row) {
             var index = $scope.ClassAdmingridOptions.data.indexOf(row);
             //Use that to set the editrow attrbute value for seleted rows
-            $scope.ClassAdmingridOptions.data[index].editrow = !$scope.ClassAdmingridOptions.data[index].editrow; 
-         
-            if ($scope.editType == "i"){
+            $scope.ClassAdmingridOptions.data[index].editrow = !$scope.ClassAdmingridOptions.data[index].editrow;
+
+            if ($scope.editType == "i") {
                 $scope.insertData(row);
-            }else
+            } else
                 $scope.updateData(row);
         };
         //Method to cancel the edit mode in UIGrid
@@ -238,25 +159,25 @@ app.controller('ClassAdminCtrl', [
 
             if ($scope.editType == "i") {
                 $scope.ClassAdminridOptions.data.splice(0, 1);
-            }else {
-            
+            } else {
+
                 if (index > 0) {
-	                if (row != null) {
-	                    //  $scope.ClassAdmingridOptions.data.splice(0, 1);
-	                    var keys = Object.keys($scope.row);
-	                    keys.forEach(function (k) {
-	                        $scope.ClassAdmingridOptions.data[index][k] = $scope.row[k];
-	                    });
-	                    //Use that to set the editrow attrbute value to false
-	                    $scope.ClassAdmingridOptions.data[index].editrow = false;
-	                }
+                    if (row != null) {
+                        //  $scope.ClassAdmingridOptions.data.splice(0, 1);
+                        var keys = Object.keys($scope.row);
+                        keys.forEach(function (k) {
+                            $scope.ClassAdmingridOptions.data[index][k] = $scope.row[k];
+                        });
+                        //Use that to set the editrow attrbute value to false
+                        $scope.ClassAdmingridOptions.data[index].editrow = false;
+                    }
                 }
             }
             $scope.editType = "";
             $scope.SelectedRow.entity.editrow = false;
             $rootScope.$broadcast("SysToaster", 'info', "", "Row editing cancelled");
         };
-         
+
         $scope.$on("ClassAdminUpdate", function (event, row) {
             $scope.updateData(row)
         });
@@ -267,7 +188,7 @@ app.controller('ClassAdminCtrl', [
             $scope.deleteIt(id, text)
         });
 
-        $scope.$on("ClassAdminCancel", function (event, row) { 
+        $scope.$on("ClassAdminCancel", function (event, row) {
             $scope.cancelEdit(row)
         });
         $scope.insert = function () {
@@ -275,10 +196,6 @@ app.controller('ClassAdminCtrl', [
         };
         $scope.delete = function () {
             $scope.deleteIt($scope.row.id, $scope.row.id);
-        };
-        $scope.deleteInline = function (inline) {
-             
-            $scope.deleteIt(inline.id.value, inline.id.value);
         };
         $scope.update = function () {
             $scope.updateData($scope.row);
@@ -295,10 +212,12 @@ app.controller('ClassAdminCtrl', [
                 type: 'POST', url: km.model.urls["ClassAdmin_insert"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
-                        
+r.CONTEXT = r.CONTEXT.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+
                         r.editrow = false;
                         $scope.afterInsert(r);
                     }
+                 
                     $scope.showResult(result, "Insert");
                 }
             });
@@ -362,14 +281,16 @@ app.controller('ClassAdminCtrl', [
                 type: 'POST', url: km.model.urls["ClassAdmin_update"], data: row, success: function (result) {
                     if (result.s) {
                         var r = result.dt[0];
-                        
+
                         r.editrow = false;
                         var iterator = Object.keys(r);
                         for (let key of iterator) {
                             if (key.indexOf("$") < 0) {
                                 $scope.SelectedRow.entity[key] = r[key];
                             }
+
                         }
+                        $scope.SelectedRow.entity.CONTEXT = $scope.SelectedRow.entity.CONTEXT.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
                         $scope.afterUpdate();
                     }
                     $scope.showResult(result, "Update");
@@ -381,69 +302,90 @@ app.controller('ClassAdminCtrl', [
             $scope.editType = "";
             $scope.gridApi.core.refresh();
         }
-        
+
         $scope.sync = function () {
-            $rootScope.$broadcast("ClassAdminSelectedRowChanged", $scope.row );
+            $rootScope.$broadcast("ClassAdminSelectedRowChanged", $scope.row);
         };
-        $scope.EditSide = function (row) {
-        		row.EditType ="Update";
-        		
+
+
+
+
+
+
+        $scope.EditSlide = function (row) {
+            row.EditType = "Update";
+
             row.editrow = true;
             $scope.SelectedRow = row;
             row.editrow = true;
-            $rootScope.$broadcast("ClassAdminEditSide", row );
+            $scope.showDetail(row);
+
+            $rootScope.$broadcast("ClassAdminEditSide", row);
         };
-        $scope.InsertSide = function ( ) {
-        		
+        $scope.InsertSlide = function () {
+
             var row = $scope.copyEmptyObject($scope.row);
-        		row.EditType ="Insert";
-        		
+            row.EditType = "Insert";
+
             row.editrow = true;
-            $rootScope.$broadcast("ClassAdminEditSide", row );
+
+            $scope.showDetail(row);
+            $rootScope.$broadcast("ClassAdminEditSide", row);
         };
+
+
+
+
         var paginationOptions = {
             pageNumber: 1,
             pageSize: 10,
             order: "desc",
             sort: "id",
         };
-         $scope.TranslateToText = function (data, value) {
 
-            var result=value;
+
+        $scope.TranslateToText = function (data, value) {
+
+            var result = value;
             if (Array.isArray(data)) {
                 data.forEach(function (d) {
-                    if (d.id ==  value) {
+                    if (d.id == value) {
 
                         result = d.text;
-                    return;
+                        return;
                     }
                 })
             } else {
-            // console.log(data);
-            var a = data.split(" ");
-            for (var i = 0; i < a.length; i++) {
+                // console.log(data);
+                var a = data.split(" ");
+                for (var i = 0; i < a.length; i++) {
 
-                var v = a[i].split("=")[0];
-                var t = a[i].split("=")[1];
+                    var v = a[i].split("=")[0];
+                    var t = a[i].split("=")[1];
 
-                if (value == v)
-                    return t;
-            }
+                    if (value == v)
+                        return t;
+                }
 
             }
             return result;
         }
-        $scope.Translate = function (data, value,valcol, textcol) {
-				     var d= 	$scope.getDDL(data); 
-				     var r ="";
-        		d.forEach(function (t) {
-                    if (t[valcol] == value)
-                        r= t[textcol];
-                });
-                return r;
+        $scope.Translate = function (data, value, valcol, textcol) {
+            var d = $scope.getDDL(data);
+            var r = "";
+            d.forEach(function (t) {
+                if (t[valcol] == value)
+                    r = t[textcol];
+            });
+            return r;
         };
-        
-        
+
+
+        $scope.showDetail = function (row) {
+            $scope.SelectedRow = row;
+            $scope.openPageSlide();
+        }
+
         $scope.ClassAdmingridOptions = {
             paginationPageSizes: [10, 15, 25, 50, 75],
             paginationPageSize: paginationOptions.pageSize,
@@ -452,37 +394,50 @@ app.controller('ClassAdminCtrl', [
             useExternalSorting: true,
             multiSelect: false,
             enableRowHeaderSelection: false,
-            columnDefs: 
-                [ 
-  { field: 'class_title', displayName: 'Class Title', width: "*", align: 'center',
-    },
-                 { field: 'active_flag', displayName: 'Active Flag', width: 80, align: 'center',
-  cellTemplate:"<label class='i-switch m-t-xs m-r'> <input type='checkbox'   ng-disabled='true'  ng-model='row.entity.active_flag' checked>  <i></i> </label>",  },
-  { field: 'add_by', displayName: 'Add By', width: 80, align: 'center',
-    },
-  { field: 'add_on', displayName: 'Add On', width: 80, align: 'center',
-    },
-  { field: 'class_type', displayName: 'Class Type', width: 80, align: 'center',
- cellTemplate:"<div>{{grid.appScope.TranslateToText('english=english chinese=chinese',row.entity.class_type)}}</div>"  },
-  //{ field: 'comments', displayName: 'Comments', width: 80, align: 'center',
-  //  },
-  //{ field: 'CONTEXT', displayName: 'Context', width: 80, align: 'center',
-  //  },
-  //{ field: 'id', displayName: 'Id', width: 80, align: 'center',
-  //  },
-  //{ field: 'method', displayName: 'Method', width: 80, align: 'center',
-  //cellTemplate:"<div>{{grid.appScope.TranslateToText('web=web wechat=wechat',row.entity.method)}}</div>"  },
- {
-                        name: 'Actions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
-                        cellTemplate: '<div><button  ng-show="!row.entity.editrow"   class="btn primary" ng-click="grid.appScope.EditSide(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
-                            '<button  ng-show="!row.entity.editrow" class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
-                                   '</div>', width: 80
-                    }
-  
+            columnDefs:
+                [
+                    {
+                        name: 'sActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
+                        cellTemplate: '<div><button  ng-show="!row.entity.editrow"   class="btn2  btn-primary2" ng-click="grid.appScope.EditSlide(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
+                            '<button  class="btn2  btn-primary2 "  ng-click="grid.appScope.showDetail(row.entity)"><i class="fa  fa-align-justify"></i></button>' +//Save Button
+
+                            '<button  ng-show="!row.entity.editrow" class="btn2  btn-primary2" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
+                            '</div>', width: 80
+                    },
+  {
+                        field: 'id', displayName: 'Id', width: 80, align: 'center',
+                    },
+                    ,
+                    {
+                        field: 'active_flag', displayName: 'Active Flag', width: 80, align: 'center',
+                        cellTemplate: "<label class='i-switch m-t-xs m-r'> <input type='checkbox'   ng-disabled='true'  ng-model='row.entity.active_flag' checked>  <i></i> </label>",
+                    },
+                    {
+                        field: 'add_by', displayName: 'Add By', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'add_on', displayName: 'Add On', width: 80, align: 'center',
+                    },
+                    {
+                        field: 'class_title', displayName: 'Class Title', width: "*", align: 'center',
+                    },
+                    {
+                        field: 'class_type', displayName: 'Class Type', width: 80, align: 'center',
+                        cellTemplate: "<div  class='ui-grid-cell-contents'>{{grid.appScope.TranslateToText('english=english chinese=chinese',row.entity.class_type)}}</div>"
+                    },
+                    //{ field: 'comments', displayName: 'Comments', width: 80, align: 'center',
+                    //  },
+                    //{ field: 'CONTEXT', displayName: 'Context', width: 80, align: 'center',
+                    //  },
+                    {
+                        field: 'method', displayName: 'Method', width: 80, align: 'center',
+                        cellTemplate: "<div  class='ui-grid-cell-contents'>{{grid.appScope.TranslateToText('web=web wechat=wechat',row.entity.method)}}</div>"
+                    },
+
                 ],
-                 
+
             onRegisterApi: function (gridApi) {
-             $scope.getPage();
+                $scope.getPage();
                 $scope.gridApi = gridApi;
                 $scope.gridApi.core.on.sortChanged($scope, function (grid, sortColumns) {
                     if (sortColumns.length == 0) {
@@ -507,33 +462,34 @@ app.controller('ClassAdminCtrl', [
                 });
                 gridApi.selection.on.rowSelectionChangedBatch($scope, function (rows) {
                 });
-              }
+            }
         };
-       
+
         $scope.getPage = function () {
             $http.get(km.model.urls["ClassAdmin_pager"] + "&page=" + paginationOptions.pageNumber
                 + "&rows=" + paginationOptions.pageSize + "&sort=" + paginationOptions.sort + "&order=" +
-                paginationOptions.order +   "&_t="+com.settings.timestamp()).success(function (result) {
-   
-      if (Array.isArray(result.rows)) {
-   	 								result.rows.forEach(function (d) {
-                                                    d.editrow = false; 
-                                                    d.CONTEXT = d.CONTEXT.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
-                        });
-                    $scope.ClassAdmingridOptions.data = result.rows;
-                    $scope.GetIDS();
+                paginationOptions.order + "&_t=" + com.settings.timestamp()).success(function (result) {
 
-                    }else
-                     
-                    $scope.ClassAdmingridOptions.totalItems  = result.total; 
-                    
+                    if (Array.isArray(result.rows)) {
+                        result.rows.forEach(function (d) {
+                            d.editrow = false;
+
+                            d.CONTEXT = d.CONTEXT.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+                        });
+                        $scope.ClassAdmingridOptions.data = result.rows;
+                        $scope.GetIDS();
+
+                    }//else
+
+                    $scope.ClassAdmingridOptions.totalItems = result.total;
+
                     $scope.gridApi.grid.modifyRows($scope.ClassAdmingridOptions.data);
 
-                    if ($scope.ClassAdmingridOptions.data.length >0)
+                    if ($scope.ClassAdmingridOptions.data.length > 0)
                         $scope.gridApi.selection.selectRow($scope.ClassAdmingridOptions.data[0]);
                 });
         }
-        $scope.copyEmptyObject =function(source, isArray) {
+        $scope.copyEmptyObject = function (source, isArray) {
             var o = Array.isArray(source) ? [] : {};
             for (var key in source) {
                 if (source.hasOwnProperty(key)) {
@@ -555,7 +511,168 @@ app.controller('ClassAdminCtrl', [
             else
                 $scope.ids = names.join(",");
         }
-      //  $scope.getPage();
+        //  $scope.getPage();
     }
 ]);
- 
+
+
+
+//------------------------------------------------------------------------------ 
+//        Date  2019-06-17
+//        Author  蔡捷   
+//			   
+//------------------------------------------------------------------------------  
+
+app.controller('ClassAdminDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$modal', '$http', function ($scope, $rootScope, $stateParams, $modal, $http) {
+    /*  var id = $stateParams.id;
+      var number = $stateParams.number;
+      console.log(id);
+      console.log(number);
+      */
+
+    $scope.loader = function (param) {
+        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
+    };
+    $scope.DDLData = {};
+    $scope.getDDL = function (param) {
+        console.log(param);
+        if (typeof $scope.DDLData == "undefined")
+            $scope.DDLData = new Object();
+        if ($scope.DDLData.hasOwnProperty(param))
+            return $scope.DDLData[param];
+
+        $http({
+            method: 'GET',
+            url: km.model.urls["ddler"] + "&ddl=" + param
+        }).then(function successCallback(response) {
+            //console.log(response.data);
+            $scope.DDLData[param] = response.data;
+            console.log($scope.DDLData);
+            return $scope.DDLData[param];
+            // this callback will be called asynchronously
+            // when the response is available
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+    };
+    $scope.row = {};// = {id:43124};
+    $scope.row_old = {};// = {id:43124};
+    //$scope.row_original = {};// = {id:43124};
+    $rootScope.$on("ClassAdminSelectedRowChanged", function (event, row, ids, paginationOptions) {
+        $scope.row = Object.assign({}, row);
+        $scope.row_old = row;
+        $(".tmpHide").removeClass("tmpHide");
+    });
+    $rootScope.$on("ClassAdminEditSide", function (event, row) {
+        $scope.row = Object.assign({}, row);
+        $(".ClassAdminDetailButtons").show();
+    });
+    $scope.save = function () {
+        $rootScope.$broadcast("ClassAdmin" + $scope.row.EditType, $scope.row);
+        $(".ClassAdminDetailButtons").hide();
+        $scope.row.editrow = false;
+    }
+    $scope.cancel = function () {
+
+        $rootScope.$broadcast("ClassAdminCancel", $scope.row);
+        $(".ClassAdminDetailButtons").hide();
+        $scope.row = Object.assign({}, $scope.row_old);
+        $scope.row.editrow = false;
+    }
+
+}]);  
+
+
+
+app.controller('editorCtrl', ['$scope', 'textAngularManager', '$timeout', '$http', function ($scope, textAngularManager, $timeout, $http) {
+    $scope.color = "";
+    $scope.timesSubmitted = 0;
+    $scope.canEdit = false;
+    $scope.testFrm = {};
+    $scope.formatDoc = function (command) {
+        console.log(command);
+        console.log($scope.color);
+        //var editor = textAngularManager.retrieveEditor('item_bodyHTML').scope;
+        //editor.displayElements.text.trigger('focus');
+        //      editor.wrapSelection('forecolor', $scope.color, true);
+    };
+    $scope.test = function () {
+        $scope.timesSubmitted++;
+    };
+    $scope.uploadFile = function (files) {
+        var fd = new FormData();
+        //Take the first selected file
+        fd.append("file", files[0]);
+        //"/anjs/home/uploadImage"
+        $http.post("/anjs/home/uploadimage", fd, {
+            withCredentials: true,
+            headers: { 'Content-Type': undefined },
+            transformRequest: angular.identity
+        }).success(function (r) {
+            console.log(r);
+            var img = r.replaceAll(";", "").replaceAll(",", "")
+            $scope.insertToHtml("<img src='/upload/" + img + "'/>");
+        }
+        );
+
+    };
+
+    //$scope.insertToHtml = function (newText) {
+    //    var editor = textAngularManager.retrieveEditor('item_bodyHTML')
+    //    $timeout(function () {
+    //        editor.scope.displayElements.text.trigger('focus');
+    //        rangy.getSelection().getRangeAt(0).insertNode(document.createTextNode(newText))
+    //    });
+    //}
+    $scope.insertToHtml3 = function (newText) {
+        var sel = window.getSelection();
+
+        if (sel.getRangeAt && sel.rangeCount) {
+            var range = sel.getRangeAt(0);
+            var ancestor = range.commonAncestorContainer;
+
+            while (typeof ancestor.id === "undefined" || (ancestor.id !== "item_bodyHTML" && ancestor.parentNode !== null)) {
+                ancestor = ancestor.parentNode;
+            }
+
+            if (ancestor.id == "item_bodyHTML") {
+                range.insertNode(document.createTextNode(newText));
+            }
+        }
+    }
+    $scope.insertToHtml = function (newText) {
+        var editor = textAngularManager.retrieveEditor('item_bodyHTML').scope;
+
+
+        $timeout(function () {
+            editor.displayElements.text.trigger('focus');
+            editor.wrapSelection('insertHTML', newText, true);
+        });
+
+
+    }
+    $scope.color = function (newText) {
+        var editor = textAngularManager.retrieveEditor('item_bodyHTML').scope;
+
+        $timeout(function () {
+            editor.displayElements.text.trigger('focus');
+            editor.wrapSelection('insertHTML', "<span style='color:red'>" + newText + "</span>", true);
+        });
+        // editor.wrapSelection('foreColor', "red");
+
+
+    }
+
+    $scope.insertToHtml2 = function (newText) {
+        var editor = textAngularManager.retrieveEditor('item_bodyHTML')
+        $timeout(function () {
+            editor.scope.displayElements.text.trigger('focus');
+            rangy.getSelection().getRangeAt(0).insertNode(document.createTextNode(newText))
+        });
+    }
+    $scope.accessFormFromScope = function () {
+        alert("Form Invalid: " + $scope.testFrm.$invalid);
+    }
+
+}]);
