@@ -678,6 +678,7 @@ app.controller('ApplicationsCtrl', [
             row.editrow = true;
             $scope.SelectedRow = row;
             row.editrow = true;
+            $scope.showDetail(row);
             $rootScope.$broadcast("ApplicationsEditSide", row);
         };
         $scope.InsertSide = function () {
@@ -686,6 +687,7 @@ app.controller('ApplicationsCtrl', [
             row.EditType = "Insert";
 
             row.editrow = true;
+            $scope.showDetail(row);
             $rootScope.$broadcast("ApplicationsEditSide", row);
         };
         var paginationOptions = {
@@ -730,6 +732,10 @@ app.controller('ApplicationsCtrl', [
             return r;
         };
 
+        $scope.showDetail = function (row) {
+            $scope.SelectedRow = row;
+            $scope.openPageSlide();
+        }
 
         $scope.ApplicationsgridOptions = {
             paginationPageSizes: [10, 15, 25, 50, 75],
@@ -741,6 +747,15 @@ app.controller('ApplicationsCtrl', [
             enableRowHeaderSelection: false,
             columnDefs:
                 [
+                    {
+                        name: 'sActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
+                        cellTemplate: '<div><button  ng-show="!row.entity.editrow"   class="btn2  btn-primary2" ng-click="grid.appScope.EditSide(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
+                            '<button  class="btn2  btn-primary2 "  ng-click="grid.appScope.showDetail(row.entity)"><i class="fa  fa-align-justify"></i></button>' +//Save Button
+
+                            '<button  ng-show="!row.entity.editrow" class="btn2  btn-primary2" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
+                            '</div>', width: 80
+                    },
+
                     {
                         field: 'real_name', displayName: 'User', width: 80, align: 'center',
                     },
@@ -761,7 +776,7 @@ app.controller('ApplicationsCtrl', [
                     },
                     {
                         field: 'gender', displayName: 'Gender', width: 80, align: 'center',
-                        cellTemplate: "<div>{{grid.appScope.TranslateToText('m=Male f=Famle',row.entity.gender)}}</div>"
+                        cellTemplate: "<div  class='ui-grid-cell-contents'>{{grid.appScope.TranslateToText('m=Male f=Famle',row.entity.gender)}}</div>"
                     },
                     //{
                     //    field: 'education', displayName: 'Education', width: 80, align: 'center',
@@ -817,12 +832,7 @@ app.controller('ApplicationsCtrl', [
                     //{
                     //    field: 'comments', displayName: 'Comments', width: 80, align: 'center',
                     //},
-                    {
-                        name: 'sActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
-                        cellTemplate: '<div><button  ng-show="!row.entity.editrow"   class="btn primary" ng-click="grid.appScope.EditSide(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
-                            '<button  ng-show="!row.entity.editrow" class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
-                            '</div>', width: 80
-                    }
+                  
 
                 ],
 

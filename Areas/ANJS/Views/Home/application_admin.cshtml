@@ -26,221 +26,229 @@
 
 
 <div class="row" style="padding-top: 15px;">
-    <div class="col-sm-5">
+    <div ng-controller="pageslideCtrl" ng-init="size='50%'">
+
+        <div class="col-sm-12">
 
 
-        <div ng-controller="ApplicationsCtrl">
+            <div ng-controller="ApplicationsCtrl">
 
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Applications
-                    @*<div style="float:right;">
-                            <button class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
-                        </div>*@
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Applications
+                        @*<div style="float:right;">
+                                <button class="btn primary" ng-click="InsertSide()" style="padding:0px;"><i class="fa fa-plus-circle">Add&nbsp;&nbsp;</i></button>
+                            </div>*@
+                    </div>
+                    <div class="table-responsive">
+                        <div ui-grid="ApplicationsgridOptions" ui-grid-pagination ui-grid-selection style="min-height:720px;"></div>
+                    </div>
                 </div>
-                <div class="table-responsive">
-                    <div ui-grid="ApplicationsgridOptions" ui-grid-pagination ui-grid-selection style="min-height:820px;"></div>
-                </div>
+
             </div>
 
         </div>
+        <div class="col-sm-12 d-none d-lg-block" ng-controller="ApplicationsDetailCtrl">
 
-    </div>
-    <div class="col-sm-7  d-none d-lg-block" ng-controller="ApplicationsDetailCtrl">
+            <div pageslide ps-open="checked" ps-click-outside="false" ps-size="{{size}}" ps-side="right" style="padding:5px;">
+                <div style="padding-top: 50px;">
+                    <button ng-click="closePageSlide()" class="btn">Close</button>
+                </div>
 
-        <tabset justified="false" class="tab-container fill" style="height: 811px; overflow:auto;">
+                <tabset justified="false" class="tab-container fill" style="height: 811px; overflow:auto;">
 
-            <tab heading="Application Info" id="tab_a1" class="align-self-stretch">
+                    <tab heading="Application Info" id="tab_a1" class="align-self-stretch">
 
 
-                <div>
-                   
+                        <div>
 
-                    <div class="form-group  col-sm-6 ">
-                        <label class="col-sm-6 control-label" style="padding-left:0px;">User</label>
-                        <p class="col-sm-6">
-                            <a ng-click="openIframe('lg')">  {{row.real_name}} </a>
-                            @*<input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">*@
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-6 ">
-                        <label class="col-sm-6 control-label" style="padding-left:0px;">Add On</label>
-                        <p class="col-sm-6">
-                            {{row.add_on}}
-                            @*<input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">*@
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-4 ">
-                        <label class="col-sm-6 control-label" style="padding-left:0px;">First Name</label>
-                        <p class="col-sm-6">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.first_name">
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-4 ">
-                        <label class="col-sm-6 control-label" style="padding-left:0px;">Middle Name</label>
-                        <p class="col-sm-6">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.middle_name">
-                        </p>
-                    </div>
 
-                    <div class="form-group  col-sm-4 ">
-                        <label class="col-sm-6 control-label" style="padding-left:0px;">Last Name</label>
-                        <p class="col-sm-6">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.last_name">
-                        </p>
-                    </div>
+                            <div class="form-group  col-sm-6 ">
+                                <label class="col-sm-6 control-label" style="padding-left:0px;">User</label>
+                                <p class="col-sm-6">
+                                    <a ng-click="openIframe('lg')">  {{row.real_name}} </a>
+                                    @*<input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_by">*@
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-6 ">
+                                <label class="col-sm-6 control-label" style="padding-left:0px;">Add On</label>
+                                <p class="col-sm-6">
+                                    {{row.add_on}}
+                                    @*<input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.add_on">*@
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-4 ">
+                                <label class="col-sm-6 control-label" style="padding-left:0px;">First Name</label>
+                                <p class="col-sm-6">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.first_name">
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-4 ">
+                                <label class="col-sm-6 control-label" style="padding-left:0px;">Middle Name</label>
+                                <p class="col-sm-6">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.middle_name">
+                                </p>
+                            </div>
 
-                    <div class="form-group  col-sm-4">
-                        <label class="col-sm-4 control-label" style="padding-left:0px;">City</label>
-                        <p class="col-sm-6">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.city">
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-4 ">
-                        <label class="col-sm-6 control-label" style="padding-left:0px;">State</label>
-                        <p class="col-sm-6">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.state">
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-4 ">
-                        <label class="col-sm-6 control-label" style="padding-left:0px;">Country</label>
-                        <p class="col-sm-6">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.country">
-                        </p>
-                    </div>
+                            <div class="form-group  col-sm-4 ">
+                                <label class="col-sm-6 control-label" style="padding-left:0px;">Last Name</label>
+                                <p class="col-sm-6">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.last_name">
+                                </p>
+                            </div>
 
-                    <div class="form-group  col-sm-4 ">
-                        <label class="col-sm-4 control-label" style="padding-left:0px;">Time Zone</label>
-                        <p class="col-sm-6">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.time_zone">
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-4 ">
-                        <label class="col-sm-6 control-label" style="padding-left:0px;">Offset</label>
-                        <p class="col-sm-6">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.time_zone_offset">
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-4 ">
-                        <label class="col-sm-6 control-label" style="padding-left:0px;">Timezone Ip</label>
-                        <p class="col-sm-6">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.timezone_ip">
-                        </p>
-                    </div>
+                            <div class="form-group  col-sm-4">
+                                <label class="col-sm-4 control-label" style="padding-left:0px;">City</label>
+                                <p class="col-sm-6">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.city">
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-4 ">
+                                <label class="col-sm-6 control-label" style="padding-left:0px;">State</label>
+                                <p class="col-sm-6">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.state">
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-4 ">
+                                <label class="col-sm-6 control-label" style="padding-left:0px;">Country</label>
+                                <p class="col-sm-6">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.country">
+                                </p>
+                            </div>
 
-                    <div class="form-group  col-sm-4 ">
-                        <label class="col-sm-4 control-label" style="padding-left:0px;">Ip</label>
-                        <p class="col-sm-8">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.ip">
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-4 ">
-                        <label class="col-sm-6 control-label" style="padding-left:0px;">Gender</label>
-                        <p class="col-sm-6">
-                            <select name="gender" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.gender"><option value="m">Male</option><option value="f">Famle</option></select>
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-4">
-                        <label class="col-sm-6 control-label" style="padding-left:0px;">Languages</label>
-                        <p class="col-sm-6">
-                            <select ui-select ng-disabled="!row.editrow" ng-init="getDDL('languages')" class="form-control m-b" ng-model="row.languages"><option data-ng-repeat="d in DDLData['languages']" value="{{d.id}}">{{ d.text }}</ option ></select>
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-6 ">
-                        <label class="col-sm-4 control-label" style="padding-left:0px;">Phone</label>
-                        <p class="col-sm-8">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.phone">
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-6 ">
-                        <label class="col-sm-4 control-label" style="padding-left:0px;">Teaching Years</label>
-                        <p class="col-sm-8">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.teaching_years">
-                        </p>
-                    </div>
-                    @*<div class="form-group">
-            <label>User Id</label>
-            <p>
-                <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.user_id">
-            </p>
-        </div>*@
-                    <div class="form-group  col-sm-6 ">
-                        <label class="col-sm-4 control-label" style="padding-left:0px;">Where Info</label>
-                        <p lass="col-sm-8">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.where_info">
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-6 ">
-                        <label class="col-sm-4 control-label" style="padding-left:0px;">Zip Ip</label>
-                        <p lass="col-sm-8">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.zip_ip">
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-6 ">
-                        <label class="col-sm-4 control-label" style="padding-left:0px;">Approve Flag</label>
-                        <p lass="col-sm-8">
-                            <label class="i-switch m-t-xs m-r"> <input type="checkbox" ng-disabled="!row.editrow" ng-model="row.approve_flag" checked>  <i></i> </label>
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-6 ">
-                        <label class="col-sm-4 control-label" style="padding-left:0px;">Comments</label>
-                        <p lass="col-sm-8">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.comments">
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-6 ">
-                        <label class="col-sm-4 control-label" style="padding-left:0px;">Education</label>
-                        <p class="col-sm-8">
-                            <select ui-select ng-disabled="!row.editrow" ng-init="getDDL('education')" class="form-control m-b" ng-model="row.education"><option data-ng-repeat="d in DDLData['education']" value="{{d.id}}">{{ d.text }}</ option ></select>
-                        </p>
-                    </div>
-                    <div class="form-group  col-sm-6 ">
-                        <label class="col-sm-4 control-label" style="padding-left:0px;">Experience</label>
-                        <p class="col-sm-8">
-                            <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.experience">
-                        </p>
-                    </div>
+                            <div class="form-group  col-sm-4 ">
+                                <label class="col-sm-4 control-label" style="padding-left:0px;">Time Zone</label>
+                                <p class="col-sm-6">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.time_zone">
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-4 ">
+                                <label class="col-sm-6 control-label" style="padding-left:0px;">Offset</label>
+                                <p class="col-sm-6">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.time_zone_offset">
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-4 ">
+                                <label class="col-sm-6 control-label" style="padding-left:0px;">Timezone Ip</label>
+                                <p class="col-sm-6">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.timezone_ip">
+                                </p>
+                            </div>
 
-                    <div class="modal-footer2">
-                        <div class=" ApplicationsDetailButtons" style="display:none;">
-                            <button ng-click="save()" class="btn btn-primary">Save</button>
-                            <button ng-click="cancel()" class="btn">Cancel</button>
+                            <div class="form-group  col-sm-4 ">
+                                <label class="col-sm-4 control-label" style="padding-left:0px;">Ip</label>
+                                <p class="col-sm-8">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.ip">
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-4 ">
+                                <label class="col-sm-6 control-label" style="padding-left:0px;">Gender</label>
+                                <p class="col-sm-6">
+                                    <select name="gender" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.gender"><option value="m">Male</option><option value="f">Famle</option></select>
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-4">
+                                <label class="col-sm-6 control-label" style="padding-left:0px;">Languages</label>
+                                <p class="col-sm-6">
+                                    <select ui-select ng-disabled="!row.editrow" ng-init="getDDL('languages')" class="form-control m-b" ng-model="row.languages"><option data-ng-repeat="d in DDLData['languages']" value="{{d.id}}">{{ d.text }}</ option ></select>
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-6 ">
+                                <label class="col-sm-4 control-label" style="padding-left:0px;">Phone</label>
+                                <p class="col-sm-8">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.phone">
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-6 ">
+                                <label class="col-sm-4 control-label" style="padding-left:0px;">Teaching Years</label>
+                                <p class="col-sm-8">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.teaching_years">
+                                </p>
+                            </div>
+                            @*<div class="form-group">
+                            <label>User Id</label>
+                            <p>
+                                <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.user_id">
+                            </p>
+                        </div>*@
+                            <div class="form-group  col-sm-6 ">
+                                <label class="col-sm-4 control-label" style="padding-left:0px;">Where Info</label>
+                                <p lass="col-sm-8">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.where_info">
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-6 ">
+                                <label class="col-sm-4 control-label" style="padding-left:0px;">Zip Ip</label>
+                                <p lass="col-sm-8">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.zip_ip">
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-6 ">
+                                <label class="col-sm-4 control-label" style="padding-left:0px;">Approve Flag</label>
+                                <p lass="col-sm-8">
+                                    <label class="i-switch m-t-xs m-r"> <input type="checkbox" ng-disabled="!row.editrow" ng-model="row.approve_flag" checked>  <i></i> </label>
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-6 ">
+                                <label class="col-sm-4 control-label" style="padding-left:0px;">Comments</label>
+                                <p lass="col-sm-8">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.comments">
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-6 ">
+                                <label class="col-sm-4 control-label" style="padding-left:0px;">Education</label>
+                                <p class="col-sm-8">
+                                    <select ui-select ng-disabled="!row.editrow" ng-init="getDDL('education')" class="form-control m-b" ng-model="row.education"><option data-ng-repeat="d in DDLData['education']" value="{{d.id}}">{{ d.text }}</ option ></select>
+                                </p>
+                            </div>
+                            <div class="form-group  col-sm-6 ">
+                                <label class="col-sm-4 control-label" style="padding-left:0px;">Experience</label>
+                                <p class="col-sm-8">
+                                    <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.experience">
+                                </p>
+                            </div>
 
+                            <div class="modal-footer2">
+                                <div class=" ApplicationsDetailButtons" style="display:none;">
+                                    <button ng-click="save()" class="btn btn-primary">Save</button>
+                                    <button ng-click="cancel()" class="btn">Cancel</button>
+
+                                </div>
+                            </div>
                         </div>
+                    </tab>
+
+                    <tab heading="Scheduled Meeting" id="tab_a2" class="align-self-stretch">
+                        {{row.time_zone}} :{{LocalTime}}<br />
+                        <div>
+                            <ul class="example-animate-container">
+                                <li class="animate-repeat" ng-repeat="d in Data  ">
+                                    {{d.title}} at system time:  {{d.scheduled_dt}} and local time {{d.local_time}}.
+
+                                    <span ng-bind-html="d.CONTEXT"></span>
+                                </li>
+                                <li class="animate-repeat" ng-if="Data.length === 0">
+                                    <strong>No results found...</strong>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+
+
+                        <button ng-click="InsertPopup()" class="btn">Add Schedule</button>
+
+                    </tab>
+                </tabset>
+                </div>
+                <script type="text/ng-template" id="ScheduleDetail">
+                    <div class="modal-header    col-sm-12">
+                        {{row.EditType}} Schedule
                     </div>
-                </div>
-            </tab>
+                    <div class="   col-sm-12" style=" padding-top : 10px;">
 
-            <tab heading="Scheduled Meeting" id="tab_a2" class="align-self-stretch">
-                {{row.time_zone}} :{{LocalTime}}<br />
-                <div  >  
-                    <ul class="example-animate-container">
-                        <li class="animate-repeat" ng-repeat="d in Data  ">
-                            {{d.title}} at system time:  {{d.scheduled_dt}} and local time {{d.local_time}}.
-                             
-                            <span ng-bind-html="d.CONTEXT" ></span>
-                        </li>
-                        <li class="animate-repeat" ng-if="Data.length === 0">
-                            <strong>No results found...</strong>
-                        </li>
-                    </ul>
-                </div>
-
-
-
-
-
-                <button ng-click="InsertPopup()" class="btn">Add Schedule</button>
-
-            </tab>
-        </tabset>
-        <script type="text/ng-template" id="ScheduleDetail">
-            <div class="modal-header    col-sm-12">
-                {{row.EditType}} Schedule
-            </div>
-            <div class="   col-sm-12" style=" padding-top : 10px;">
-
-                @*<div class="form-group col-sm-6 " style="text-align:left;">
+                        @*<div class="form-group col-sm-6 " style="text-align:left;">
                         <label class="col-sm-4 control-label" style="padding-left:0px;">Add By</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" ng-disabled="true" ng-model="row.add_by">
@@ -253,63 +261,63 @@
                         </div>
                     </div>*@
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Title</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.title">
-                    </div>
-                </div>
-                @*<div class="form-group">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.title">
+                            </div>
+                        </div>
+                        @*<div class="form-group">
                         <label class="col-sm-2 control-label">Active Flag</label>
                         <div class="col-sm-10">
                             <label class="i-switch m-t-xs m-r"> <input type="checkbox" ng-disabled="!row.editrow" ng-model="row.active_flag" checked>  <i></i> </label>
                         </div>
                     </div>*@
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Comments</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.comments">
-                    </div>
-                </div>
-
-                @*<div class="form-group">
-                    <label class="col-sm-2 control-label">Method</label>
-                    <div class="col-sm-10">
-                        <select name="method" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.method"><option value="phone">phone</option><option value="wechat">wechat</option><option value="netmeeting">netmeeting</option></select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Schedule Type</label>
-                    <div class="col-sm-10">
-                        <select name="schedule_type" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.schedule_type"><option value="interview">interview</option><option value="class">class</option><option value="meeting">meeting</option></select>
-                    </div>
-                </div>*@
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">
-                        Scheduled Dt
-                    </label>
-                    <div class="row">
-                        <div style="float:left">
-
-                            <input type="text" class="form-control" ng-change="changed()" datepicker-popup="{{format}}" ng-model="mydate" is-open="opened" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                            </span>
-                        </div>
-                        <div style="float:left">
-                            <timepicker ng-model="mytime" hour-step="hstep" minute-step="mstep" ng-change="changed()" show-meridian="ismeridian"></timepicker>
-                        </div>
-                        <div style="float:left">
-                            Your time: {{LocalTime}}
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Comments</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-disabled="!row.editrow" ng-model="row.comments">
+                            </div>
                         </div>
 
+                        @*<div class="form-group">
+                        <label class="col-sm-2 control-label">Method</label>
+                        <div class="col-sm-10">
+                            <select name="method" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.method"><option value="phone">phone</option><option value="wechat">wechat</option><option value="netmeeting">netmeeting</option></select>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Schedule Type</label>
+                        <div class="col-sm-10">
+                            <select name="schedule_type" ng-disabled="!row.editrow" class="form-control m-b" ng-model="row.schedule_type"><option value="interview">interview</option><option value="class">class</option><option value="meeting">meeting</option></select>
+                        </div>
+                    </div>*@
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                Scheduled Dt
+                            </label>
+                            <div class="row">
+                                <div style="float:left">
 
-                </div>
-                <div class="form-group">
-                    <label class=" control-label">Context</label>
-                    <div>
-                        <div id="item_bodyHTML" name="item_bodyHTML" ta-toolbar="[['h1','h2','h3'],['bold','italics'],['undo',
+                                    <input type="text" class="form-control" ng-change="changed()" datepicker-popup="{{format}}" ng-model="mydate" is-open="opened" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </div>
+                                <div style="float:left">
+                                    <timepicker ng-model="mytime" hour-step="hstep" minute-step="mstep" ng-change="changed()" show-meridian="ismeridian"></timepicker>
+                                </div>
+                                <div style="float:left">
+                                    Your time: {{LocalTime}}
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class=" control-label">Context</label>
+                            <div>
+                                <div id="item_bodyHTML" name="item_bodyHTML" ta-toolbar="[['h1','h2','h3'],['bold','italics'],['undo',
                     'redo',
                     'clear'],['justifyLeft',
                     'justifyCenter',
@@ -317,33 +325,34 @@
                     'indent',
                     'outdent'],['ul','ol']]" ta-disabled="!row.editrow" text-angular ng-model="row.CONTEXT" class="btn-groups" style="height:300px;"></div>
 
-                    </div>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-            </div>
-            <div style="padding-top:30px; margin: 5px; ">
-
-                <div style="width:100%; height: 30px;">
-                    <div style="float:right">
-                        <button ng-click="ok()" class="btn btn-primary">Save</button>
-                        <button ng-click="cancel()" class="btn">close</button>
+                            </div>
+                        </div>
 
                     </div>
-                </div>
+                    <div class="modal-footer">
+                    </div>
+                    <div style="padding-top:30px; margin: 5px; ">
+
+                        <div style="width:100%; height: 30px;">
+                            <div style="float:right">
+                                <button ng-click="ok()" class="btn btn-primary">Save</button>
+                                <button ng-click="cancel()" class="btn">close</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </script>
+
+
+
             </div>
-        </script>
+
+        </div>
 
 
+</div>
+
+    <div style='display:none'>
 
     </div>
-
-</div>
- 
-
-
-<div style='display:none'>
-
-</div>
 
