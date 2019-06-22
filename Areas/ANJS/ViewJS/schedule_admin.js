@@ -17,7 +17,7 @@ km.init = function () {
  
 
 app.controller('user_listCtrl', [
-    '$scope', '$rootScope', '$http', '$modal', '$q', function ($scope, $rootScope, $http, $modal, $q) {
+    '$scope', '$rootScope', '$http', '$modal', '$q', '$timeout', function ($scope, $rootScope, $http, $modal, $q, $timeout) {
         $scope.SelectedRow = {};//for getting row detail
         $scope.row = {};// for updating inserting
         $scope.ids = "";//for deleting
@@ -34,6 +34,12 @@ app.controller('user_listCtrl', [
             console.log($scope.sid);
         });
 
+        $scope.$on('update', function (event, passedFromBroadcast) {
+            $scope.gridOptions.data = null
+            $timeout(function () {
+                $scope.gridOptions.data = [{ "mock2": "set", "mock1": "inside" }, { "mock2": "$scope", "mock1": "on" }];
+            });
+        });
 
         $scope.loader = function (param) {
             return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
@@ -87,7 +93,7 @@ app.controller('user_listCtrl', [
         };
         var paginationOptions = {
             pageNumber: 1,
-            pageSize: 25,
+            pageSize: 10,
             order: "desc",
             sort: "id",
         };
@@ -259,12 +265,20 @@ app.controller('user_listCtrl', [
 //			   
 //------------------------------------------------------------------------------  
  
-app.controller('ScheduleDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$modal', '$http', function ($scope, $rootScope, $stateParams, $modal, $http) {
+app.controller('ScheduleDetailCtrl', ['$scope', '$rootScope', '$stateParams', '$modal', '$http', '$timeout', function ($scope, $rootScope, $stateParams, $modal, $http, $timeout) {
     /*  var id = $stateParams.id;
       var number = $stateParams.number;
       console.log(id);
       console.log(number);
       */
+
+
+    $scope.loader = function (param) {
+        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader + "&value=" + param.keyword);
+    };
+
+
+
       
     $scope.loader = function (param) { 
         return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
@@ -490,10 +504,6 @@ app.controller('ScheduleCtrl', [
         $scope.selectedRowIndex = 0;
         
         
-	    $scope.loader = function (param) { 
-	        return $http.get(km.model.urls["loader"] + "&loader=" + param.myloader+"&value=" + param.keyword);
-	    };
-	    
    
     $scope.DDLData = km.ddls;
     $scope.getDDL = function (param) {
@@ -734,7 +744,8 @@ app.controller('ScheduleCtrl', [
             row.editrow = true;
             $scope.SelectedRow = row;
             row.editrow = true;
-            $rootScope.$broadcast("ScheduleEditSide", row );
+            $rootScope.$broadcast("ScheduleEditSide", row);
+            $scope.showDetail(row);
         };
         $scope.InsertSide = function ( ) {
         		
@@ -742,7 +753,8 @@ app.controller('ScheduleCtrl', [
         		row.EditType ="Insert";
         		
             row.editrow = true;
-            $rootScope.$broadcast("ScheduleEditSide", row );
+            $rootScope.$broadcast("ScheduleEditSide", row);
+            $scope.showDetail(row);
         };
         var paginationOptions = {
             pageNumber: 1,
@@ -785,7 +797,11 @@ app.controller('ScheduleCtrl', [
                 });
                 return r;
         };
-        
+
+        $scope.showDetail = function (row) {
+            $scope.SelectedRow = row;
+            $scope.openPageSlide();
+        }
         
         $scope.SchedulegridOptions = {
             paginationPageSizes: [10, 15, 25, 50, 75],
@@ -797,13 +813,22 @@ app.controller('ScheduleCtrl', [
             enableRowHeaderSelection: false,
             columnDefs: 
                 [ 
+                    {
+                        name: 'sActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
+                        cellTemplate: '<div><button  ng-show="!row.entity.editrow"   class="btn2 btn-primary2" ng-click="grid.appScope.EditSide(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
+                            '<button  class="btn2  btn-primary2 "  ng-click="grid.appScope.showDetail(row.entity)"><i class="fa  fa-align-justify"></i></button>' +//Save Button
+
+                            '<button  ng-show="!row.entity.editrow" class="btn2 btn-primary2" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
+                            '</div>', width: 80
+                    },
+
   { field: 'title', displayName: 'Title', width: "*", align: 'center',
     },
-                 { field: 'active_flag', displayName: 'Active Flag', width: 80, align: 'center',
+                 { field: 'active_flag', displayName: 'Active', width: 80, align: 'center',
   cellTemplate:"<label class='i-switch m-t-xs m-r'> <input type='checkbox'   ng-disabled='true'  ng-model='row.entity.active_flag' checked>  <i></i> </label>",  },
   { field: 'add_by', displayName: 'Add By', width: 80, align: 'center',
     },
-  { field: 'add_on', displayName: 'Add On', width: 80, align: 'center',
+  { field: 'add_on', displayName: 'Add On', width: 180, align: 'center',
     },
   //{ field: 'comments', displayName: 'Comments', width: 80, align: 'center',
   //  },
@@ -811,19 +836,13 @@ app.controller('ScheduleCtrl', [
   //  },
   //{ field: 'id', displayName: 'Id', width: 80, align: 'center',
   //  },
-  { field: 'method', displayName: 'Method', width: 80, align: 'center',
-  cellTemplate:"<div>{{grid.appScope.TranslateToText('phone=phone wechat=wechat netmeeting=netmeeting',row.entity.method)}}</div>"  },
+  { field: 'method', displayName: 'Method', width: 180, align: 'center',
+      cellTemplate:"<div  class='ui-grid-cell-contents'>{{grid.appScope.TranslateToText('phone=phone wechat=wechat netmeeting=netmeeting',row.entity.method)}}</div>"  },
   //{ field: 'schedule_type', displayName: 'Schedule Type', width: 80, align: 'center',
   //cellTemplate:"<div>{{grid.appScope.TranslateToText('interview=interview class=class meeting=meeting',row.entity.schedule_type)}}</div>"  },
-  { field: 'scheduled_dt', displayName: 'Scheduled Dt', width: 80, align: 'center',
+  { field: 'scheduled_dt', displayName: 'Scheduled Dt', width: 280, align: 'center',
     },
- {
-                        name: 'sActions ', field: 'edit', enableFiltering: false, enableSorting: false, enableColumnMenu: false,
-                        cellTemplate: '<div><button  ng-show="!row.entity.editrow"   class="btn primary" ng-click="grid.appScope.EditSide(row.entity)"><ifa-edit"><i class="fa fa-edit"></i></button>' +  //Edit Button
-                            '<button  ng-show="!row.entity.editrow" class="btn primary" ng-click="grid.appScope.delete(row.entity.id)"><i class="fa fa-trash"></i></button>' +//Save Button
-                                   '</div>', width: 80
-                    }
-  
+ 
                 ],
                  
             onRegisterApi: function (gridApi) {
